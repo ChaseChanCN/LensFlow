@@ -1,0 +1,46 @@
+# === Sandbox / tool internals ===
+.cache/
+.npm/
+.local/
+.codeartsdoer/
+.codegraph/
+.agentwork/
+process_dir/
+.bashrc
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# === Node.js / Frontend ===
+node_modules/
+frontend/dist/
+
+# === Local storage & database ===
+backend/storage_local/
+
+# === Environment & secrets ===
+.env
+.env.local
+.env.*.local
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
