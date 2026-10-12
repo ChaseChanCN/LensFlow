@@ -1,9 +1,8 @@
 """User model."""
 
-from datetime import datetime
 from typing import Literal
 
-from sqlalchemy import String, func
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, IdMixin, TimestampMixin

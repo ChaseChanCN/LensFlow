@@ -3,7 +3,7 @@
 from datetime import datetime
 from typing import Literal
 
-from sqlalchemy import String, Integer, Text, func
+from sqlalchemy import Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, IdMixin
@@ -14,7 +14,9 @@ class RetouchTask(Base, IdMixin):
 
     order_id: Mapped[int] = mapped_column(nullable=False, index=True)
     photo_id: Mapped[int] = mapped_column(nullable=False, index=True)
-    status: Mapped[Literal["pending", "in_progress", "preview_uploaded", "confirmed", "rejected"]] = mapped_column(
+    status: Mapped[
+        Literal["pending", "in_progress", "preview_uploaded", "confirmed", "rejected"]
+    ] = mapped_column(
         String(20), nullable=False, default="pending"
     )
     due_date: Mapped[datetime | None] = mapped_column(nullable=True)

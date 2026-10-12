@@ -44,3 +44,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# === OpenViking / CodeArts plugin ===
+.config/
+.openviking/

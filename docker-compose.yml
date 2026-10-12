@@ -1,0 +1,46 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      - APP_ENV=production
+      - DB_TYPE=postgresql
+      - DB_PG_HOST=db
+      - DB_PG_PORT=5432
+      - DB_PG_USER=lensflow
+      - DB_PG_PASSWORD=${DB_PASSWORD:-changeme}
+      - DB_PG_NAME=lensflow
+      - JWT_SECRET_KEY=${JWT_SECRET:-change-this-to-a-random-secret}
+      - STORAGE_TYPE=obs
+      - OBS_BUCKET=${OBS_BUCKET}
+      - OBS_ENDPOINT=${OBS_ENDPOINT}
+      - OBS_AK=${OBS_AK}
+      - OBS_SK=${OBS_SK}
+      - NOTIFIER_CHANNEL=${NOTIFIER_CHANNEL:-bark}
+      - BARK_SERVER_URL=${BARK_SERVER_URL:-https://api.day.app}
+      - BARK_DEVICE_KEY=${BARK_DEVICE_KEY}
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=lensflow
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-changeme}
+      - POSTGRES_DB=lensflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:

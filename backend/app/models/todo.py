@@ -1,7 +1,8 @@
 """TodoItem model."""
 
 from datetime import datetime
-from sqlalchemy import String, Boolean, func
+
+from sqlalchemy import Boolean, String, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, IdMixin

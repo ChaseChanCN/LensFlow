@@ -1,8 +1,9 @@
 """Selection models: SelectionSet, SelectionItem, SelectionSubmission."""
 
 from datetime import datetime
-from sqlalchemy import String, Integer, func
-from sqlalchemy.orm import Mapped, mapped_column
+
+from sqlalchemy import ForeignKey, Integer, String, func
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, IdMixin
 
@@ -16,11 +17,17 @@ class SelectionSet(Base, IdMixin):
     published_at: Mapped[datetime | None] = mapped_column(nullable=True)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now(), nullable=False)
 
+    items: Mapped[list["SelectionItem"]] = relationship(
+        backref="selection_set", cascade="all, delete-orphan"
+    )
+
 
 class SelectionItem(Base, IdMixin):
     __tablename__ = "selection_items"
 
-    selection_set_id: Mapped[int] = mapped_column(nullable=False, index=True)
+    selection_set_id: Mapped[int] = mapped_column(
+        ForeignKey("selection_sets.id"), nullable=False, index=True
+    )
     photo_id: Mapped[int] = mapped_column(nullable=False, index=True)
 
 

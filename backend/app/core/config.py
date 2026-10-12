@@ -38,6 +38,10 @@ class Settings(BaseSettings):
     # Storage
     storage_type: Literal["local", "obs"] = "local"
     storage_local_path: str = "storage_local/uploads"
+    obs_bucket: str = ""
+    obs_endpoint: str = ""
+    obs_ak: str = ""
+    obs_sk: str = ""
 
     # Notification
     notifier_channel: Literal["bark", "wechat_work"] = "bark"

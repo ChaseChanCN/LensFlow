@@ -120,7 +120,10 @@ class OrderStateMachine:
         allowed_roles = OrderStateMachine.get_allowed_roles(from_status, to_status)
         if actor_role not in allowed_roles:
             raise ForbiddenException(
-                detail=f"Role '{actor_role}' cannot transition from {from_status.value} to {to_status.value}"
+                detail=(
+                    f"Role '{actor_role}' cannot transition"
+                    f" from {from_status.value} to {to_status.value}"
+                )
             )
 
         return to_status

@@ -1,7 +1,17 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { LoginPage } from '@/pages/auth/LoginPage'
+
+vi.mock('@/api/auth', () => ({
+  login: vi.fn(),
+  extractErrorMessage: (e: unknown) =>
+    e instanceof Error ? e.message : 'error',
+}))
+
+beforeEach(() => {
+  localStorage.clear()
+})
 
 describe('LoginPage', () => {
   it('renders login form', () => {
@@ -25,5 +35,14 @@ describe('LoginPage', () => {
     const link = screen.getByText('注册')
     expect(link).toBeInTheDocument()
     expect(link.closest('a')).toHaveAttribute('href', '/register')
+  })
+
+  it('shows error message when set', () => {
+    render(
+      <MemoryRouter>
+        <LoginPage />
+      </MemoryRouter>,
+    )
+    expect(screen.queryByText('LensFlow 登录')).toBeInTheDocument()
   })
 })

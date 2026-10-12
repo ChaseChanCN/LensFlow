@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^backend/
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: bash -c 'cd backend && python -m pytest'
+        language: system
+        files: ^backend/(app|tests)/
+        pass_filenames: false
+
+      - id: vitest
+        name: vitest
+        entry: bash -c 'cd frontend && npx vitest run'
+        language: system
+        files: ^frontend/src/
+        pass_filenames: false

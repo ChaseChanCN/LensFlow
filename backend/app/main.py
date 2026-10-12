@@ -5,6 +5,14 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.v1 import auth as auth_router
+from app.api.v1 import bookings as bookings_router
+from app.api.v1 import deliveries as deliveries_router
+from app.api.v1 import orders as orders_router
+from app.api.v1 import photos as photos_router
+from app.api.v1 import retouch as retouch_router
+from app.api.v1 import selections as selections_router
+from app.api.v1 import todos as todos_router
 from app.core.config import settings
 from app.core.exceptions import (
     AppException,
@@ -40,6 +48,15 @@ app.add_middleware(
 
 app.add_exception_handler(AppException, app_exception_handler)
 app.add_exception_handler(Exception, generic_exception_handler)
+
+app.include_router(auth_router.router, prefix="/api/v1")
+app.include_router(bookings_router.router, prefix="/api/v1")
+app.include_router(orders_router.router, prefix="/api/v1")
+app.include_router(photos_router.router, prefix="/api/v1")
+app.include_router(selections_router.router, prefix="/api/v1")
+app.include_router(retouch_router.router, prefix="/api/v1")
+app.include_router(deliveries_router.router, prefix="/api/v1")
+app.include_router(todos_router.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["system"])
