@@ -15,13 +15,11 @@ import {
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
+import { LargeTitle, ListGroup, ListItem, Button, Textarea, StatusBadge } from '@/components/ui'
 
-const TASK_STATUS_LABELS: Record<string, string> = {
-  pending: '待处理',
-  in_progress: '进行中',
-  preview_uploaded: '已上传预览',
-  confirmed: '已确认',
-  rejected: '需修改',
+const TASK_STATUS_MAP: Record<string, string> = {
+  pending: 'pending', in_progress: 'analyzing', preview_uploaded: 'confirmed',
+  confirmed: 'completed', rejected: 'cancelled',
 }
 
 export function RetouchPage() {
@@ -31,7 +29,6 @@ export function RetouchPage() {
   const [error, setError] = useState('')
   const user = useAuthStore((s) => s.user)
   const isPhotographer = user?.role === 'photographer'
-
   const orderId = Number(id)
 
   const { data: tasks, isLoading } = useQuery({
@@ -42,77 +39,56 @@ export function RetouchPage() {
 
   const confirmMutation = useMutation({
     mutationFn: () => confirmAllRetouch(orderId),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['retouch-tasks', id] })
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['retouch-tasks', id] }),
     onError: (err) => setError(extractErrorMessage(err)),
   })
 
   if (isLoading) {
-    return (
-      <Layout>
-        <p className="text-sm text-gray-400">加载中...</p>
-      </Layout>
-    )
+    return <Layout><p className="px-4 text-sm text-label-tertiary">加载中...</p></Layout>
   }
 
   return (
     <Layout title="LensFlow">
-      <div className="space-y-6">
-        <div>
-          <button
-            onClick={() => navigate(-1)}
-            className="text-sm text-gray-400 hover:text-gray-600"
-          >
-            返回
+      <LargeTitle
+        title="修图协作"
+        subtitle={`订单 #${orderId}`}
+        action={
+          <button onClick={() => navigate(-1)} className="text-sm font-medium text-accent hover:text-accent-hover">
+            ← 返回
           </button>
-          <h2 className="mt-2 text-lg font-medium">修图协作 - 订单 #{orderId}</h2>
+        }
+      />
+
+      {error && (
+        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+          {error}
         </div>
+      )}
 
-        {error && (
-          <div className="rounded border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-            {error}
-          </div>
-        )}
+      {tasks && tasks.length > 0 ? (
+        <>
+          {tasks.map((task) => (
+            <RetouchTaskSection key={task.id} task={task} isPhotographer={isPhotographer} />
+          ))}
 
-        {tasks && tasks.length > 0 ? (
-          <div className="space-y-4">
-            {tasks.map((task) => (
-              <RetouchTaskCard
-                key={task.id}
-                task={task}
-                isPhotographer={isPhotographer}
-              />
-            ))}
-
-            {!isPhotographer && (
-              <button
-                onClick={() => {
-                  setError('')
-                  confirmMutation.mutate()
-                }}
-                disabled={confirmMutation.isPending}
-                className="rounded bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-              >
+          {!isPhotographer && (
+            <div className="px-4 pt-4">
+              <Button size="lg" fullWidth onClick={() => { setError(''); confirmMutation.mutate() }} disabled={confirmMutation.isPending}>
                 确认全部修图
-              </button>
-            )}
-          </div>
-        ) : (
-          <p className="text-sm text-gray-400">暂无修图任务</p>
-        )}
-      </div>
+              </Button>
+            </div>
+          )}
+        </>
+      ) : (
+        <ListGroup>
+          <ListItem title="暂无修图任务" isLast />
+        </ListGroup>
+      )}
     </Layout>
   )
 }
 
-function RetouchTaskCard({
-  task,
-  isPhotographer,
-}: {
-  task: RetouchTask
-  isPhotographer: boolean
-}) {
+function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPhotographer: boolean }) {
   const [feedbackText, setFeedbackText] = useState('')
   const [error, setError] = useState('')
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -147,93 +123,87 @@ function RetouchTaskCard({
   })
 
   return (
-    <div className="rounded border border-gray-200 bg-white p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-sm text-gray-400">#{task.id}</span>
-          <span className="text-sm font-medium">照片 {task.photo_id}</span>
-        </div>
-        <span className="text-sm text-gray-400">
-          {TASK_STATUS_LABELS[task.status] || task.status}
-        </span>
-      </div>
+    <>
+      <ListGroup header={`任务 #${task.id} · 照片 ${task.photo_id}`}>
+        <ListItem title="状态" trailing={<StatusBadge status={TASK_STATUS_MAP[task.status] || 'neutral'} />} isLast />
+      </ListGroup>
 
       {error && (
-        <div className="mt-2 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600">
+        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
           {error}
         </div>
       )}
 
       {isPhotographer && (
-        <div className="mt-3">
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/jpeg,.jpg,.jpeg,image/png,.png"
-            onChange={(e) => {
-              const file = e.target.files?.[0]
-              if (file) {
-                setError('')
-                uploadMutation.mutate(file)
-              }
-            }}
-            className="block w-full text-sm text-gray-500 file:mr-4 file:rounded file:border-0 file:bg-black file:px-4 file:py-2 file:text-sm file:font-medium file:text-white hover:file:bg-gray-800"
+        <ListGroup header="上传预览">
+          <ListItem
+            title="点击选择预览图"
+            subtitle="支持 JPEG/PNG"
+            onClick={() => fileInputRef.current?.click()}
+            showChevron
+            isLast
           />
-        </div>
+        </ListGroup>
       )}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/jpeg,.jpg,.jpeg,image/png,.png"
+        onChange={(e) => {
+          const file = e.target.files?.[0]
+          if (file) { setError(''); uploadMutation.mutate(file) }
+        }}
+        className="hidden"
+      />
 
       {versions && versions.length > 0 && (
-        <div className="mt-3 space-y-1">
-          <h4 className="text-sm font-medium">预览版本</h4>
-          {versions.map((v: RetouchVersion) => (
-            <div key={v.id} className="flex items-center gap-3 text-sm">
-              <span className="text-gray-400">v{v.version_no}</span>
-              <span>{v.storage_key}</span>
-              <span className="text-gray-400">
-                {new Date(v.uploaded_at).toLocaleString()}
-              </span>
-            </div>
+        <ListGroup header="预览版本">
+          {versions.map((v: RetouchVersion, i) => (
+            <ListItem
+              key={v.id}
+              title={`版本 v${v.version_no}`}
+              subtitle={v.storage_key}
+              trailing={new Date(v.uploaded_at).toLocaleString()}
+              isLast={i === versions.length - 1}
+            />
           ))}
-        </div>
+        </ListGroup>
       )}
 
       {feedbacks && feedbacks.length > 0 && (
-        <div className="mt-3 space-y-1">
-          <h4 className="text-sm font-medium">客户反馈</h4>
-          {feedbacks.map((f: RetouchFeedback) => (
-            <div key={f.id} className="text-sm">
-              <span className="text-gray-400">
-                {new Date(f.created_at).toLocaleString()}:
-              </span>
-              <span className="ml-2">{f.content}</span>
-            </div>
+        <ListGroup header="客户反馈">
+          {feedbacks.map((f: RetouchFeedback, i) => (
+            <ListItem
+              key={f.id}
+              title={f.content}
+              trailing={new Date(f.created_at).toLocaleString()}
+              isLast={i === feedbacks.length - 1}
+            />
           ))}
-        </div>
+        </ListGroup>
       )}
 
       {!isPhotographer && (
-        <div className="mt-3 space-y-2">
-          <textarea
-            value={feedbackText}
-            onChange={(e) => setFeedbackText(e.target.value)}
-            placeholder="输入反馈意见..."
-            className="block w-full rounded border border-gray-200 px-3 py-2 text-sm"
-            rows={2}
-          />
-          <button
-            onClick={() => {
-              if (feedbackText.trim()) {
-                setError('')
-                feedbackMutation.mutate(feedbackText)
-              }
-            }}
-            disabled={!feedbackText.trim() || feedbackMutation.isPending}
-            className="rounded border border-gray-300 px-4 py-1 text-sm transition hover:bg-gray-50 disabled:opacity-50"
-          >
-            提交反馈
-          </button>
-        </div>
+        <>
+          <div className="px-4 pt-4">
+            <Textarea
+              value={feedbackText}
+              onChange={(e) => setFeedbackText(e.target.value)}
+              placeholder="输入反馈意见..."
+              rows={2}
+            />
+          </div>
+          <div className="px-4 pt-3">
+            <Button
+              variant="tinted"
+              onClick={() => { if (feedbackText.trim()) { setError(''); feedbackMutation.mutate(feedbackText) } }}
+              disabled={!feedbackText.trim() || feedbackMutation.isPending}
+            >
+              提交反馈
+            </Button>
+          </div>
+        </>
       )}
-    </div>
+    </>
   )
 }

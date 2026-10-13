@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { login, extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
+import { Button, Input } from '@/components/ui'
 
 export function LoginPage() {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ export function LoginPage() {
       const data = await login({ email, password })
       setToken(data.access_token)
       setUser(data.user)
-      navigate('/')
+      navigate(data.user.role === 'client' ? '/client' : '/')
     } catch (err) {
       setError(extractErrorMessage(err))
     } finally {
@@ -28,50 +29,48 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-        <h1 className="mb-6 text-xl font-semibold tracking-tight">LensFlow 登录</h1>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-system-bg-grouped px-6">
+      <div className="w-full max-w-sm">
+        <h1 className="mb-2 text-center text-4xl font-bold tracking-tight text-label">LensFlow</h1>
+        <p className="mb-8 text-center text-sm text-label-secondary">登录你的账号</p>
+
         {error && (
-          <div className="mb-4 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600">
+          <div className="mb-4 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
             {error}
           </div>
         )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="login-email" className="mb-1 block text-sm text-gray-600">邮箱</label>
-            <input
-              id="login-email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              placeholder="you@example.com"
-              required
-            />
+          <div className="overflow-hidden rounded-card bg-system-bg shadow-card">
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="邮箱"
+                required
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="p-4">
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="密码"
+                required
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="login-password" className="mb-1 block text-sm text-gray-600">密码</label>
-            <input
-              id="login-password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              placeholder="******"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded bg-black py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-          >
+          <Button type="submit" fullWidth size="lg" disabled={loading}>
             {loading ? '登录中...' : '登录'}
-          </button>
+          </Button>
         </form>
-        <p className="mt-4 text-center text-sm text-gray-400">
+
+        <p className="mt-6 text-center text-sm text-label-tertiary">
           没有账号？
-          <Link to="/register" className="text-gray-600 underline">
+          <Link to="/register" className="ml-1 font-medium text-accent hover:text-accent-hover">
             注册
           </Link>
         </p>

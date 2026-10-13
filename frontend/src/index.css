@@ -1,15 +1,68 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: -apple-system, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  --color-accent: #007AFF;
+  --color-accent-hover: #0066D6;
+  --color-accent-pressed: #0040A0;
+
+  --color-label: #1C1C1E;
+  --color-label-secondary: rgba(60, 60, 67, 0.6);
+  --color-label-tertiary: rgba(60, 60, 67, 0.3);
+  --color-label-quaternary: rgba(60, 60, 67, 0.18);
+
+  --color-separator: rgba(60, 60, 67, 0.29);
+  --color-separator-opaque: #C6C6C8;
+
+  --color-system-bg: #FFFFFF;
+  --color-system-bg-secondary: #F2F2F7;
+  --color-system-bg-tertiary: #FFFFFF;
+  --color-system-bg-grouped: #F2F2F7;
+
+  --color-system-fill: rgba(120, 120, 128, 0.2);
+  --color-system-fill-secondary: rgba(120, 120, 128, 0.16);
+  --color-system-fill-tertiary: rgba(120, 120, 128, 0.12);
+
+  --color-success: #34C759;
+  --color-success-bg: #E8F8ED;
+  --color-warning: #FF9500;
+  --color-warning-bg: #FFF4E5;
+  --color-error: #FF3B30;
+  --color-error-bg: #FFEBEE;
+
+  --radius-card: 12px;
+  --radius-control: 10px;
+  --radius-sheet: 16px;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-focused: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
 :root {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: light dark;
+  font-family: var(--font-sans);
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--color-system-bg-grouped);
+  color: var(--color-label);
 }
 
 #root {
   min-height: 100vh;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }

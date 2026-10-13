@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir -i https://repo.huaweicloud.com/repository/pypi/simple/ \
     fastapi uvicorn[standard] "pydantic[email]" pydantic-settings sqlalchemy alembic \
-    python-jose[cryptography] passlib[bcrypt] httpx python-multipart \
+    python-jose[cryptography] passlib[bcrypt] "bcrypt<4.0.0" httpx python-multipart \
     opencv-python-headless numpy Pillow \
     "asyncpg>=0.29.0" psycopg2-binary
 

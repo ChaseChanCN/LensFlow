@@ -7,6 +7,7 @@ import {
 } from '@/api/selections'
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
+import { LargeTitle, Button, Badge } from '@/components/ui'
 
 export function SelectionPage() {
   const { id } = useParams<{ id: string }>()
@@ -33,19 +34,11 @@ export function SelectionPage() {
   })
 
   if (isLoading) {
-    return (
-      <Layout>
-        <p className="text-sm text-gray-400">加载中...</p>
-      </Layout>
-    )
+    return <Layout><p className="px-4 text-sm text-label-tertiary">加载中...</p></Layout>
   }
 
   if (!selectionSet) {
-    return (
-      <Layout>
-        <p className="text-sm text-gray-400">选片集不存在</p>
-      </Layout>
-    )
+    return <Layout><p className="px-4 text-sm text-label-tertiary">选片集不存在</p></Layout>
   }
 
   const maxSelect = selectionSet.max_select
@@ -73,64 +66,49 @@ export function SelectionPage() {
 
   return (
     <Layout title="LensFlow">
-      <div className="space-y-6">
-        <div>
-          <button
-            onClick={() => navigate('/client')}
-            className="text-sm text-gray-400 hover:text-gray-600"
-          >
-            返回
+      <LargeTitle
+        title="选片"
+        subtitle={`订单 #${orderId} · 最多 ${maxSelect} 张，已选 ${selected.size} 张，剩余 ${remaining} 张`}
+        action={
+          <button onClick={() => navigate('/client')} className="text-sm font-medium text-accent hover:text-accent-hover">
+            ← 返回
           </button>
-          <h2 className="mt-2 text-lg font-medium">选片 - 订单 #{orderId}</h2>
-          <p className="mt-1 text-sm text-gray-400">
-            最多选择 {maxSelect} 张，已选 {selected.size} 张，剩余 {remaining} 张
-          </p>
+        }
+      />
+
+      {error && (
+        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+          {error}
         </div>
+      )}
 
-        {error && (
-          <div className="rounded border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-            {error}
-          </div>
-        )}
-
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-          {selectionSet.items.map((item) => {
-            const isSelected = selected.has(item.photo_id)
-            return (
-              <div
-                key={item.id}
-                onClick={() => toggleSelect(item.photo_id)}
-                className={`cursor-pointer rounded border p-4 transition ${
-                  isSelected
-                    ? 'border-black bg-gray-50'
-                    : 'border-gray-200 bg-white hover:border-gray-400'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm text-gray-400">
-                    #{item.photo_id}
-                  </span>
-                  {isSelected && (
-                    <span className="text-sm font-medium text-black">已选</span>
-                  )}
-                </div>
-                <div className="mt-2 text-sm text-gray-400">
-                  照片 {item.photo_id}
-                </div>
+      <div className="grid grid-cols-2 gap-3 px-4 md:grid-cols-3">
+        {selectionSet.items.map((item) => {
+          const isSelected = selected.has(item.photo_id)
+          return (
+            <button
+              key={item.id}
+              onClick={() => toggleSelect(item.photo_id)}
+              className={`rounded-card p-4 text-left transition-all duration-200 active:scale-95 ${
+                isSelected
+                  ? 'bg-accent/5 ring-2 ring-accent shadow-card'
+                  : 'bg-system-bg shadow-card hover:shadow-elevated'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-sm text-label-tertiary">#{item.photo_id}</span>
+                {isSelected && <Badge tone="accent">已选</Badge>}
               </div>
-            )
-          })}
-        </div>
+              <div className="mt-2 text-sm text-label-secondary">照片 {item.photo_id}</div>
+            </button>
+          )
+        })}
+      </div>
 
-        <div className="flex gap-3">
-          <button
-            onClick={handleSubmit}
-            disabled={selected.size === 0 || submitMutation.isPending}
-            className="rounded bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-          >
-            提交选片
-          </button>
-        </div>
+      <div className="px-4 pt-6">
+        <Button size="lg" fullWidth onClick={handleSubmit} disabled={selected.size === 0 || submitMutation.isPending}>
+          提交选片
+        </Button>
       </div>
     </Layout>
   )

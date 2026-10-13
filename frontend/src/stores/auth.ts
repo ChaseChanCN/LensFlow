@@ -10,12 +10,27 @@ interface AuthState {
   logout: () => void
 }
 
+const persistedUser = (() => {
+  try {
+    const raw = localStorage.getItem('user')
+    return raw ? (JSON.parse(raw) as User) : null
+  } catch {
+    return null
+  }
+})()
+
 export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
+  user: persistedUser,
   token: localStorage.getItem('access_token'),
   isAuthenticated: !!localStorage.getItem('access_token'),
-  setUser: (user) =>
-    set({ user, isAuthenticated: !!user }),
+  setUser: (user) => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user))
+    } else {
+      localStorage.removeItem('user')
+    }
+    set({ user, isAuthenticated: !!user })
+  },
   setToken: (token) => {
     if (token) {
       localStorage.setItem('access_token', token)
@@ -26,6 +41,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
   logout: () => {
     localStorage.removeItem('access_token')
+    localStorage.removeItem('user')
     set({ user: null, token: null, isAuthenticated: false })
   },
 }))

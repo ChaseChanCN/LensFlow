@@ -9,23 +9,18 @@ import {
 } from '@/api/photos'
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
+import { LargeTitle, ListGroup, ListItem, Button, Badge } from '@/components/ui'
 
 const SUGGESTION_LABELS: Record<string, string> = {
-  no_issue: '正常',
-  need_review: '需复核',
-  suggest_exclude: '建议剔除',
+  no_issue: '正常', need_review: '需复核', suggest_exclude: '建议剔除',
 }
 
-const RISK_COLORS: Record<string, string> = {
-  low: 'text-gray-400',
-  medium: 'text-yellow-600',
-  high: 'text-red-600',
+const RISK_TONE: Record<string, 'neutral' | 'warning' | 'error'> = {
+  low: 'neutral', medium: 'warning', high: 'error',
 }
 
 const DECISION_LABELS: Record<string, string> = {
-  pending: '待定',
-  keep: '保留',
-  exclude: '剔除',
+  pending: '待定', keep: '保留', exclude: '剔除',
 }
 
 export function AnalysisResultPage() {
@@ -33,7 +28,6 @@ export function AnalysisResultPage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [error, setError] = useState('')
-
   const orderId = Number(id)
 
   const { data: photos, isLoading } = useQuery({
@@ -43,66 +37,59 @@ export function AnalysisResultPage() {
   })
 
   const reviewMutation = useMutation({
-    mutationFn: (params: {
-      analysisId: number
-      decision: 'exclude' | 'keep' | 'pending'
-    }) => reviewAnalysis(params.analysisId, params.decision),
+    mutationFn: (params: { analysisId: number; decision: 'exclude' | 'keep' | 'pending' }) =>
+      reviewAnalysis(params.analysisId, params.decision),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['photos', id] })
+      queryClient.invalidateQueries({ queryKey: ['analysis'] })
     },
     onError: (err) => setError(extractErrorMessage(err)),
   })
 
   if (isLoading) {
-    return (
-      <Layout>
-        <p className="text-sm text-gray-400">加载中...</p>
-      </Layout>
-    )
+    return <Layout><p className="px-4 text-sm text-label-tertiary">加载中...</p></Layout>
   }
 
   return (
     <Layout title="LensFlow">
-      <div className="space-y-6">
-        <div>
-          <button
-            onClick={() => navigate(`/orders/${orderId}/upload`)}
-            className="text-sm text-gray-400 hover:text-gray-600"
-          >
-            返回上传
+      <LargeTitle
+        title="AI 分析结果"
+        subtitle={`订单 #${orderId}`}
+        action={
+          <button onClick={() => navigate(`/orders/${orderId}/upload`)} className="text-sm font-medium text-accent hover:text-accent-hover">
+            ← 返回
           </button>
-          <h2 className="mt-2 text-lg font-medium">AI 分析结果 - 订单 #{orderId}</h2>
+        }
+      />
+
+      {error && (
+        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+          {error}
         </div>
+      )}
 
-        {error && (
-          <div className="rounded border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-            {error}
-          </div>
-        )}
-
-        {photos && photos.length > 0 ? (
-          <div className="space-y-3">
-            {photos.map((photo: Photo) => (
-              <AnalysisCard
-                key={photo.id}
-                photo={photo}
-                onReview={(analysisId, decision) => {
-                  setError('')
-                  reviewMutation.mutate({ analysisId, decision })
-                }}
-                isPending={reviewMutation.isPending}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-gray-400">暂无照片</p>
-        )}
-      </div>
+      {photos && photos.length > 0 ? (
+        photos.map((photo: Photo) => (
+          <AnalysisSection
+            key={photo.id}
+            photo={photo}
+            onReview={(analysisId, decision) => {
+              setError('')
+              reviewMutation.mutate({ analysisId, decision })
+            }}
+            isPending={reviewMutation.isPending}
+          />
+        ))
+      ) : (
+        <ListGroup>
+          <ListItem title="暂无照片" isLast />
+        </ListGroup>
+      )}
     </Layout>
   )
 }
 
-function AnalysisCard({
+function AnalysisSection({
   photo,
   onReview,
   isPending,
@@ -118,78 +105,35 @@ function AnalysisCard({
 
   if (isLoading || !analysis) {
     return (
-      <div className="rounded border border-gray-200 bg-white p-4 text-sm text-gray-400">
-        #{photo.id} {photo.filename} - 分析中...
-      </div>
+      <ListGroup header={`#${photo.id} ${photo.filename}`}>
+        <ListItem title="分析中..." isLast />
+      </ListGroup>
     )
   }
 
   return (
-    <div className="rounded border border-gray-200 bg-white p-4">
-      <div className="flex items-start justify-between">
-        <div className="space-y-1">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-sm text-gray-400">#{photo.id}</span>
-            <span className="text-sm font-medium">{photo.filename}</span>
-          </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-sm">
-            <span className="text-gray-400">清晰度</span>
-            <span>
-              {analysis.sharpness_score?.toFixed(1) ?? '-'}
-            </span>
-            <span className="text-gray-400">亮度</span>
-            <span>
-              {analysis.brightness_mean?.toFixed(1) ?? '-'}
-            </span>
-            <span className="text-gray-400">高光比例</span>
-            <span>
-              {((analysis.highlight_ratio ?? 0) * 100).toFixed(1)}%
-            </span>
-            <span className="text-gray-400">暗部比例</span>
-            <span>
-              {((analysis.shadow_ratio ?? 0) * 100).toFixed(1)}%
-            </span>
-            <span className="text-gray-400">AI 建议</span>
-            <span>
-              {SUGGESTION_LABELS[analysis.suggestion] || analysis.suggestion}
-            </span>
-            <span className="text-gray-400">风险等级</span>
-            <span className={RISK_COLORS[analysis.risk_level] || ''}>
-              {analysis.risk_level}
-            </span>
-            <span className="text-gray-400">复核状态</span>
-            <span>
-              {analysis.reviewed
-                ? DECISION_LABELS[analysis.final_decision] || analysis.final_decision
-                : '未复核'}
-            </span>
-          </div>
-        </div>
-      </div>
+    <>
+      <ListGroup header={`#${photo.id} ${photo.filename}`}>
+        <ListItem title="清晰度" trailing={analysis.sharpness_score?.toFixed(1) ?? '-'} />
+        <ListItem title="亮度" trailing={analysis.brightness_mean?.toFixed(1) ?? '-'} />
+        <ListItem title="高光比例" trailing={`${((analysis.highlight_ratio ?? 0) * 100).toFixed(1)}%`} />
+        <ListItem title="暗部比例" trailing={`${((analysis.shadow_ratio ?? 0) * 100).toFixed(1)}%`} />
+        <ListItem title="AI 建议" trailing={SUGGESTION_LABELS[analysis.suggestion] || analysis.suggestion} />
+        <ListItem title="风险等级" trailing={<Badge tone={RISK_TONE[analysis.risk_level] || 'neutral'}>{analysis.risk_level}</Badge>} />
+        <ListItem title="复核状态" trailing={analysis.reviewed ? DECISION_LABELS[analysis.final_decision] || analysis.final_decision : '未复核'} isLast />
+      </ListGroup>
 
-      <div className="mt-3 flex gap-2">
-        <button
-          onClick={() => onReview(analysis.id, 'keep')}
-          disabled={isPending}
-          className="rounded border border-gray-300 px-3 py-1 text-sm transition hover:bg-gray-50 disabled:opacity-50"
-        >
+      <div className="flex gap-2 px-4 pt-3 pb-2">
+        <Button variant="tinted" size="sm" onClick={() => onReview(analysis.id, 'keep')} disabled={isPending}>
           保留
-        </button>
-        <button
-          onClick={() => onReview(analysis.id, 'exclude')}
-          disabled={isPending}
-          className="rounded border border-red-300 px-3 py-1 text-sm text-red-600 transition hover:bg-red-50 disabled:opacity-50"
-        >
+        </Button>
+        <Button variant="destructive" size="sm" onClick={() => onReview(analysis.id, 'exclude')} disabled={isPending}>
           剔除
-        </button>
-        <button
-          onClick={() => onReview(analysis.id, 'pending')}
-          disabled={isPending}
-          className="rounded border border-gray-300 px-3 py-1 text-sm text-gray-400 transition hover:bg-gray-50 disabled:opacity-50"
-        >
+        </Button>
+        <Button variant="gray" size="sm" onClick={() => onReview(analysis.id, 'pending')} disabled={isPending}>
           待定
-        </button>
+        </Button>
       </div>
-    </div>
+    </>
   )
 }

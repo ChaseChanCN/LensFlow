@@ -11,6 +11,15 @@ import { getOrder } from '@/api/orders'
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
+import { LargeTitle, ListGroup, ListItem, Button, StatusBadge } from '@/components/ui'
+
+const STATUS_MAP: Record<string, string> = {
+  PENDING_CONFIRM: 'pending', CONFIRMED: 'confirmed', WAITING_SHOOT: 'confirmed',
+  WAITING_UPLOAD: 'confirmed', ANALYZING: 'analyzing', WAITING_REVIEW: 'analyzing',
+  WAITING_SELECTION: 'confirmed', WAITING_RETOUCH: 'retouching', RETOUCHING: 'retouching',
+  WAITING_CLIENT_CONFIRM: 'retouching', WAITING_DELIVERY: 'confirmed',
+  DELIVERED: 'delivered', ARCHIVED: 'completed', CANCELLED: 'cancelled',
+}
 
 export function DeliveryPage() {
   const { id } = useParams<{ id: string }>()
@@ -55,90 +64,79 @@ export function DeliveryPage() {
 
   return (
     <Layout title="LensFlow">
-      <div className="space-y-6">
-        <div>
-          <button
-            onClick={() => navigate(-1)}
-            className="text-sm text-gray-400 hover:text-gray-600"
-          >
-            返回
+      <LargeTitle
+        title="交付"
+        subtitle={`订单 #${orderId}`}
+        action={
+          <button onClick={() => navigate(-1)} className="text-sm font-medium text-accent hover:text-accent-hover">
+            ← 返回
           </button>
-          <h2 className="mt-2 text-lg font-medium">交付 - 订单 #{orderId}</h2>
-          {order && (
-            <p className="mt-1 text-sm text-gray-400">
-              状态: {order.status}
-            </p>
-          )}
+        }
+      />
+
+      {error && (
+        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+          {error}
         </div>
+      )}
 
-        {error && (
-          <div className="rounded border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-            {error}
+      {isLoading && <p className="px-4 text-sm text-label-tertiary">加载中...</p>}
+
+      {order && (
+        <ListGroup header="订单状态">
+          <ListItem title="当前状态" trailing={<StatusBadge status={STATUS_MAP[order.status] || 'neutral'} />} isLast />
+        </ListGroup>
+      )}
+
+      {delivery && (
+        <>
+          <ListGroup header="成片信息">
+            <ListItem title="文件名" trailing={delivery.filename} />
+            <ListItem title="交付时间" trailing={new Date(delivery.delivered_at).toLocaleString()} isLast />
+          </ListGroup>
+
+          <div className="px-4 pt-4">
+            <a href={getDownloadUrl(delivery.id)}>
+              <Button>下载成片</Button>
+            </a>
           </div>
-        )}
+        </>
+      )}
 
-        {isLoading && (
-          <p className="text-sm text-gray-400">加载中...</p>
-        )}
+      {isPhotographer && !delivery && order?.status === 'WAITING_DELIVERY' && (
+        <ListGroup header="上传成片">
+          <ListItem
+            title="点击选择成片文件"
+            subtitle="支持 JPEG/PNG/ZIP，最大 100MB"
+            onClick={() => fileInputRef.current?.click()}
+            showChevron
+            isLast
+          />
+        </ListGroup>
+      )}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/jpeg,.jpg,.jpeg,image/png,.png,.zip"
+        onChange={(e) => {
+          const file = e.target.files?.[0]
+          if (file) {
+            setError('')
+            uploadMutation.mutate(file)
+          }
+        }}
+        className="hidden"
+      />
 
-        {delivery && (
-          <div className="rounded border border-gray-200 bg-white p-4">
-            <h3 className="mb-3 text-sm font-medium">成片信息</h3>
-            <dl className="grid grid-cols-2 gap-2 text-sm">
-              <dt className="text-gray-400">文件名</dt>
-              <dd>{delivery.filename}</dd>
-              <dt className="text-gray-400">交付时间</dt>
-              <dd>{new Date(delivery.delivered_at).toLocaleString()}</dd>
-            </dl>
-            <div className="mt-4">
-              <a
-                href={getDownloadUrl(delivery.id)}
-                className="rounded bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
-              >
-                下载成片
-              </a>
-            </div>
-          </div>
-        )}
-
-        {isPhotographer && !delivery && order?.status === 'WAITING_DELIVERY' && (
-          <div className="rounded border border-gray-200 bg-white p-4">
-            <h3 className="mb-3 text-sm font-medium">上传成片</h3>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/jpeg,.jpg,.jpeg,image/png,.png,.zip"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) {
-                  setError('')
-                  uploadMutation.mutate(file)
-                }
-              }}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:rounded file:border-0 file:bg-black file:px-4 file:py-2 file:text-sm file:font-medium file:text-white hover:file:bg-gray-800"
-            />
-            <p className="mt-2 text-xs text-gray-400">
-              支持 JPEG/PNG/ZIP，最大 100MB
-            </p>
-          </div>
-        )}
-
-        {isPhotographer && delivery && order?.status === 'DELIVERED' && (
-          <div className="rounded border border-gray-200 bg-white p-4">
-            <h3 className="mb-3 text-sm font-medium">归档</h3>
-            <button
-              onClick={() => {
-                setError('')
-                archiveMutation.mutate()
-              }}
-              disabled={archiveMutation.isPending}
-              className="rounded border border-gray-300 px-4 py-2 text-sm font-medium transition hover:bg-gray-50 disabled:opacity-50"
-            >
-              归档订单
-            </button>
-          </div>
-        )}
-      </div>
+      {isPhotographer && delivery && order?.status === 'DELIVERED' && (
+        <ListGroup header="归档">
+          <ListItem
+            title="归档订单"
+            onClick={() => { setError(''); archiveMutation.mutate() }}
+            isLast
+          />
+        </ListGroup>
+      )}
     </Layout>
   )
 }

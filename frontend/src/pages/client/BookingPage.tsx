@@ -1,11 +1,17 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { createBooking, type Booking } from '@/api/bookings'
 import { extractErrorMessage } from '@/api/auth'
+import { Layout } from '@/components/Layout'
+import { LargeTitle, Button, Input, Select, Textarea } from '@/components/ui'
 
 export function BookingPage() {
+  const navigate = useNavigate()
   const [shootType, setShootType] = useState('wedding')
   const [contactInfo, setContactInfo] = useState('')
   const [preferredDate, setPreferredDate] = useState('')
+  const [location, setLocation] = useState('')
+  const [durationHours, setDurationHours] = useState('')
   const [note, setNote] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState<Booking | null>(null)
@@ -21,12 +27,17 @@ export function BookingPage() {
         shoot_type: shootType,
         contact_info: contactInfo,
         preferred_date: preferredDate || undefined,
+        location: location || undefined,
+        duration_hours: durationHours ? Number(durationHours) : undefined,
         note: note || undefined,
       })
       setSuccess(booking)
       setContactInfo('')
       setPreferredDate('')
+      setLocation('')
+      setDurationHours('')
       setNote('')
+      setTimeout(() => navigate('/client'), 1500)
     } catch (err) {
       setError(extractErrorMessage(err))
     } finally {
@@ -35,85 +46,93 @@ export function BookingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto max-w-4xl px-6 py-4">
-          <span className="text-lg font-semibold tracking-tight">LensFlow</span>
+    <Layout title="LensFlow">
+      <LargeTitle title="提交预约" subtitle="填写拍摄需求，摄影师将尽快确认" />
+
+      {success && (
+        <div className="mx-4 mb-2 rounded-card bg-success-bg px-4 py-3 text-sm text-success">
+          预约已提交，编号 #{success.id}，等待摄影师确认，即将返回...
         </div>
-      </header>
-      <main className="mx-auto max-w-4xl px-6 py-8">
-        <h2 className="text-lg font-medium">提交预约</h2>
-        <p className="mt-1 text-sm text-gray-400">填写拍摄需求，摄影师将尽快确认</p>
+      )}
+      {error && (
+        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+          {error}
+        </div>
+      )}
 
-        {success && (
-          <div className="mt-4 rounded border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
-            预约已提交，编号 #{success.id}，等待摄影师确认
+      <form onSubmit={handleSubmit}>
+        <div className="px-4">
+          <div className="overflow-hidden rounded-card bg-system-bg shadow-card">
+            <div className="border-b border-separator-opaque p-4">
+              <Select
+                value={shootType}
+                onChange={(e) => setShootType(e.target.value)}
+                className="border-0 p-0 focus:ring-0"
+              >
+                <option value="wedding">婚纱摄影</option>
+                <option value="portrait">人像写真</option>
+                <option value="family">家庭合影</option>
+                <option value="product">产品摄影</option>
+                <option value="event">活动记录</option>
+              </Select>
+            </div>
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="date"
+                value={preferredDate}
+                onChange={(e) => setPreferredDate(e.target.value)}
+                placeholder="期望日期"
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder="拍摄地点"
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="number"
+                step="0.5"
+                min="0.5"
+                value={durationHours}
+                onChange={(e) => setDurationHours(e.target.value)}
+                placeholder="拍摄时长（小时）"
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="p-4">
+              <Input
+                type="text"
+                value={contactInfo}
+                onChange={(e) => setContactInfo(e.target.value)}
+                placeholder="联系方式（手机号或邮箱）"
+                required
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
           </div>
-        )}
-        {error && (
-          <div className="mt-4 rounded border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-            {error}
-          </div>
-        )}
+        </div>
 
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          <div>
-            <label htmlFor="shoot-type" className="mb-1 block text-sm text-gray-600">拍摄类型</label>
-            <select
-              id="shoot-type"
-              value={shootType}
-              onChange={(e) => setShootType(e.target.value)}
-              className="w-full max-w-md rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-            >
-              <option value="wedding">婚纱摄影</option>
-              <option value="portrait">人像写真</option>
-              <option value="family">家庭合影</option>
-              <option value="product">产品摄影</option>
-              <option value="event">活动记录</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="preferred-date" className="mb-1 block text-sm text-gray-600">期望日期</label>
-            <input
-              id="preferred-date"
-              type="date"
-              value={preferredDate}
-              onChange={(e) => setPreferredDate(e.target.value)}
-              className="w-full max-w-md rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="contact-info" className="mb-1 block text-sm text-gray-600">联系方式</label>
-            <input
-              id="contact-info"
-              type="text"
-              value={contactInfo}
-              onChange={(e) => setContactInfo(e.target.value)}
-              className="w-full max-w-md rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              placeholder="手机号或邮箱"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="note" className="mb-1 block text-sm text-gray-600">备注</label>
-            <textarea
-              id="note"
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-              className="w-full max-w-md rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              rows={3}
-              placeholder="特殊需求或说明"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="rounded bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-          >
+        <div className="px-4 pt-4">
+          <Textarea
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="特殊需求或备注说明"
+            rows={3}
+          />
+        </div>
+
+        <div className="px-4 pt-4">
+          <Button type="submit" fullWidth size="lg" disabled={loading}>
             {loading ? '提交中...' : '提交预约'}
-          </button>
-        </form>
-      </main>
-    </div>
+          </Button>
+        </div>
+      </form>
+    </Layout>
   )
 }

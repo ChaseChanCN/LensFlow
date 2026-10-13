@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useAuthStore } from '@/stores/auth'
 
 interface LayoutProps {
   children: ReactNode
@@ -9,39 +10,63 @@ interface LayoutProps {
 export function Layout({ children, title = 'LensFlow' }: LayoutProps) {
   const location = useLocation()
   const navigate = useNavigate()
+  const user = useAuthStore((s) => s.user)
+  const isClient = user?.role === 'client'
 
   const handleLogout = () => {
-    localStorage.removeItem('access_token')
+    useAuthStore.getState().logout()
     navigate('/login')
   }
 
-  const isActive = (path: string) =>
-    location.pathname === path ? 'font-semibold text-black' : 'text-gray-500'
+  const navItems = isClient
+    ? [
+        { to: '/client', label: '我的' },
+        { to: '/booking', label: '预约' },
+      ]
+    : [
+        { to: '/', label: '工作台' },
+        { to: '/orders', label: '订单' },
+      ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link to="/" className="text-lg font-semibold tracking-tight">
+    <div className="flex min-h-screen flex-col bg-system-bg-grouped">
+      <nav className="sticky top-0 z-20 border-b border-separator bg-system-bg/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-2.5">
+          <Link
+            to={isClient ? '/client' : '/'}
+            className="text-base font-semibold tracking-tight text-label"
+          >
             {title}
           </Link>
-          <nav className="flex items-center gap-6 text-sm">
-            <Link to="/" className={isActive('/')}>
-              工作台
-            </Link>
-            <Link to="/orders" className={isActive('/orders')}>
-              订单
-            </Link>
+          <div className="flex items-center gap-1">
+            {navItems.map((item) => {
+              const active = location.pathname === item.to
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 active:scale-95 ${
+                    active
+                      ? 'bg-accent text-white'
+                      : 'text-label-secondary hover:bg-system-fill hover:text-label'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
             <button
               onClick={handleLogout}
-              className="text-gray-400 transition hover:text-gray-600"
+              className="ml-1 rounded-full px-3.5 py-1.5 text-sm font-medium text-label-tertiary transition-all duration-200 hover:text-label-secondary active:scale-95"
             >
               退出
             </button>
-          </nav>
+          </div>
         </div>
-      </header>
-      <main className="mx-auto max-w-6xl px-6 py-8">{children}</main>
+      </nav>
+      <main className="mx-auto w-full max-w-5xl flex-1 py-2">
+        {children}
+      </main>
     </div>
   )
 }

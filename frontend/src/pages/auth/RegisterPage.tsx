@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { register, extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
+import { Button, Input, Select } from '@/components/ui'
 
 export function RegisterPage() {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ export function RegisterPage() {
       const data = await register({ email, password, name, role })
       setToken(data.access_token)
       setUser(data.user)
-      navigate('/')
+      navigate(data.user.role === 'client' ? '/client' : '/')
     } catch (err) {
       setError(extractErrorMessage(err))
     } finally {
@@ -30,71 +31,68 @@ export function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-        <h1 className="mb-6 text-xl font-semibold tracking-tight">LensFlow 注册</h1>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-system-bg-grouped px-6">
+      <div className="w-full max-w-sm">
+        <h1 className="mb-2 text-center text-4xl font-bold tracking-tight text-label">创建账号</h1>
+        <p className="mb-8 text-center text-sm text-label-secondary">加入 LensFlow</p>
+
         {error && (
-          <div className="mb-4 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600">
+          <div className="mb-4 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
             {error}
           </div>
         )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="reg-name" className="mb-1 block text-sm text-gray-600">姓名</label>
-            <input
-              id="reg-name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              required
-            />
+          <div className="overflow-hidden rounded-card bg-system-bg shadow-card">
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="姓名"
+                required
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="邮箱"
+                required
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="border-b border-separator-opaque p-4">
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="密码"
+                required
+                className="border-0 p-0 focus:ring-0"
+              />
+            </div>
+            <div className="p-4">
+              <Select
+                value={role}
+                onChange={(e) => setRole(e.target.value as 'photographer' | 'client')}
+                className="border-0 p-0 focus:ring-0"
+              >
+                <option value="client">客户</option>
+                <option value="photographer">摄影师</option>
+              </Select>
+            </div>
           </div>
-          <div>
-            <label htmlFor="reg-email" className="mb-1 block text-sm text-gray-600">邮箱</label>
-            <input
-              id="reg-email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="reg-password" className="mb-1 block text-sm text-gray-600">密码</label>
-            <input
-              id="reg-password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="reg-role" className="mb-1 block text-sm text-gray-600">角色</label>
-            <select
-              id="reg-role"
-              value={role}
-              onChange={(e) => setRole(e.target.value as 'photographer' | 'client')}
-              className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
-            >
-              <option value="client">客户</option>
-              <option value="photographer">摄影师</option>
-            </select>
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded bg-black py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-          >
+          <Button type="submit" fullWidth size="lg" disabled={loading}>
             {loading ? '注册中...' : '注册'}
-          </button>
+          </Button>
         </form>
-        <p className="mt-4 text-center text-sm text-gray-400">
+
+        <p className="mt-6 text-center text-sm text-label-tertiary">
           已有账号？
-          <Link to="/login" className="text-gray-600 underline">
+          <Link to="/login" className="ml-1 font-medium text-accent hover:text-accent-hover">
             登录
           </Link>
         </p>

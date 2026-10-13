@@ -10,6 +10,7 @@ import { AnalysisResultPage } from '@/pages/photographer/AnalysisResultPage'
 import { RetouchPage } from '@/pages/photographer/RetouchPage'
 import { ClientPage } from '@/pages/client/ClientPage'
 import { BookingPage } from '@/pages/client/BookingPage'
+import { BookingDetailPage } from '@/pages/BookingDetailPage'
 import { SelectionPage } from '@/pages/client/SelectionPage'
 import { DeliveryPage } from '@/pages/client/DeliveryPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
@@ -25,6 +26,14 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route
+            path="/bookings/:id"
+            element={
+              <ProtectedRoute>
+                <BookingDetailPage />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/"
             element={
