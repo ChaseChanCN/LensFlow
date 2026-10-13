@@ -5,10 +5,10 @@ WORKDIR /app
 RUN corepack enable pnpm
 
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --trust-lockfile
 
 COPY . .
-RUN pnpm build
+RUN node_modules/.bin/tsc -b && node_modules/.bin/vite build
 
 FROM nginx:alpine
 

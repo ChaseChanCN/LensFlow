@@ -3,6 +3,7 @@ services:
     build: ./backend
     environment:
       - APP_ENV=production
+      - APP_DEBUG=false
       - DB_TYPE=postgresql
       - DB_PG_HOST=db
       - DB_PG_PORT=5432
@@ -10,19 +11,20 @@ services:
       - DB_PG_PASSWORD=${DB_PASSWORD:-changeme}
       - DB_PG_NAME=lensflow
       - JWT_SECRET_KEY=${JWT_SECRET:-change-this-to-a-random-secret}
-      - STORAGE_TYPE=obs
-      - OBS_BUCKET=${OBS_BUCKET}
-      - OBS_ENDPOINT=${OBS_ENDPOINT}
-      - OBS_AK=${OBS_AK}
-      - OBS_SK=${OBS_SK}
+      - STORAGE_TYPE=local
+      - STORAGE_LOCAL_PATH=storage_local/uploads
       - NOTIFIER_CHANNEL=${NOTIFIER_CHANNEL:-bark}
       - BARK_SERVER_URL=${BARK_SERVER_URL:-https://api.day.app}
-      - BARK_DEVICE_KEY=${BARK_DEVICE_KEY}
+      - BARK_DEVICE_KEY=${BARK_DEVICE_KEY:-}
       - CORS_ORIGINS=${CORS_ORIGINS:-*}
+    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
     ports:
       - "8000:8000"
+    volumes:
+      - lensflow_storage:/app/storage_local
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   frontend:
     build: ./frontend
@@ -41,6 +43,12 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lensflow -d lensflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   pgdata:
+  lensflow_storage:

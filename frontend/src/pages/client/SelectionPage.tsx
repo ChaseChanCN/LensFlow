@@ -4,7 +4,6 @@ import { useParams, useNavigate } from 'react-router-dom'
 import {
   getOrderSelectionSet,
   submitSelection,
-  type SelectionSet,
 } from '@/api/selections'
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'

@@ -3,9 +3,10 @@ FROM python:3.12-slim
 WORKDIR /app
 
 RUN pip install --no-cache-dir -i https://repo.huaweicloud.com/repository/pypi/simple/ \
-    fastapi uvicorn[standard] pydantic pydantic-settings sqlalchemy alembic \
+    fastapi uvicorn[standard] "pydantic[email]" pydantic-settings sqlalchemy alembic \
     python-jose[cryptography] passlib[bcrypt] httpx python-multipart \
-    opencv-python-headless numpy
+    opencv-python-headless numpy Pillow \
+    "asyncpg>=0.29.0" psycopg2-binary
 
 COPY . /app
 

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { register, extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
-import type { UserRole } from '@/types'
 
 export function RegisterPage() {
   const navigate = useNavigate()
@@ -10,7 +9,7 @@ export function RegisterPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState<UserRole>('client')
+  const [role, setRole] = useState<'photographer' | 'client'>('client')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -78,7 +77,7 @@ export function RegisterPage() {
             <select
               id="reg-role"
               value={role}
-              onChange={(e) => setRole(e.target.value as UserRole)}
+              onChange={(e) => setRole(e.target.value as 'photographer' | 'client')}
               className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-gray-400 focus:outline-none"
             >
               <option value="client">客户</option>

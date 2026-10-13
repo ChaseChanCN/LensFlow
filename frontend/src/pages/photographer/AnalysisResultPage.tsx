@@ -6,7 +6,6 @@ import {
   getAnalysis,
   reviewAnalysis,
   type Photo,
-  type AnalysisResult,
 } from '@/api/photos'
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
