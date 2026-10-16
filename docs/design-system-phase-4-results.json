@@ -1,0 +1,1638 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "phase": 4,
+  "pages": [
+    "register",
+    "booking",
+    "booking-detail",
+    "order-detail",
+    "upload",
+    "analysis",
+    "client",
+    "selection",
+    "delivery",
+    "retouch",
+    "not-found"
+  ],
+  "fullSuite": {
+    "total": 124,
+    "passed": 124,
+    "failed": 0,
+    "failedTests": [],
+    "addedFailures": [],
+    "resolvedFailures": [
+      "AnalysisResultPage renders back to upload link",
+      "AnalysisResultPage renders photo with analysis data",
+      "BookingPage renders booking form",
+      "DeliveryPage renders page title",
+      "RetouchPage renders file input for photographer",
+      "RetouchPage renders page title",
+      "RetouchPage renders task list",
+      "SelectionPage renders max select info",
+      "SelectionPage renders page title",
+      "UploadPage renders page title"
+    ]
+  },
+  "migrationTests": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0
+  },
+  "uiTests": {
+    "total": 48,
+    "passed": 48,
+    "failed": 0
+  },
+  "uiCoverage": {
+    "scope": "P2 core components, modal manager, toast store and P4 PageState. Does not measure business page coverage.",
+    "thresholdEachPercent": 80,
+    "total": {
+      "lines": {
+        "total": 169,
+        "covered": 169,
+        "skipped": 0,
+        "pct": 100
+      },
+      "statements": {
+        "total": 220,
+        "covered": 215,
+        "skipped": 0,
+        "pct": 97.72
+      },
+      "functions": {
+        "total": 62,
+        "covered": 61,
+        "skipped": 0,
+        "pct": 98.38
+      },
+      "branches": {
+        "total": 237,
+        "covered": 225,
+        "skipped": 0,
+        "pct": 94.93
+      },
+      "branchesTrue": {
+        "total": 0,
+        "covered": 0,
+        "skipped": 0,
+        "pct": 100
+      }
+    }
+  },
+  "checks": {
+    "productionBuild": "passed (TypeScript + Vite)",
+    "lint": {
+      "errors": 0,
+      "existingWarnings": 2,
+      "source": "DarkroomVideoBackground.tsx set-state-in-effect"
+    },
+    "themeVariables": 115,
+    "utilityCandidates": 121,
+    "recommendedContrastPairs": 12,
+    "particleMotionCheck": "passed",
+    "diffWhitespace": "passed"
+  },
+  "bundle": {
+    "totalBytes": 868587,
+    "files": [
+      {
+        "path": "assets/index-2ZaRL8UC.js",
+        "bytes": 409907,
+        "gzipBytes": 124127,
+        "sha256": "5ab6aff944311fe8f8a79b6f40c1fb32cb6fb79302b07929e323eb39327e0773"
+      },
+      {
+        "path": "assets/index-Bz3fVdM3.css",
+        "bytes": 33197,
+        "gzipBytes": 7210,
+        "sha256": "734fa8ba320a1a3a6fda011f97ab47ffd43c69d84981a5c8a9ff5b07c2c8e9db"
+      },
+      {
+        "path": "data/metadata.json",
+        "bytes": 2782,
+        "gzipBytes": 852,
+        "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+      },
+      {
+        "path": "data/particles.bin",
+        "bytes": 370335,
+        "gzipBytes": 226215,
+        "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 9522,
+        "gzipBytes": 1490,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "path": "icons.svg",
+        "bytes": 5031,
+        "gzipBytes": 2104,
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "path": "index.html",
+        "bytes": 461,
+        "gzipBytes": 301,
+        "sha256": "54fd625db1030df3c887b3d30cbe9f841f1871a75705ffb449449a3b2922aa3c"
+      },
+      {
+        "path": "lensflow-v24.html",
+        "bytes": 37352,
+        "gzipBytes": 8952,
+        "sha256": "4ef304d3db2343c816526262ff0af0db0da52203e52bfb526581c7d5bc55a5e2"
+      }
+    ],
+    "note": "gzipBytes use Node zlib gzip level 6 as an offline estimate; the static server may serve uncompressed files.",
+    "phase3TotalBytes": 863288,
+    "originalTotalBytes": 843904,
+    "growthSincePhase3Percent": 0.6138160150494398,
+    "growthSinceOriginalPercent": 2.9248587517063607,
+    "particleUnchanged": true
+  },
+  "accessibility": {
+    "method": "Desktop Edge headless Lighthouse, one final synthetic populated-state audit per page plus photographer retouch and empty waiting-delivery upload state. No real screen-reader audit.",
+    "runs": [
+      {
+        "name": "register",
+        "path": "/register",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "booking",
+        "path": "/booking",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "booking-detail",
+        "path": "/bookings/5",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "order-detail",
+        "path": "/orders/1",
+        "role": "photographer",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "upload",
+        "path": "/orders/1/upload",
+        "role": "photographer",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "analysis",
+        "path": "/orders/1/analysis",
+        "role": "photographer",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "client",
+        "path": "/client",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "selection",
+        "path": "/orders/1/selection",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "delivery",
+        "path": "/orders/1/delivery",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "retouch",
+        "path": "/orders/1/retouch",
+        "role": "client",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "not-found",
+        "path": "/404",
+        "role": "photographer",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "retouch-photographer",
+        "path": "/orders/1/retouch",
+        "role": "photographer",
+        "state": "populated",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      },
+      {
+        "name": "delivery-upload",
+        "path": "/orders/1/delivery",
+        "role": "photographer",
+        "state": "empty",
+        "score": 100,
+        "failedAudits": [],
+        "lighthouse": "13.5.0"
+      }
+    ],
+    "passed": true
+  },
+  "performance": {
+    "method": "Cold-profile desktop Edge headless Lighthouse. One pre-P4 snapshot control and three final production samples for each representative page; final medians. Synthetic API, identical fixtures. One baseline sample limits statistical confidence. Particle navigation was not rerun and its Phase 3 failure remains pending.",
+    "medians": [
+      {
+        "name": "register",
+        "beforeSamples": 1,
+        "afterSamples": 3,
+        "before": {
+          "phase": "before",
+          "name": "register",
+          "path": "/register",
+          "round": 1,
+          "performance": 100,
+          "first-contentful-paint": 619.4780000000001,
+          "largest-contentful-paint": 619.4780000000001,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "lighthouse": "13.5.0",
+          "settings": {
+            "output": [
+              "json"
+            ],
+            "maxWaitForFcp": 30000,
+            "maxWaitForLoad": 45000,
+            "pauseAfterFcpMs": 1000,
+            "pauseAfterLoadMs": 1000,
+            "networkQuietThresholdMs": 1000,
+            "cpuQuietThresholdMs": 1000,
+            "formFactor": "desktop",
+            "throttling": {
+              "rttMs": 40,
+              "throughputKbps": 10240,
+              "requestLatencyMs": 0,
+              "downloadThroughputKbps": 0,
+              "uploadThroughputKbps": 0,
+              "cpuSlowdownMultiplier": 1
+            },
+            "throttlingMethod": "simulate",
+            "screenEmulation": {
+              "mobile": false,
+              "width": 1350,
+              "height": 940,
+              "deviceScaleFactor": 1,
+              "disabled": false
+            },
+            "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+            "auditMode": false,
+            "gatherMode": false,
+            "clearStorageTypes": [
+              "file_systems",
+              "shader_cache",
+              "service_workers",
+              "cache_storage"
+            ],
+            "disableStorageReset": false,
+            "debugNavigation": false,
+            "channel": "cli",
+            "usePassiveGathering": false,
+            "disableFullPageScreenshot": false,
+            "skipAboutBlank": false,
+            "blankPage": "about:blank",
+            "ignoreStatusCode": false,
+            "locale": "en-US",
+            "blockedUrlPatterns": null,
+            "additionalTraceCategories": null,
+            "extraHeaders": null,
+            "precomputedLanternData": null,
+            "onlyAudits": null,
+            "onlyCategories": [
+              "performance"
+            ],
+            "skipAudits": null
+          }
+        },
+        "after": {
+          "performance": 100,
+          "first-contentful-paint": 605.6417,
+          "largest-contentful-paint": 605.6417,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0
+        },
+        "change": {
+          "score": 0,
+          "fcpPercent": -2.233541788408955,
+          "lcpPercent": -2.233541788408955
+        },
+        "withinTargets": true
+      },
+      {
+        "name": "selection",
+        "beforeSamples": 1,
+        "afterSamples": 3,
+        "before": {
+          "phase": "before",
+          "name": "selection",
+          "path": "/orders/1/selection",
+          "round": 1,
+          "performance": 100,
+          "first-contentful-paint": 604.0433,
+          "largest-contentful-paint": 646.0649500000001,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "lighthouse": "13.5.0",
+          "settings": {
+            "output": [
+              "json"
+            ],
+            "maxWaitForFcp": 30000,
+            "maxWaitForLoad": 45000,
+            "pauseAfterFcpMs": 1000,
+            "pauseAfterLoadMs": 1000,
+            "networkQuietThresholdMs": 1000,
+            "cpuQuietThresholdMs": 1000,
+            "formFactor": "desktop",
+            "throttling": {
+              "rttMs": 40,
+              "throughputKbps": 10240,
+              "requestLatencyMs": 0,
+              "downloadThroughputKbps": 0,
+              "uploadThroughputKbps": 0,
+              "cpuSlowdownMultiplier": 1
+            },
+            "throttlingMethod": "simulate",
+            "screenEmulation": {
+              "mobile": false,
+              "width": 1350,
+              "height": 940,
+              "deviceScaleFactor": 1,
+              "disabled": false
+            },
+            "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+            "auditMode": false,
+            "gatherMode": false,
+            "clearStorageTypes": [
+              "file_systems",
+              "shader_cache",
+              "service_workers",
+              "cache_storage"
+            ],
+            "disableStorageReset": false,
+            "debugNavigation": false,
+            "channel": "cli",
+            "usePassiveGathering": false,
+            "disableFullPageScreenshot": false,
+            "skipAboutBlank": false,
+            "blankPage": "about:blank",
+            "ignoreStatusCode": false,
+            "locale": "en-US",
+            "blockedUrlPatterns": null,
+            "additionalTraceCategories": null,
+            "extraHeaders": null,
+            "precomputedLanternData": null,
+            "onlyAudits": null,
+            "onlyCategories": [
+              "performance"
+            ],
+            "skipAudits": null
+          }
+        },
+        "after": {
+          "performance": 100,
+          "first-contentful-paint": 603.3573,
+          "largest-contentful-paint": 645.03595,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0
+        },
+        "change": {
+          "score": 0,
+          "fcpPercent": -0.11356801739214051,
+          "lcpPercent": -0.1592719122125552
+        },
+        "withinTargets": true
+      },
+      {
+        "name": "retouch",
+        "beforeSamples": 1,
+        "afterSamples": 3,
+        "before": {
+          "phase": "before",
+          "name": "retouch",
+          "path": "/orders/1/retouch",
+          "round": 1,
+          "performance": 100,
+          "first-contentful-paint": 602.9836,
+          "largest-contentful-paint": 692.9672,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0.01649024078451974,
+          "lighthouse": "13.5.0",
+          "settings": {
+            "output": [
+              "json"
+            ],
+            "maxWaitForFcp": 30000,
+            "maxWaitForLoad": 45000,
+            "pauseAfterFcpMs": 1000,
+            "pauseAfterLoadMs": 1000,
+            "networkQuietThresholdMs": 1000,
+            "cpuQuietThresholdMs": 1000,
+            "formFactor": "desktop",
+            "throttling": {
+              "rttMs": 40,
+              "throughputKbps": 10240,
+              "requestLatencyMs": 0,
+              "downloadThroughputKbps": 0,
+              "uploadThroughputKbps": 0,
+              "cpuSlowdownMultiplier": 1
+            },
+            "throttlingMethod": "simulate",
+            "screenEmulation": {
+              "mobile": false,
+              "width": 1350,
+              "height": 940,
+              "deviceScaleFactor": 1,
+              "disabled": false
+            },
+            "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+            "auditMode": false,
+            "gatherMode": false,
+            "clearStorageTypes": [
+              "file_systems",
+              "shader_cache",
+              "service_workers",
+              "cache_storage"
+            ],
+            "disableStorageReset": false,
+            "debugNavigation": false,
+            "channel": "cli",
+            "usePassiveGathering": false,
+            "disableFullPageScreenshot": false,
+            "skipAboutBlank": false,
+            "blankPage": "about:blank",
+            "ignoreStatusCode": false,
+            "locale": "en-US",
+            "blockedUrlPatterns": null,
+            "additionalTraceCategories": null,
+            "extraHeaders": null,
+            "precomputedLanternData": null,
+            "onlyAudits": null,
+            "onlyCategories": [
+              "performance"
+            ],
+            "skipAudits": null
+          }
+        },
+        "after": {
+          "performance": 100,
+          "first-contentful-paint": 604.6893,
+          "largest-contentful-paint": 697.6999999999999,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0
+        },
+        "change": {
+          "score": 0,
+          "fcpPercent": 0.2828766818865347,
+          "lcpPercent": 0.6829760485056013
+        },
+        "withinTargets": true
+      }
+    ],
+    "runs": [
+      {
+        "phase": "before",
+        "name": "register",
+        "path": "/register",
+        "round": 1,
+        "performance": 100,
+        "first-contentful-paint": 619.4780000000001,
+        "largest-contentful-paint": 619.4780000000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "register",
+        "path": "/register",
+        "round": 1,
+        "performance": 100,
+        "first-contentful-paint": 605.6417,
+        "largest-contentful-paint": 605.6417,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "register",
+        "path": "/register",
+        "round": 2,
+        "performance": 100,
+        "first-contentful-paint": 610.8448000000001,
+        "largest-contentful-paint": 610.8448000000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "register",
+        "path": "/register",
+        "round": 3,
+        "performance": 100,
+        "first-contentful-paint": 604.9252,
+        "largest-contentful-paint": 604.9252,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "before",
+        "name": "selection",
+        "path": "/orders/1/selection",
+        "round": 1,
+        "performance": 100,
+        "first-contentful-paint": 604.0433,
+        "largest-contentful-paint": 646.0649500000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "selection",
+        "path": "/orders/1/selection",
+        "round": 1,
+        "performance": 100,
+        "first-contentful-paint": 603.3573,
+        "largest-contentful-paint": 645.03595,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "selection",
+        "path": "/orders/1/selection",
+        "round": 2,
+        "performance": 100,
+        "first-contentful-paint": 603.2165,
+        "largest-contentful-paint": 644.82475,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "selection",
+        "path": "/orders/1/selection",
+        "round": 3,
+        "performance": 100,
+        "first-contentful-paint": 604.2483,
+        "largest-contentful-paint": 646.37245,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "before",
+        "name": "retouch",
+        "path": "/orders/1/retouch",
+        "round": 1,
+        "performance": 100,
+        "first-contentful-paint": 602.9836,
+        "largest-contentful-paint": 692.9672,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.01649024078451974,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "retouch",
+        "path": "/orders/1/retouch",
+        "round": 1,
+        "performance": 100,
+        "first-contentful-paint": 603.1166000000001,
+        "largest-contentful-paint": 696.2332000000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.03776416542626157,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "retouch",
+        "path": "/orders/1/retouch",
+        "round": 2,
+        "performance": 100,
+        "first-contentful-paint": 604.6893,
+        "largest-contentful-paint": 699.3786,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "phase": "after",
+        "name": "retouch",
+        "path": "/orders/1/retouch",
+        "round": 3,
+        "performance": 100,
+        "first-contentful-paint": 604.85,
+        "largest-contentful-paint": 697.6999999999999,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "lighthouse": "13.5.0",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      }
+    ]
+  },
+  "browserChecks": {
+    "responsive": [
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/register",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/booking",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/bookings/5",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/orders/1",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/orders/1/upload",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/orders/1/analysis",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/client",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/orders/1/selection",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/orders/1/delivery",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/orders/1/retouch",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "route": "/404",
+        "width": 375
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/register",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/booking",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/bookings/5",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/orders/1",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/orders/1/upload",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/orders/1/analysis",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/client",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/orders/1/selection",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/orders/1/delivery",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/orders/1/retouch",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "route": "/404",
+        "width": 768
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/register",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/booking",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/bookings/5",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/orders/1",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/orders/1/upload",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/orders/1/analysis",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/client",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/orders/1/selection",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/orders/1/delivery",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/orders/1/retouch",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "route": "/404",
+        "width": 1280
+      }
+    ],
+    "bookingEditSave": true,
+    "selectionLimitAndSubmit": true,
+    "clientFeedbackSaved": true,
+    "syntheticJpegUploadAndDelete": true,
+    "registerKeyboardOutline": true,
+    "nestedInteractiveElementsRemoved": true,
+    "data": "Local synthetic server only; no real backend writes"
+  },
+  "screenshots": [
+    {
+      "name": "register",
+      "before": "docs/design-system-screenshots/phase-4-register-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-register-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-register-mobile.jpg"
+    },
+    {
+      "name": "booking",
+      "before": "docs/design-system-screenshots/phase-4-booking-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-booking-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-booking-mobile.jpg"
+    },
+    {
+      "name": "booking-detail",
+      "before": "docs/design-system-screenshots/phase-4-booking-detail-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-booking-detail-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-booking-detail-mobile.jpg"
+    },
+    {
+      "name": "order-detail",
+      "before": "docs/design-system-screenshots/phase-4-order-detail-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-order-detail-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-order-detail-mobile.jpg"
+    },
+    {
+      "name": "upload",
+      "before": "docs/design-system-screenshots/phase-4-upload-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-upload-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-upload-mobile.jpg"
+    },
+    {
+      "name": "analysis",
+      "before": "docs/design-system-screenshots/phase-4-analysis-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-analysis-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-analysis-mobile.jpg"
+    },
+    {
+      "name": "client",
+      "before": "docs/design-system-screenshots/phase-4-client-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-client-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-client-mobile.jpg"
+    },
+    {
+      "name": "selection",
+      "before": "docs/design-system-screenshots/phase-4-selection-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-selection-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-selection-mobile.jpg"
+    },
+    {
+      "name": "delivery",
+      "before": "docs/design-system-screenshots/phase-4-delivery-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-delivery-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-delivery-mobile.jpg"
+    },
+    {
+      "name": "retouch",
+      "before": "docs/design-system-screenshots/phase-4-retouch-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-retouch-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-retouch-mobile.jpg"
+    },
+    {
+      "name": "not-found",
+      "before": "docs/design-system-screenshots/phase-4-not-found-before.jpg",
+      "after": "docs/design-system-screenshots/phase-4-not-found-after.jpg",
+      "mobile": "docs/design-system-screenshots/phase-4-not-found-mobile.jpg"
+    }
+  ],
+  "acceptance": {
+    "pageMigration": true,
+    "fullUnitSuite": true,
+    "automaticAccessibility": true,
+    "responsiveFixtures": true,
+    "bundleGrowth": true,
+    "representativePerformance": true,
+    "particleNavigation": "pending: Phase 3 median 88 versus original 96; unchanged in Phase 4",
+    "realBackendEndToEnd": "pending Phase 5",
+    "realScreenReader": "pending Phase 5"
+  },
+  "limitations": [
+    "Synthetic data only; real permissions, persistence, file validation and download authorization are not end-to-end verified.",
+    "33 width checks and 13 initial-state accessibility audits do not cover every state, long content or assistive technology.",
+    "Brand landing and particle implementation unchanged.",
+    "Shared tinted Button and ListItem text wrapping also affect existing P2/P3 consumers."
+  ]
+}

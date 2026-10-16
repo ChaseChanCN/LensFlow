@@ -15,7 +15,7 @@ import {
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
-import { LargeTitle, ListGroup, ListItem, Button, Textarea, StatusBadge } from '@/components/ui'
+import { LargeTitle, ListGroup, ListItem, Button, Textarea, StatusBadge, EmptyState, LoadingState, ErrorState, Spinner } from '@/components/ui'
 
 const TASK_STATUS_MAP: Record<string, string> = {
   pending: 'pending', in_progress: 'analyzing', preview_uploaded: 'confirmed',
@@ -31,7 +31,7 @@ export function RetouchPage() {
   const isPhotographer = user?.role === 'photographer'
   const orderId = Number(id)
 
-  const { data: tasks, isLoading } = useQuery({
+  const { data: tasks, isLoading, isError, refetch } = useQuery({
     queryKey: ['retouch-tasks', id],
     queryFn: () => listRetouchTasks(orderId),
     enabled: !!id,
@@ -44,7 +44,7 @@ export function RetouchPage() {
   })
 
   if (isLoading) {
-    return <Layout><p className="px-4 text-sm text-label-tertiary">加载中...</p></Layout>
+    return <Layout><LoadingState label="正在加载修图任务" /></Layout>
   }
 
   return (
@@ -53,19 +53,17 @@ export function RetouchPage() {
         title="修图协作"
         subtitle={`订单 #${orderId}`}
         action={
-          <button onClick={() => navigate(-1)} className="text-sm font-medium text-accent hover:text-accent-hover">
-            ← 返回
-          </button>
+          <Button type="button" variant="plain" onClick={() => navigate(-1)}>← 返回</Button>
         }
       />
 
       {error && (
-        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+        <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
         </div>
       )}
 
-      {tasks && tasks.length > 0 ? (
+      {isError ? <ErrorState title="修图任务加载失败" onRetry={() => { void refetch() }} /> : tasks && tasks.length > 0 ? (
         <>
           {tasks.map((task) => (
             <RetouchTaskSection key={task.id} task={task} isPhotographer={isPhotographer} />
@@ -73,7 +71,7 @@ export function RetouchPage() {
 
           {!isPhotographer && (
             <div className="px-4 pt-4">
-              <Button size="lg" fullWidth onClick={() => { setError(''); confirmMutation.mutate() }} disabled={confirmMutation.isPending}>
+              <Button type="button" size="lg" fullWidth onClick={() => { setError(''); confirmMutation.mutate() }} loading={confirmMutation.isPending}>
                 确认全部修图
               </Button>
             </div>
@@ -81,7 +79,7 @@ export function RetouchPage() {
         </>
       ) : (
         <ListGroup>
-          <ListItem title="暂无修图任务" isLast />
+          <EmptyState title="暂无修图任务" description="选片完成后，修图任务会显示在这里。" />
         </ListGroup>
       )}
     </Layout>
@@ -94,12 +92,12 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
   const fileInputRef = useRef<HTMLInputElement>(null)
   const queryClient = useQueryClient()
 
-  const { data: versions } = useQuery({
+  const { data: versions, isLoading: versionsLoading, isError: versionsError, refetch: refetchVersions } = useQuery({
     queryKey: ['retouch-versions', task.id],
     queryFn: () => listRetouchVersions(task.id),
   })
 
-  const { data: feedbacks } = useQuery({
+  const { data: feedbacks, isLoading: feedbacksLoading, isError: feedbacksError, refetch: refetchFeedback } = useQuery({
     queryKey: ['retouch-feedback', task.id],
     queryFn: () => listFeedback(task.id),
   })
@@ -129,7 +127,7 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
       </ListGroup>
 
       {error && (
-        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+        <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
         </div>
       )}
@@ -138,6 +136,9 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
         <ListGroup header="上传预览">
           <ListItem
             title="点击选择预览图"
+            disabled={uploadMutation.isPending}
+            aria-busy={uploadMutation.isPending}
+            trailing={uploadMutation.isPending ? <Spinner decorative size="sm" /> : undefined}
             subtitle="支持 JPEG/PNG"
             onClick={() => fileInputRef.current?.click()}
             showChevron
@@ -148,14 +149,19 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
       <input
         ref={fileInputRef}
         type="file"
+        aria-label={`选择任务 #${task.id} 预览图`}
+        disabled={uploadMutation.isPending}
         accept="image/jpeg,.jpg,.jpeg,image/png,.png"
         onChange={(e) => {
           const file = e.target.files?.[0]
-          if (file) { setError(''); uploadMutation.mutate(file) }
+          if (file) { setError(''); uploadMutation.mutate(file); e.target.value = '' }
         }}
         className="hidden"
       />
 
+      {versionsLoading && <LoadingState label="正在加载预览版本" />}
+      {versionsError && <ErrorState title="预览版本加载失败" onRetry={() => { void refetchVersions() }} />}
+      {versions && versions.length === 0 && <ListGroup header="预览版本"><EmptyState title="暂无预览版本" /></ListGroup>}
       {versions && versions.length > 0 && (
         <ListGroup header="预览版本">
           {versions.map((v: RetouchVersion, i) => (
@@ -170,6 +176,9 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
         </ListGroup>
       )}
 
+      {feedbacksLoading && <LoadingState label="正在加载客户反馈" />}
+      {feedbacksError && <ErrorState title="客户反馈加载失败" onRetry={() => { void refetchFeedback() }} />}
+      {feedbacks && feedbacks.length === 0 && <ListGroup header="客户反馈"><EmptyState title="暂无客户反馈" /></ListGroup>}
       {feedbacks && feedbacks.length > 0 && (
         <ListGroup header="客户反馈">
           {feedbacks.map((f: RetouchFeedback, i) => (
@@ -187,6 +196,8 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
         <>
           <div className="px-4 pt-4">
             <Textarea
+              label="反馈意见"
+              aria-label={`任务 #${task.id} 反馈意见`}
               value={feedbackText}
               onChange={(e) => setFeedbackText(e.target.value)}
               placeholder="输入反馈意见..."
@@ -196,8 +207,10 @@ function RetouchTaskSection({ task, isPhotographer }: { task: RetouchTask; isPho
           <div className="px-4 pt-3">
             <Button
               variant="tinted"
+              type="button"
               onClick={() => { if (feedbackText.trim()) { setError(''); feedbackMutation.mutate(feedbackText) } }}
-              disabled={!feedbackText.trim() || feedbackMutation.isPending}
+              disabled={!feedbackText.trim()}
+              loading={feedbackMutation.isPending}
             >
               提交反馈
             </Button>

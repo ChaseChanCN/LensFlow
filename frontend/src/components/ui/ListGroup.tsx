@@ -10,7 +10,7 @@ export function ListGroup({ header, footer, className = '', children, ...props }
   return (
     <div className="px-4" {...props}>
       {header && (
-        <p className="mb-2 px-1 text-xs font-medium uppercase tracking-wide text-label-secondary">
+        <p className="mb-2 px-1 text-caption font-medium uppercase tracking-wide text-label-muted">
           {header}
         </p>
       )}
@@ -18,7 +18,7 @@ export function ListGroup({ header, footer, className = '', children, ...props }
         {children}
       </div>
       {footer && (
-        <p className="mt-2 px-1 text-xs text-label-tertiary">{footer}</p>
+        <p className="mt-2 px-1 text-caption text-label-muted">{footer}</p>
       )}
     </div>
   )

@@ -1,46 +1,194 @@
 @import "tailwindcss";
+@source not "../scripts";
+@source not "./dev/effects-preview.tsx";
 
-@theme {
+@theme static {
+  /* Typography */
   --font-sans: -apple-system, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-numeric: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  --text-display-xl: 64px;
+  --text-display-lg: 48px;
+  --text-heading-xl: 36px;
+  --text-heading-lg: 30px;
+  --text-heading-md: 24px;
+  --text-heading-sm: 20px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-body-sm: 14px;
+  --text-caption: 12px;
+  --text-form-label: 14px;
+  --text-numeric-lg: 32px;
+  --text-numeric: 24px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
 
+  /* Brand and action colors. Keep the existing action color unchanged. */
+  --color-brand-primary: #6B7A99;
+  --color-brand-primary-hover: #5A6885;
+  --color-brand-primary-pressed: #495670;
+  --color-action-primary: #007AFF;
+  --color-action-primary-hover: #0066D6;
+  --color-action-primary-pressed: #0040A0;
+  /* Use the stronger tone when ordinary white text needs AA contrast. */
+  --color-action-primary-strong: #0066D6;
+  --color-brand-darkroom: #000000;
+  --color-brand-darkroom-overlay: rgba(0, 0, 0, 0.8);
   --color-accent: #007AFF;
   --color-accent-hover: #0066D6;
   --color-accent-pressed: #0040A0;
 
+  /* Semantic colors */
   --color-label: #1C1C1E;
+  --color-label-muted: #63636A;
   --color-label-secondary: rgba(60, 60, 67, 0.6);
   --color-label-tertiary: rgba(60, 60, 67, 0.3);
   --color-label-quaternary: rgba(60, 60, 67, 0.18);
+  --color-label-inverse: #FFFFFF;
+  --color-label-inverse-secondary: rgba(255, 255, 255, 0.6);
+  --color-label-inverse-tertiary: rgba(255, 255, 255, 0.3);
+  --color-success: #34C759;
+  --color-success-bg: #E8F8ED;
+  --color-success-border: #A3E4B8;
+  --color-success-label: #187A33;
+  --color-warning: #FF9500;
+  --color-warning-bg: #FFF4E5;
+  --color-warning-border: #FFD699;
+  --color-warning-label: #8A4B00;
+  --color-error: #FF3B30;
+  --color-error-bg: #FFEBEE;
+  --color-error-border: #FF9B96;
+  --color-error-label: #B42318;
+  --color-info: #007AFF;
+  --color-info-bg: #E5F2FF;
+  --color-info-border: #99CCFF;
+  --color-info-label: #0066D6;
 
-  --color-separator: rgba(60, 60, 67, 0.29);
-  --color-separator-opaque: #C6C6C8;
-
+  /* Surfaces, fills, separators, and focus */
+  --color-surface-primary: #FFFFFF;
+  --color-surface-secondary: #F2F2F7;
+  --color-surface-tertiary: #FFFFFF;
+  --color-surface-grouped: #F2F2F7;
+  --color-surface-dark-primary: #000000;
+  --color-surface-dark-secondary: #1C1C1E;
+  --color-surface-dark-tertiary: #2C2C2E;
+  --color-surface-neutral: #F5F5F5;
+  --color-surface-neutral-dark: #E0E0E0;
   --color-system-bg: #FFFFFF;
   --color-system-bg-secondary: #F2F2F7;
   --color-system-bg-tertiary: #FFFFFF;
   --color-system-bg-grouped: #F2F2F7;
-
+  --color-fill-primary: rgba(120, 120, 128, 0.2);
+  --color-fill-secondary: rgba(120, 120, 128, 0.16);
+  --color-fill-tertiary: rgba(120, 120, 128, 0.12);
+  --color-fill-quaternary: rgba(120, 120, 128, 0.08);
+  --color-fill-dark-primary: rgba(255, 255, 255, 0.1);
+  --color-fill-dark-secondary: rgba(255, 255, 255, 0.08);
+  --color-fill-dark-tertiary: rgba(255, 255, 255, 0.05);
   --color-system-fill: rgba(120, 120, 128, 0.2);
   --color-system-fill-secondary: rgba(120, 120, 128, 0.16);
   --color-system-fill-tertiary: rgba(120, 120, 128, 0.12);
+  --color-separator: rgba(60, 60, 67, 0.29);
+  --color-separator-opaque: #C6C6C8;
+  --color-separator-dark: rgba(255, 255, 255, 0.15);
+  --color-separator-dark-opaque: #3A3A3C;
+  --color-focus-ring: rgba(0, 122, 255, 0.25);
 
-  --color-success: #34C759;
-  --color-success-bg: #E8F8ED;
-  --color-warning: #FF9500;
-  --color-warning-bg: #FFF4E5;
-  --color-error: #FF3B30;
-  --color-error-bg: #FFEBEE;
+  /* Spacing scale: these namespace names generate p-*, m-*, gap-*, and size utilities. */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
 
-  --radius-card: 12px;
+  /* Content widths and responsive variants */
+  --container-content-sm: 640px;
+  --container-content-md: 768px;
+  --container-content-lg: 1024px;
+  --container-content-xl: 1280px;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
+  /* Radius utilities */
+  --radius-sm: 8px;
   --radius-control: 10px;
+  --radius-card: 12px;
   --radius-sheet: 16px;
+  --radius-full: 9999px;
 
+  /* Existing pages use these utilities; keep their Tailwind registrations. */
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
   --shadow-focused: 0 0 0 3px rgba(0, 122, 255, 0.25);
 }
 
 :root {
+  /* Non-utility values used directly through var(). */
+  --shadow-modal: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-focus: 0 0 0 3px var(--color-focus-ring);
+  --shadow-dark-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-dark-elevated: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 400ms;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 2000;
+  --z-modal: 2100;
+  --z-popover: 2200;
+  --z-tooltip: 2300;
+  --z-toast: 2400;
+
+  /* CSS aliases used in the design plan's var() examples. */
+  --space-1: var(--spacing-1);
+  --space-2: var(--spacing-2);
+  --space-3: var(--spacing-3);
+  --space-4: var(--spacing-4);
+  --space-5: var(--spacing-5);
+  --space-6: var(--spacing-6);
+  --space-8: var(--spacing-8);
+  --space-10: var(--spacing-10);
+  --space-12: var(--spacing-12);
+  --space-16: var(--spacing-16);
+  --space-20: var(--spacing-20);
+  --space-24: var(--spacing-24);
+  --line-height-tight: var(--leading-tight);
+  --line-height-normal: var(--leading-normal);
+  --line-height-relaxed: var(--leading-relaxed);
+  /* text-label is already the existing text color utility. */
+  --text-label: var(--text-form-label);
+  --width-content-sm: var(--container-content-sm);
+  --width-content-md: var(--container-content-md);
+  --width-content-lg: var(--container-content-lg);
+  --width-content-xl: var(--container-content-xl);
+
   font-family: var(--font-sans);
   color-scheme: light;
   -webkit-font-smoothing: antialiased;
@@ -59,10 +207,35 @@ body {
   min-height: 100vh;
 }
 
-button {
+* {
   -webkit-tap-highlight-color: transparent;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
+@keyframes ds-toast-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ds-toast {
+  animation: ds-toast-enter var(--duration-base) var(--ease-out) both;
+}
+
+@keyframes ds-toast-enter-bottom {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+[data-toast-viewport="bottom"] .ds-toast {
+  animation-name: ds-toast-enter-bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

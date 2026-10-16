@@ -1,0 +1,131 @@
+{
+  "aspect_ratio": 1.603527,
+  "byte_order": "little",
+  "charset": " .:-=+*#%@",
+  "coordinate_range": {
+    "x": [
+      -1.0,
+      1.0
+    ],
+    "y": [
+      -1.0,
+      1.0
+    ]
+  },
+  "deterministic_fields": [
+    "schema_version",
+    "image_width",
+    "image_height",
+    "aspect_ratio",
+    "coordinate_range",
+    "sampling_params",
+    "charset",
+    "field_layout",
+    "byte_order",
+    "particle_count",
+    "deterministic_fields",
+    "input_file_path",
+    "input_file_sha256",
+    "input_color_mode",
+    "input_bit_depth",
+    "input_file_size",
+    "processing_params"
+  ],
+  "field_layout": [
+    {
+      "bytes": 4,
+      "name": "coord_x",
+      "offset": 0,
+      "type": "float32"
+    },
+    {
+      "bytes": 4,
+      "name": "coord_y",
+      "offset": 4,
+      "type": "float32"
+    },
+    {
+      "bytes": 2,
+      "name": "char_index",
+      "offset": 8,
+      "type": "uint16"
+    },
+    {
+      "bytes": 4,
+      "name": "draw_size",
+      "offset": 10,
+      "type": "float32"
+    },
+    {
+      "bytes": 1,
+      "name": "color_r",
+      "offset": 14,
+      "type": "uint8"
+    },
+    {
+      "bytes": 1,
+      "name": "color_g",
+      "offset": 15,
+      "type": "uint8"
+    },
+    {
+      "bytes": 1,
+      "name": "color_b",
+      "offset": 16,
+      "type": "uint8"
+    },
+    {
+      "bytes": 4,
+      "name": "anim_seed",
+      "offset": 17,
+      "type": "uint32"
+    }
+  ],
+  "image_height": 3062,
+  "image_width": 4910,
+  "input_bit_depth": 8,
+  "input_color_mode": "RGBA",
+  "input_file_path": "public/reference.png",
+  "input_file_sha256": "488284ce452edb1b851fd286f57101cf359b34bb271077346ac71a83423b7d45",
+  "input_file_size": 6758448,
+  "particle_count": 17635,
+  "processing_params": {
+    "blue_gray_params": {
+      "hue_shift": 200,
+      "lum_min": 0.1,
+      "sat_max": 0.4
+    },
+    "charset": " .:-=+*#%@",
+    "cli_overrides": [],
+    "color_mode": "rgb",
+    "contrast": 1.1,
+    "edge_threshold": 0.3,
+    "global_seed": 42,
+    "input_path": "public/reference.png",
+    "luma_layers": 8,
+    "max_particles": 20000,
+    "max_shift": 2,
+    "output_dir": "C:\\Users\\Chase\\Desktop\\人物粒子\\public\\data",
+    "preset": "medium",
+    "soft_threshold": false,
+    "spacing": 16,
+    "threshold": 0.06,
+    "window": 5
+  },
+  "sampling_params": {
+    "color_mode": "rgb",
+    "contrast": 1.1,
+    "edge_threshold": 0.3,
+    "global_seed": 42,
+    "luma_layers": 8,
+    "max_particles": 20000,
+    "max_shift": 2,
+    "preset": "medium",
+    "soft_threshold": false,
+    "spacing": 16,
+    "threshold": 0.06,
+    "window": 5
+  },
+  "schema_version": 1,
+  "timestamp": 1791987872.3007376
+}

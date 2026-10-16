@@ -1,0 +1,361 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "stage": "MATERIAL_UI_THREE_PAGE_PILOT",
+  "status": "VISUAL_REVIEW_PENDING",
+  "scope": [
+    "LoginPage",
+    "DashboardPage",
+    "AnalysisResultPage"
+  ],
+  "designSource": "effects-preview.html approved by user; dark material palette, editorial hierarchy and framed cards.",
+  "tests": {
+    "numTotalTests": 138,
+    "numPassedTests": 138,
+    "numFailedTests": 0,
+    "success": true
+  },
+  "build": "PASS",
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 2
+  },
+  "browser": {
+    "responsive": [
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 360,
+        "overflow": false,
+        "path": "/login",
+        "width": 375
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 360,
+        "overflow": false,
+        "path": "/dashboard",
+        "width": 375
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 360,
+        "overflow": false,
+        "path": "/orders/1/analysis",
+        "width": 375
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 768,
+        "overflow": false,
+        "path": "/login",
+        "width": 768
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 753,
+        "overflow": false,
+        "path": "/dashboard",
+        "width": 768
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 753,
+        "overflow": false,
+        "path": "/orders/1/analysis",
+        "width": 768
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 1280,
+        "overflow": false,
+        "path": "/login",
+        "width": 1280
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 1265,
+        "overflow": false,
+        "path": "/dashboard",
+        "width": 1280
+      },
+      {
+        "background": "rgb(16, 18, 23)",
+        "contentWidth": 1265,
+        "overflow": false,
+        "path": "/orders/1/analysis",
+        "width": 1280
+      }
+    ],
+    "outsidePilot": {
+      "background": "rgb(242, 242, 247)",
+      "materialScopes": 0,
+      "path": "/orders"
+    },
+    "realBackendLoginRedirect": "/client"
+  },
+  "scopedContrastPairs": [
+    {
+      "name": "body",
+      "foreground": "#f0f1f3",
+      "background": "#171a21",
+      "ratio": 15.405526820166711,
+      "passed": true
+    },
+    {
+      "name": "muted on card",
+      "foreground": "#a0a8b7",
+      "background": "#171a21",
+      "ratio": 7.278982536015944,
+      "passed": true
+    },
+    {
+      "name": "muted on page",
+      "foreground": "#a0a8b7",
+      "background": "#101217",
+      "ratio": 7.832402327294315,
+      "passed": true
+    },
+    {
+      "name": "accent",
+      "foreground": "#b5c8e7",
+      "background": "#171a21",
+      "ratio": 10.264362387829744,
+      "passed": true
+    },
+    {
+      "name": "filled action",
+      "foreground": "#101217",
+      "background": "#b5c8e7",
+      "ratio": 11.044760096186858,
+      "passed": true
+    },
+    {
+      "name": "success",
+      "foreground": "#9dd7b2",
+      "background": "#182e25",
+      "ratio": 8.786804308865115,
+      "passed": true
+    },
+    {
+      "name": "warning",
+      "foreground": "#e7c48e",
+      "background": "#332a1b",
+      "ratio": 8.525729182872665,
+      "passed": true
+    },
+    {
+      "name": "error",
+      "foreground": "#ffb4b0",
+      "background": "#371f26",
+      "ratio": 8.949201612528435,
+      "passed": true
+    },
+    {
+      "name": "info",
+      "foreground": "#b5d0fa",
+      "background": "#202e44",
+      "ratio": 8.704606160804948,
+      "passed": true
+    },
+    {
+      "name": "login CTA",
+      "foreground": "#edf2fa",
+      "background": "#20252f",
+      "ratio": 13.665661090026708,
+      "passed": true
+    },
+    {
+      "name": "placeholder",
+      "foreground": "#8f9aad",
+      "background": "#101217",
+      "ratio": 6.595966089929064,
+      "passed": true
+    },
+    {
+      "name": "field label",
+      "foreground": "#b8c4d6",
+      "background": "#101217",
+      "ratio": 10.62071991946253,
+      "passed": true
+    }
+  ],
+  "audits": {
+    "sampling": "One sample per page; analysis repeated after fixing loading layout shift. Not a three-run relative performance acceptance.",
+    "currentSamples": [
+      {
+        "name": "login",
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 643.7542500000001,
+        "lcp": 724.5051000000001,
+        "tbt": 73.5,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 650.1566250000001,
+        "lcp": 741.78795,
+        "tbt": 0,
+        "cls": 0.0005909419345827278,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "after",
+        "round": 1,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 603.192,
+        "lcp": 726.384,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      }
+    ],
+    "initialSamples": [
+      {
+        "name": "login",
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 643.7542500000001,
+        "lcp": 724.5051000000001,
+        "tbt": 73.5,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 650.1566250000001,
+        "lcp": 741.78795,
+        "tbt": 0,
+        "cls": 0.0005909419345827278,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "after",
+        "round": 1,
+        "performance": 79,
+        "accessibility": 100,
+        "fcp": 644.8166249999999,
+        "lcp": 805.77995,
+        "tbt": 0,
+        "cls": 0.4868328155876157,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      }
+    ],
+    "analysisClsBefore": 0.4868328155876157,
+    "analysisClsAfter": 0
+  },
+  "bundle": {
+    "files": [
+      {
+        "file": "assets/index-CqU-jRR0.js",
+        "bytes": 419029,
+        "gzipBytes": 126653,
+        "sha256": "7939c2ff23347b87353df618a43519ae1e86df64bd1a1f00c6a38a97c1f323ca"
+      },
+      {
+        "file": "assets/index-DyTUuTT5.css",
+        "bytes": 50026,
+        "gzipBytes": 10222,
+        "sha256": "916bb72bbfb708bdfdda144ce9b4909c6dc1db725f7bef85496cc8f9d906fcbe"
+      },
+      {
+        "file": "assets/index.es-CgN3LtHA.js",
+        "bytes": 87728,
+        "gzipBytes": 29268,
+        "sha256": "4a99aeefc5f595b3ffc09b784a8b0fc405ce94b60104816cc76f534952524f2d"
+      },
+      {
+        "file": "assets/index.es-HWh8x900.js",
+        "bytes": 82687,
+        "gzipBytes": 12699,
+        "sha256": "277917591ba5c88a7cec178d8dc2d45a28c9a3fc65d075539e74773c829ac1cd"
+      },
+      {
+        "file": "assets/index.es-RFdDiwAV.js",
+        "bytes": 25557,
+        "gzipBytes": 10430,
+        "sha256": "62a20d69224e815fb8202468e428bac064cd8641fece9fb4259a530b669e501d"
+      },
+      {
+        "file": "assets/QuickActionsLiquid-CPFryUO0.js",
+        "bytes": 50928,
+        "gzipBytes": 17148,
+        "sha256": "92f35aa19f5af0a860d3ca13f46f35d685700dc4deefe55a2b377eea474be400"
+      },
+      {
+        "file": "data/metadata.json",
+        "bytes": 2782,
+        "gzipBytes": 847,
+        "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+      },
+      {
+        "file": "data/particles.bin",
+        "bytes": 370335,
+        "gzipBytes": 226252,
+        "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+      },
+      {
+        "file": "favicon.svg",
+        "bytes": 9522,
+        "gzipBytes": 1504,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "file": "icons.svg",
+        "bytes": 5031,
+        "gzipBytes": 2161,
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "file": "index.html",
+        "bytes": 461,
+        "gzipBytes": 300,
+        "sha256": "ed2be5c95d40ebc54f3a7676bab731da9f1b1bc13afc278cdfc88431474e5f1c"
+      },
+      {
+        "file": "lensflow-v24.html",
+        "bytes": 37257,
+        "gzipBytes": 8891,
+        "sha256": "30058b2d97ab430d160e8ff35c0b5f26588c0d8b056cc3d304a9c1e9e9b069d9"
+      }
+    ],
+    "totalBytes": 1141343,
+    "previousEffectsPilotBytes": 1121330,
+    "originalP5Bytes": 868615
+  },
+  "pending": [
+    "User visual review before expanding this UI across all routes.",
+    "Three-run performance comparison for the changed page composition.",
+    "Original total-output budget issue from the four libraries remains unresolved.",
+    "Screen-reader and real Safari/iOS acceptance.",
+    "Original P5 ownership and business-flow blockers remain."
+  ],
+  "notes": [
+    "Real backend login to /client passed using task-only isolated accounts.",
+    "Responsive and Lighthouse checks use populated synthetic fixtures.",
+    "Other routes remain light; scope isolation verified on /orders.",
+    "No business API, authorization or order-state changes in this UI pass."
+  ]
+}

@@ -84,7 +84,7 @@ lensflow/
 | 层 | 技术 |
 |---|---|
 | 后端 | Python 3.11 + FastAPI + SQLAlchemy 2.0 + Alembic |
-| 前端 | React 18 + TypeScript + Vite + Tailwind CSS v4 |
+| 前端 | React 19 + TypeScript + Vite + Tailwind CSS v4 |
 | 数据库 | SQLite (开发) / PostgreSQL (生产) |
 | 图像分析 | OpenCV + NumPy + Pillow |
 | 部署 | Docker + 华为云 |
@@ -92,3 +92,7 @@ lensflow/
 ## 开发计划
 
 详见 [docs/dev-plan.md](docs/dev-plan.md)。
+
+## 设计系统
+
+参见 [设计系统文档入口](docs/design-system.md) 与 [P5 验收报告及待办](docs/design-system-phase-5.md)。当前全系统门禁未通过。

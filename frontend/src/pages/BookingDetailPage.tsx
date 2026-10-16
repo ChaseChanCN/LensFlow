@@ -5,7 +5,7 @@ import { Layout } from '@/components/Layout'
 import { getBooking, updateBooking, cancelBooking, confirmBooking } from '@/api/bookings'
 import { useAuthStore } from '@/stores/auth'
 import { extractErrorMessage } from '@/api/auth'
-import { LargeTitle, ListGroup, ListItem, Button, Input, Select, Textarea, StatusBadge } from '@/components/ui'
+import { LargeTitle, ListGroup, ListItem, Button, Input, Select, Textarea, StatusBadge, EmptyState, LoadingState, ErrorState, Spinner } from '@/components/ui'
 
 export function BookingDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -25,7 +25,7 @@ export function BookingDetailPage() {
     note: '',
   })
 
-  const { data: booking, isLoading } = useQuery({
+  const { data: booking, isLoading, isError, refetch } = useQuery({
     queryKey: ['booking', id],
     queryFn: () => getBooking(bookingId),
     enabled: !!id,
@@ -94,19 +94,19 @@ export function BookingDetailPage() {
       <LargeTitle
         title={`预约 #${bookingId}`}
         action={
-          <button onClick={() => navigate(-1)} className="text-sm font-medium text-accent hover:text-accent-hover">
-            ← 返回
-          </button>
+          <Button type="button" variant="plain" onClick={() => navigate(-1)}>← 返回</Button>
         }
       />
 
       {error && (
-        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+        <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
         </div>
       )}
 
-      {isLoading && <p className="px-4 text-sm text-label-tertiary">加载中...</p>}
+      {isLoading && <LoadingState label="正在加载预约" />}
+      {isError && <ErrorState title="预约加载失败" onRetry={() => { void refetch() }} />}
+      {!isLoading && !isError && !booking && <EmptyState title="预约不存在" />}
 
       {booking && !editing && (
         <>
@@ -127,17 +127,23 @@ export function BookingDetailPage() {
 
           {canEdit && (
             <ListGroup header="操作">
-              <ListItem title="修改详情" onClick={startEdit} showChevron />
+              <ListItem title="修改详情" onClick={startEdit} disabled={cancelMutation.isPending || confirmMutation.isPending} showChevron />
               {isClient && (
                 <ListItem
                   title="取消预约"
                   destructive
+                  disabled={cancelMutation.isPending}
+                  aria-busy={cancelMutation.isPending}
+                  trailing={cancelMutation.isPending ? <Spinner decorative size="sm" /> : undefined}
                   onClick={() => { setError(''); cancelMutation.mutate() }}
                 />
               )}
               {isPhotographer && (
                 <ListItem
                   title="确认预约"
+                  disabled={confirmMutation.isPending}
+                  aria-busy={confirmMutation.isPending}
+                  trailing={confirmMutation.isPending ? <Spinner decorative size="sm" /> : undefined}
                   onClick={() => { setError(''); confirmMutation.mutate() }}
                   isLast
                 />
@@ -148,14 +154,15 @@ export function BookingDetailPage() {
       )}
 
       {booking && editing && (
-        <>
+        <form onSubmit={(event) => { event.preventDefault(); setError(''); if (!updateMutation.isPending) updateMutation.mutate() }}>
           <div className="px-4">
             <div className="overflow-hidden rounded-card bg-system-bg shadow-card">
               <div className="border-b border-separator-opaque p-4">
                 <Select
+                  aria-label="拍摄类型" name="shoot_type"
                   value={form.shoot_type}
                   onChange={(e) => setForm({ ...form, shoot_type: e.target.value })}
-                  className="border-0 p-0 focus:ring-0"
+                  variant="grouped"
                 >
                   <option value="wedding">婚纱摄影</option>
                   <option value="portrait">人像写真</option>
@@ -166,19 +173,21 @@ export function BookingDetailPage() {
               </div>
               <div className="border-b border-separator-opaque p-4">
                 <Input
-                  type="date"
+                  type="date" label="期望日期"
+                  aria-label="期望日期" name="preferred_date"
                   value={form.preferred_date}
                   onChange={(e) => setForm({ ...form, preferred_date: e.target.value })}
-                  className="border-0 p-0 focus:ring-0"
+                  variant="grouped"
                 />
               </div>
               <div className="border-b border-separator-opaque p-4">
                 <Input
                   type="text"
+                  aria-label="拍摄地点" name="location"
                   value={form.location}
                   onChange={(e) => setForm({ ...form, location: e.target.value })}
                   placeholder="拍摄地点"
-                  className="border-0 p-0 focus:ring-0"
+                  variant="grouped"
                 />
               </div>
               <div className="border-b border-separator-opaque p-4">
@@ -186,20 +195,22 @@ export function BookingDetailPage() {
                   type="number"
                   step="0.5"
                   min="0.5"
+                  aria-label="拍摄时长（小时）" name="duration_hours"
                   value={form.duration_hours}
                   onChange={(e) => setForm({ ...form, duration_hours: e.target.value })}
                   placeholder="拍摄时长（小时）"
-                  className="border-0 p-0 focus:ring-0"
+                  variant="grouped"
                 />
               </div>
               <div className="p-4">
                 <Input
                   type="text"
+                  aria-label="联系方式" name="contact_info"
                   value={form.contact_info}
                   onChange={(e) => setForm({ ...form, contact_info: e.target.value })}
                   placeholder="联系方式"
                   required
-                  className="border-0 p-0 focus:ring-0"
+                  variant="grouped"
                 />
               </div>
             </div>
@@ -207,6 +218,7 @@ export function BookingDetailPage() {
 
           <div className="px-4 pt-4">
             <Textarea
+              aria-label="备注" name="note"
               value={form.note}
               onChange={(e) => setForm({ ...form, note: e.target.value })}
               placeholder="备注"
@@ -215,14 +227,14 @@ export function BookingDetailPage() {
           </div>
 
           <div className="flex gap-3 px-4 pt-4">
-            <Button onClick={() => updateMutation.mutate()} disabled={updateMutation.isPending}>
-              {updateMutation.isPending ? '保存中...' : '保存修改'}
+            <Button type="submit" loading={updateMutation.isPending}>
+              保存修改
             </Button>
-            <Button variant="gray" onClick={() => setEditing(false)}>
+            <Button type="button" variant="gray" disabled={updateMutation.isPending} onClick={() => setEditing(false)}>
               取消编辑
             </Button>
           </div>
-        </>
+        </form>
       )}
     </Layout>
   )

@@ -14,7 +14,9 @@ import { BookingDetailPage } from '@/pages/BookingDetailPage'
 import { SelectionPage } from '@/pages/client/SelectionPage'
 import { DeliveryPage } from '@/pages/client/DeliveryPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
+import { LandingPage } from '@/pages/LandingPage'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
+import { ToastViewport } from '@/components/ui/Toast'
 
 const queryClient = new QueryClient()
 
@@ -23,6 +25,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/landing" element={<Navigate to="/" replace />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/booking" element={<BookingPage />} />
@@ -35,7 +39,7 @@ function App() {
             }
           />
           <Route
-            path="/"
+            path="/dashboard"
             element={
               <ProtectedRoute>
                 <DashboardPage />
@@ -110,6 +114,7 @@ function App() {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </BrowserRouter>
+      <ToastViewport />
     </QueryClientProvider>
   )
 }

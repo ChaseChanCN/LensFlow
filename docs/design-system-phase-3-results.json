@@ -1,0 +1,1154 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "phase": 3,
+  "pageTests": {
+    "total": 25,
+    "passed": 25,
+    "failed": 0
+  },
+  "uiTests": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0
+  },
+  "fullSuite": {
+    "total": 95,
+    "passed": 85,
+    "failed": 10,
+    "failedTests": [
+      "AnalysisResultPage renders back to upload link",
+      "AnalysisResultPage renders photo with analysis data",
+      "BookingPage renders booking form",
+      "DeliveryPage renders page title",
+      "RetouchPage renders file input for photographer",
+      "RetouchPage renders page title",
+      "RetouchPage renders task list",
+      "SelectionPage renders max select info",
+      "SelectionPage renders page title",
+      "UploadPage renders page title"
+    ],
+    "addedFailures": [],
+    "resolvedFailures": [
+      "LoginPage renders login form",
+      "LoginPage shows error message when set",
+      "OrdersPage renders orders table after load",
+      "OrdersPage renders page title"
+    ]
+  },
+  "uiCoverage": {
+    "lines": {
+      "total": 167,
+      "covered": 167,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 218,
+      "covered": 213,
+      "skipped": 0,
+      "pct": 97.7
+    },
+    "functions": {
+      "total": 60,
+      "covered": 59,
+      "skipped": 0,
+      "pct": 98.33
+    },
+    "branches": {
+      "total": 233,
+      "covered": 221,
+      "skipped": 0,
+      "pct": 94.84
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "checks": {
+    "productionBuild": "passed",
+    "lint": {
+      "errors": 0,
+      "existingWarnings": 2
+    },
+    "tokens": "passed: 115 variables, 121 candidates",
+    "contrast": "passed: 12 recommended pairs",
+    "particleReducedMotion": "passed"
+  },
+  "bundle": {
+    "totalBytes": 863288,
+    "files": [
+      {
+        "path": "assets/index-CdHTDDLw.css",
+        "bytes": 34747,
+        "gzipBytes": 7353,
+        "sha256": "195a5469e226565e641eb52923c7e7053ba4966760905f003cb31ccfc379c2c8"
+      },
+      {
+        "path": "assets/index-pDosqrCC.js",
+        "bytes": 403061,
+        "gzipBytes": 122850,
+        "sha256": "b9eeed60fb6884f6861f8c0942afbc437b77693153b8e727515d208124e40f3e"
+      },
+      {
+        "path": "data/metadata.json",
+        "bytes": 2782,
+        "gzipBytes": 852,
+        "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+      },
+      {
+        "path": "data/particles.bin",
+        "bytes": 370335,
+        "gzipBytes": 226215,
+        "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 9522,
+        "gzipBytes": 1490,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "path": "icons.svg",
+        "bytes": 5031,
+        "gzipBytes": 2104,
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "path": "index.html",
+        "bytes": 458,
+        "gzipBytes": 290,
+        "sha256": "e3fab85f16ff34f3dcd08efc5ee2fba60b892a9827024f81315db8dc196c4e9f"
+      },
+      {
+        "path": "lensflow-v24.html",
+        "bytes": 37352,
+        "gzipBytes": 8952,
+        "sha256": "4ef304d3db2343c816526262ff0af0db0da52203e52bfb526581c7d5bc55a5e2"
+      }
+    ],
+    "note": "gzipBytes use Node zlib gzip level 6 as an offline estimate; the static server may serve uncompressed files.",
+    "phase2TotalBytes": 860590,
+    "originalTotalBytes": 843904,
+    "growthSincePhase2Percent": 0.31350585063736336,
+    "growthSinceOriginalPercent": 2.2969437281965766,
+    "particleUnchanged": true
+  },
+  "performance": {
+    "method": "Cold-profile desktop Edge/Lighthouse, three final samples per route; medians. Same synthetic empty API responses. P2 pre-migration samples were captured in the initial pass (1 or 2 per route), and original P1 baseline is reused where available. Navigation measures are frontend fixtures, not real backend latency. All final samples retained, including the lower particle results. Additional P2 particle control samples are recorded separately.",
+    "environment": {
+      "os": "Windows 10.0.26200",
+      "cpu": "11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz",
+      "logicalCpus": 8,
+      "memoryGiB": 15.825050354003906,
+      "node": "v24.20.0",
+      "edge": "155.0.4283.45",
+      "lighthouse": "13.5.0",
+      "lighthouseSettings": {
+        "formFactor": "desktop",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "throttlingMethod": "simulate"
+      }
+    },
+    "medians": [
+      {
+        "route": "/login",
+        "finalSampleCount": 3,
+        "after": {
+          "performance": 100,
+          "accessibility": 100,
+          "fcp": 606.1692,
+          "lcp": 606.1692,
+          "tbt": 0,
+          "cls": 0
+        },
+        "phase2SampleCount": 2,
+        "phase2": {
+          "performance": 100,
+          "accessibility": 89,
+          "fcp": 605.07065,
+          "lcp": 605.07065,
+          "tbt": 0,
+          "cls": 0
+        },
+        "originalBaseline": {
+          "performance": 100,
+          "accessibility": 89,
+          "fcp": 565.446,
+          "lcp": 605.446,
+          "tbt": 0,
+          "cls": 0
+        },
+        "changeSincePhase2": {
+          "score": 0,
+          "fcpPercent": 0.18155731070412795,
+          "lcpPercent": 0.18155731070412795
+        },
+        "changeSinceOriginal": {
+          "score": 0,
+          "fcpPercent": 7.201960929956175,
+          "lcpPercent": 0.11944913336614515
+        }
+      },
+      {
+        "route": "/dashboard",
+        "finalSampleCount": 3,
+        "after": {
+          "performance": 100,
+          "accessibility": 100,
+          "fcp": 604.7783,
+          "lcp": 653.1674499999999,
+          "tbt": 0,
+          "cls": 0.007243470799404606
+        },
+        "phase2SampleCount": 1,
+        "phase2": {
+          "performance": 100,
+          "accessibility": 91,
+          "fcp": 604.3937000000001,
+          "lcp": 653.5905500000001,
+          "tbt": 0,
+          "cls": 0
+        },
+        "originalBaseline": {
+          "performance": 100,
+          "accessibility": 91,
+          "fcp": 565.4886,
+          "lcp": 654.15285,
+          "tbt": 0,
+          "cls": 0
+        },
+        "changeSincePhase2": {
+          "score": 0,
+          "fcpPercent": 0.06363401868680896,
+          "lcpPercent": -0.06473471808920994
+        },
+        "changeSinceOriginal": {
+          "score": 0,
+          "fcpPercent": 6.947920789207762,
+          "lcpPercent": -0.15063757652359344
+        }
+      },
+      {
+        "route": "/orders",
+        "finalSampleCount": 3,
+        "after": {
+          "performance": 100,
+          "accessibility": 100,
+          "fcp": 603.3308999999999,
+          "lcp": 644.9963499999999,
+          "tbt": 0,
+          "cls": 0
+        },
+        "phase2SampleCount": 1,
+        "phase2": {
+          "performance": 100,
+          "accessibility": 91,
+          "fcp": 605.9318000000001,
+          "lcp": 648.8977000000001,
+          "tbt": 0,
+          "cls": 0
+        },
+        "originalBaseline": null,
+        "changeSincePhase2": {
+          "score": 0,
+          "fcpPercent": -0.42923972631905283,
+          "lcpPercent": -0.6012272812802699
+        },
+        "changeSinceOriginal": null
+      },
+      {
+        "route": "/lensflow-v24.html",
+        "finalSampleCount": 3,
+        "after": {
+          "performance": 88,
+          "accessibility": 100,
+          "fcp": 1207.4636675137097,
+          "lcp": 1207.4636675137097,
+          "tbt": 0,
+          "cls": 0
+        },
+        "phase2SampleCount": 1,
+        "phase2": {
+          "performance": 97,
+          "accessibility": 100,
+          "fcp": 982.8733543597805,
+          "lcp": 1085.4806251374775,
+          "tbt": 0,
+          "cls": 0
+        },
+        "originalBaseline": {
+          "performance": 96,
+          "accessibility": 100,
+          "fcp": 992.8203393176232,
+          "lcp": 1085.8031473329238,
+          "tbt": 0,
+          "cls": 0
+        },
+        "changeSincePhase2": {
+          "score": -9,
+          "fcpPercent": 22.850381705608626,
+          "lcpPercent": 11.237698725463918
+        },
+        "changeSinceOriginal": {
+          "score": -8,
+          "fcpPercent": 21.61955388057555,
+          "lcpPercent": 11.204657168255828
+        }
+      }
+    ],
+    "runs": [
+      {
+        "phase": "after",
+        "route": "/login",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/login",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 606.3775,
+        "lcp": 606.3775,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/dashboard",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/dashboard",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 604.7783,
+        "lcp": 653.1674499999999,
+        "tbt": 0,
+        "cls": 0.007243470799404606,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/orders",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/orders",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 602.712,
+        "lcp": 644.068,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/lensflow-v24.html",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/lensflow-v24.html",
+        "performance": 87,
+        "accessibility": 100,
+        "fcp": 1240.5805302621397,
+        "lcp": 1281.3367302621398,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/login",
+        "round": 2,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/login",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 606.1692,
+        "lcp": 606.1692,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/dashboard",
+        "round": 2,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/dashboard",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 605.5031,
+        "lcp": 654.25465,
+        "tbt": 0,
+        "cls": 0.007243470799404606,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/orders",
+        "round": 2,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/orders",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 603.3308999999999,
+        "lcp": 644.9963499999999,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/login",
+        "round": 3,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/login",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 605.6738,
+        "lcp": 605.6738,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/dashboard",
+        "round": 3,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/dashboard",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 602.668,
+        "lcp": 650.002,
+        "tbt": 0,
+        "cls": 0.007243470799404606,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/orders",
+        "round": 3,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/orders",
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 604.082,
+        "lcp": 646.123,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/lensflow-v24.html",
+        "round": 2,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/lensflow-v24.html",
+        "performance": 91,
+        "accessibility": 100,
+        "fcp": 823.4428,
+        "lcp": 1104.0027,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "after",
+        "route": "/lensflow-v24.html",
+        "round": 3,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4186/lensflow-v24.html",
+        "performance": 88,
+        "accessibility": 100,
+        "fcp": 1207.4636675137097,
+        "lcp": 1207.4636675137097,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      }
+    ],
+    "phase2Runs": [
+      {
+        "phase": "before",
+        "route": "/login",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/login",
+        "performance": 100,
+        "accessibility": 89,
+        "fcp": 604.9105999999999,
+        "lcp": 604.9105999999999,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "before",
+        "route": "/dashboard",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/dashboard",
+        "performance": 100,
+        "accessibility": 91,
+        "fcp": 604.3937000000001,
+        "lcp": 653.5905500000001,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "before",
+        "route": "/orders",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/orders",
+        "performance": 100,
+        "accessibility": 91,
+        "fcp": 605.9318000000001,
+        "lcp": 648.8977000000001,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "before",
+        "route": "/lensflow-v24.html",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/lensflow-v24.html",
+        "performance": 97,
+        "accessibility": 100,
+        "fcp": 982.8733543597805,
+        "lcp": 1085.4806251374775,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "before",
+        "route": "/login",
+        "round": 2,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/login",
+        "performance": 100,
+        "accessibility": 89,
+        "fcp": 605.2307000000001,
+        "lcp": 605.2307000000001,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      }
+    ],
+    "particleControlRuns": [
+      {
+        "phase": "before",
+        "route": "/lensflow-v24.html",
+        "round": 1,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/lensflow-v24.html",
+        "performance": 91,
+        "accessibility": 100,
+        "fcp": 1051.7927,
+        "lcp": 1379.945,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "before",
+        "route": "/lensflow-v24.html",
+        "round": 2,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/lensflow-v24.html",
+        "performance": 93,
+        "accessibility": 100,
+        "fcp": 1132.1470999999997,
+        "lcp": 1247.1866999999997,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      },
+      {
+        "phase": "before",
+        "route": "/lensflow-v24.html",
+        "round": 3,
+        "lighthouseVersion": "13.5.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "finalUrl": "http://127.0.0.1:4185/lensflow-v24.html",
+        "performance": 96,
+        "accessibility": 100,
+        "fcp": 1011.5749000000001,
+        "lcp": 1124.2882000000002,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "metricError": null,
+        "warnings": [],
+        "settings": {
+          "formFactor": "desktop",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate"
+        }
+      }
+    ],
+    "particleControlMedians": {
+      "performance": 93,
+      "accessibility": 100,
+      "fcp": 1051.7927,
+      "lcp": 1247.1866999999997,
+      "tbt": 0,
+      "cls": 0
+    }
+  },
+  "animationFrames": {
+    "method": "Main renderer FireAnimationFrame cadence after 500ms warmup; not GPU-presented FPS.",
+    "samples": [
+      {
+        "callbackCount": 146,
+        "sampleSeconds": 1.883464,
+        "fps": 59.99583745694104
+      },
+      {
+        "callbackCount": 145,
+        "sampleSeconds": 1.866863,
+        "fps": 59.99368994939639
+      },
+      {
+        "callbackCount": 143,
+        "sampleSeconds": 1.83334,
+        "fps": 59.9997818189752
+      }
+    ],
+    "median": 59.99583745694104,
+    "originalMedian": 59.99395813058826
+  },
+  "browserChecks": {
+    "loginSuccessAndFailure": true,
+    "keyboardFocus": true,
+    "orderDetailsAndHistory": true,
+    "nestedButtonsAbsent": true,
+    "errorRetry": true,
+    "responsive": [
+      {
+        "route": "login",
+        "width": 375,
+        "contentWidth": 375,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "dashboard",
+        "width": 375,
+        "contentWidth": 375,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "orders",
+        "width": 375,
+        "contentWidth": 375,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "login",
+        "width": 768,
+        "contentWidth": 768,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "dashboard",
+        "width": 768,
+        "contentWidth": 768,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "orders",
+        "width": 768,
+        "contentWidth": 768,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "login",
+        "width": 1280,
+        "contentWidth": 1280,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "dashboard",
+        "width": 1280,
+        "contentWidth": 1280,
+        "horizontalOverflow": false
+      },
+      {
+        "route": "orders",
+        "width": 1280,
+        "contentWidth": 1280,
+        "horizontalOverflow": false
+      }
+    ],
+    "data": "Synthetic fixtures only"
+  },
+  "limitations": [
+    "Remaining 10 existing tests fail outside pilot pages.",
+    "Real backend business end-to-end and real screen-reader checks remain pending.",
+    "Visual updates are intentional: shared empty states, stronger text colors, caption line height and correct active navigation.",
+    "Root iframe route still has Lighthouse NO_FCP; particle document measured separately."
+  ],
+  "acceptance": {
+    "pilotPagePerformance": true,
+    "pilotAutomaticAccessibility": true,
+    "bundleGrowth": true,
+    "particleFrameCadence": true,
+    "particleNavigationAgainstOriginalBaseline": false,
+    "fullSuite": false,
+    "realBackendEndToEnd": "pending",
+    "realScreenReader": "pending"
+  }
+}
