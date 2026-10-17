@@ -1,0 +1,126 @@
+{
+  "tcp_sorted_pagination": [
+    {
+      "sort": "id_asc",
+      "matches": 83,
+      "pages": 3,
+      "max_id": 990,
+      "independent_expected": true
+    },
+    {
+      "sort": "id_desc",
+      "matches": 83,
+      "pages": 3,
+      "max_id": 990,
+      "independent_expected": true
+    },
+    {
+      "sort": "created_asc",
+      "matches": 83,
+      "pages": 3,
+      "max_id": 990,
+      "independent_expected": true
+    },
+    {
+      "sort": "created_desc",
+      "matches": 83,
+      "pages": 3,
+      "max_id": 990,
+      "independent_expected": true
+    },
+    {
+      "sort": "rating_asc",
+      "matches": 83,
+      "pages": 3,
+      "max_id": 990,
+      "independent_expected": true
+    },
+    {
+      "sort": "rating_desc",
+      "matches": 83,
+      "pages": 3,
+      "max_id": 990,
+      "independent_expected": true
+    }
+  ],
+  "exact_device_models": {
+    "d750": 250,
+    "eos 700d": 250,
+    "eos 70d": 251
+  },
+  "timeline_counts": {
+    "known": 751,
+    "unknown": 251
+  },
+  "sql_measurements": [
+    {
+      "operation": "catalog",
+      "iterations": 20,
+      "sql_queries_per_call": 2.0,
+      "median_ms": 1.845,
+      "max_ms": 12.933
+    },
+    {
+      "operation": "facets",
+      "iterations": 20,
+      "sql_queries_per_call": 5.0,
+      "median_ms": 3.707,
+      "max_ms": 8.077
+    },
+    {
+      "operation": "timeline-year",
+      "iterations": 20,
+      "sql_queries_per_call": 4.0,
+      "median_ms": 3.276,
+      "max_ms": 6.063
+    }
+  ],
+  "sqlite_query_plan": [
+    "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+    "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+    "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)"
+  ],
+  "full_refresh_reuse": {
+    "processed": 1002,
+    "reused": 1002,
+    "batches": 101,
+    "seconds": 32.047,
+    "photos_per_second": 31.27,
+    "limit_per_batch": 10,
+    "thumbnail_count_before": 148,
+    "thumbnail_count_after": 148,
+    "additional_thumbnail_requests": 0
+  },
+  "initial_index_window_including_browser_reload_pause": {
+    "seconds": 219.406,
+    "photos": 1002,
+    "warning": "Observed wall-clock interval includes user/browser idle and one later failed-file retry; not CPU throughput"
+  },
+  "source_files_unchanged": true,
+  "business_tables_unchanged": [
+    "alembic_version",
+    "analysis_results",
+    "audit_logs",
+    "bookings",
+    "deliveries",
+    "notification_logs",
+    "order_timelines",
+    "orders",
+    "photo_asset_annotations",
+    "photo_edit_drafts",
+    "photos",
+    "retouch_feedbacks",
+    "retouch_tasks",
+    "retouch_versions",
+    "selection_items",
+    "selection_sets",
+    "selection_submissions",
+    "todo_items",
+    "users"
+  ],
+  "initial_batch_requests": {
+    "requests": 102,
+    "server_duration_sum_seconds": 57.072,
+    "note": "Initial construction plus one failed-item retry; excludes browser idle and the later reuse benchmark"
+  }
+}

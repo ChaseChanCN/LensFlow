@@ -1,0 +1,30 @@
+{
+  "frontend-full.xml": {
+    "tests": 315,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "backend-full.xml": {
+    "tests": 442,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "frontend-targeted.xml": {
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "backend-targeted.xml": {
+    "tests": 53,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "typescript_exit": 0,
+  "production_build_exit": 0,
+  "lint_exit": 0,
+  "lint_existing_warnings": 4
+}

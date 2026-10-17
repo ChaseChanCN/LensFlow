@@ -1,0 +1,88 @@
+{
+  "manifest_version": 1,
+  "reviewed_on": "2026-10-18",
+  "scope": "仓库已有的摄影源图及 C1/C2 元数据验证产物；不包含 UI 截图和导出的缩略图。",
+  "provenance_policy": "相机 Make/Model 标签不能证明相机来源。未重新联网核实授权；来源声明追溯到仓库既有 README 与前序报告。",
+  "real_camera_coverage": {
+    "Canon": {"verified_samples": 0, "status": "not_verified"},
+    "Nikon": {"verified_samples": 0, "status": "not_verified"},
+    "Sony": {"verified_samples": 0, "status": "not_verified"}
+  },
+  "files": [
+    {
+      "id": "grace-hopper-photographic-source",
+      "path": "backend/tests/fixtures/grace_hopper.jpg",
+      "classification": "real_photograph_unknown_camera_origin",
+      "camera_origin_verified": false,
+      "source_record": "backend/tests/fixtures/README.md",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Grace_Hopper.jpg",
+      "license_as_recorded": "Public domain; US federal work; James S. Davis / United States Navy",
+      "retrieved_on_as_recorded": "2026-10-17",
+      "sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+      "size_bytes": 73746,
+      "width": 517,
+      "height": 606,
+      "independent_pillow_expectation": {
+        "format": "JPEG", "exif_present": false, "icc_present": false,
+        "make": null, "model": null, "lens_model": null
+      },
+      "limitations": "是真实摄影图像，但无 EXIF，不证明任何厂商、机型或镜头兼容性。"
+    },
+    {
+      "id": "c1-constructed-app-metadata",
+      "path": "docs/image-processing-p3-c1/constructed-metadata.jpg",
+      "classification": "constructed_metadata_injection",
+      "camera_origin_verified": false,
+      "source_record": "docs/image-processing-p3-c1.md",
+      "derived_from": "grace-hopper-photographic-source",
+      "license_as_recorded": "由既有公版照片派生的测试数据；标签为构造内容",
+      "sha256": "6bf54b0afd175596c57d6a2b92f43ac1bcb8d9e55ff2f19bcb3b8dfc9f3c41a3",
+      "size_bytes": 74816,
+      "width": 517,
+      "height": 606,
+      "independent_pillow_expectation": {
+        "format": "JPEG", "exif_present": true, "icc_present": false,
+        "make": "Canon", "model": "Canon constructed sample", "lens_model": "Constructed 50mm"
+      },
+      "limitations": "EXIF/IPTC/XMP APP 段由测试工具注入，不是 Canon 原片。"
+    },
+    {
+      "id": "c2-constructed-known-exif",
+      "path": "docs/image-processing-p3-c2/known-exif-sample.jpg",
+      "classification": "constructed_metadata_injection",
+      "camera_origin_verified": false,
+      "source_record": "docs/image-processing-p3-c2.md",
+      "derived_from": "grace-hopper-photographic-source",
+      "license_as_recorded": "由既有公版照片派生的测试数据；标签为构造内容",
+      "sha256": "5aa700b2f4012a7e6bd24fa95d6881c46af1ad862eded35178bcaf5860a61531",
+      "size_bytes": 73983,
+      "width": 517,
+      "height": 606,
+      "independent_pillow_expectation": {
+        "format": "JPEG", "exif_present": true, "icc_present": false,
+        "make": "Canon", "model": "EOS 70D", "lens_model": "Constructed 35mm"
+      },
+      "limitations": "型号标签虽为 EOS 70D，来源仍是构造注入，不能计作真实 Canon 覆盖。"
+    }
+  ],
+  "generated_test_families": [
+    {
+      "generator": "backend/tests/metadata_samples.py",
+      "classification": "constructed_metadata_injection",
+      "labels": ["Canon", "Nikon", "SONY"],
+      "base_fixture": "grace-hopper-photographic-source",
+      "notes": "大小端 TIFF、GPS、日期、镜头与厂商标签均由函数参数构造；运行时数据不是相机原片。"
+    },
+    {
+      "generator": "backend/tests/test_metadata_compatibility.py",
+      "classification": "constructed_metadata_injection",
+      "base_fixture": "grace-hopper-photographic-source",
+      "notes": "多 APP13、Latin-1/UTF-8 IPTC、乱序/异常 ICC、XMP 命名空间与 DTD、全部方向和日期边界。"
+    },
+    {
+      "generator": "Pillow ImageCms / backend/app/services/image_editor.py:srgb_profile",
+      "classification": "image_library_generated_icc",
+      "notes": "LCMS 生成的 sRGB profile 只验证 ICC 分片组装、指纹和描述读取，不证明真实相机 ICC 兼容性。"
+    }
+  ]
+}

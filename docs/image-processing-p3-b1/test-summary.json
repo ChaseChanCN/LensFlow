@@ -1,0 +1,18 @@
+{
+  "backend": {
+    "tests": 299,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "seconds": 219.397,
+    "passed": 298
+  },
+  "frontend": {
+    "tests": 266,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 35.6867797,
+    "passed": 266
+  }
+}

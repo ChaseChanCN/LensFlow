@@ -1,0 +1,125 @@
+{
+  "layout": [
+    {
+      "filter": "none",
+      "heroHeight": 660,
+      "maskBottom": "0px",
+      "maskTop": "0px",
+      "overflow": false,
+      "width": 1920
+    },
+    {
+      "filter": "none",
+      "heroHeight": 660,
+      "maskBottom": "0px",
+      "maskTop": "0px",
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "filter": "none",
+      "heroHeight": 660,
+      "maskBottom": "0px",
+      "maskTop": "0px",
+      "overflow": false,
+      "width": 768
+    },
+    {
+      "filter": "none",
+      "heroHeight": 720,
+      "maskBottom": "0px",
+      "maskTop": "0px",
+      "overflow": false,
+      "width": 375
+    },
+    {
+      "filter": "none",
+      "heroHeight": 728.8958740234375,
+      "maskBottom": "0px",
+      "maskTop": "0px",
+      "overflow": false,
+      "width": 320
+    }
+  ],
+  "effectExclusivity": [
+    {
+      "route": "home",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "login",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "register",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "404",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "dashboard",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "orders",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "order",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "upload",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "analysis",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "retouch",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "client",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "booking",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "booking-detail",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "selection",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    },
+    {
+      "route": "delivery",
+      "mixedCards": 0,
+      "nestedMixed": 0
+    }
+  ],
+  "lightMode": "No inversion; original luminance order; normal blending with stronger gray contrast",
+  "build": "PASS",
+  "previewBuild": "PASS",
+  "automatedTests": "Not run in this revision"
+}

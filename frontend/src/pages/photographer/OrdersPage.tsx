@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { listOrders, type Order } from '@/api/orders'
 import { Layout } from '@/components/Layout'
-import { LargeTitle, ListGroup, ListItem, StatusBadge } from '@/components/ui'
+import { LargeTitle, ListGroup, ListItem, StatusBadge, EmptyState, Spinner } from '@/components/ui'
 
 const STATUS_MAP: Record<string, string> = {
   PENDING_CONFIRM: 'pending', CONFIRMED: 'confirmed', WAITING_SHOOT: 'confirmed',
@@ -21,7 +21,8 @@ const STATUS_LABELS: Record<string, string> = {
 }
 
 export function OrdersPage() {
-  const { data: orders, isLoading } = useQuery({
+  const navigate = useNavigate()
+  const { data: orders, isLoading, isError, refetch } = useQuery({
     queryKey: ['orders'],
     queryFn: listOrders,
   })
@@ -30,11 +31,13 @@ export function OrdersPage() {
     <Layout title="LensFlow">
       <LargeTitle title="订单" subtitle="所有摄影订单" />
 
-      {isLoading && <p className="px-4 text-sm text-label-tertiary">加载中...</p>}
+      {isLoading && <div className="flex justify-center p-6"><Spinner label="正在加载订单" /></div>}
+
+      {isError && <div role="alert" className="mx-4 rounded-card bg-error-bg"><EmptyState title="订单加载失败" description="请稍后重试。" action={{ label: '重试', onClick: () => { void refetch() } }} /></div>}
 
       {orders && orders.length === 0 && (
         <ListGroup>
-          <ListItem title="暂无订单" isLast />
+          <EmptyState title="暂无订单" description="预约确认后，摄影订单会显示在这里。" />
         </ListGroup>
       )}
 
@@ -47,7 +50,7 @@ export function OrdersPage() {
               subtitle={STATUS_LABELS[order.status] || order.status}
               leading={<StatusBadge status={STATUS_MAP[order.status] || 'neutral'} />}
               trailing={new Date(order.created_at).toLocaleDateString()}
-              onClick={() => (window.location.href = `/orders/${order.id}`)}
+              onClick={() => navigate(`/orders/${order.id}`)}
               showChevron
               isLast={i === orders.length - 1}
             />

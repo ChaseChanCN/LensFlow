@@ -1,0 +1,6557 @@
+{
+  "events": [
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 22.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 22.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 24.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 26.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 45.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 26.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 26.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 41.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating_min=4",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 20.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 22.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 41.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/23/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 22.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/41/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 20.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/24/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 46.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/42/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 20.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/30/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 17.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/54/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 39.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating_min=4&pick=pick",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/66/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/101/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/41/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 52.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/126/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/131/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/186/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/96/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/191/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 57.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/276/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 37.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/156/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/216/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/161/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/221/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/251/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 52.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/336/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/341/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/306/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/311/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&pick=pick",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/426/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/366/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/396/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/546/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/486/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/576/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/516/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/606/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 10.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/48/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/54/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/42/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/72/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/84/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/108/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/30/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=red",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 10.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red&sort=rating_asc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 12.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/978/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/954/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/990/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/930/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/894/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/858/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/906/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/846/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/882/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/786/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/990/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/978/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/954/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/906/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/930/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/858/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/894/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/846/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/786/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/882/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/870/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/822/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/798/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/810/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/774/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/762/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/738/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/726/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red&sort=rating_desc&cursor=WzIsMSwxLFs1LG51bGwsWyJncmVlbiIsInJlZCJdLFtdLCJyYXRpbmdfZGVzYyJdLDUsMzA2LDEwMDBdcdFiIp6PUht3xiAQbsqT8-tLWUMRYd6rheTwE7BlnBc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/570/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/546/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/558/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/534/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/522/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/510/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/474/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/486/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/450/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/462/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/438/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/426/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/402/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/390/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.41
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 24.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating_min=4&colors=green,red&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating=5&colors=green,red&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 10.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&rating_min=4&colors=green,red&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=created_asc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 77.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 79.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 75.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 71.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 10.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 5.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 25.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 11.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 13.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 28.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 14.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 13.13
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 20.99
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 15.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/edit-draft",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 10.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 12.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 24.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 13.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=created_asc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 11.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 25.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 12.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 10.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 22.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 11.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 30.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 44.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 45.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 11.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDczLDczLDEwMDBdj5ZtyXLE3DAqgyH1XSTVXY8qSjvFTdXFtkS1_En1y-M",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDE0NiwxNDYsMTAwMF1CcBB19F5MsuPuprlmdAF_ZSbxSyqjkLnv0ty7nuurFA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDIxOSwyMTksMTAwMF0M8Kr2xVLqaODJb_zPXL2lfmoR9fXgVVj9ZuBDqEsU-A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDI5MiwyOTIsMTAwMF2fJv9sp-8IUu--dMpeS9hUCaW7DzERsBud5YrEmfYZoQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDM2NSwzNjUsMTAwMF2OQpxsTrfdkAvGxGooYYguv8bFC-T7iUnrlU2QHxiIgw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDQzOCw0MzgsMTAwMF2XczFJ0_rccWc0DN4D28EQX6yC5ZxJDV1F_7BI114mvw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDUxMSw1MTEsMTAwMF0yISmp_v5O8ppZDTN4m1Ng9ewDGO4fgbC_Q_BsrJxK9w",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDU4NCw1ODQsMTAwMF1tcRwounpNQQJyge3xkjf_VW06k5NyOcb6_nMF_e3ouA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDY1Nyw2NTcsMTAwMF1ve1Hz6GVbMHRhWAXr-jaDlg0XHzr3Sdp9mNFKSbnGbA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDczMCw3MzAsMTAwMF01tEc5NqJ6WwrWnT6Jh2SNmRybD91cJQMEAiJI1Ie6mQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDgwMyw4MDMsMTAwMF2F-aTH8I1uTiUtO9BvG79DmmrG8hoU2VzE1mEqewEbkw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDg3Niw4NzYsMTAwMF0Njtwrc5eSR26HIF2LorF7zNs4REyfjoDvHI_Y--KgAg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2FzYyJdLDk0OSw5NDksMTAwMF322L32Y8k_pXLbkwzImSd9lo-T9q0i8Pms7fY6xW56UA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 3.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw5MjgsOTI4LDEwMDBddNjsy-qcMJlvLFJwyf6ojkOXS1RsurtuxxYV2fbBHKU",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw4NTUsODU1LDEwMDBdCRsMKLYfHplkF3jMNaNEWmo0EmYiy4fsAfDcYi5WWcc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw3ODIsNzgyLDEwMDBdlNtT2cD1W6NcgbN4H2RyyPFbwD_aZW09rzT8onZCOC4",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw3MDksNzA5LDEwMDBdcB6fJaQ83Bp5ZKD-tHYUHFA6xMykI9nGHaAuZYLgMBw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw2MzYsNjM2LDEwMDBdQsPzGeUDEyarb3fcef9Kr2wHifEwWCo5rL51__SnugM",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw1NjMsNTYzLDEwMDBdtfhDNuQjhpk2tvXN0bP0L1TnxFJtDPEgrWVPReJs5o0",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw0OTAsNDkwLDEwMDBdC9gB88H_FowgsrU8bfkLJyO7btYYDcRRBB6OgApZWgk",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw0MTcsNDE3LDEwMDBdbnCFtvLtYTx8Gg0Dt4NBInZhHYMYzvgEDydXP-2lyUo",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSwzNDQsMzQ0LDEwMDBd2TflQqae_MOAnQhTrR5RgtiznOpgycR_BELDcX0n2Ww",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSwyNzEsMjcxLDEwMDBdiuFm71vD974CeXtM6wKIG9nzk-WIPAdIpPsTDSkrU3U",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSwxOTgsMTk4LDEwMDBdPY0am1OhMLyd6RIusTtVgF5JDNxb2m0e7dOhuh1jXK0",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSwxMjUsMTI1LDEwMDBdLCd02gWrNbgu_gSiHaoLtMqKHNHs1cte4vDIrRv69CM",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=id_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImlkX2Rlc2MiXSw1Miw1MiwxMDAwXRdDyBU74BO1ACH5oVDE2h1Gulsjlj7BIKYAjXGhg0n1",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 3.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MDQuMDAwMDAwIiw3MywxMDAwXRa3WDz0kgyQp0qBl7InOWtPWAZFXA1CaaXLkyEdEbir",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MDguMDAwMDAwIiwxNDYsMTAwMF20ayiRwOJOdsCNu3826e6oN06ymCFiTrI5NuIelXpEZQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MTIuMDAwMDAwIiwyMTksMTAwMF0lYLt0k-lZiU8UQQD6yG5kItxE9aUs8kvtsK8dSJmOmg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MTcuMDAwMDAwIiwyOTIsMTAwMF2yx02NqcsUEdItQ4xT_pYd0HI3sX2j7TZ_O-G5VzksAA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MjEuMDAwMDAwIiwzNjUsMTAwMF0EQOpMTJvy4x9tJniXtYPlk6rbRuqO_pN6vfUEDWu3Ow",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MjUuMDAwMDAwIiw0MzgsMTAwMF30pN32JOYF7Omtw7-GiMo43DUe0rIm2VnMkl3Yii5ELw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MzAuMDAwMDAwIiw1MTEsMTAwMF2V1fxLjJq92Wi8ObOyiSzwOYUvWrRt5cL4rncOnaT0MA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MzQuMDAwMDAwIiw1ODQsMTAwMF1C5fHSJb0rs1jmtvhYqLhi-TyPY0E-NFE7dK-QwSKbFQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6MzguMDAwMDAwIiw2NTcsMTAwMF14EifCc88KvqQdmpN0RnqbU1lSeNckLHF33Dqu22zpZQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6NDIuMDAwMDAwIiw3MzAsMTAwMF2i5N2Lksta70Tx1seYVbmpgjovoXIIQ6V44t3jh5FUxg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6NDcuMDAwMDAwIiw4MDMsMTAwMF0lbVRf4JXCjfgwU7UMW7WhtDF8P3MegzfxKozaBjPjSw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6NTEuMDAwMDAwIiw4NzYsMTAwMF028mHDXdly-S456TUuh65iyCiFJlPKiM9j0qbbPUMBgA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfYXNjIl0sIjIwMjYtMDEtMDFUMDA6MDA6NTUuMDAwMDAwIiw5NDksMTAwMF0vU_jKsrXIXRrN4UsAKeZw85rWkRlzI2XbBJev6jt0Fg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjU0LjAwMDAwMCIsOTI4LDEwMDBdoOh4wwtT2wpDKc2-AgdnnVQAwZAkUUKY_OrQZHvFoY4",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjUwLjAwMDAwMCIsODU1LDEwMDBdBGIou5OMBO12a24cP0TGC5rDfAmZ5T72RIpWND0zczw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjQ1LjAwMDAwMCIsNzgyLDEwMDBdEaJlZ40BX-ErtzsiqdLH_k2zvWkk7ntdbWajDGUcguE",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjQxLjAwMDAwMCIsNzA5LDEwMDBdTU0F6-cavnTIMOn871FGnFr_iLX8Fx8Y5jEk9S8xJl0",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjM3LjAwMDAwMCIsNjM2LDEwMDBdBovBmvozQkbMBXds-vUOVCX_TU0y6T8P7du60utzEZE",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjMzLjAwMDAwMCIsNTYzLDEwMDBdiX2_LW0bLJZGUwfFx3fg2__OM524A5ljwblb0fyKVKM",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjI4LjAwMDAwMCIsNDkwLDEwMDBdFD6WJZ-DQ8nJf11K3n3R9qW7QL_vwM-Wp-sBHrAHrRs",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjI0LjAwMDAwMCIsNDE3LDEwMDBdS_I-hewIpx3RI7v5wE60bUFt1U6GFi9Mlpb0eekJeVk",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjIwLjAwMDAwMCIsMzQ0LDEwMDBd7heanRnPBQWDLgIQu_XZCJMed4IWSEcodmXqG80b2Zk",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjE1LjAwMDAwMCIsMjcxLDEwMDBdhJVvAbVY_BaS4cofjHyJ2BrPS8eOx8YVFRH4QQmCU7Y",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjExLjAwMDAwMCIsMTk4LDEwMDBdstGZNyhmKncl-8WMYHgHNdgE2tjL2IaCWOOtY9diqKE",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjA3LjAwMDAwMCIsMTI1LDEwMDBdqhpkNlNmCDizyGfnsgd3ZEPwxXPeCayYtADskeRS-H8",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=created_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sImNyZWF0ZWRfZGVzYyJdLCIyMDI2LTAxLTAxVDAwOjAwOjAzLjAwMDAwMCIsNTIsMTAwMF16W6673kOAPsZYmx5fSm8UfGGFXmX-64NxVrnxuC_j9w",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwwLDI1MywxMDAwXdGZ1C8pTugjux72uz1uxoKmsWLyR9KGzNdWhfW6Vaha",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwwLDUxMSwxMDAwXdOQ2zuM9Fvdax3vNbrwzQ7TebTEmIvhcpvG2CrPryE5",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwwLDc2MywxMDAwXRP1Uz8kTUlVWLItAN93e6XIfs663PwtooKfZnKo-Ugg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwxLDMyLDEwMDBdstftYTBFCRVWLbv9ccMXD7VOb_6J3Mb3RXVBU1ahuj0",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwxLDU0MiwxMDAwXcHaHNoZfFuhapVkmkYasLhUboHy2lt-J6vjdD3wrsPQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwyLDUxLDEwMDBd_GAtEZnEF8jPqC1pu08mSdnhCk9iWR3ZkHtVBWlQVns",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwyLDU2NywxMDAwXd9wmyAjLpG3fDrSGsDymdloeycfW_ZKf7Q8dy4DCS2c",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwzLDc2LDEwMDBd4K3CNOsuzY4rokVk-qN7MwuJIiWRWDUOCljaEosvq-w",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSwzLDU4NiwxMDAwXZ3I1K-JTe67VCHkimIH5gmOCKcnDgpz7NjAko-XCwS2",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSw0LDk1LDEwMDBd4fJKQC1oZEUmlQQue7uUQE8aVRCN3vnOu0_FJYUKBeY",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSw0LDYwNSwxMDAwXXCRYf8cyPoZnCkJNwYdDpfEVAepjArmlFlkEK6pmCn5",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSw1LDEyNiwxMDAwXVLdS9mOfsOFHjumUq33kMqZjdWkONOk81rrSE_0Ucco",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_asc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19hc2MiXSw1LDY0MiwxMDAwXcOu-1lFMTIf17_w5unIWJNHxWW0xi38Qo4pVmeZnBiQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNSw0ODYsMTAwMF2j4Q-3KEPukejeRNJFVlo6s1jc5VHip9U_S7tokN90-A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCw5NzEsMTAwMF3kF-IlpU7fQi2hBUkhAN3QmzOuI8GvtdeB4EAMIinbpQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCw0NjEsMTAwMF17ISoH-Al0XMLNEQvekTbtNNHEm0YNAJR7_5DjZ9vr3A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMyw5NTIsMTAwMF2rhmFiS1HQbP4K1mhqFInBeej6wisWIVaHSioPDODU7A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMyw0MzYsMTAwMF1x2R0fKgZtUdY_KuyVssH_Yzju3q5quWLFLrZovGpxGg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiw5MjcsMTAwMF1S3KNrljkSVwH6D4Kfx0wJDs4_cVVJLOWOj__nOlbMWw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiw0MTcsMTAwMF3w4UU2-JpCtRCT8Y6cMzDKTm9bajqbhkCfbLTUCR6Ocg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw5MDgsMTAwMF31ZbvBwOS4OhAtoIMhvD2KO9gFwmBxqDSGO6PCZ7LPjA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSwzOTgsMTAwMF05putzNHY_sgAM-wEkp1uZElpQm5IVJlGDaLLXmh6exQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw5NDMsMTAwMF0vnMjNkt9WnaO2OPTKklwNP39LAv4sqKyI_S7c5TH99g",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw2ODcsMTAwMF1ZxbJVG0kStGJUt4d4h2Pacf7inCcnutOcSSUCkuDgcw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw0MzUsMTAwMF24YX7kY37CFCEzuvB61mPvnyiT39KYQPGXdMNUJZPp9A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "sort=rating_desc&limit=73&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCwxODEsMTAwMF222wgh2o0k-PxMH1WIaCsbDzOkH5W6ByRNl2IFxSOaDA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating_min=4&pick=pick&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating=5&colors=red%2Cgreen&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating=0&pick=unmarked&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating=0&pick=unmarked&limit=73&cursor=WzIsMSwxLFswLG51bGwsW10sWyJ1bm1hcmtlZCJdLCJpZF9hc2MiXSwzMjMsMzIzLDEwMDBdBIoSaq0UNfff--yMVnflFhUYKBoiRpbYswK27lFz0t8",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating=0&pick=unmarked&limit=73&cursor=WzIsMSwxLFswLG51bGwsW10sWyJ1bm1hcmtlZCJdLCJpZF9hc2MiXSw2MzgsNjM4LDEwMDBdFKZd8D3qddd5d8SVILQwLELMBxlRx35HNieTfHNJQIw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating=0&pick=unmarked&limit=73&cursor=WzIsMSwxLFswLG51bGwsW10sWyJ1bm1hcmtlZCJdLCJpZF9hc2MiXSw5NTUsOTU1LDEwMDBdQ81B_7TPg6EkhZDxBnXR29Pfh2d7wEVsx5QgG0rywk8",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 3.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "colors=none&pick=reject&limit=73",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating_min=4&sort=rating_desc&limit=5",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "cursor=WzIsMSwxLFtudWxsLDQsW10sW10sInJhdGluZ19kZXNjIl0sNSw5NzIsMTAwMF0TTTwZsTPmnu_l7-UWMUOeCduCiGdG_ANnMkU_3tE7ZQ&sort=rating_desc&rating_min=3",
+      "status": 422,
+      "cache": null,
+      "duration_ms": 2.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/2/photos/catalog",
+      "query": "cursor=WzIsMSwxLFtudWxsLDQsW10sW10sInJhdGluZ19kZXNjIl0sNSw5NzIsMTAwMF0TTTwZsTPmnu_l7-UWMUOeCduCiGdG_ANnMkU_3tE7ZQ&sort=rating_desc&rating_min=4",
+      "status": 422,
+      "cache": null,
+      "duration_ms": 2.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "rating_min=4",
+      "status": 403,
+      "cache": null,
+      "duration_ms": 2.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "",
+      "status": 403,
+      "cache": null,
+      "duration_ms": 2.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "",
+      "status": 403,
+      "cache": null,
+      "duration_ms": 2.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/annotation",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 3.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/annotation",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 2.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/2/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 23.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/1/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 32.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 42.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 15.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=created_asc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 103.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 116.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 125.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 133.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 140.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_asc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 11.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/978/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/984/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/996/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 42.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/990/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 49.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/954/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/930/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/948/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/924/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 69.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/972/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/894/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/906/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/912/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/888/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/882/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/900/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 67.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/870/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/864/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNSw2NTQsMTAwMF0O8WFhSnxVvuHvbUJ2VKrFOfbmYCSVBmusFcQep2wnLQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/786/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/780/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/774/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/768/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/762/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/756/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/738/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/744/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/720/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/732/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/726/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/714/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/702/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNSwzMDAsMTAwMF0LGRJpQmHRsKNudUhJ-mWpLhx8jJDX_H-zGx8IV-nKhw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 20.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/426/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/408/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/432/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/420/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/402/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/396/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/384/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/390/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/378/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/366/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/354/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/360/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/348/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/342/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCw5NDEsMTAwMF0Ecx2lHl7R7QKdRKY9aPeJ6VCh_l7kK4uWQeEsSCncCw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 17.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/84/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/66/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/72/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/60/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/54/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/48/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/42/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/30/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/24/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/989/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/983/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/971/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/965/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/959/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/977/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCw1OTMsMTAwMF2ohOCqCtlim6pBG5R74gCyi3uOJL2O9tNj7c0X-NezsQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/719/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/713/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/707/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/725/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/689/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/695/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/677/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/683/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/671/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/653/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/665/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/647/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/641/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCwyNDUsMTAwMF3VyDnT8lCSWaUSZI0aKrDIWO3FcMsfTIV-piXtFht4RA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/353/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/377/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/359/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/371/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/341/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/347/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/329/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/335/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/311/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/299/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/317/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/305/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/293/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 5.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMyw4OTIsMTAwMF0FCLpga00vBmNf20NP1D5JoAuizffV3RWf_kv1aClpWA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/23/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1000/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/994/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/976/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/982/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/970/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/964/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/958/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/952/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/934/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/928/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/922/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/940/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/916/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/892/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/910/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/898/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/874/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/886/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/880/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/868/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/850/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/838/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/856/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/844/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/832/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/826/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/808/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/814/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/802/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/796/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/790/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMyw1NDQsMTAwMF3RSm9Q96ImxuW45AQJIqK6h3GDmlaiLj6SirIBMS7xTg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/664/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/676/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/670/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/658/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/640/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/646/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/628/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/634/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/622/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/604/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/616/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/598/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMywxOTYsMTAwMF3k2ruNcjzGZT5t1wP1K2iFcRKPpApmdmDvQy61jHCmUw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/322/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/304/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/328/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/310/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/298/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/292/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/280/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/286/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/262/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/268/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/256/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/250/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/238/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/226/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/244/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/220/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/975/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiw4NDMsMTAwMF129SCPTqwCU-xBKdN8S_HIhXwJ1Umt9Y4gB3m41Q2x6Q",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 28.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/963/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/957/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/969/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 48.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/951/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/945/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/927/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/933/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/921/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/915/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/909/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/903/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/891/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/885/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/879/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiw0OTUsMTAwMF1norNwBKChwxDE8yZ-I57jnWlhB0ypysCAeqq7l644-A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/609/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/615/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/621/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/627/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/591/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/597/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/585/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/579/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/573/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/567/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/555/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/549/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/543/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/525/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/531/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/537/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiwxNDcsMTAwMF0TG8DYyZWG6ZX4zbjSsHswW56gt-_36ieFjhIdBYLBYA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 23.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/279/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/273/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/255/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/261/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/249/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/243/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/237/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/231/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/219/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/213/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/207/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/201/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 6.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/177/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/195/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/171/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/189/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/165/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/147/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/159/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/153/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/135/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/129/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/123/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/117/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/105/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/111/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/93/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/87/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/75/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/81/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw3OTQsMTAwMF1DS1lQRm_3UGiKOaBU72-6xadoev_c-qv030fRkIjplQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/908/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/914/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/920/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/926/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 44.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/902/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/896/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/878/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/884/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/872/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/866/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/860/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/854/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/842/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw0NDYsMTAwMF1LKN-NbBwCfts-F_Vnfr8MIPkkX-vF0HrrEb30TazXxQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 19.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/572/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/566/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/560/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/578/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/542/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/548/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/536/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/530/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/518/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/524/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/506/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/494/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/500/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/488/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/482/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw5OCwxMDAwXemQBvvqfycHrcjbELbV6-vq757WowVrtMoBZc45PreN",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/230/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/212/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/224/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/206/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 44.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/188/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/194/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/200/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/182/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/170/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/164/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/158/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/140/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/146/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/152/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/128/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/122/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/116/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/104/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/110/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/86/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/98/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/80/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/74/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/56/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/68/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/62/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/44/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/38/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/26/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/32/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/997/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/995/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw4NzEsMTAwMF3iOZCJDpVVEhvYizMyDXD1UnYW67mklB_OhCdeReHBiA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/931/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/937/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/932/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/939/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 47.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/925/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/919/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/913/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/918/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 49.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/907/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/911/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/904/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw2OTcsMTAwMF0RVz_8791CBMMruNcsf6VxfQVN6BKSf9uo-SF-rqEFfA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 17.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/757/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/764/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/763/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/751/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 44.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/750/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/743/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/739/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/745/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/733/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/736/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/729/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/721/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/727/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/722/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 42.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw1MjYsMTAwMF0vAgSjTzjUFpgTaaBiGlcJiff7m2G6uQC9bA6HtM-yqw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 17.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/577/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/583/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/582/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/589/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 49.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/575/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/571/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/568/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/570/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/559/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/561/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/565/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/554/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 46.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/541/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/547/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/553/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/540/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCwzNTEsMTAwMF0Zu2RGGMFKdVKzbW3UpQfaDJlFCWvQUKLTV9poupK3_Q",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/414/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/407/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/415/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/409/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 42.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/403/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/400/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/397/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/393/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/391/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/386/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/379/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/373/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/385/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/372/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/367/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCwxNzYsMTAwMF2m-Lq6Uv8mShIICb3mniGcq1-YA2g53uqrPO9WnM7gSQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/235/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/241/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/239/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/232/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/229/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/225/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/223/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/218/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/217/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/211/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/205/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/204/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/199/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/197/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/193/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/64/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/61/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/67/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/57/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/50/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/55/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/49/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/43/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/31/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/36/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/37/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/29/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/25/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/22/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 6.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 21.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/990/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNSw2NTQsMTAwMF0O8WFhSnxVvuHvbUJ2VKrFOfbmYCSVBmusFcQep2wnLQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/978/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 73.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/984/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 100.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/996/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 112.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNSwzMDAsMTAwMF0LGRJpQmHRsKNudUhJ-mWpLhx8jJDX_H-zGx8IV-nKhw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/954/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 44.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/948/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCw5NDEsMTAwMF0Ecx2lHl7R7QKdRKY9aPeJ6VCh_l7kK4uWQeEsSCncCw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 20.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/930/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/972/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 42.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/924/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 52.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/894/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 73.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/906/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 844.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/912/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 852.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 859.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCw1OTMsMTAwMF2ohOCqCtlim6pBG5R74gCyi3uOJL2O9tNj7c0X-NezsQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4279.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sNCwyNDUsMTAwMF3VyDnT8lCSWaUSZI0aKrDIWO3FcMsfTIV-piXtFht4RA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 30.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/888/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 49.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/870/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 53.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/900/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 65.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/882/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 71.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMyw4OTIsMTAwMF0FCLpga00vBmNf20NP1D5JoAuizffV3RWf_kv1aClpWA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 13.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/864/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMyw1NDQsMTAwMF3RSm9Q96ImxuW45AQJIqK6h3GDmlaiLj6SirIBMS7xTg",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMywxOTYsMTAwMF3k2ruNcjzGZT5t1wP1K2iFcRKPpApmdmDvQy61jHCmUw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiw4NDMsMTAwMF129SCPTqwCU-xBKdN8S_HIhXwJ1Umt9Y4gB3m41Q2x6Q",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiw0OTUsMTAwMF1norNwBKChwxDE8yZ-I57jnWlhB0ypysCAeqq7l644-A",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMiwxNDcsMTAwMF0TG8DYyZWG6ZX4zbjSsHswW56gt-_36ieFjhIdBYLBYA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw3OTQsMTAwMF1DS1lQRm_3UGiKOaBU72-6xadoev_c-qv030fRkIjplQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw0NDYsMTAwMF1LKN-NbBwCfts-F_Vnfr8MIPkkX-vF0HrrEb30TazXxQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMSw5OCwxMDAwXemQBvvqfycHrcjbELbV6-vq757WowVrtMoBZc45PreN",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw4NzEsMTAwMF3iOZCJDpVVEhvYizMyDXD1UnYW67mklB_OhCdeReHBiA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw2OTcsMTAwMF0RVz_8791CBMMruNcsf6VxfQVN6BKSf9uo-SF-rqEFfA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCw1MjYsMTAwMF0vAgSjTzjUFpgTaaBiGlcJiff7m2G6uQC9bA6HtM-yqw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCwzNTEsMTAwMF0Zu2RGGMFKdVKzbW3UpQfaDJlFCWvQUKLTV9poupK3_Q",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&sort=rating_desc&cursor=WzIsMSwxLFtudWxsLG51bGwsW10sW10sInJhdGluZ19kZXNjIl0sMCwxNzYsMTAwMF2m-Lq6Uv8mShIICb3mniGcq1-YA2g53uqrPO9WnM7gSQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 7.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/64/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/67/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/57/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/61/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/55/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/50/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/43/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/49/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/37/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/36/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/31/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/29/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/25/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/22/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.79
+    }
+  ],
+  "peak_server_thumbnail_requests": 4
+}

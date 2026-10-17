@@ -1,0 +1,40 @@
+{
+  "photos_in_authorized_order": 1000,
+  "controlled_real_jpeg_files": 8,
+  "photo_a_final": {
+    "photo_id": 1,
+    "rating": 3,
+    "color_label": "green",
+    "pick_status": "pick",
+    "revision": 8,
+    "exists": true,
+    "updated_at": "2026-10-17T07:53:17.122225Z"
+  },
+  "photo_b_reject": {
+    "photo_id": 2,
+    "rating": 3,
+    "color_label": null,
+    "pick_status": "reject",
+    "revision": 2,
+    "exists": true,
+    "updated_at": "2026-10-17T07:53:17.124238Z"
+  },
+  "stale_put_status": 409,
+  "unauthorized_batch_status": 403,
+  "unauthorized_batch_wrote_nothing": true,
+  "original_hashes_unchanged": true,
+  "database_counts": {
+    "photos": 1001,
+    "photo_asset_annotations": 1000,
+    "photo_edit_drafts": 0,
+    "selection_sets": 0,
+    "selection_items": 0,
+    "analysis_results": 0,
+    "retouch_versions": 0,
+    "deliveries": 0
+  },
+  "customer_annotation_visibility": null,
+  "other_read": 403,
+  "customer_read": 403,
+  "unauthenticated_read": 401
+}

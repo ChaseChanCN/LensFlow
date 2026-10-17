@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, BackgroundTasks, Depends, UploadFile
 from sqlalchemy.orm import Session
 
+from app.core.config import settings
 from app.core.database import SessionLocal, get_db
 from app.core.exceptions import ConflictException, NotFoundException, ValidationException
 from app.deps import require_role
@@ -15,7 +16,9 @@ from app.models.user import User
 from app.schemas.analysis import AnalysisResultResponse, ReviewRequest
 from app.schemas.photo import PhotoResponse, PhotoUploadResponse
 from app.services.image_analyzer import analyze_image
+from app.services.image_editor import decode_jpeg, render_slot
 from app.services.order_state import OrderStatus
+from app.services.photo_access import require_order_access, require_photo_access
 from app.services.storage import get_storage
 
 MAX_FILE_SIZE = 20 * 1024 * 1024
@@ -29,9 +32,8 @@ def _run_analysis(photo_id: int, storage_key: str):
     db = SessionLocal()
     try:
         storage = get_storage()
-        image_path = storage.get_path(storage_key)
-        with open(image_path, "rb") as f:
-            image_bytes = f.read()
+        with storage.open_read(storage_key) as f:
+            image_bytes = f.read(settings.image_max_bytes + 1)
 
         metrics = analyze_image(image_bytes)
 
@@ -47,6 +49,7 @@ def _run_analysis(photo_id: int, storage_key: str):
         db.add(result)
         db.commit()
     except Exception:
+        db.rollback()
         result = AnalysisResult(
             photo_id=photo_id,
             suggestion="need_review",
@@ -63,36 +66,28 @@ def _run_analysis(photo_id: int, storage_key: str):
     response_model=PhotoUploadResponse,
     status_code=201,
 )
-async def upload_photo(
+def upload_photo(
     order_id: int,
     file: UploadFile,
     background_tasks: BackgroundTasks,
     current_user: User = Depends(require_role("photographer")),
     db: Session = Depends(get_db),
 ):
-    order = db.query(Order).filter(Order.id == order_id).first()
-    if not order:
-        raise NotFoundException("Order")
+    order = require_order_access(db, order_id, current_user, write=True)
 
     if file.content_type not in ALLOWED_MIME:
         raise ValidationException(detail="Only JPEG images are supported")
 
-    content = await file.read()
-    if len(content) > MAX_FILE_SIZE:
+    content = file.file.read(min(MAX_FILE_SIZE, settings.image_max_bytes) + 1)
+    if len(content) > min(MAX_FILE_SIZE, settings.image_max_bytes):
         raise ValidationException(detail="File size exceeds 20MB limit")
     if len(content) == 0:
         raise ValidationException(detail="Empty file")
 
+    with render_slot(), decode_jpeg(content) as normalized:
+        width, height = normalized.size
     storage = get_storage()
     storage_key = storage.save(file.filename or "upload.jpg", content, file.content_type)
-
-    import cv2
-    import numpy as np
-
-    nparr = np.frombuffer(content, np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    width = img.shape[1] if img is not None else None
-    height = img.shape[0] if img is not None else None
 
     photo = Photo(
         order_id=order_id,
@@ -127,6 +122,7 @@ def list_photos(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
+    require_order_access(db, order_id, current_user)
     return db.query(Photo).filter(Photo.order_id == order_id).all()
 
 
@@ -137,8 +133,8 @@ def delete_photo(
     current_user: User = Depends(require_role("photographer")),
     db: Session = Depends(get_db),
 ):
-    photo = db.query(Photo).filter(Photo.id == photo_id, Photo.order_id == order_id).first()
-    if not photo:
+    photo = require_photo_access(db, photo_id, current_user, write=True)
+    if photo.order_id != order_id:
         raise NotFoundException("Photo")
 
     order = db.query(Order).filter(Order.id == order_id).first()
@@ -162,6 +158,7 @@ def get_analysis(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
+    require_photo_access(db, photo_id, current_user)
     result = db.query(AnalysisResult).filter(AnalysisResult.photo_id == photo_id).first()
     if not result:
         raise NotFoundException("AnalysisResult")
@@ -179,6 +176,7 @@ def review_analysis(
     if not result:
         raise NotFoundException("AnalysisResult")
 
+    require_photo_access(db, result.photo_id, current_user, write=True)
     if req.final_decision not in ("exclude", "keep", "pending"):
         raise ValidationException(detail="final_decision must be exclude/keep/pending")
 

@@ -1,0 +1,17 @@
+{
+  "photo_id": 2,
+  "original_size": [
+    1551,
+    1818
+  ],
+  "actions": [
+    "clockwise 90",
+    "3:2 crop",
+    "apply crop",
+    "exposure +0.1"
+  ],
+  "observed_local_preview_source": "local-live",
+  "authoritative_preview_visible_afterwards": true,
+  "saved_state_visible_afterwards": true,
+  "canvas_render_error_seen": false
+}

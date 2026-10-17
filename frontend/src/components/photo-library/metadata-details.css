@@ -1,0 +1,2 @@
+.asset-capture-details .asset-viewer-metadata {grid-template-columns:auto minmax(0,1fr)}
+.asset-capture-details dd {min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}

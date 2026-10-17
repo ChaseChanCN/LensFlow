@@ -1,0 +1,78 @@
+{
+  "totalBytes": 1160622,
+  "files": [
+    {
+      "path": "assets/index-H7T8IDw9.css",
+      "bytes": 61578,
+      "gzipBytes": 12237,
+      "sha256": "9aa301ad6da664946ad72690921d5b1c9c543713b8e2d564110f06dc5aa1fb51"
+    },
+    {
+      "path": "assets/index-WKk29c4K.js",
+      "bytes": 427426,
+      "gzipBytes": 129238,
+      "sha256": "91516530726affed9c8fb94399d8069341e568fe3b2aee1a01be4cb3bb3fd3be"
+    },
+    {
+      "path": "assets/index.es-C21Vvu9u.js",
+      "bytes": 82692,
+      "gzipBytes": 12721,
+      "sha256": "780d5da16eaa9cdc372de80a56c2884ae1f205c828320c1e7f2bbba818bb68bf"
+    },
+    {
+      "path": "assets/index.es-CnMN-bkm.js",
+      "bytes": 25562,
+      "gzipBytes": 10492,
+      "sha256": "f8c92f422d323f4bdfcc93cf21f241d5bec09162b5fff229f769fa485b53f891"
+    },
+    {
+      "path": "assets/index.es-ScMzD45h.js",
+      "bytes": 87733,
+      "gzipBytes": 29448,
+      "sha256": "c57d82821594875531f679e96c080eae0cb2ef9007032b5ccbb7f9ba8ae63a76"
+    },
+    {
+      "path": "assets/QuickActionsLiquid-CLffUyxS.js",
+      "bytes": 50230,
+      "gzipBytes": 16935,
+      "sha256": "d919cb770e67436eed4b9e8b54d1bc09dd428cc83b5990da99c59303ae451f0c"
+    },
+    {
+      "path": "data/metadata.json",
+      "bytes": 2782,
+      "gzipBytes": 852,
+      "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+    },
+    {
+      "path": "data/particles.bin",
+      "bytes": 370335,
+      "gzipBytes": 226215,
+      "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 9522,
+      "gzipBytes": 1490,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    {
+      "path": "icons.svg",
+      "bytes": 5031,
+      "gzipBytes": 2104,
+      "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+    },
+    {
+      "path": "index.html",
+      "bytes": 474,
+      "gzipBytes": 309,
+      "sha256": "ee9e1566787660459d0cb5daee4fe64143f509e80bc2a893d6a5e298f42fb918"
+    },
+    {
+      "path": "lensflow-v24.html",
+      "bytes": 37257,
+      "gzipBytes": 8939,
+      "sha256": "30058b2d97ab430d160e8ff35c0b5f26588c0d8b056cc3d304a9c1e9e9b069d9"
+    }
+  ],
+  "note": "gzipBytes use Node zlib gzip level 6 as an offline estimate; the static server may serve uncompressed files."
+}

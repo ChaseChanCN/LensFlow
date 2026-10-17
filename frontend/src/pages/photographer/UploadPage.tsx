@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/auth'
 import { useState, useRef } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -5,7 +6,7 @@ import { listPhotos, uploadPhoto, deletePhoto, type Photo } from '@/api/photos'
 import { getOrder } from '@/api/orders'
 import { Layout } from '@/components/Layout'
 import { extractErrorMessage } from '@/api/auth'
-import { LargeTitle, ListGroup, ListItem, Button, StatusBadge } from '@/components/ui'
+import { LargeTitle, ListGroup, ListItem, Button, StatusBadge, EmptyState, LoadingState, ErrorState, Spinner } from '@/components/ui'
 
 const STATUS_MAP: Record<string, string> = {
   PENDING_CONFIRM: 'pending', CONFIRMED: 'confirmed', WAITING_SHOOT: 'confirmed',
@@ -16,6 +17,7 @@ const STATUS_MAP: Record<string, string> = {
 }
 
 export function UploadPage() {
+  const isPhotographer=useAuthStore(state=>state.user?.role==='photographer')
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -25,13 +27,13 @@ export function UploadPage() {
 
   const orderId = Number(id)
 
-  const { data: order } = useQuery({
+  const { data: order, isError: orderError, refetch: refetchOrder } = useQuery({
     queryKey: ['order', id],
     queryFn: () => getOrder(orderId),
     enabled: !!id,
   })
 
-  const { data: photos, isLoading } = useQuery({
+  const { data: photos, isLoading, isError, refetch } = useQuery({
     queryKey: ['photos', id],
     queryFn: () => listPhotos(orderId),
     enabled: !!id,
@@ -40,6 +42,7 @@ export function UploadPage() {
   const uploadMutation = useMutation({
     mutationFn: (file: File) => uploadPhoto(orderId, file),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['photo-catalog'] })
       queryClient.invalidateQueries({ queryKey: ['photos', id] })
       queryClient.invalidateQueries({ queryKey: ['order', id] })
     },
@@ -48,6 +51,7 @@ export function UploadPage() {
   const deleteMutation = useMutation({
     mutationFn: (photoId: number) => deletePhoto(orderId, photoId),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['photo-catalog'] })
       queryClient.invalidateQueries({ queryKey: ['photos', id] })
     },
     onError: (err) => setError(extractErrorMessage(err)),
@@ -67,8 +71,8 @@ export function UploadPage() {
       }
       try {
         await uploadMutation.mutateAsync(file)
-      } catch {
-        setError(extractErrorMessage(uploadMutation.error))
+      } catch (err) {
+        setError(extractErrorMessage(err))
       }
     }
     setUploading(false)
@@ -81,9 +85,7 @@ export function UploadPage() {
         title="上传照片"
         subtitle={`订单 #${orderId}`}
         action={
-          <button onClick={() => navigate(`/orders/${orderId}`)} className="text-sm font-medium text-accent hover:text-accent-hover">
-            ← 返回
-          </button>
+          <Button type="button" variant="plain" onClick={() => navigate(`/orders/${orderId}`)}>← 返回</Button>
         }
       />
 
@@ -92,9 +94,12 @@ export function UploadPage() {
           <ListItem title="当前状态" trailing={<StatusBadge status={STATUS_MAP[order.status] || 'neutral'} />} isLast />
         </ListGroup>
       )}
+      {orderError && <ErrorState title="订单状态加载失败" onRetry={() => { void refetchOrder() }} />}
+
+      {isPhotographer && <div className="mx-4 mb-4"><Button variant="plain" onClick={() => navigate(`/orders/${id}/library`)}>照片图库</Button></div>}
 
       {error && (
-        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+        <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
         </div>
       )}
@@ -102,6 +107,9 @@ export function UploadPage() {
       <ListGroup header="选择照片">
         <ListItem
           title={uploading ? '上传中...' : '点击选择 JPEG 照片'}
+          disabled={uploading}
+          aria-busy={uploading}
+          trailing={uploading ? <Spinner decorative size="sm" /> : undefined}
           subtitle="仅支持 JPEG 格式，单文件不超过 20MB"
           onClick={() => fileInputRef.current?.click()}
           showChevron
@@ -111,6 +119,7 @@ export function UploadPage() {
       <input
         ref={fileInputRef}
         type="file"
+        aria-label="选择 JPEG 照片"
         accept="image/jpeg,.jpg,.jpeg"
         multiple
         onChange={handleFileSelect}
@@ -120,7 +129,9 @@ export function UploadPage() {
 
       <ListGroup header={`已上传照片${photos ? ` (${photos.length})` : ''}`}>
         {isLoading ? (
-          <ListItem title="加载中..." isLast />
+          <LoadingState label="正在加载照片" />
+        ) : isError ? (
+          <ErrorState title="照片加载失败" onRetry={() => { void refetch() }} />
         ) : photos && photos.length > 0 ? (
           photos.map((photo: Photo, i) => (
             <ListItem
@@ -128,23 +139,27 @@ export function UploadPage() {
               title={photo.filename}
               subtitle={`${photo.width && photo.height ? `${photo.width}×${photo.height} · ` : ''}${(photo.size_bytes / 1024).toFixed(0)} KB`}
               trailing={
-                canDelete ? (
-                  <Button variant="plain" size="sm" onClick={(e) => { e.stopPropagation(); setError(''); deleteMutation.mutate(photo.id) }} className="!text-error hover:!text-error/80">
+                <div className="flex items-center gap-2">
+                  <Button type="button" variant="tinted" size="sm" aria-label={`编辑 ${photo.filename}`}
+                    onClick={() => navigate(`/orders/${orderId}/photos/${photo.id}/edit`)}>基础修图</Button>
+                {canDelete ? (
+                  <Button type="button" variant="destructive" size="sm" aria-label={`删除 ${photo.filename}`} disabled={deleteMutation.isPending} loading={deleteMutation.isPending && deleteMutation.variables === photo.id} onClick={() => { setError(''); deleteMutation.mutate(photo.id) }}>
                     删除
                   </Button>
-                ) : undefined
+                ) : null}
+                </div>
               }
               isLast={i === photos.length - 1}
             />
           ))
         ) : (
-          <ListItem title="暂无照片" isLast />
+          <EmptyState title="暂无照片" description="选择 JPEG 照片上传后，可查看分析结果。" />
         )}
       </ListGroup>
 
       {photos && photos.length > 0 && (
         <div className="px-4 pt-4">
-          <Button onClick={() => navigate(`/orders/${orderId}/analysis`)}>查看分析结果</Button>
+          <Button effect="beam" onClick={() => navigate(`/orders/${orderId}/analysis`)}>查看分析结果</Button>
         </div>
       )}
     </Layout>

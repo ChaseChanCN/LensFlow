@@ -1,0 +1,304 @@
+{
+  "source": "scripts/assets/light-portrait-source.png",
+  "sourceSha256": "449b8aa990423c82212ac0dfd13b45bf4c11f4099480cd3c3a1b6058a125fc77",
+  "darkRendererUnchanged": true,
+  "darkRendererSha256": "112908514e4fc0945a16dae360b60c39d3e522b852d7db3e0db61fc4a9b24691",
+  "particles": 59021,
+  "bytes": 1888672,
+  "gzipBytes": 1100115,
+  "finiteAttributes": true,
+  "legJunctionCoverage": {
+    "left": {
+      "rowsFrom900To1140": [
+        126,
+        103,
+        94,
+        70,
+        65,
+        63,
+        51,
+        72,
+        87,
+        85,
+        54,
+        62,
+        74,
+        82,
+        93,
+        97
+      ],
+      "every15pxBandHasParticles": true
+    },
+    "right": {
+      "rowsFrom900To1140": [
+        104,
+        103,
+        92,
+        79,
+        78,
+        75,
+        59,
+        70,
+        69,
+        73,
+        80,
+        68,
+        90,
+        102,
+        98,
+        107
+      ],
+      "every15pxBandHasParticles": true
+    }
+  },
+  "pointAndLodBounds": [
+    {
+      "viewport": 320,
+      "dpr": 1,
+      "displayPoints": 12975,
+      "bounds": [
+        42.57923790293963,
+        16.09681124781078,
+        213.87112967923557,
+        279.2200638498914
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 320,
+      "dpr": 2,
+      "displayPoints": 43128,
+      "bounds": [
+        43.18139538127647,
+        16.92031124781074,
+        213.58576532441904,
+        278.62920894161726
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 375,
+      "dpr": 1,
+      "displayPoints": 12639,
+      "bounds": [
+        71.63554794358795,
+        16.047021027058282,
+        240.41963233036896,
+        275.71115905161105
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 375,
+      "dpr": 2,
+      "displayPoints": 42850,
+      "bounds": [
+        71.9725083349447,
+        16.87052102705827,
+        240.12796545517153,
+        275.1207629525271
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 768,
+      "dpr": 1,
+      "displayPoints": 59021,
+      "bounds": [
+        10.141921997070312,
+        79.67291259765625,
+        336.998046875,
+        580.3270874023438
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 768,
+      "dpr": 2,
+      "displayPoints": 59021,
+      "bounds": [
+        10.141921997070312,
+        79.67291259765625,
+        336.998046875,
+        580.3270874023438
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 1024,
+      "dpr": 1,
+      "displayPoints": 59021,
+      "bounds": [
+        23.672487258911133,
+        22.28001594543457,
+        425.46746826171875,
+        637.7200317382812
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 1024,
+      "dpr": 2,
+      "displayPoints": 59021,
+      "bounds": [
+        23.672487258911133,
+        22.28001594543457,
+        425.46746826171875,
+        637.7200317382812
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 1440,
+      "dpr": 1,
+      "displayPoints": 59021,
+      "bounds": [
+        113.26248168945312,
+        22.28001594543457,
+        515.0574951171875,
+        637.7200317382812
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 1440,
+      "dpr": 2,
+      "displayPoints": 59021,
+      "bounds": [
+        113.26248168945312,
+        22.28001594543457,
+        515.0574951171875,
+        637.7200317382812
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 1920,
+      "dpr": 1,
+      "displayPoints": 59021,
+      "bounds": [
+        113.26248168945312,
+        22.28001594543457,
+        515.0574951171875,
+        637.7200317382812
+      ],
+      "contained": true
+    },
+    {
+      "viewport": 1920,
+      "dpr": 2,
+      "displayPoints": 59021,
+      "bounds": [
+        113.26248168945312,
+        22.28001594543457,
+        515.0574951171875,
+        637.7200317382812
+      ],
+      "contained": true
+    }
+  ],
+  "browserResponsive": [
+    {
+      "viewport": 320,
+      "page": {
+        "frame": "/light-portrait.html?layout=stacked",
+        "hero": {
+          "height": 728.8958740234375,
+          "width": 256.66668701171875
+        },
+        "overflow": false
+      },
+      "bounds": [
+        42.894631029088444,
+        16.675999999999988,
+        214.10536897091157,
+        278.92400000000004
+      ]
+    },
+    {
+      "viewport": 375,
+      "page": {
+        "frame": "/light-portrait.html?layout=stacked",
+        "hero": {
+          "height": 720,
+          "width": 312
+        },
+        "overflow": false
+      },
+      "bounds": [
+        71.54627276412313,
+        16.639999999999986,
+        240.45372723587687,
+        275.36
+      ]
+    },
+    {
+      "viewport": 768,
+      "page": {
+        "frame": "/light-portrait.html?layout=side",
+        "hero": {
+          "height": 660,
+          "width": 680.6666870117188
+        },
+        "overflow": false
+      },
+      "bounds": [
+        10.146900000000016,
+        79.55033355810673,
+        337.1631,
+        580.4496664418932
+      ]
+    },
+    {
+      "viewport": 1024,
+      "page": {
+        "frame": "/light-portrait.html?layout=side",
+        "hero": {
+          "height": 660,
+          "width": 880.6666870117188
+        },
+        "overflow": false
+      },
+      "bounds": [
+        23.75749733283837,
+        22.28000000000003,
+        425.55250266716166,
+        637.72
+      ]
+    },
+    {
+      "viewport": 1440,
+      "page": {
+        "frame": "/light-portrait.html?layout=side",
+        "hero": {
+          "height": 660,
+          "width": 1232
+        },
+        "overflow": false
+      },
+      "bounds": [
+        113.2624973328384,
+        22.28000000000003,
+        515.0575026671617,
+        637.72
+      ]
+    },
+    {
+      "viewport": 1920,
+      "page": {
+        "frame": "/light-portrait.html?layout=side",
+        "hero": {
+          "height": 660,
+          "width": 1232
+        },
+        "overflow": false
+      },
+      "bounds": [
+        113.2624973328384,
+        22.28000000000003,
+        515.0575026671617,
+        637.72
+      ]
+    }
+  ]
+}

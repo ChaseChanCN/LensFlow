@@ -50,18 +50,18 @@ function renderWithProviders(ui: React.ReactElement) {
 describe('RetouchPage', () => {
   it('renders page title', async () => {
     renderWithProviders(<RetouchPage />)
-    expect(await screen.findByText(/修图协作 - 订单/)).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: '修图协作' })).toBeInTheDocument()
   })
 
   it('renders task list', async () => {
     renderWithProviders(<RetouchPage />)
-    expect(await screen.findByText('照片 10')).toBeInTheDocument()
-    expect(await screen.findByText('待处理')).toBeInTheDocument()
+    expect(await screen.findByText('任务 #1 · 照片 10')).toBeInTheDocument()
+    expect(await screen.findByText('待确认')).toBeInTheDocument()
   })
 
   it('renders file input for photographer', async () => {
     renderWithProviders(<RetouchPage />)
-    expect(await screen.findByText('待处理')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '返回' })).toBeInTheDocument()
+    expect(await screen.findByText('待确认')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '← 返回' })).toBeInTheDocument()
   })
 })

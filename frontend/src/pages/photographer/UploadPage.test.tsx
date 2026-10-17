@@ -58,7 +58,7 @@ function renderWithProviders(ui: React.ReactElement) {
 describe('UploadPage', () => {
   it('renders page title', () => {
     renderWithProviders(<UploadPage />)
-    expect(screen.getByText(/上传照片 - 订单/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '上传照片' })).toBeInTheDocument()
   })
 
   it('renders file input', () => {

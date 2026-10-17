@@ -1,0 +1,37 @@
+.photo-editor { display:grid; grid-template-columns:minmax(0,1fr) 240px; gap:20px; padding:16px; color:var(--color-label); }
+.photo-editor > *, .photo-editor aside { min-width:0; }
+.photo-editor-controls { padding:18px; border:1px solid var(--color-separator); border-radius:16px; background:var(--color-system-bg); }
+.photo-editor-controls h2 { font-size:16px; font-weight:600; margin:0 0 24px; }
+.photo-editor-control { display:grid; grid-template-columns:1fr auto; gap:10px; margin-bottom:26px; font-size:14px; }
+.photo-editor-control output, .photo-editor-zoom output { font-variant-numeric:tabular-nums; }
+.photo-editor-control input { grid-column:1 / -1; width:100%; }
+.photo-editor input[type=range] { accent-color:var(--color-action-primary-strong); cursor:pointer; min-height:28px; }
+.photo-editor input:focus-visible, .photo-editor-picker:focus-visible { outline:2px solid var(--color-action-primary-strong); outline-offset:3px; }
+.photo-editor-note { color:var(--color-label-muted); font-size:12px; line-height:1.8; margin:18px 0 0; }
+.photo-editor-zoom { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:12px; font-size:12px; }
+.photo-editor-zoom input { min-width:60px; width:110px; }
+.photo-editor-stage { height:clamp(340px,62vh,720px); overflow:auto; background:#323232; border-radius:8px; isolation:isolate; }
+.photo-editor-stage-inner { display:flex; align-items:center; justify-content:center; min-width:100%; min-height:100%; width:max-content; height:max-content; padding:12px; box-sizing:border-box; }
+.photo-editor-stage canvas { display:block; flex-shrink:0; max-width:none; filter:none; box-shadow:none; }
+.photo-editor-sync { font-size:13px; margin-top:12px; color:var(--color-label-muted); }
+.photo-editor-export { margin-top:18px; font-size:13px; }
+.photo-editor-export [role=status] { line-height:1.6; margin-top:12px; }
+.photo-editor [role=alert] { color:var(--color-error-label); font-size:13px; line-height:1.7; }
+.photo-editor-picker-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; padding:0 16px 12px; }
+.photo-editor-picker { min-width:0; max-width:100%; padding:10px 12px; border:1px solid var(--color-separator); border-radius:10px; background:var(--color-system-bg); color:var(--color-label); }
+@media (max-width:760px) { .photo-editor { grid-template-columns:minmax(0,1fr); padding:12px; } .photo-editor-stage { height:52vh; min-height:300px; } }
+.photo-editor-image { position:relative; flex-shrink:0; }
+.photo-crop-overlay { position:absolute; inset:0; overflow:hidden; touch-action:none; outline-offset:3px; }
+.photo-crop-selection { position:absolute; border:1px solid #fff; box-shadow:0 0 0 9999px rgb(0 0 0 / 45%); cursor:move; box-sizing:border-box; }
+.photo-crop-guide { position:absolute; pointer-events:none; background:rgb(255 255 255 / 65%); }
+.photo-crop-guide.vertical { width:1px; height:100%; top:0; }
+.photo-crop-guide.horizontal { height:1px; width:100%; left:0; }
+.photo-crop-handle { position:absolute; width:24px; height:24px; border:0; padding:0; background:transparent; touch-action:none; transform:translate(-50%,-50%); }
+.photo-crop-handle::after { content:''; position:absolute; inset:7px; border:1px solid #202020; background:white; }
+.handle-nw {left:0;top:0;cursor:nwse-resize}.handle-n {left:50%;top:0;cursor:ns-resize}.handle-ne {left:100%;top:0;cursor:nesw-resize}
+.handle-e {left:100%;top:50%;cursor:ew-resize}.handle-se {left:100%;top:100%;cursor:nwse-resize}.handle-s {left:50%;top:100%;cursor:ns-resize}
+.handle-sw {left:0;top:100%;cursor:nesw-resize}.handle-w {left:0;top:50%;cursor:ew-resize}
+.photo-geometry-controls {margin-bottom:16px}.photo-geometry-controls h2 {margin-bottom:14px}
+.photo-geometry-buttons {display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px}
+.photo-geometry-controls select {width:100%; background:var(--color-system-bg); color:var(--color-label); border:1px solid var(--color-separator); padding:8px; border-radius:8px; margin-top:6px}
+.photo-editor fieldset {border:0;padding:0;margin:0;min-width:0}.photo-editor fieldset:disabled {opacity:.55}

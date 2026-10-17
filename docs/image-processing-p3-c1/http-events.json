@@ -1,0 +1,236 @@
+[
+  {
+    "method": "POST",
+    "path": "/api/v1/orders/1/photos",
+    "status": 201,
+    "duration_ms": 41.89
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/orders/1/photos",
+    "status": 201,
+    "duration_ms": 19.89
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/metadata",
+    "status": 200,
+    "duration_ms": 15.34
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/metadata",
+    "status": 200,
+    "duration_ms": 8.39
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/metadata",
+    "status": 403,
+    "duration_ms": 1.73
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/metadata",
+    "status": 403,
+    "duration_ms": 2.32
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/metadata",
+    "status": 401,
+    "duration_ms": 0.29
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/catalog",
+    "status": 200,
+    "duration_ms": 5.72
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "duration_ms": 16.7
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/export",
+    "status": 200,
+    "duration_ms": 11.68
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 200,
+    "duration_ms": 8.69
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 200,
+    "duration_ms": 9.72
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 403,
+    "duration_ms": 2.83
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 403,
+    "duration_ms": 3.93
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 401,
+    "duration_ms": 0.56
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/catalog",
+    "status": 200,
+    "duration_ms": 5.24
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "duration_ms": 15.28
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/2/export",
+    "status": 200,
+    "duration_ms": 13.14
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/catalog",
+    "status": 200,
+    "duration_ms": 9.95
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/thumbnail",
+    "status": 200,
+    "duration_ms": 67.01
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/thumbnail",
+    "status": 200,
+    "duration_ms": 70.59
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "duration_ms": 15.96
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 200,
+    "duration_ms": 11.26
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "duration_ms": 16.41
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/metadata",
+    "status": 200,
+    "duration_ms": 15.45
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/1/asset",
+    "status": 200,
+    "duration_ms": 6.14
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "duration_ms": 13.95
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "duration_ms": 12.36
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/catalog",
+    "status": 200,
+    "duration_ms": 11.07
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/thumbnail",
+    "status": 200,
+    "duration_ms": 27.48
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/thumbnail",
+    "status": 200,
+    "duration_ms": 28.07
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/1/asset",
+    "status": 200,
+    "duration_ms": 8.64
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/orders/1/photos/2/asset",
+    "status": 200,
+    "duration_ms": 9.61
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "duration_ms": 22.65
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "duration_ms": 15.68
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/thumbnail",
+    "status": 200,
+    "duration_ms": 11.68
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/thumbnail",
+    "status": 200,
+    "duration_ms": 12.77
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "duration_ms": 17.09
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/metadata",
+    "status": 200,
+    "duration_ms": 13.7
+  }
+]

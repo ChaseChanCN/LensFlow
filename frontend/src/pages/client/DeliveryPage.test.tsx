@@ -3,6 +3,11 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { DeliveryPage } from '@/pages/client/DeliveryPage'
+import userEvent from '@testing-library/user-event'
+import { downloadDelivery } from '@/api/deliveries'
+import { saveBlob } from '@/utils/download'
+
+vi.mock('@/utils/download', () => ({ saveBlob: vi.fn() }))
 
 vi.mock('@/api/deliveries', () => ({
   getDelivery: vi.fn().mockResolvedValue({
@@ -14,6 +19,7 @@ vi.mock('@/api/deliveries', () => ({
   }),
   uploadDelivery: vi.fn(),
   archiveOrder: vi.fn(),
+  downloadDelivery: vi.fn(),
   getDownloadUrl: vi.fn(() => '/api/v1/deliveries/1/download'),
 }))
 
@@ -56,9 +62,27 @@ function renderWithProviders(ui: React.ReactElement) {
 }
 
 describe('DeliveryPage', () => {
+  it('authenticates download, preserves filename, and blocks duplicate clicks while pending', async () => {
+    let resolve!: (blob: Blob) => void
+    vi.mocked(downloadDelivery).mockReturnValueOnce(new Promise(done => { resolve = done }))
+    renderWithProviders(<DeliveryPage />)
+    const user=userEvent.setup();const button=await screen.findByRole('button',{name:'下载成片'})
+    await user.click(button);expect(button).toBeDisabled();expect(button).toHaveAttribute('aria-busy','true')
+    await user.click(button);expect(downloadDelivery).toHaveBeenCalledExactlyOnceWith(1)
+    const blob=new Blob(['zip']);resolve(blob)
+    await screen.findByRole('button',{name:'下载成片'})
+    await vi.waitFor(()=>expect(saveBlob).toHaveBeenCalledWith(blob,'final.zip'))
+  })
+  it('announces failed authenticated downloads and allows retry', async () => {
+    vi.mocked(downloadDelivery).mockRejectedValueOnce(new Error('下载失败'))
+    renderWithProviders(<DeliveryPage />)
+    const user=userEvent.setup();await user.click(await screen.findByRole('button',{name:'下载成片'}))
+    expect(await screen.findByRole('alert')).toHaveTextContent('下载失败')
+    expect(screen.getByRole('button',{name:'下载成片'})).toBeEnabled()
+  })
   it('renders page title', async () => {
     renderWithProviders(<DeliveryPage />)
-    expect(await screen.findByText(/交付 - 订单/)).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: '交付' })).toBeInTheDocument()
   })
 
   it('renders delivery info', async () => {

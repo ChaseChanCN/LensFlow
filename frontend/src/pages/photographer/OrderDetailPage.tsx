@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/auth'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getOrder, getOrderTimeline, updateOrderStatus, type OrderTimeline } from '@/api/orders'
@@ -5,7 +6,7 @@ import { Layout } from '@/components/Layout'
 import type { OrderStatus } from '@/types'
 import { extractErrorMessage } from '@/api/auth'
 import { useState } from 'react'
-import { LargeTitle, ListGroup, ListItem, Button, StatusBadge } from '@/components/ui'
+import { LargeTitle, ListGroup, ListItem, StatusBadge, Button, EmptyState, LoadingState, ErrorState, Spinner } from '@/components/ui'
 
 const STATUS_MAP: Record<string, string> = {
   PENDING_CONFIRM: 'pending', CONFIRMED: 'confirmed', WAITING_SHOOT: 'confirmed',
@@ -34,18 +35,19 @@ const NEXT_ACTIONS: Record<string, { status: OrderStatus; label: string; action:
 }
 
 export function OrderDetailPage() {
+  const isPhotographer=useAuthStore(state=>state.user?.role==='photographer')
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [error, setError] = useState('')
 
-  const { data: order, isLoading } = useQuery({
+  const { data: order, isLoading, isError, refetch } = useQuery({
     queryKey: ['order', id],
     queryFn: () => getOrder(Number(id)),
     enabled: !!id,
   })
 
-  const { data: timeline } = useQuery({
+  const { data: timeline, isLoading: timelineLoading, isError: timelineError, refetch: refetchTimeline } = useQuery({
     queryKey: ['order-timeline', id],
     queryFn: () => getOrderTimeline(Number(id)),
     enabled: !!id,
@@ -63,11 +65,12 @@ export function OrderDetailPage() {
   })
 
   if (isLoading) {
-    return <Layout><p className="px-4 text-sm text-label-tertiary">加载中...</p></Layout>
+    return <Layout><LoadingState label="正在加载订单" /></Layout>
   }
 
+  if (isError) return <Layout><ErrorState title="订单加载失败" onRetry={() => { void refetch() }} /></Layout>
   if (!order) {
-    return <Layout><p className="px-4 text-sm text-label-tertiary">订单不存在</p></Layout>
+    return <Layout><EmptyState title="订单不存在" /></Layout>
   }
 
   const actions = NEXT_ACTIONS[order.status] || []
@@ -77,14 +80,14 @@ export function OrderDetailPage() {
       <LargeTitle
         title={`订单 #${order.id}`}
         action={
-          <button onClick={() => navigate('/orders')} className="text-sm font-medium text-accent hover:text-accent-hover">
-            ← 返回
-          </button>
+          <Button type="button" variant="plain" onClick={() => navigate('/orders')}>← 返回</Button>
         }
       />
 
+      {isPhotographer && <div className="mx-4 mb-4"><Button variant="plain" onClick={() => navigate(`/orders/${id}/library`)}>照片图库</Button></div>}
+
       {error && (
-        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+        <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
         </div>
       )}
@@ -100,7 +103,11 @@ export function OrderDetailPage() {
           {actions.map((act, i) => (
             <ListItem
               key={act.action}
+              effect="beam"
               title={act.label}
+              disabled={statusMutation.isPending}
+              aria-busy={statusMutation.isPending}
+              trailing={statusMutation.isPending ? <Spinner decorative size="sm" /> : undefined}
               onClick={() => {
                 setError('')
                 statusMutation.mutate({ status: act.status, action: act.action })
@@ -133,6 +140,9 @@ export function OrderDetailPage() {
         </ListGroup>
       )}
 
+      {timelineLoading && <LoadingState label="正在加载操作记录" />}
+      {timelineError && <ErrorState title="操作记录加载失败" onRetry={() => { void refetchTimeline() }} />}
+      {timeline && timeline.length === 0 && <ListGroup header="操作记录"><EmptyState title="暂无操作记录" /></ListGroup>}
       {timeline && timeline.length > 0 && (
         <ListGroup header="操作记录">
           {timeline.map((t: OrderTimeline, i) => (

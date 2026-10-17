@@ -1,0 +1,54 @@
+{
+  "browser_uploads": [
+    [
+      1001,
+      "grace_hopper.jpg"
+    ],
+    [
+      1002,
+      "grace_hopper.jpg"
+    ]
+  ],
+  "large_fixture_metadata_records": 1000,
+  "large_fixture_real_jpeg_files": 8,
+  "download": {
+    "file": "C:\\Users\\Chase\\Downloads\\ce5f5a25-59eb-425f-b63d-1df3b88beec3.jpg",
+    "photo_id": 936,
+    "dimensions": [
+      218,
+      256
+    ],
+    "bytes": 25037,
+    "matches_authenticated_api_bytes": true
+  },
+  "authorization_after_cache_hit": {
+    "owner": 200,
+    "unauthenticated": 401,
+    "other_photographer": 403,
+    "other_catalog": 403,
+    "cache": "HIT",
+    "cache_control": "private, no-store, max-age=0"
+  },
+  "source_files": 10,
+  "all_original_hashes_unchanged": true,
+  "original_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "business_counts": {
+    "photo_edit_drafts": 0,
+    "retouch_tasks": 0,
+    "retouch_versions": 0,
+    "retouch_feedbacks": 0,
+    "deliveries": 0
+  },
+  "analysis_records_created_by_actual_uploads": 2,
+  "cache": {
+    "entries": 17,
+    "bytes": 539770,
+    "temporary_files": 0,
+    "hit_responses": 716,
+    "miss_responses": 17
+  },
+  "successful_large_catalog_requests": 20,
+  "distinct_cursor_queries": 20,
+  "single_asset_requests": 2,
+  "peak_server_thumbnail_requests_including_cancelled_work": 5
+}

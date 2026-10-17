@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
 import { listOrders } from '@/api/orders'
 import { listBookings, cancelBooking, type Booking } from '@/api/bookings'
 import { extractErrorMessage } from '@/api/auth'
-import { LargeTitle, ListGroup, ListItem, Button, StatusBadge } from '@/components/ui'
+import { LargeTitle, ListGroup, ListItem, Button, StatusBadge, EmptyState, LoadingState, ErrorState } from '@/components/ui'
+import { QuickActions } from '@/components/effects/QuickActions'
 
 const STATUS_MAP: Record<string, string> = {
   PENDING_CONFIRM: 'pending', CONFIRMED: 'confirmed', WAITING_SHOOT: 'confirmed',
@@ -25,12 +26,13 @@ const STATUS_LABELS: Record<string, string> = {
 
 export function ClientPage() {
   const queryClient = useQueryClient()
+  const navigate = useNavigate()
   const [error, setError] = useState('')
-  const { data: orders } = useQuery({
+  const { data: orders, isLoading: ordersLoading, isError: ordersError, refetch: refetchOrders } = useQuery({
     queryKey: ['orders'],
     queryFn: listOrders,
   })
-  const { data: bookings } = useQuery({
+  const { data: bookings, isLoading: bookingsLoading, isError: bookingsError, refetch: refetchBookings } = useQuery({
     queryKey: ['bookings'],
     queryFn: listBookings,
   })
@@ -54,39 +56,36 @@ export function ClientPage() {
       <LargeTitle title="我的" subtitle="预约摄影师、查看订单与交付" />
 
       {error && (
-        <div className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-sm text-error">
+        <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
         </div>
       )}
 
-      <ListGroup header="快捷操作">
-        <ListItem
-          title="预约摄影师"
-          subtitle="填写拍摄需求，提交预约"
-          onClick={() => (window.location.href = '/booking')}
-          showChevron
-        />
+      <QuickActions items={[{label:'预约摄影师',path:'/booking',icon:'booking'},{label:'查看我的订单',path:'#my-orders',icon:'orders'}]} description="从拍摄需求，到你的下一组作品" />
+      <ListGroup header="概览">
         <ListItem
           title="进行中订单"
-          trailing={<span className="text-lg font-bold text-label">{activeOrders.length}</span>}
+          trailing={<span className="text-body-lg font-bold text-label">{ordersLoading || ordersError ? '—' : activeOrders.length}</span>}
           isLast
         />
       </ListGroup>
 
       <ListGroup header="我的预约">
-        {myBookings.length === 0 ? (
-          <ListItem title="暂无预约" subtitle="点击上方"预约摄影师"开始" isLast />
+        {bookingsLoading ? <LoadingState label="正在加载我的预约" /> : bookingsError ? <ErrorState title="预约加载失败" onRetry={() => { void refetchBookings() }} /> : myBookings.length === 0 ? (
+          <EmptyState title="暂无预约" description="提交拍摄需求，开始预约摄影师。" action={{ label: '预约摄影师', onClick: () => navigate('/booking') }} />
         ) : (
           myBookings.map((b: Booking, i) => (
             <ListItem
               key={b.id}
               leading={<StatusBadge status={b.status} />}
-              title={`#${b.id} · ${b.shoot_type}`}
+              title={<Link to={`/bookings/${b.id}`} className="rounded-control focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-action-primary-strong">{`#${b.id} · ${b.shoot_type}`}</Link>}
               subtitle={b.preferred_date ? new Date(b.preferred_date).toLocaleDateString() : undefined}
               trailing={
                 b.status === 'pending' ? (
                   <Button
-                    variant="plain"
+                    type="button"
+                    variant="destructive"
+                    aria-label={`取消预约 #${b.id}`}
                     size="sm"
                     onClick={(e) => {
                       e.stopPropagation()
@@ -94,23 +93,21 @@ export function ClientPage() {
                       cancelMutation.mutate(b.id)
                     }}
                     disabled={cancelMutation.isPending}
-                    className="!text-error hover:!text-error/80"
+                    loading={cancelMutation.isPending && cancelMutation.variables === b.id}
                   >
                     取消
                   </Button>
                 ) : undefined
               }
-              onClick={() => (window.location.href = `/bookings/${b.id}`)}
-              showChevron
               isLast={i === myBookings.length - 1}
             />
           ))
         )}
       </ListGroup>
 
-      <ListGroup header="我的订单">
-        {activeOrders.length === 0 ? (
-          <ListItem title="暂无订单" subtitle="预约被摄影师确认后将生成订单" isLast />
+      <ListGroup header="我的订单" id="my-orders">
+        {ordersLoading ? <LoadingState label="正在加载我的订单" /> : ordersError ? <ErrorState title="订单加载失败" onRetry={() => { void refetchOrders() }} /> : activeOrders.length === 0 ? (
+          <EmptyState title="暂无订单" description="预约被摄影师确认后将生成订单。" />
         ) : (
           activeOrders.map((o, i) => (
             <ListItem
@@ -120,8 +117,8 @@ export function ClientPage() {
               subtitle={STATUS_LABELS[o.status] || o.status}
               trailing={
                 <div className="flex gap-3">
-                  <Link to={`/orders/${o.id}/selection`} className="text-accent hover:text-accent-hover">选片</Link>
-                  <Link to={`/orders/${o.id}/delivery`} className="text-accent hover:text-accent-hover">交付</Link>
+                  <Link to={`/orders/${o.id}/selection`} className="text-action-primary-strong hover:text-action-primary-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-action-primary-strong">选片</Link>
+                  <Link to={`/orders/${o.id}/delivery`} className="text-action-primary-strong hover:text-action-primary-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-action-primary-strong">交付</Link>
                 </div>
               }
               isLast={i === activeOrders.length - 1}

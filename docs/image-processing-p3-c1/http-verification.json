@@ -1,0 +1,74 @@
+{
+  "transport": "real TCP httpx -> uvicorn 127.0.0.1:8051",
+  "uploads": [
+    {
+      "photo_id": 1,
+      "fixture": "real-grace-hopper.jpg",
+      "statuses": {
+        "photographer": 200,
+        "client": 403,
+        "other": 403,
+        "anonymous": 401
+      },
+      "source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+      "stored_dimensions": [
+        517,
+        606
+      ],
+      "export_dimensions": [
+        517,
+        606
+      ],
+      "independent_pillow_comparison": true
+    },
+    {
+      "photo_id": 2,
+      "fixture": "constructed-metadata.jpg",
+      "statuses": {
+        "photographer": 200,
+        "client": 403,
+        "other": 403,
+        "anonymous": 401
+      },
+      "source_sha256": "6bf54b0afd175596c57d6a2b92f43ac1bcb8d9e55ff2f19bcb3b8dfc9f3c41a3",
+      "stored_dimensions": [
+        517,
+        606
+      ],
+      "export_dimensions": [
+        606,
+        517
+      ],
+      "independent_pillow_comparison": true
+    }
+  ],
+  "database_unchanged_after_reads": true,
+  "source_files_unchanged": true,
+  "customer_catalog_no_private_metadata": true,
+  "performance": [
+    {
+      "sample": "real",
+      "bytes": 73746,
+      "iterations": 20,
+      "median_ms_with_tracemalloc": 1.705,
+      "max_ms": 2.415,
+      "python_peak_allocated_bytes_excluding_input": 13019
+    },
+    {
+      "sample": "constructed",
+      "bytes": 74816,
+      "iterations": 20,
+      "median_ms_with_tracemalloc": 2.572,
+      "max_ms": 4.221,
+      "python_peak_allocated_bytes_excluding_input": 23188
+    },
+    {
+      "sample": "near-byte-limit-trailing-data",
+      "bytes": 19922944,
+      "iterations": 20,
+      "median_ms_with_tracemalloc": 13.927,
+      "max_ms": 16.262,
+      "python_peak_allocated_bytes_excluding_input": 12395
+    }
+  ]
+}

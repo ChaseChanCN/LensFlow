@@ -1,0 +1,15 @@
+{
+  "isolated_browser_root": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3b1-browser-8zhsuwio",
+  "removed": true,
+  "test_service_ports_listening": {
+    "8048": false,
+    "4248": false
+  },
+  "agent_browser_tab_closed": 15,
+  "backend_skip": [
+    {
+      "test": "tests.test_storage_security.test_symlink_cannot_escape",
+      "reason": "OS does not permit test symlinks"
+    }
+  ]
+}

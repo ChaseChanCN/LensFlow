@@ -1,0 +1,101 @@
+{
+  "sort": "rating_desc",
+  "elapsedIncludingAutomationMs": 5901,
+  "samples": [
+    {
+      "first": "786",
+      "loaded": 100,
+      "mounted": 35
+    },
+    {
+      "first": "432",
+      "loaded": 150,
+      "mounted": 35
+    },
+    {
+      "first": "84",
+      "loaded": 200,
+      "mounted": 30
+    },
+    {
+      "first": "725",
+      "loaded": 250,
+      "mounted": 30
+    },
+    {
+      "first": "377",
+      "loaded": 300,
+      "mounted": 35
+    },
+    {
+      "first": "23",
+      "loaded": 350,
+      "mounted": 35
+    },
+    {
+      "first": "676",
+      "loaded": 400,
+      "mounted": 30
+    },
+    {
+      "first": "328",
+      "loaded": 450,
+      "mounted": 30
+    },
+    {
+      "first": "975",
+      "loaded": 500,
+      "mounted": 35
+    },
+    {
+      "first": "627",
+      "loaded": 550,
+      "mounted": 35
+    },
+    {
+      "first": "279",
+      "loaded": 600,
+      "mounted": 30
+    },
+    {
+      "first": "926",
+      "loaded": 650,
+      "mounted": 30
+    },
+    {
+      "first": "578",
+      "loaded": 700,
+      "mounted": 35
+    },
+    {
+      "first": "230",
+      "loaded": 750,
+      "mounted": 35
+    },
+    {
+      "first": "939",
+      "loaded": 800,
+      "mounted": 30
+    },
+    {
+      "first": "764",
+      "loaded": 850,
+      "mounted": 35
+    },
+    {
+      "first": "589",
+      "loaded": 900,
+      "mounted": 35
+    },
+    {
+      "first": "415",
+      "loaded": 950,
+      "mounted": 35
+    },
+    {
+      "first": "241",
+      "loaded": 1000,
+      "mounted": 30
+    }
+  ]
+}

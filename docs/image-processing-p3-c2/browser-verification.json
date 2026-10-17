@@ -1,0 +1,30 @@
+{
+  "environment": "isolated FastAPI 8052 + Vite 4252 + SQLite + temporary uploads; in-app Chromium",
+  "actual_browser_verified": [
+    "owner login and partial index warning (7/1002)",
+    "reload during indexing recovers persisted 137/1002; explicit continue completes 1002/1002",
+    "restored missing-source failure followed by explicit retry",
+    "camera EOS 70D, constructed 35mm, ISO 100, focal >=35 and aperture <=2.8",
+    "combined rating_min=4 and Pick => 83 matches, second page loaded and virtual grid bounded",
+    "year to month to day navigation, URL reload and Back/Forward",
+    "unknown capture date group 251",
+    "viewer photo 6 metadata, editor navigation context and two-photo Light Table 6/18",
+    "clear unapplied ISO 200 leaves empty input and URL without metadata conditions",
+    "browser console error log empty at final inspection"
+  ],
+  "tcp_or_unit_verified_not_browser_claim": [
+    "all six sort modes: 83 unique expected matches over 3 pages each",
+    "customer and cross-order access denied, customer default catalog permitted",
+    "parallel lease claim, stale lease and superseded publication",
+    "database busy rollback and 503 error semantics"
+  ],
+  "not_independently_validated": [
+    "physical mobile viewport",
+    "Safari",
+    "multi-worker deployment",
+    "hard process kill/restart",
+    "live PostgreSQL",
+    "OBS binary source indexing"
+  ],
+  "screenshot_note": "index-failure.png captured an intermediate loading state; use failure-injection.json for the actual failed result."
+}

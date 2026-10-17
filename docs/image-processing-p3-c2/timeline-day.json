@@ -1,0 +1,25 @@
+{
+  "level": "day",
+  "buckets": [
+    {
+      "date": "2026-01-02",
+      "count": 251,
+      "captured_from": "2026-01-02",
+      "captured_to": "2026-01-02"
+    }
+  ],
+  "unknown": 251,
+  "matched": 1002,
+  "counts": {
+    "total": 1002,
+    "indexed": 1002,
+    "pending": 0,
+    "failed": 0,
+    "unsupported": 0,
+    "unindexed": 0,
+    "active": 0,
+    "generation": "1002:1002:2008:2026-10-17 14:47:37.929476",
+    "parser_version": "c1-v1.index-v1"
+  },
+  "truncated": false
+}

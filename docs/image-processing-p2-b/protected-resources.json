@@ -1,0 +1,13 @@
+{
+  "checked_files": 63,
+  "expected_changes": [
+    "backend\\app\\models\\__init__.py"
+  ],
+  "existing_business_model_files_unchanged": true,
+  "image_algorithms_unchanged": true,
+  "design_system_particles_darkroom_unchanged": true,
+  "development_database_sha256_unchanged": true,
+  "development_revision": "5e0b2fd720d3",
+  "dependencies_unchanged": true,
+  "prior_failed_test_sandbox_cleaned": true
+}

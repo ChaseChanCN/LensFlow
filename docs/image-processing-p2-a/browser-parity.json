@@ -1,0 +1,79 @@
+{
+  "baseline": {
+    "width": 517,
+    "height": 606
+  },
+  "tolerance": {
+    "mae": 3,
+    "rmse": 8,
+    "units": "RGB uint8; JPEG + browser decode included"
+  },
+  "cases": [
+    {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 0,
+        "contrast": 0,
+        "saturation": 0
+      },
+      "mae": 0,
+      "rmse": 0,
+      "max": 0,
+      "passed": true
+    },
+    {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": 0,
+        "saturation": 0
+      },
+      "mae": 1.7262992256672476,
+      "rmse": 2.6813446974364488,
+      "max": 44,
+      "passed": true
+    },
+    {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 0,
+        "contrast": 50,
+        "saturation": 0
+      },
+      "mae": 1.6410970884322476,
+      "rmse": 3.4373956734292435,
+      "max": 54,
+      "passed": true
+    },
+    {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 0,
+        "contrast": 0,
+        "saturation": -100
+      },
+      "mae": 0.48426757569373957,
+      "rmse": 0.9031850732022231,
+      "max": 11,
+      "passed": true
+    },
+    {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 0.7,
+        "contrast": 25,
+        "saturation": -30
+      },
+      "mae": 1.533606552144576,
+      "rmse": 3.04836640914683,
+      "max": 43,
+      "passed": true
+    }
+  ],
+  "export": {
+    "width": 1551,
+    "height": 1818,
+    "passed": true
+  },
+  "passed": true
+}

@@ -1,0 +1,69 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Scripts\python.exe
+cachedir: .pytest_cache
+ISOLATED SQLite: C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-5edtdzq2/test.sqlite; storage sandbox: C:\Users\Chase\AppData\Local\Temp\lensflow-pytest-5edtdzq2
+rootdir: C:\Users\Chase\Desktop\LensFlow\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1, asyncio-1.4.0
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 50 items
+
+tests/test_photo_metadata.py::test_constructed_manufacturer_exif_matches_independent_pillow[Canon-<] PASSED [  2%]
+tests/test_photo_metadata.py::test_constructed_manufacturer_exif_matches_independent_pillow[Nikon->] PASSED [  4%]
+tests/test_photo_metadata.py::test_constructed_manufacturer_exif_matches_independent_pillow[SONY-<] PASSED [  6%]
+tests/test_photo_metadata.py::test_real_fixture_without_exif_needs_no_pixel_decode PASSED [  8%]
+tests/test_photo_metadata.py::test_partial_exif_unknown_lens_and_missing_timezone PASSED [ 10%]
+tests/test_photo_metadata.py::test_invalid_offset_keeps_unknown_not_guessed[bad] PASSED [ 12%]
+tests/test_photo_metadata.py::test_invalid_offset_keeps_unknown_not_guessed[+25:00] PASSED [ 14%]
+tests/test_photo_metadata.py::test_invalid_offset_keeps_unknown_not_guessed[+08:99] PASSED [ 16%]
+tests/test_photo_metadata.py::test_invalid_offset_keeps_unknown_not_guessed[+14:01] PASSED [ 18%]
+tests/test_photo_metadata.py::test_invalid_numeric_fields_not_fabricated[33434-5-value0] PASSED [ 20%]
+tests/test_photo_metadata.py::test_invalid_numeric_fields_not_fabricated[33434-2-shutter] PASSED [ 22%]
+tests/test_photo_metadata.py::test_invalid_numeric_fields_not_fabricated[33434-5-value2] PASSED [ 24%]
+tests/test_photo_metadata.py::test_invalid_numeric_fields_not_fabricated[34855-3-0] PASSED [ 26%]
+tests/test_photo_metadata.py::test_duplicates_long_text_controls_corrupt_exif_and_makernote PASSED [ 28%]
+tests/test_photo_metadata.py::test_invalid_tiff_pointer_and_tag_count PASSED [ 30%]
+tests/test_photo_metadata.py::test_iptc_unicode_repeated_keywords_and_editorial_date PASSED [ 32%]
+tests/test_photo_metadata.py::test_xmp_multilingual_precedence_provenance_and_ambiguity PASSED [ 34%]
+tests/test_photo_metadata.py::test_xmp_language_selection_deterministic_without_default PASSED [ 36%]
+tests/test_photo_metadata.py::test_xmp_compact_attributes_and_gps PASSED [ 38%]
+tests/test_photo_metadata.py::test_malformed_unsafe_xmp_warns_without_raw_or_network[<broken] PASSED [ 40%]
+tests/test_photo_metadata.py::test_malformed_unsafe_xmp_warns_without_raw_or_network[<!DOCTYPE x [<!ENTITY a SYSTEM "file:///secret">]><x>&a;</x>] PASSED [ 42%]
+tests/test_photo_metadata.py::test_malformed_unsafe_xmp_warns_without_raw_or_network[<!DOCTYPE x SYSTEM "https://example.invalid/private"><x/>] PASSED [ 44%]
+tests/test_photo_metadata.py::test_malformed_unsafe_xmp_warns_without_raw_or_network[\xff\xfe<\x00!\x00D\x00O\x00C\x00T\x00Y\x00P\x00E\x00 \x00x\x00 \x00[\x00<\x00!\x00E\x00N\x00T\x00I\x00T\x00Y\x00 \x00a\x00 \x00"\x00a\x00b\x00c\x00"\x00>\x00]\x00>\x00<\x00x\x00>\x00&\x00a\x00;\x00<\x00/\x00x\x00>\x00] PASSED [ 46%]
+tests/test_photo_metadata.py::test_xml_bounds[packet] PASSED             [ 48%]
+tests/test_photo_metadata.py::test_xml_bounds[depth] PASSED              [ 50%]
+tests/test_photo_metadata.py::test_xml_bounds[nodes] PASSED              [ 52%]
+tests/test_photo_metadata.py::test_aggregate_metadata_and_segment_limits PASSED [ 54%]
+tests/test_photo_metadata.py::test_invalid_jpeg[text] PASSED             [ 56%]
+tests/test_photo_metadata.py::test_invalid_jpeg[no-frame] PASSED         [ 58%]
+tests/test_photo_metadata.py::test_invalid_jpeg[truncated] PASSED        [ 60%]
+tests/test_photo_metadata.py::test_invalid_jpeg[bad-length] PASSED       [ 62%]
+tests/test_photo_metadata.py::test_image_size_and_byte_limits PASSED     [ 64%]
+tests/test_photo_metadata.py::test_icc_identity_and_invalid_profile PASSED [ 66%]
+tests/test_photo_metadata.py::test_endpoint_authorized_private_immutable_and_preview_export PASSED [ 68%]
+tests/test_photo_metadata.py::test_endpoint_denies_other_photographer_clients_admin_before_storage[1] PASSED [ 70%]
+tests/test_photo_metadata.py::test_endpoint_denies_other_photographer_clients_admin_before_storage[2] PASSED [ 72%]
+tests/test_photo_metadata.py::test_endpoint_denies_other_photographer_clients_admin_before_storage[3] PASSED [ 74%]
+tests/test_photo_metadata.py::test_endpoint_denies_other_photographer_clients_admin_before_storage[4] PASSED [ 76%]
+tests/test_photo_metadata.py::test_endpoint_auth_missing_file_bad_query_and_obs PASSED [ 78%]
+tests/test_photo_metadata.py::test_metadata_busy_slots_released PASSED   [ 80%]
+tests/test_photo_metadata.py::test_source_change_no_cache_or_cross_photo_state PASSED [ 82%]
+tests/test_photo_metadata.py::test_customer_catalog_has_no_detailed_metadata PASSED [ 84%]
+tests/test_photo_metadata.py::test_malformed_optional_iptc_duplicate_packets_and_partial_icc PASSED [ 86%]
+tests/test_photo_metadata.py::test_valid_utf16_xmp_and_escaped_text PASSED [ 88%]
+tests/test_photo_metadata.py::test_keyword_limit_language_limit_and_invalid_gps PASSED [ 90%]
+tests/test_photo_metadata.py::test_invalid_dates_return_null_and_warning[2026:99:17 14:32:18] PASSED [ 92%]
+tests/test_photo_metadata.py::test_invalid_dates_return_null_and_warning[2026:10:17 25:32:18] PASSED [ 94%]
+tests/test_photo_metadata.py::test_invalid_dates_return_null_and_warning[unknown] PASSED [ 96%]
+tests/test_photo_metadata.py::test_bounded_mutated_exif_never_raises_unclassified_errors PASSED [ 98%]
+tests/test_photo_metadata.py::test_path_escape_and_io_error_do_not_leak_private_values PASSED [100%]
+
+============================== warnings summary ===============================
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\Chase\Desktop\LensFlow\docs\image-processing-p3-c1\backend-metadata.xml -
+======================= 50 passed, 1 warning in 28.37s ========================

@@ -1,0 +1,1399 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "overall": "NOT_ACCEPTED",
+  "frontendTests": {
+    "numTotalTests": 129,
+    "numPassedTests": 129,
+    "numFailedTests": 0,
+    "success": true
+  },
+  "backendTests": {
+    "tests": 145,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "backendEnvironment": {
+    "python": "3.12.10",
+    "sqlite": "3.49.1",
+    "fastapi": "0.143.2",
+    "sqlalchemy": "2.1.4",
+    "pydantic": "2.14.1",
+    "email-validator": "2.3.0",
+    "pytest": "9.1.1",
+    "uvicorn": "0.54.0",
+    "Pillow": "12.3.0",
+    "opencv-python-headless": "5.0.0.93"
+  },
+  "coverage": {
+    "scope": "core UI components and PageState; not whole application",
+    "summary": {
+      "lines": {
+        "total": 169,
+        "covered": 169,
+        "skipped": 0,
+        "pct": 100
+      },
+      "statements": {
+        "total": 220,
+        "covered": 215,
+        "skipped": 0,
+        "pct": 97.72
+      },
+      "functions": {
+        "total": 62,
+        "covered": 61,
+        "skipped": 0,
+        "pct": 98.38
+      },
+      "branches": {
+        "total": 237,
+        "covered": 225,
+        "skipped": 0,
+        "pct": 94.93
+      },
+      "branchesTrue": {
+        "total": 0,
+        "covered": 0,
+        "skipped": 0,
+        "pct": 100
+      }
+    }
+  },
+  "build": {
+    "passed": true,
+    "files": [
+      {
+        "path": "assets/index-lMfJK7o5.css",
+        "bytes": 33128,
+        "sha256": "44da804a3b20a5d2e5d88897b2f7bbf56edcb8851f9278d6643f08343c3f64f3"
+      },
+      {
+        "path": "assets/index-t53SyyGX.js",
+        "bytes": 410099,
+        "sha256": "7f3303ec4e9d08d6277788b075dfea7dac44bef74597f132272e9fd57a7e8908"
+      },
+      {
+        "path": "data/metadata.json",
+        "bytes": 2782,
+        "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+      },
+      {
+        "path": "data/particles.bin",
+        "bytes": 370335,
+        "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 9522,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "path": "icons.svg",
+        "bytes": 5031,
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "path": "index.html",
+        "bytes": 461,
+        "sha256": "e7957ad546d60f43638588ca3f1c42b59e108c3cb4ace9c22c2183ac3fde6076"
+      },
+      {
+        "path": "lensflow-v24.html",
+        "bytes": 37257,
+        "sha256": "30058b2d97ab430d160e8ff35c0b5f26588c0d8b056cc3d304a9c1e9e9b069d9"
+      }
+    ],
+    "totalBytes": 868615,
+    "originalBytes": 843904,
+    "phase4Bytes": 868587,
+    "changeFromOriginalPercent": 2.928176664644311,
+    "changeFromPhase4Bytes": 28
+  },
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 2,
+    "tool": "oxlint"
+  },
+  "tokens": {
+    "themeVariables": 115,
+    "utilityCandidates": 121,
+    "contrastPairs": 12,
+    "passed": true
+  },
+  "realApi": {
+    "backend": "real HTTP, JWT, migrated SQLite, local file storage and image analysis; outbound notifications disabled",
+    "checks": [
+      {
+        "name": "register client",
+        "method": "POST",
+        "path": "/auth/register",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "login client",
+        "method": "POST",
+        "path": "/auth/login",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "register photographer",
+        "method": "POST",
+        "path": "/auth/register",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "login photographer",
+        "method": "POST",
+        "path": "/auth/login",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "register other-client",
+        "method": "POST",
+        "path": "/auth/register",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "login other-client",
+        "method": "POST",
+        "path": "/auth/login",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "reject anonymous orders",
+        "method": "GET",
+        "path": "/orders",
+        "expected": 401,
+        "actual": 401,
+        "passed": true
+      },
+      {
+        "name": "reject wrong password",
+        "method": "POST",
+        "path": "/auth/login",
+        "expected": 401,
+        "actual": 401,
+        "passed": true
+      },
+      {
+        "name": "create booking",
+        "method": "POST",
+        "path": "/bookings",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "edit booking",
+        "method": "PATCH",
+        "path": "/bookings/2",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "client cannot confirm booking",
+        "method": "PATCH",
+        "path": "/bookings/2/confirm",
+        "expected": 403,
+        "actual": 403,
+        "passed": true
+      },
+      {
+        "name": "ownership: other client cannot read booking",
+        "method": "GET",
+        "path": "/bookings/2",
+        "expected": 403,
+        "actual": 200,
+        "passed": false
+      },
+      {
+        "name": "confirm booking",
+        "method": "PATCH",
+        "path": "/bookings/2/confirm",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "list photographer orders",
+        "method": "GET",
+        "path": "/orders",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "ownership: other client cannot read order",
+        "method": "GET",
+        "path": "/orders/2",
+        "expected": 403,
+        "actual": 200,
+        "passed": false
+      },
+      {
+        "name": "other client order list is scoped",
+        "method": "GET",
+        "path": "/orders",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "foreign order absent from list",
+        "passed": true
+      },
+      {
+        "name": "transition WAITING_SHOOT",
+        "method": "PATCH",
+        "path": "/orders/2/status",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "transition WAITING_UPLOAD",
+        "method": "PATCH",
+        "path": "/orders/2/status",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "client cannot upload photos",
+        "method": "POST",
+        "path": "/orders/2/photos",
+        "expected": 403,
+        "actual": 403,
+        "passed": true
+      },
+      {
+        "name": "reject non-JPEG upload",
+        "method": "POST",
+        "path": "/orders/2/photos",
+        "expected": 422,
+        "actual": 422,
+        "passed": true
+      },
+      {
+        "name": "upload real JPEG",
+        "method": "POST",
+        "path": "/orders/2/photos",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "read actual image analysis",
+        "method": "GET",
+        "path": "/photos/2/analysis",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "review analysis",
+        "method": "PATCH",
+        "path": "/analysis/2/review",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "transition WAITING_REVIEW",
+        "method": "PATCH",
+        "path": "/orders/2/status",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "publish selection using real endpoint",
+        "method": "POST",
+        "path": "/orders/2/selection-set",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "submit selection",
+        "method": "POST",
+        "path": "/selection-sets/1/submit",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "load generated retouch tasks",
+        "method": "GET",
+        "path": "/orders/2/retouch-tasks",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "upload retouch preview",
+        "method": "POST",
+        "path": "/retouch-tasks/1/versions",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "client feedback",
+        "method": "POST",
+        "path": "/retouch-tasks/1/feedback",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "confirm all retouch",
+        "method": "POST",
+        "path": "/orders/2/confirm-retouch",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "upload delivery",
+        "method": "POST",
+        "path": "/orders/2/delivery",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      },
+      {
+        "name": "reject unauthenticated download",
+        "method": "GET",
+        "path": "/deliveries/1/download",
+        "expected": 401,
+        "actual": 401,
+        "passed": true
+      },
+      {
+        "name": "reject other client delivery",
+        "method": "GET",
+        "path": "/orders/2/delivery",
+        "expected": 403,
+        "actual": 403,
+        "passed": true
+      },
+      {
+        "name": "reject other client download",
+        "method": "GET",
+        "path": "/deliveries/1/download",
+        "expected": 403,
+        "actual": 403,
+        "passed": true
+      },
+      {
+        "name": "authenticated download",
+        "method": "GET",
+        "path": "/deliveries/1/download",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "download bytes match stored payload",
+        "passed": true
+      },
+      {
+        "name": "client cannot archive",
+        "method": "PATCH",
+        "path": "/orders/2/archive",
+        "expected": 403,
+        "actual": 403,
+        "passed": true
+      },
+      {
+        "name": "archive delivered order",
+        "method": "PATCH",
+        "path": "/orders/2/archive",
+        "expected": 200,
+        "actual": 200,
+        "passed": true
+      },
+      {
+        "name": "create browser booking",
+        "method": "POST",
+        "path": "/bookings",
+        "expected": 201,
+        "actual": 201,
+        "passed": true
+      }
+    ],
+    "passed": 38,
+    "failed": 2
+  },
+  "browser": {
+    "realClientLogin": true,
+    "realBookingSubmitAndRedirect": true,
+    "realBookingId": 4,
+    "authenticatedBlobDownload": true,
+    "landingPhotographerNavigation": true,
+    "nestedModalEscapeAndFocusRestore": true,
+    "modalScrollLockRestore": true,
+    "screenReaderAuditoryVerification": false
+  },
+  "download": {
+    "browserDownloaded": true,
+    "bytes": 164,
+    "sha256": "6f061e099dd3c0982773a54706362440940c8435d826e8449320249f67920deb",
+    "matchesAuthenticatedApi": true,
+    "zipEntries": [
+      "acceptance.txt"
+    ]
+  },
+  "responsive": [
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/login",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/dashboard",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/register",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/booking",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/bookings/5",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders/1",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders/1/upload",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders/1/analysis",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/client",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders/1/selection",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders/1/delivery",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/orders/1/retouch",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "overflow": false,
+      "route": "/404",
+      "width": 375
+    },
+    {
+      "contentWidth": 375,
+      "documentHeight": 844,
+      "height": 844,
+      "overflow": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/login",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/dashboard",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/register",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/booking",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/bookings/5",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders/1",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders/1/upload",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders/1/analysis",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/client",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders/1/selection",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders/1/delivery",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/orders/1/retouch",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "overflow": false,
+      "route": "/404",
+      "width": 768
+    },
+    {
+      "contentWidth": 768,
+      "documentHeight": 844,
+      "height": 844,
+      "overflow": false,
+      "route": "/",
+      "width": 768
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/login",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/dashboard",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/register",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/booking",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/bookings/5",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders/1",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders/1/upload",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders/1/analysis",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/client",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders/1/selection",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders/1/delivery",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/orders/1/retouch",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "overflow": false,
+      "route": "/404",
+      "width": 1280
+    },
+    {
+      "contentWidth": 1280,
+      "documentHeight": 844,
+      "height": 844,
+      "overflow": false,
+      "route": "/",
+      "width": 1280
+    }
+  ],
+  "automaticAccessibility": [
+    {
+      "name": "login",
+      "path": "/login",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "dashboard",
+      "path": "/dashboard",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "orders",
+      "path": "/orders",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "register",
+      "path": "/register",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "booking",
+      "path": "/booking",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "booking-detail",
+      "path": "/bookings/5",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "order-detail",
+      "path": "/orders/1",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "upload",
+      "path": "/orders/1/upload",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "analysis",
+      "path": "/orders/1/analysis",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "client",
+      "path": "/client",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "selection",
+      "path": "/orders/1/selection",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "delivery",
+      "path": "/orders/1/delivery",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "retouch",
+      "path": "/orders/1/retouch",
+      "role": "client",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "not-found",
+      "path": "/404",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "landing",
+      "path": "/",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    },
+    {
+      "name": "particle",
+      "path": "/lensflow-v24.html",
+      "role": "photographer",
+      "score": 100,
+      "failed": []
+    }
+  ],
+  "particle": {
+    "samples": [
+      {
+        "phase": "before",
+        "round": 1,
+        "performance": 93,
+        "accessibility": 100,
+        "fcp": 1205.3843233944322,
+        "lcp": 1205.3843233944322,
+        "speedIndex": 1590.2742933368236,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance",
+            "accessibility"
+          ],
+          "skipAudits": null
+        },
+        "animationFrames": {
+          "callbacks": 143,
+          "cadenceHz": 59.9872499826855
+        }
+      },
+      {
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 654.9403,
+        "lcp": 654.9403,
+        "speedIndex": 949.5336881663816,
+        "tbt": 0,
+        "cls": 0.0007361339989189941,
+        "runtimeError": null,
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance",
+            "accessibility"
+          ],
+          "skipAudits": null
+        },
+        "animationFrames": {
+          "callbacks": 140,
+          "cadenceHz": 59.9924766191483
+        }
+      },
+      {
+        "phase": "before",
+        "round": 2,
+        "performance": 97,
+        "accessibility": 100,
+        "fcp": 960.5033,
+        "lcp": 1084.6115,
+        "speedIndex": 1086.0019095835548,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance",
+            "accessibility"
+          ],
+          "skipAudits": null
+        },
+        "animationFrames": {
+          "callbacks": 143,
+          "cadenceHz": 59.99166661212879
+        }
+      },
+      {
+        "phase": "after",
+        "round": 2,
+        "performance": 97,
+        "accessibility": 100,
+        "fcp": 800.4068,
+        "lcp": 800.4068,
+        "speedIndex": 1579.5683173325174,
+        "tbt": 0,
+        "cls": 0.0007361339989189941,
+        "runtimeError": null,
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance",
+            "accessibility"
+          ],
+          "skipAudits": null
+        },
+        "animationFrames": {
+          "callbacks": 151,
+          "cadenceHz": 59.99581046204909
+        }
+      },
+      {
+        "phase": "before",
+        "round": 3,
+        "performance": 89,
+        "accessibility": 100,
+        "fcp": 1177.0702363123003,
+        "lcp": 1583.9120363123002,
+        "speedIndex": 1723.8711295212886,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance",
+            "accessibility"
+          ],
+          "skipAudits": null
+        },
+        "animationFrames": {
+          "callbacks": 151,
+          "cadenceHz": 59.990300727848705
+        }
+      },
+      {
+        "phase": "after",
+        "round": 3,
+        "performance": 91,
+        "accessibility": 100,
+        "fcp": 930.8469540814721,
+        "lcp": 930.8469540814721,
+        "speedIndex": 2734.276120590365,
+        "tbt": 0,
+        "cls": 0.0007361339989189941,
+        "runtimeError": null,
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": null,
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance",
+            "accessibility"
+          ],
+          "skipAudits": null
+        },
+        "animationFrames": {
+          "callbacks": 144,
+          "cadenceHz": 59.98866529955656
+        }
+      }
+    ],
+    "medians": {
+      "before": {
+        "performance": 93,
+        "fcp": 1177.0702363123003,
+        "lcp": 1205.3843233944322,
+        "speedIndex": 1590.2742933368236
+      },
+      "after": {
+        "performance": 97,
+        "fcp": 800.4068,
+        "lcp": 800.4068,
+        "speedIndex": 1579.5683173325174
+      }
+    },
+    "originalBaseline": {
+      "performance": 96,
+      "fcp": 992.8203393,
+      "lcp": 1085.8031473,
+      "rafCadenceHz": 59.99395813
+    },
+    "normalModeGate": "PASS",
+    "frameMetricLimitation": "RAF callback cadence, not physical GPU presented frames; warmup first 500ms excluded."
+  },
+  "reducedMotion": {
+    "performance": 87.0,
+    "fcp": 1185.0378,
+    "lcp": 1185.0378,
+    "animationFrames": {
+      "callbacks": 0,
+      "cadenceHz": null
+    },
+    "functional": "PASS",
+    "performanceGate": "NOT_MEASURED_WITH_PAIRED_REPEATS",
+    "screenshot": "design-system-screenshots/phase-5-reduced-motion.jpg"
+  },
+  "gates": {
+    "unitTests": "PASS",
+    "productionBuild": "PASS",
+    "lint": "PASS",
+    "tokensAndContrast": "PASS",
+    "automaticAccessibility": "PASS",
+    "responsiveOverflow": "PASS",
+    "normalParticlePerformance": "PASS",
+    "bundle": "PASS",
+    "apiOwnership": "FAIL",
+    "completeUiWorkflow": "FAIL",
+    "screenReader": "PENDING"
+  },
+  "limitations": [
+    "Local isolated SQLite/local storage and task-only accounts; production PostgreSQL/cloud storage not assessed.",
+    "Outbound notifications disabled to avoid sending messages.",
+    "Automatic a11y and responsive checks use populated fixtures; actual browser login, booking and download use real backend.",
+    "External Three.js/font CDN and animated Speed Index cause run-to-run variance.",
+    "No complete browser-only business workflow pass; API preparation was required."
+  ],
+  "knownIssues": [
+    {
+      "id": "P5-01",
+      "priority": "blocking",
+      "kind": "backend ownership",
+      "source": "backend/app/api/v1/bookings.py:get_booking",
+      "evidence": "Other client GET /api/v1/bookings/2 returned 200; expected 403.",
+      "preExisting": true
+    },
+    {
+      "id": "P5-02",
+      "priority": "blocking",
+      "kind": "backend ownership",
+      "source": "backend/app/api/v1/orders.py:get_order",
+      "evidence": "Other client GET /api/v1/orders/2 returned 200; expected 403.",
+      "preExisting": true
+    },
+    {
+      "id": "P5-03",
+      "priority": "blocking",
+      "kind": "UI workflow",
+      "source": "frontend/src/pages/photographer/OrderDetailPage.tsx:NEXT_ACTIONS; backend/app/api/v1/photos.py:_run_analysis",
+      "evidence": "Analysis saves result but leaves ANALYZING; UI has no transition to WAITING_REVIEW. API harness advanced explicitly.",
+      "preExisting": true
+    },
+    {
+      "id": "P5-04",
+      "priority": "blocking",
+      "kind": "UI workflow",
+      "source": "frontend/src/pages/photographer/OrderDetailPage.tsx:NEXT_ACTIONS",
+      "evidence": "Publish action changes status without creating selection set. API harness calls POST /orders/{id}/selection-set explicitly.",
+      "preExisting": true
+    },
+    {
+      "id": "P5-05",
+      "priority": "blocking",
+      "kind": "UI workflow",
+      "source": "frontend/src/pages/photographer/OrderDetailPage.tsx:NEXT_ACTIONS",
+      "evidence": "Upload final action changes to DELIVERED without upload. Actual upload form is in delivery management.",
+      "preExisting": true
+    },
+    {
+      "id": "P5-06",
+      "priority": "pending",
+      "kind": "accessibility",
+      "evidence": "Real screen-reader auditory verification remains pending; automatic audits are not a substitute."
+    },
+    {
+      "id": "P5-07",
+      "priority": "follow-up",
+      "kind": "performance",
+      "evidence": "Reduced-motion single sample scored 87, no paired three-run performance gate measured; functional static render and zero RAF verified."
+    }
+  ]
+}

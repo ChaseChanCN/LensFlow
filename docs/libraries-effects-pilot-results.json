@@ -1,0 +1,818 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "stage": "THREE_PAGE_PILOT",
+  "status": "IMPLEMENTED_NOT_ACCEPTED",
+  "confirmedChanges": {
+    "beam": "Independent random size and color on each mount; stable during rerenders.",
+    "metal": "Random preset on each mount; stable during rerenders.",
+    "strength": 0.7,
+    "plus": "Centered SVG; no font baseline dependency."
+  },
+  "frontendTests": {
+    "numTotalTests": 136,
+    "numPassedTests": 136,
+    "numFailedTests": 0,
+    "success": true
+  },
+  "unitRenderingBoundary": "Page and adapter tests mock the four browser renderers; browser checks use actual npm libraries.",
+  "checks": {
+    "build": "PASS",
+    "previewBuild": "PASS",
+    "lintErrors": 0,
+    "existingLintWarnings": 2,
+    "tokens": 115,
+    "utilityCandidates": 121,
+    "contrastPairs": 12,
+    "particleMotionScript": "PASS"
+  },
+  "performance": {
+    "method": "Three original baseline runs per page, then three final runs per page after after-paint optimization; final repeats are sequential, not interleaved paired runs. Desktop Edge/Lighthouse same preset. Random effect variants not cherry-picked.",
+    "pages": [
+      {
+        "page": "login",
+        "medians": {
+          "before": {
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 605.9300000000001,
+            "lcp": 605.9300000000001,
+            "tbt": 0,
+            "cls": 0
+          },
+          "after": {
+            "performance": 98,
+            "accessibility": 100,
+            "fcp": 646.727875,
+            "lcp": 728.07345,
+            "tbt": 113.654425,
+            "cls": 0
+          }
+        },
+        "loadingChangePercent": {
+          "fcp": 6.733100358127175,
+          "lcp": 20.15801330186653
+        },
+        "gates": {
+          "performance": "PASS",
+          "fcp": "PASS",
+          "lcp": "FAIL"
+        },
+        "before": [
+          {
+            "name": "login",
+            "phase": "before",
+            "round": 1,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 615.2257999999999,
+            "lcp": 615.2257999999999,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "login",
+            "phase": "before",
+            "round": 2,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 605.7991999999999,
+            "lcp": 605.7991999999999,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "login",
+            "phase": "before",
+            "round": 3,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 605.9300000000001,
+            "lcp": 605.9300000000001,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          }
+        ],
+        "after": [
+          {
+            "name": "login",
+            "phase": "after",
+            "round": 1,
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 646.5225,
+            "lcp": 687.8270000000001,
+            "tbt": 80.5,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "login",
+            "phase": "after",
+            "round": 2,
+            "performance": 98,
+            "accessibility": 100,
+            "fcp": 646.727875,
+            "lcp": 728.07345,
+            "tbt": 113.654425,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "login",
+            "phase": "after",
+            "round": 3,
+            "performance": 98,
+            "accessibility": 100,
+            "fcp": 647.88,
+            "lcp": 729.456,
+            "tbt": 121,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          }
+        ]
+      },
+      {
+        "page": "dashboard",
+        "medians": {
+          "before": {
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 604.4373,
+            "lcp": 653.6559500000001,
+            "tbt": 0,
+            "cls": 0.0002949537401862067
+          },
+          "after": {
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 670.0306249999999,
+            "lcp": 735.9449999999999,
+            "tbt": 0,
+            "cls": 0.0002949537401862067
+          }
+        },
+        "loadingChangePercent": {
+          "fcp": 10.85196512524953,
+          "lcp": 12.589046271207337
+        },
+        "gates": {
+          "performance": "PASS",
+          "fcp": "PASS",
+          "lcp": "PASS"
+        },
+        "before": [
+          {
+            "name": "dashboard",
+            "phase": "before",
+            "round": 1,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 605.7922,
+            "lcp": 655.6883,
+            "tbt": 0,
+            "cls": 0.0002949537401862067,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "dashboard",
+            "phase": "before",
+            "round": 2,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 602.8489,
+            "lcp": 652.2733499999999,
+            "tbt": 0,
+            "cls": 0.0002949537401862067,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "dashboard",
+            "phase": "before",
+            "round": 3,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 604.4373,
+            "lcp": 653.6559500000001,
+            "tbt": 0,
+            "cls": 0.0002949537401862067,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          }
+        ],
+        "after": [
+          {
+            "name": "dashboard",
+            "phase": "after",
+            "round": 1,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 670.0306249999999,
+            "lcp": 732.2367499999999,
+            "tbt": 0,
+            "cls": 0.0002949537401862067,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "dashboard",
+            "phase": "after",
+            "round": 2,
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 670.5374999999999,
+            "lcp": 735.9449999999999,
+            "tbt": 0,
+            "cls": 0.0002949537401862067,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "dashboard",
+            "phase": "after",
+            "round": 3,
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 657.8855000000001,
+            "lcp": 759.3626,
+            "tbt": 0,
+            "cls": 0.0002949537401862067,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          }
+        ]
+      },
+      {
+        "page": "analysis",
+        "medians": {
+          "before": {
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 604.1,
+            "lcp": 688.1999999999999,
+            "tbt": 0,
+            "cls": 0
+          },
+          "after": {
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 604.7709,
+            "lcp": 807.15635,
+            "tbt": 0,
+            "cls": 0
+          }
+        },
+        "loadingChangePercent": {
+          "fcp": 0.11105777189206467,
+          "lcp": 17.28514240046499
+        },
+        "gates": {
+          "performance": "PASS",
+          "fcp": "PASS",
+          "lcp": "PASS"
+        },
+        "before": [
+          {
+            "name": "analysis",
+            "phase": "before",
+            "round": 1,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 604.0550000000001,
+            "lcp": 688.1100000000001,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "analysis",
+            "phase": "before",
+            "round": 2,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 604.1,
+            "lcp": 688.1999999999999,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "analysis",
+            "phase": "before",
+            "round": 3,
+            "performance": 100,
+            "accessibility": 100,
+            "fcp": 605.2353,
+            "lcp": 690.4706000000001,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          }
+        ],
+        "after": [
+          {
+            "name": "analysis",
+            "phase": "after",
+            "round": 1,
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 634.406125,
+            "lcp": 815.2873500000001,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "analysis",
+            "phase": "after",
+            "round": 2,
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 602.3161,
+            "lcp": 803.47415,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          },
+          {
+            "name": "analysis",
+            "phase": "after",
+            "round": 3,
+            "performance": 99,
+            "accessibility": 100,
+            "fcp": 604.7709,
+            "lcp": 807.15635,
+            "tbt": 0,
+            "cls": 0,
+            "runtimeError": null,
+            "accessibilityFailures": []
+          }
+        ]
+      }
+    ],
+    "preOptimizationSamples": [
+      {
+        "name": "login",
+        "phase": "before",
+        "round": 1,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 615.2257999999999,
+        "lcp": 615.2257999999999,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "login",
+        "phase": "after",
+        "round": 1,
+        "performance": 98,
+        "accessibility": 100,
+        "fcp": 655.412375,
+        "lcp": 745.29485,
+        "tbt": 103.617525,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "login",
+        "phase": "before",
+        "round": 2,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 605.7991999999999,
+        "lcp": 605.7991999999999,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "login",
+        "phase": "after",
+        "round": 2,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 653.248125,
+        "lcp": 742.29775,
+        "tbt": 88.95037500000001,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "login",
+        "phase": "before",
+        "round": 3,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 605.9300000000001,
+        "lcp": 605.9300000000001,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "login",
+        "phase": "after",
+        "round": 3,
+        "performance": 96,
+        "accessibility": 100,
+        "fcp": 651.0141250000001,
+        "lcp": 699.2169500000001,
+        "tbt": 151.29717499999998,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "before",
+        "round": 1,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 605.7922,
+        "lcp": 655.6883,
+        "tbt": 0,
+        "cls": 0.0002949537401862067,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 652.025125,
+        "lcp": 744.83015,
+        "tbt": 0,
+        "cls": 0.0002949537401862067,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "before",
+        "round": 2,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 602.8489,
+        "lcp": 652.2733499999999,
+        "tbt": 0,
+        "cls": 0.0002949537401862067,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "after",
+        "round": 2,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 652.8476250000001,
+        "lcp": 744.7171500000001,
+        "tbt": 0,
+        "cls": 0.0002949537401862067,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "before",
+        "round": 3,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 604.4373,
+        "lcp": 653.6559500000001,
+        "tbt": 0,
+        "cls": 0.0002949537401862067,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "dashboard",
+        "phase": "after",
+        "round": 3,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 652.38075,
+        "lcp": 744.6569,
+        "tbt": 0,
+        "cls": 0.0002949537401862067,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "before",
+        "round": 1,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 604.0550000000001,
+        "lcp": 688.1100000000001,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "after",
+        "round": 1,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 716.7644500000001,
+        "lcp": 867.3526000000002,
+        "tbt": 2.5,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "before",
+        "round": 2,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 604.1,
+        "lcp": 688.1999999999999,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "after",
+        "round": 2,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 706.2093,
+        "lcp": 888.6124,
+        "tbt": 15.5,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "before",
+        "round": 3,
+        "performance": 100,
+        "accessibility": 100,
+        "fcp": 605.2353,
+        "lcp": 690.4706000000001,
+        "tbt": 0,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      },
+      {
+        "name": "analysis",
+        "phase": "after",
+        "round": 3,
+        "performance": 99,
+        "accessibility": 100,
+        "fcp": 706.72945,
+        "lcp": 890.9726,
+        "tbt": 18,
+        "cls": 0,
+        "runtimeError": null,
+        "accessibilityFailures": []
+      }
+    ]
+  },
+  "build": {
+    "before": [
+      {
+        "file": "assets/index-lMfJK7o5.css",
+        "bytes": 33128,
+        "gzipBytes": 7191,
+        "sha256": "44da804a3b20a5d2e5d88897b2f7bbf56edcb8851f9278d6643f08343c3f64f3"
+      },
+      {
+        "file": "assets/index-t53SyyGX.js",
+        "bytes": 410099,
+        "gzipBytes": 124000,
+        "sha256": "7f3303ec4e9d08d6277788b075dfea7dac44bef74597f132272e9fd57a7e8908"
+      },
+      {
+        "file": "data/metadata.json",
+        "bytes": 2782,
+        "gzipBytes": 847,
+        "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+      },
+      {
+        "file": "data/particles.bin",
+        "bytes": 370335,
+        "gzipBytes": 226252,
+        "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+      },
+      {
+        "file": "favicon.svg",
+        "bytes": 9522,
+        "gzipBytes": 1504,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "file": "icons.svg",
+        "bytes": 5031,
+        "gzipBytes": 2161,
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "file": "index.html",
+        "bytes": 461,
+        "gzipBytes": 300,
+        "sha256": "e7957ad546d60f43638588ca3f1c42b59e108c3cb4ace9c22c2183ac3fde6076"
+      },
+      {
+        "file": "lensflow-v24.html",
+        "bytes": 37257,
+        "gzipBytes": 8891,
+        "sha256": "30058b2d97ab430d160e8ff35c0b5f26588c0d8b056cc3d304a9c1e9e9b069d9"
+      }
+    ],
+    "after": [
+      {
+        "file": "assets/index-B4JQKV6t.css",
+        "bytes": 34992,
+        "gzipBytes": 7586,
+        "sha256": "40f89ac9e01bfae796fb817546bcd7548999b39312693e0d51a8064a410c9641"
+      },
+      {
+        "file": "assets/index-Bn3iA2bF.js",
+        "bytes": 414050,
+        "gzipBytes": 125199,
+        "sha256": "1d0ffd6911042bbb741a39b9f653d0a098529be7d3419cc0b80ecefa4448c9d0"
+      },
+      {
+        "file": "assets/index.es-B6e3JMBo.js",
+        "bytes": 82687,
+        "gzipBytes": 12698,
+        "sha256": "07c52f32c00a73a6c809a76d7d8bc3dcd129d7a98e0a46dbb4af093373127b80"
+      },
+      {
+        "file": "assets/index.es-BdHqrCXx.js",
+        "bytes": 87728,
+        "gzipBytes": 29268,
+        "sha256": "f71372f130cd47fc68265056edffddb5d3f9ec4ddc912bcf4e108cbd3af5810b"
+      },
+      {
+        "file": "assets/index.es-DJCxtiyb.js",
+        "bytes": 25557,
+        "gzipBytes": 10428,
+        "sha256": "29011fda0297e67a32757dd988b163370ce6cb4fa8bb58733790097a25bb2be1"
+      },
+      {
+        "file": "assets/QuickActionsLiquid-DK6U6E_5.js",
+        "bytes": 50928,
+        "gzipBytes": 17147,
+        "sha256": "46c578e8dfd1b8c36d8d2bc02ab90620783cb1d244d40f01307134556ab78c4b"
+      },
+      {
+        "file": "data/metadata.json",
+        "bytes": 2782,
+        "gzipBytes": 847,
+        "sha256": "6f5a151db1f7eba4fef932b23ceeaf019dcdc62c34198541633998fa08f8340f"
+      },
+      {
+        "file": "data/particles.bin",
+        "bytes": 370335,
+        "gzipBytes": 226252,
+        "sha256": "a9caf45991b36585a177de9c1bf729ce138ec78e4aa4f7e6118569ec71715826"
+      },
+      {
+        "file": "favicon.svg",
+        "bytes": 9522,
+        "gzipBytes": 1504,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "file": "icons.svg",
+        "bytes": 5031,
+        "gzipBytes": 2161,
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "file": "index.html",
+        "bytes": 461,
+        "gzipBytes": 300,
+        "sha256": "76cb2e49a015fb4f1e841ad8f2e5adb288fdbaf317daf84643ccb8297cd6ec39"
+      },
+      {
+        "file": "lensflow-v24.html",
+        "bytes": 37257,
+        "gzipBytes": 8891,
+        "sha256": "30058b2d97ab430d160e8ff35c0b5f26588c0d8b056cc3d304a9c1e9e9b069d9"
+      }
+    ],
+    "beforeBytes": 868615,
+    "afterBytes": 1121330,
+    "changePercent": 29.09401748760958,
+    "commonEntryGzipIncreaseBytes": 1594,
+    "commonEntryBudgetBytes": 10240,
+    "totalBudgetPercent": 10,
+    "totalBudgetGate": "FAIL",
+    "routeEffectChunkGzipBudgetBytes": 51200,
+    "routeEffectChunkBudget": "PASS"
+  },
+  "browser": {
+    "plusSvgCenterDeltaY": 2.09808349609375e-05,
+    "mouseExpand": true,
+    "tabEntersActions": true,
+    "escapeRestoresTrigger": true,
+    "fixtureReviewKeep": true,
+    "realBackendLoginRedirect": "/client",
+    "responsive": [
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "path": "/login",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "path": "/dashboard",
+        "width": 375
+      },
+      {
+        "contentWidth": 375,
+        "overflow": false,
+        "path": "/orders/1/analysis",
+        "width": 375
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "path": "/login",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "path": "/dashboard",
+        "width": 768
+      },
+      {
+        "contentWidth": 768,
+        "overflow": false,
+        "path": "/orders/1/analysis",
+        "width": 768
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "path": "/login",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "path": "/dashboard",
+        "width": 1280
+      },
+      {
+        "contentWidth": 1280,
+        "overflow": false,
+        "path": "/orders/1/analysis",
+        "width": 1280
+      }
+    ]
+  },
+  "pending": [
+    "Real screen-reader auditory verification.",
+    "Safari/iOS and Firefox manual checks.",
+    "Actual WebGL2 disabled/context-loss fallback checks.",
+    "Twenty route changes resource-lifecycle check.",
+    "Interactive long-task acceptance (startup Lighthouse TBT is not this check).",
+    "Full business flow and ownership failures from original P5 remain."
+  ],
+  "blockers": [
+    "Production output total +29.09% exceeds the original +10% budget.",
+    "Login LCP median exceeds the +20% threshold; retain exact values, do not round down to pass."
+  ],
+  "fullSiteMigration": "NOT_STARTED; requires pilot acceptance and user confirmation."
+}

@@ -1,0 +1,35 @@
+{
+  "protected_files": 50,
+  "changed_protected_files": [],
+  "allowed_narrow_extensions": [
+    "backend/app/api/v1/photo_catalog.py",
+    "backend/app/models/__init__.py",
+    "backend/app/schemas/catalog_filters.py",
+    "backend/app/services/photo_catalog.py",
+    "frontend/src/components/photo-library/useAnnotations.ts",
+    "frontend/src/utils/catalogFilters.ts"
+  ],
+  "development_database_revision_read_only": "5e0b2fd720d3",
+  "originals_unchanged": true,
+  "non_index_tables_unchanged": [
+    "alembic_version",
+    "analysis_results",
+    "audit_logs",
+    "bookings",
+    "deliveries",
+    "notification_logs",
+    "order_timelines",
+    "orders",
+    "photo_asset_annotations",
+    "photo_edit_drafts",
+    "photos",
+    "retouch_feedbacks",
+    "retouch_tasks",
+    "retouch_versions",
+    "selection_items",
+    "selection_sets",
+    "selection_submissions",
+    "todo_items",
+    "users"
+  ]
+}

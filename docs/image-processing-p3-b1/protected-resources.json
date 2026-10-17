@@ -1,0 +1,10 @@
+{
+  "checked_files": 93,
+  "unchanged_files": 92,
+  "intentional_type_only_changes": [
+    "frontend\\src\\components\\photo-editor\\PhotoWorkbench.tsx"
+  ],
+  "workbench_original_hash_matches_after_type_reversal": true,
+  "development_db_revision": "5e0b2fd720d3",
+  "database_migrations_executed_on_development": false
+}

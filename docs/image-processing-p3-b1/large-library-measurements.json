@@ -1,0 +1,187 @@
+[
+  {
+    "stage": "initial",
+    "columns": "5",
+    "images": 25,
+    "loaded": "50",
+    "mounted": 25,
+    "scrollHeight": 2436,
+    "scrollTop": 0,
+    "requests": 38,
+    "catalogRequests": 1
+  },
+  {
+    "stage": "scroll-page-3",
+    "firstId": "81",
+    "loaded": 150,
+    "mounted": 40,
+    "scrollTop": 4162.66650390625
+  },
+  {
+    "stage": "scroll-page-4",
+    "firstId": "131",
+    "loaded": 200,
+    "mounted": 35,
+    "scrollTop": 6376.66650390625
+  },
+  {
+    "stage": "scroll-page-5",
+    "firstId": "181",
+    "loaded": 250,
+    "mounted": 35,
+    "scrollTop": 8591.3330078125
+  },
+  {
+    "stage": "scroll-page-6",
+    "firstId": "231",
+    "loaded": 300,
+    "mounted": 40,
+    "scrollTop": 10806
+  },
+  {
+    "stage": "scroll-page-7",
+    "firstId": "281",
+    "loaded": 350,
+    "mounted": 40,
+    "scrollTop": 13020.6669921875
+  },
+  {
+    "stage": "scroll-page-8",
+    "firstId": "331",
+    "loaded": 400,
+    "mounted": 35,
+    "scrollTop": 15234.6669921875
+  },
+  {
+    "stage": "scroll-page-9",
+    "firstId": "381",
+    "loaded": 450,
+    "mounted": 35,
+    "scrollTop": 17449.333984375
+  },
+  {
+    "stage": "scroll-page-10",
+    "firstId": "431",
+    "loaded": 500,
+    "mounted": 40,
+    "scrollTop": 19664
+  },
+  {
+    "stage": "scroll-page-11",
+    "firstId": "481",
+    "loaded": 550,
+    "mounted": 40,
+    "scrollTop": 21878.666015625
+  },
+  {
+    "stage": "scroll-page-12",
+    "firstId": "531",
+    "loaded": 600,
+    "mounted": 35,
+    "scrollTop": 24092.666015625
+  },
+  {
+    "stage": "scroll-page-13",
+    "firstId": "581",
+    "loaded": 650,
+    "mounted": 35,
+    "scrollTop": 26307.333984375
+  },
+  {
+    "stage": "scroll-page-14",
+    "firstId": "631",
+    "loaded": 700,
+    "mounted": 40,
+    "scrollTop": 28522
+  },
+  {
+    "stage": "scroll-page-15",
+    "firstId": "681",
+    "loaded": 750,
+    "mounted": 40,
+    "scrollTop": 30736.666015625
+  },
+  {
+    "stage": "scroll-page-16",
+    "firstId": "731",
+    "loaded": 800,
+    "mounted": 35,
+    "scrollTop": 32950.66796875
+  },
+  {
+    "stage": "scroll-page-17",
+    "firstId": "781",
+    "loaded": 850,
+    "mounted": 35,
+    "scrollTop": 35165.33203125
+  },
+  {
+    "stage": "scroll-page-18",
+    "firstId": "831",
+    "loaded": 900,
+    "mounted": 40,
+    "scrollTop": 37380
+  },
+  {
+    "stage": "scroll-page-19",
+    "firstId": "881",
+    "loaded": 950,
+    "mounted": 40,
+    "scrollTop": 39594.66796875
+  },
+  {
+    "stage": "scroll-page-20",
+    "firstId": "931",
+    "loaded": 1000,
+    "mounted": 35,
+    "scrollTop": 41808.66796875
+  },
+  {
+    "stage": "end-1000",
+    "firstId": "976",
+    "loaded": 1000,
+    "mounted": 25,
+    "scrollTop": 43802,
+    "thumbnailRequests": 665,
+    "catalogRequests": 20
+  },
+  {
+    "stage": "density-compact",
+    "columns": "8",
+    "firstId": "953",
+    "interactionCommitMs": "8.30",
+    "loaded": 1000,
+    "mounted": 48,
+    "scrollTop": 19016
+  },
+  {
+    "stage": "density-large",
+    "columns": "4",
+    "firstId": "961",
+    "interactionCommitMs": "11.50",
+    "loaded": 1000,
+    "mounted": 24,
+    "scrollTop": 64145.33203125
+  },
+  {
+    "stage": "density-normal",
+    "columns": "5",
+    "firstId": "956",
+    "interactionCommitMs": "7.60",
+    "loaded": 1000,
+    "mounted": 35,
+    "scrollTop": 42740
+  },
+  {
+    "stage": "scroll-restoration",
+    "afterEscape": 42240,
+    "afterEditorReturn": 42240,
+    "beforeAutomationClick": 42740
+  },
+  {
+    "stage": "visible-card-viewer-restoration",
+    "beforeClick": 42240,
+    "atOpen": 42018.66796875,
+    "afterEscape": 42018.66796875
+  }
+]

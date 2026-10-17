@@ -1,0 +1,6421 @@
+{
+  "events": [
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/2/photos",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.93
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders/2/photos",
+      "query": "",
+      "status": 201,
+      "cache": null,
+      "duration_ms": 29.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/2/photos",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 9.07
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/orders/2/photos",
+      "query": "",
+      "status": 201,
+      "cache": null,
+      "duration_ms": 17.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/2/photos",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/2/photos/catalog",
+      "query": "limit=50",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1001/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 9.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1002/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 26.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1001/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 21.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1001/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 17.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1002/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 14.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/2/photos/1002/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 5.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1002/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 11.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1002/edit-draft",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 8.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1001/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1002/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 6.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 15.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 17.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 18.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 12.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 12.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/3/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 47.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 9.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/6/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 38.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/11/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/12/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 35.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 18.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 11.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 15.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/5/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 47.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/14/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 18.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 20.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/19/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/22/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/15/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 55.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/20/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/21/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/25/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 8.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/23/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/24/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 32.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 10.37
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/4/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/7/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/8/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/16/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 44.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/10/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/9/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 28.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/13/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/18/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/17/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/25/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 4.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/31/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 106.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDUwLDEwMDBd2M2GR7FYS_idw4w2Hbcl44mybpb0QlOyrz6WxgIsDnw",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 118.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/33/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 108.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/34/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 118.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/32/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 122.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/35/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/37/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/39/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/36/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/38/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/41/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/43/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/42/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/40/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/46/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/44/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/45/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/49/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/50/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/51/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/52/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/48/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 69.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/47/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 107.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/54/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/53/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/55/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/56/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/57/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/58/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/59/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/61/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/62/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/60/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/63/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/65/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/64/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/67/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/68/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/70/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/66/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 59.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/69/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDEwMCwxMDAwXTn2I1LSEsfXScd4GCjwusSNploLSoX_mCzTOH9PYhxK",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 67.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/82/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 71.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/81/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 77.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/83/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 76.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/84/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 77.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/86/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/85/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/87/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/88/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/89/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/90/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/91/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/93/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/92/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/95/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/96/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/98/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/97/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/99/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/100/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/101/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/102/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/103/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/104/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/105/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/106/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/107/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/108/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/109/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/110/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/111/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDE1MCwxMDAwXUZ0Hd0LTTony3KCxofxpnL2S4fmSxn4iBPrbq3IY4Fy",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/132/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/131/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/133/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/134/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/135/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/136/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/137/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/138/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/139/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/140/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/141/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/142/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/144/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/145/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/143/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/146/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/147/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/148/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/149/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/150/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/151/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/152/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/153/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/154/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/155/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/156/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/157/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/158/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/159/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/162/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/160/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/161/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/163/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/165/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 11.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/164/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDIwMCwxMDAwXXt_XIaweWEFT2gg3o5lva-NKc_2kAVTiI4-OYyFNlbt",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/183/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/182/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/181/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/184/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/185/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/186/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/187/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/188/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/190/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/189/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/191/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/192/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/193/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/194/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/195/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/196/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/197/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/198/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/199/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/200/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/201/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/202/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/203/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/204/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/205/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/207/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/206/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/208/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/209/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/211/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/210/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/212/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/213/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/214/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDI1MCwxMDAwXX1_IAjEmirwyv1L6O3-WGA_EJLqdvMqrYSMKIiX8nEi",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/231/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/234/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/233/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/232/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/236/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/235/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/238/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/237/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/240/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/239/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/242/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/241/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/243/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/244/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/245/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/246/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/247/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/248/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/249/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/250/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/251/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/252/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/254/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/253/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/256/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/255/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/257/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/258/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/259/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/260/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/261/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/262/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDMwMCwxMDAwXex8W92TRxHjFUPxeIyzmAIc1bke8l9GtR6B9SKdV0zU",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/283/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/284/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/282/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/281/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/286/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/285/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/287/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/288/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/289/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/290/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/292/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/291/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/293/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/294/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/295/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/297/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/299/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/298/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/296/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/300/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/303/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/301/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/302/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/306/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/305/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/307/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/304/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 54.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/309/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/308/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/310/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/311/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/312/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/313/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/315/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/314/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDM1MCwxMDAwXYK4UVX7uBlT0O9HhAYSypsgmAyxL6tuAzF6hfhCOllx",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 24.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/332/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/334/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/333/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/331/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/336/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/335/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/337/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/338/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/339/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/340/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/341/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/342/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/343/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/345/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/344/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/346/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/347/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/349/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/348/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/350/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/353/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/352/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/351/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 53.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/355/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/354/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/356/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/357/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/358/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/359/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/360/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/362/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/363/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/361/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDQwMCwxMDAwXTxWlIHaWfV1c3xvlIuYDOUdE7ySRxGeVfUV2c56KoH1",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/383/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/381/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/382/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/384/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/385/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/387/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/386/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/388/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/389/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/390/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/392/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/391/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/394/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/393/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/395/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/396/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/397/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/398/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/399/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/400/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/402/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/401/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/403/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/404/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/406/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/405/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/407/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/408/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/409/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/410/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/411/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/412/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDQ1MCwxMDAwXQ_fYsU1gTOt8DvxnSx9VE1qgQd5gfFWbTmssZbOLFW8",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 23.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/413/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/433/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/434/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/431/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/432/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/435/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/436/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/438/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/437/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/439/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/440/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/441/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/442/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/443/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/445/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/444/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/447/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/446/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/448/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/449/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/450/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/451/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 59.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/453/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/452/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/454/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/455/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/456/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/457/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/458/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDUwMCwxMDAwXQjaUutnM4w2mybDO8HfqcoOTThdhMDgy5OKwyPrzGxQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 24.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/481/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/484/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/482/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/483/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 42.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/485/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/486/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/488/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/487/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/489/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/490/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/492/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/491/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/493/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/494/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/496/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/495/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/497/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/498/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/499/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/500/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/501/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/502/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 42.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/503/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/504/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/505/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/506/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/507/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/508/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/510/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/509/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDU1MCwxMDAwXZ2LdyZohIJ2aN6Vt9MedLwwYjAdbDQ195EvPk36GFyA",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/531/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/533/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/534/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/532/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/535/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/536/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/537/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/538/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/539/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/541/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/540/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/542/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/543/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/545/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/544/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/546/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/548/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/547/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/549/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/550/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/551/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/552/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/554/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/553/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/555/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/556/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/557/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/558/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/559/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/560/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/561/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/563/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/562/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/565/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/564/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDYwMCwxMDAwXTpZfq0X_x_d0t-bSZ5rOETyBw8m3DSGRnXEsDulpAo0",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 15.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/581/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/582/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/583/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/584/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/585/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/586/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/587/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/588/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/591/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/590/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/589/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/592/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/593/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.86
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/594/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/596/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/595/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/597/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/599/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/598/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/600/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/601/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/602/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/603/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/604/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.27
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/605/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/606/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/607/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/608/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/609/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/610/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/611/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDY1MCwxMDAwXf8k6nW1ID8wrDaOfcYyleh_mBIECKo3YDlOaW_uQ_ko",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 18.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/632/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/633/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/634/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/631/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/635/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/636/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/637/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/638/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/639/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.82
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/642/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/641/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/640/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/643/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/644/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/645/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/647/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/646/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/650/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/648/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/649/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/651/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/652/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/654/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/653/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/655/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/657/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/656/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.2
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/658/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/659/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/660/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/661/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDcwMCwxMDAwXc_QEh51Ign5zJeH9DQGqfFSUf9iYP70s0HCZAx9UAf8",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/683/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/684/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/682/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/681/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/686/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/685/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/687/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/688/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/689/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/690/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/691/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/692/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/693/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/694/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/695/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/696/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/697/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/700/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/698/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/699/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/701/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/703/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/702/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/704/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/705/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/706/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/708/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/707/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDc1MCwxMDAwXchmSNhj3pexaf2ledf1wFZf3S8WoXQHfAz3tOPKTLyp",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 20.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/733/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/734/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/731/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/732/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/736/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/735/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/737/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/738/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/739/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/740/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/741/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/742/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/743/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 8.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/744/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/745/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/747/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/746/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/749/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/748/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/751/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/750/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/753/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/752/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/754/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/755/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/757/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/756/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/758/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDgwMCwxMDAwXQoSj1h6nDb_wmUSVniFbwabP5MLCRqOC9dlWeCZryxQ",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 17.54
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/781/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/782/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/783/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/784/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/785/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/786/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/787/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/788/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/789/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/791/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/790/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/792/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/793/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/796/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/795/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/794/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/797/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/798/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/800/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/799/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/801/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/803/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/802/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/805/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/804/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 49.13
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDg1MCwxMDAwXQSAM7gncXAnvVf0bXEFR8PvcivRPMIvVmdbaGG3GyqC",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/831/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/832/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/834/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/833/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/836/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/835/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/838/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/837/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/840/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/839/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/841/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/842/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/843/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/844/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/846/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/845/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/847/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.42
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/848/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/850/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/851/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/849/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/852/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/853/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/854/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/855/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/856/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.65
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/857/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/858/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.93
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/859/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/860/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDkwMCwxMDAwXQpGnVFuyZS2T4lHBqgl2nBlYujlBKagp_UtHTO7QOrt",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 27.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/881/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/883/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.48
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/884/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/882/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/885/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/886/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/887/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/888/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/891/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/889/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.81
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/890/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/892/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.06
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/894/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/893/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/895/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/896/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/898/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.68
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/897/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/899/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/900/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 45.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/901/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/902/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.03
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/903/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/904/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.71
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/905/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/908/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.01
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/906/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/907/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "limit=50&cursor=WzEsMSwxLDk1MCwxMDAwXSD7Kwegsfxk2oK9IQAWpi4wZEW8LJoeNaJCONZzubh0",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 15.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/931/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/933/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/932/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.88
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/934/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/935/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/937/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/938/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 34.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/939/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.8
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/941/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/940/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.64
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/943/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/944/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/945/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/946/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/949/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/947/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.09
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/948/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/950/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/951/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/952/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/953/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/955/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/956/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/954/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/957/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/959/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.91
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/958/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/960/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/961/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.07
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/964/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/962/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.69
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/963/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/965/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/977/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 78.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/976/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 87.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/979/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 106.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/978/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 124.21
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/980/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/981/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.02
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/984/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.57
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/982/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 61.62
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/983/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 50.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/985/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.95
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/986/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/987/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/988/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/989/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/990/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/991/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.51
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/992/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/993/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/994/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.31
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/995/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.53
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/997/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/996/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 39.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/998/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.46
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/999/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1000/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/979/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 18.24
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/980/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 25.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/978/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 33.63
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/977/thumbnail",
+      "query": "size=128",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 51.17
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/982/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 15.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/984/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 19.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/986/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 10.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/983/thumbnail",
+      "query": "size=128",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 56.23
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/985/thumbnail",
+      "query": "size=128",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/988/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 13.38
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/989/thumbnail",
+      "query": "size=128",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 18.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/981/thumbnail",
+      "query": "size=128",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 109.11
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/987/thumbnail",
+      "query": "size=128",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 48.28
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/279/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 17.04
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/277/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 32.83
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/280/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 34.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/961/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 36.44
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/963/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 25.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/964/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 31.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/278/thumbnail",
+      "query": "size=512",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 85.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/965/thumbnail",
+      "query": "size=512",
+      "status": 429,
+      "cache": null,
+      "duration_ms": 16.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/962/thumbnail",
+      "query": "size=512",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 86.99
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=512",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/967/thumbnail",
+      "query": "size=512",
+      "status": 200,
+      "cache": "MISS",
+      "duration_ms": 65.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 12.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/969/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/967/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/968/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.72
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/972/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.5
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/970/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.59
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/971/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 35.66
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/973/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 38.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/975/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 9.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/974/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/941/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 10.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.14
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/956/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 15.89
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/956/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 16.84
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/956/asset",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.77
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/956/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 14.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/956/edit-draft",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 4.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/942/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.78
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/941/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 19.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/944/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/943/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.74
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/945/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 15.22
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/947/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 18.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/948/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.39
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/946/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 33.75
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/949/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/950/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.61
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/951/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 32.73
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/952/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.15
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/954/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 16.52
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/953/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/955/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.6
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/956/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.36
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/957/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/958/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.47
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/960/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.87
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/959/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.85
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/961/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.12
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/962/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 20.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/963/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 26.33
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/965/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 13.98
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/964/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 23.43
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/966/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 36.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/967/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 43.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/968/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/969/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 41.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/970/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/971/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/972/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.1
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/973/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.67
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/974/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.79
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/975/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.55
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/937/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.25
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 24.05
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/939/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.97
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/938/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 37.08
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/940/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 7.18
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/951/preview",
+      "query": "max_side=1024",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 17.56
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/921/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.76
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/923/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 25.92
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/924/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/922/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 40.4
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/925/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 17.7
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/926/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.35
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/927/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.49
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/928/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 27.29
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/930/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 21.16
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/929/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 28.58
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/931/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 30.34
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/932/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 31.96
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/934/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 14.9
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/933/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 22.19
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/935/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 29.0
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 200,
+      "cache": "HIT",
+      "duration_ms": 5.32
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 401,
+      "cache": null,
+      "duration_ms": 0.41
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/936/thumbnail",
+      "query": "size=256",
+      "status": 403,
+      "cache": null,
+      "duration_ms": 2.94
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/1/photos/catalog",
+      "query": "",
+      "status": 403,
+      "cache": null,
+      "duration_ms": 2.94
+    }
+  ],
+  "peak_server_thumbnail_requests": 5
+}

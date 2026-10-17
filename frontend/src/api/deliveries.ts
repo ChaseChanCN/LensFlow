@@ -34,3 +34,9 @@ export function getDownloadUrl(deliveryId: number): string {
   const baseURL = import.meta.env.VITE_API_BASE_URL || ''
   return `${baseURL}/api/v1/deliveries/${deliveryId}/download`
 }
+
+export async function downloadDelivery(deliveryId: number): Promise<Blob> {
+  // Use the authenticated client; a direct link cannot send the Bearer header.
+  const response = await client.get(`/api/v1/deliveries/${deliveryId}/download`, { responseType: 'blob' })
+  return response.data
+}

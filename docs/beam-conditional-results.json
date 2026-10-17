@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-16",
+  "tests": {
+    "numTotalTests": 155,
+    "numPassedTests": 155,
+    "numFailedTests": 0,
+    "success": true
+  },
+  "build": "PASS",
+  "previewBuild": "PASS",
+  "lintErrors": 0,
+  "existingLintWarnings": 2,
+  "rule": "Each statistic uses Beam only when its own valid loaded count is positive; zero/loading/error removes decorative layer.",
+  "lightTuning": {
+    "color": "mono",
+    "strength": 0.7,
+    "brightness": 0.7,
+    "glowSize": 0.7,
+    "strokeOpacityMultiplier": 3,
+    "innerOpacityMultiplier": 0.6,
+    "bloomOpacityMultiplier": 0.8,
+    "decorationColor": "white / silver",
+    "decorationFilter": "brightness(0) invert(1)"
+  },
+  "browser": [
+    {
+      "cards": [
+        {
+          "beam": true,
+          "count": "1",
+          "label": "待确认预约 ↗"
+        },
+        {
+          "beam": true,
+          "count": "1",
+          "label": "进行中订单 ↗"
+        },
+        {
+          "beam": false,
+          "count": "1",
+          "label": "总订单数 ↗"
+        }
+      ],
+      "scenario": "both-positive"
+    },
+    {
+      "cards": [
+        {
+          "beam": false,
+          "count": "0"
+        },
+        {
+          "beam": true,
+          "count": "1"
+        },
+        {
+          "beam": false,
+          "count": "1"
+        }
+      ],
+      "scenario": "confirmed-last-booking",
+      "statEffectLayers": 1
+    },
+    {
+      "cards": [
+        {
+          "beam": false,
+          "count": "0"
+        },
+        {
+          "beam": false,
+          "count": "0"
+        },
+        {
+          "beam": false,
+          "count": "0"
+        }
+      ],
+      "scenario": "empty",
+      "statEffectLayers": 0
+    },
+    {
+      "cards": [
+        {
+          "beam": true,
+          "count": "1"
+        },
+        {
+          "beam": false,
+          "count": "0"
+        },
+        {
+          "beam": false,
+          "count": "1"
+        }
+      ],
+      "scenario": "pending-only"
+    }
+  ],
+  "lightBrowserVerification": {
+    "screenshot": "design-system-screenshots/beam-conditional-light.png",
+    "previewAlbumFilter": "none",
+    "beamFilter": "brightness(0) invert(1)",
+    "metalGlowFilter": "brightness(0) invert(1)",
+    "metalGlowBlend": "normal",
+    "beamStrength": 0.7
+  }
+}

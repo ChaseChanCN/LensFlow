@@ -1,0 +1,7 @@
+Browser tab: 14, Title: "LensFlow", URL: "http://127.0.0.1:4238/orders/1/photos/2/edit".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 28
+~			26 text 已显示服务端校对结果
++				64 container
++					65 text 已保存  · 2:37:50 PM
+The focused UI element is 50 slider (settable, float) 曝光, Value: 0.10000000149011612, Details: 0.1, ID: edit-exposure_ev

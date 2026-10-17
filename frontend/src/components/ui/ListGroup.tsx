@@ -8,17 +8,17 @@ interface ListGroupProps extends HTMLAttributes<HTMLDivElement> {
 
 export function ListGroup({ header, footer, className = '', children, ...props }: ListGroupProps) {
   return (
-    <div className="px-4" {...props}>
+    <div className="material-list-group px-4" {...props}>
       {header && (
-        <p className="mb-2 px-1 text-xs font-medium uppercase tracking-wide text-label-secondary">
+        <p className="mb-2 px-1 text-caption font-medium uppercase tracking-wide text-label-muted">
           {header}
         </p>
       )}
-      <div className={`overflow-hidden rounded-card bg-system-bg shadow-card ${className}`}>
+      <div data-cursor-card className={`overflow-hidden rounded-card bg-system-bg shadow-card ${className}`}>
         {children}
       </div>
       {footer && (
-        <p className="mt-2 px-1 text-xs text-label-tertiary">{footer}</p>
+        <p className="mt-2 px-1 text-caption text-label-muted">{footer}</p>
       )}
     </div>
   )

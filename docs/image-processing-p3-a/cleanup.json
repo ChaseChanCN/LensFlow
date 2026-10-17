@@ -1,0 +1,18 @@
+{
+  "sandboxes": [
+    {
+      "sandbox": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3a-browser-_xuigpmo",
+      "removed": true
+    },
+    {
+      "sandbox": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3a-smoke-chsd28cq",
+      "removed": true
+    }
+  ],
+  "temporary_servers_stopped": true,
+  "temporary_browser_tabs_closed": [
+    12,
+    13,
+    14
+  ]
+}

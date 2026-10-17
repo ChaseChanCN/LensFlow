@@ -1,0 +1,87 @@
+{
+  "particles": 22111,
+  "binaryIdentical": true,
+  "metadataIdentical": true,
+  "suppliedPreviewIdentical": true,
+  "sourceSha256": "cb981f43e8e4d82ca48ec0a46a597182e01cd6027fd5548fe7b717ef7e763818",
+  "checks": [
+    {
+      "hero": [
+        257,
+        720
+      ],
+      "bounds": [
+        38.8,
+        18.78,
+        218.2,
+        291.62
+      ],
+      "allParticlesContained": true
+    },
+    {
+      "hero": [
+        312,
+        720
+      ],
+      "bounds": [
+        66.3,
+        18.78,
+        245.7,
+        291.62
+      ],
+      "allParticlesContained": true
+    },
+    {
+      "hero": [
+        672,
+        720
+      ],
+      "bounds": [
+        246.3,
+        18.78,
+        425.7,
+        291.62
+      ],
+      "allParticlesContained": true
+    },
+    {
+      "hero": [
+        696,
+        660
+      ],
+      "bounds": [
+        266.41,
+        18.53,
+        429.59,
+        266.67
+      ],
+      "allParticlesContained": true
+    },
+    {
+      "hero": [
+        1136.666748,
+        660
+      ],
+      "bounds": [
+        95.76,
+        26.2,
+        495.31,
+        633.8
+      ],
+      "allParticlesContained": true
+    },
+    {
+      "hero": [
+        1680,
+        660
+      ],
+      "bounds": [
+        237.03,
+        26.2,
+        636.57,
+        633.8
+      ],
+      "allParticlesContained": true
+    }
+  ]
+}

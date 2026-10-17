@@ -9,11 +9,11 @@ interface BadgeProps {
 }
 
 const TONE_CLASSES: Record<Tone, string> = {
-  neutral: 'bg-system-fill text-label-secondary',
-  accent: 'bg-accent/10 text-accent',
-  success: 'bg-success-bg text-success',
-  warning: 'bg-warning-bg text-warning',
-  error: 'bg-error-bg text-error',
+  neutral: 'bg-system-fill text-label-muted',
+  accent: 'bg-info-bg text-info-label',
+  success: 'bg-success-bg text-success-label',
+  warning: 'bg-warning-bg text-warning-label',
+  error: 'bg-error-bg text-error-label',
 }
 
 export function Badge({ tone = 'neutral', children, className = '' }: BadgeProps) {

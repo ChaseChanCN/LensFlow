@@ -1,0 +1,11 @@
+{
+  "sandbox": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c1-browser-fcqm9gdn",
+  "database": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c1-browser-fcqm9gdn\\browser.sqlite",
+  "storage": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c1-browser-fcqm9gdn\\uploads",
+  "ports": [
+    8051,
+    4251
+  ],
+  "notifications": "disabled",
+  "migration": "only isolated DB upgraded to head"
+}

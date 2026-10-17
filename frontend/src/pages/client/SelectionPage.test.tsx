@@ -43,7 +43,7 @@ function renderWithProviders(ui: React.ReactElement) {
 describe('SelectionPage', () => {
   it('renders page title', async () => {
     renderWithProviders(<SelectionPage />)
-    expect(await screen.findByText(/选片 - 订单/)).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: '选片' })).toBeInTheDocument()
   })
 
   it('renders photo options', async () => {
@@ -60,6 +60,6 @@ describe('SelectionPage', () => {
 
   it('renders max select info', async () => {
     renderWithProviders(<SelectionPage />)
-    expect(await screen.findByText(/最多选择 2 张/)).toBeInTheDocument()
+    expect(await screen.findByText(/最多 2 张，已选 0 张/)).toBeInTheDocument()
   })
 })

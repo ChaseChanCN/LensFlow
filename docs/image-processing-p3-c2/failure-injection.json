@@ -1,0 +1,27 @@
+{
+  "method": "Temporarily withhold one isolated uploaded source, then restore identical bytes",
+  "response": {
+    "photo_id": 1003,
+    "status": "failed",
+    "source_sha256": null,
+    "parser_version": "c1-v1.index-v1",
+    "reused": false,
+    "busy": false,
+    "error_code": "NOT_FOUND",
+    "camera_make": null,
+    "camera_model": null,
+    "lens_make": null,
+    "lens_model": null,
+    "iso": null,
+    "focal_length_mm": null,
+    "f_number": null,
+    "exposure_seconds": null,
+    "capture_datetime_local": null,
+    "capture_date": null,
+    "capture_timezone_known": false,
+    "capture_timezone_offset_minutes": null,
+    "indexed_at": null,
+    "warning_count": 0
+  },
+  "original_sha256": "5aa700b2f4012a7e6bd24fa95d6881c46af1ad862eded35178bcaf5860a61531"
+}

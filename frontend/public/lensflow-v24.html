@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LensFlow — Photography, in Flow</title>
+    <script>if (new URLSearchParams(location.search).get('portrait') === 'hero') document.documentElement.classList.add('portrait-hero');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+        
+        #text-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            opacity: 1;
+            pointer-events: none;
+            text-align: center;
+        }
+        #text-overlay h1 {
+            font-size: 80px;
+            font-weight: 400;
+            color: #ffffff;
+            margin: 0 0 48px 0;
+            letter-spacing: 0.02em;
+            font-family: 'Allura', cursive;
+        }
+        #text-overlay.visible { opacity: 1; }
+        
+        .button-container {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .button-container.visible { opacity: 1; }
+        
+        .rounded-button {
+            padding: 16px 40px;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .rounded-button:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            #text-overlay h1 { font-size: 64px; margin-bottom: 36px; }
+            .button-container { flex-direction: column; gap: 12px; }
+            .rounded-button { font-size: 14px; padding: 14px 36px; }
+        }
+        
+        .scroll-spacer { height: 200vh; position: relative; z-index: 0; }
+        /* Embedded portrait keeps the original renderer and breathing, without
+           the legacy page's text overlay or scroll-to-text transformation. */
+        .portrait-hero, .portrait-hero body { width:100%;height:100%;overflow:hidden;background:transparent; }
+        .portrait-hero #text-overlay, .portrait-hero .scroll-spacer { display:none; }
+        .portrait-hero #canvas-container { height:100%; }
+        
+        #error-display {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 10; color: #ff6666; font-size: 18px; text-align: center;
+            display: none; padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <main id="text-overlay">
+        <h1>LensFlow</h1>
+        <div class="button-container">
+            <button class="rounded-button" onclick="window.parent.postMessage({type:'navigate',path:'/client'},'*')">客户端</button>
+            <button class="rounded-button" onclick="window.parent.postMessage({type:'navigate',path:'/login'},'*')">摄影师端</button>
+        </div>
+    </main>
+    <div id="error-display"></div>
+    <div class="scroll-spacer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+console.log('LensFlow v24 initializing (Portrait + Scroll Morph)...');
+
+const CONFIG = {
+    TEXT_PARTICLE_COUNT: 2500,
+    ROAMING_PARTICLE_RATIO: 0.12,
+    ROAMING_SPEED_MIN: 0.0008,
+    ROAMING_SPEED_MAX: 0.003,
+    MOUSE_RADIUS: 50,
+    MOUSE_PULL_STRENGTH: 8,
+    MOUSE_ATTACH_DURATION: 5000,
+    SCROLL_TRANSITION_START: 0.05,
+    SCROLL_TRANSITION_END: 0.5,
+    BUTTON_FADEIN_DELAY: 500,
+};
+
+const random = (min, max) => Math.random() * (max - min) + min;
+const PI = Math.PI;
+const easeInOutQuart = t => t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+
+
+function showError(msg) {
+    const el = document.getElementById('error-display');
+    el.textContent = msg;
+    el.style.display = 'block';
+}
+
+function createCharAtlas(charset) {
+    const charCount = charset.length;
+    const cellSize = 64;
+    const canvas = document.createElement('canvas');
+    canvas.width = cellSize * charCount;
+    canvas.height = cellSize;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+    ctx.font = `${Math.floor(cellSize * 0.7)}px "Consolas", "Courier New", monospace`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let i = 0; i < charCount; i++) {
+        ctx.fillText(charset[i], i * cellSize + cellSize / 2, cellSize / 2);
+    }
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.magFilter = THREE.NearestFilter;
+    texture.minFilter = THREE.NearestFilter;
+    texture.needsUpdate = true;
+    return texture;
+}
+
+function splitmix32(h) {
+    h = (h + 0x9e3779b9) >>> 0;
+    let z = h;
+    z = Math.imul(z ^ (z >>> 16), 0x85ebca6b);
+    z = Math.imul(z ^ (z >>> 13), 0xc2b2ae35);
+    return z ^ (z >>> 16);
+}
+
+function hashToFloat(h) {
+    return (h >>> 0) / 4294967296.0;
+}
+
+function deriveAnimParams(count, baseBrightness, animSeed, config) {
+    const GLOBAL_ANIM_SEED = 0x9E3779B9;
+    const HIGHLIGHT_PERCENTILE = 0.85;
+    const SHADOW_PERCENTILE = 0.20;
+    
+    const sortedBrightness = Float32Array.from(baseBrightness);
+    sortedBrightness.sort();
+    const highlightThreshold = sortedBrightness[Math.floor(count * HIGHLIGHT_PERCENTILE)];
+    const shadowThreshold = sortedBrightness[Math.floor(count * SHADOW_PERCENTILE)];
+    
+    const phase = new Float32Array(count);
+    const period = new Float32Array(count);
+    const minBright = new Float32Array(count);
+    const maxBright = new Float32Array(count);
+    
+    for (let i = 0; i < count; i++) {
+        let h = (animSeed[i] ^ GLOBAL_ANIM_SEED) >>> 0;
+        h = splitmix32(h);
+        phase[i] = hashToFloat(h) * PI * 2.0;
+        h = splitmix32(h);
+        period[i] = config.minPeriod + hashToFloat(h) * (config.maxPeriod - config.minPeriod);
+        
+        let layer = 0;
+        if (baseBrightness[i] >= highlightThreshold) layer = 1;
+        else if (baseBrightness[i] < shadowThreshold) layer = 2;
+        
+        h = splitmix32(h);
+        const randAmp = hashToFloat(h);
+        
+        if (layer === 1) {
+            const highAmp = (config.maxBrightness - 1.0) * (1.0 - config.highlightsStability);
+            minBright[i] = 1.0 - highAmp;
+            maxBright[i] = 1.0 + highAmp * 0.8;
+        } else if (layer === 2) {
+            const shadowAmp = (1.0 - config.minBrightness) * (1.0 - config.shadowStability);
+            minBright[i] = 1.0 - shadowAmp * 0.5;
+            maxBright[i] = 1.0 + shadowAmp * 0.3;
+        } else {
+            const ampScale = randAmp < 0.8 ? 0.6 : 1.0;
+            const amp = (config.maxBrightness - config.minBrightness) * 0.5 * ampScale;
+            const mid = (config.maxBrightness + config.minBrightness) * 0.5;
+            minBright[i] = mid - amp;
+            maxBright[i] = mid + amp;
+        }
+    }
+    return { phase, period, minBright, maxBright };
+}
+
+function sampleTextLeftAligned(lines, fontSize, count, width, height) {
+    const fontStr = `700 ${fontSize}px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif`;
+    const measureCanvas = document.createElement('canvas');
+    const measureCtx = measureCanvas.getContext('2d');
+    measureCtx.font = fontStr;
+    
+    const lineHeight = fontSize * 1.8;
+    let maxTextWidth = 0;
+    lines.forEach(line => {
+        const metrics = measureCtx.measureText(line);
+        maxTextWidth = Math.max(maxTextWidth, metrics.width);
+    });
+    
+    const padding = fontSize;
+    const canvasWidth = Math.max(100, Math.ceil(maxTextWidth + padding * 2));
+    const canvasHeight = Math.max(100, Math.ceil(lineHeight * lines.length + padding * 2));
+    
+    const canvas = document.createElement('canvas');
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.font = fontStr;
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    
+    const centerY = canvasHeight / 2;
+    const startX = (canvasWidth - maxTextWidth) / 2;
+    
+    lines.forEach((line, index) => {
+        const lineCenterY = centerY + (index - (lines.length - 1) / 2) * lineHeight;
+        ctx.fillText(line, startX, lineCenterY);
+    });
+    
+    const imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+    const pixels = imageData.data;
+    const rowBoundary = canvasHeight / 2;
+    const rowPixelsList = lines.map(() => []);
+    for (let y = 0; y < canvasHeight; y++) {
+        const rowIdx = y < rowBoundary ? 0 : Math.min(lines.length - 1, 1);
+        for (let x = 0; x < canvasWidth; x++) {
+            const idx = (y * canvasWidth + x) * 4;
+            if (pixels[idx] > 128) {
+                rowPixelsList[rowIdx].push({
+                    x: x - canvasWidth / 2,
+                    y: -(y - canvasHeight / 2),
+                });
+            }
+        }
+    }
+    
+    const charCounts = lines.map(l => l.replace(/\s/g, '').length);
+    const totalChars = charCounts.reduce((a, b) => a + b, 0) || 1;
+    
+    const positions = [];
+    let accTarget = 0;
+    lines.forEach((line, li) => {
+        const rowPixels = rowPixelsList[li];
+        if (rowPixels.length === 0) return;
+        accTarget += Math.round(count * charCounts[li] / totalChars);
+        const alloc = accTarget - positions.length;
+        const step = Math.max(1, Math.floor(rowPixels.length / alloc));
+        for (let i = 0; i < alloc; i++) {
+            const srcIdx = i * step < rowPixels.length ? i * step : Math.floor(random(0, rowPixels.length));
+            positions.push(rowPixels[srcIdx]);
+        }
+
+    });
+    return positions;
+}
+
+
+class LensFlowApp {
+    constructor() {
+        this.isHero = document.documentElement.classList.contains('portrait-hero');
+        this.isReference4 = this.isHero && new URLSearchParams(location.search).get('dataset') === 'reference4';
+        this.heroLight = this.isReference4;
+        this.paperColor = [245/255, 244/255, 240/255];
+        if (typeof THREE === 'undefined') {
+            showError('THREE.js 加载失败');
+            return;
+        }
+        this.mousePos = new THREE.Vector2(0, 0);
+        this.mouseActive = false;
+        this.mouseEnabled = !('ontouchstart' in window);
+        this.lastScrollY = 0;
+        this.currentStage = 'loading';
+        this.motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        this.reducedMotion = this.motionPreference.matches;
+        this.animationFrameId = null;
+        this.ready = false;
+
+        this.startTime = Date.now();
+        this.initMouseListener();
+        this.loadData();
+    }
+    
+    async loadData() {
+        try {
+            const directory = this.isReference4 ? '/reference4_particles' : '/data';
+            const [binRes, metaRes] = await Promise.all([
+                fetch(`${directory}/particles.bin`),
+                fetch(`${directory}/metadata.json`)
+            ]);
+            if (!binRes.ok || !metaRes.ok) throw new Error('数据文件加载失败');
+            const arrayBuffer = await binRes.arrayBuffer();
+            const metadata = await metaRes.json();
+            this.initWithParticles(arrayBuffer, metadata);
+        } catch (e) {
+            showError('粒子数据加载失败: ' + e.message);
+            console.error(e);
+        }
+    }
+    
+    initWithParticles(arrayBuffer, metadata) {
+        const count = metadata.particle_count;
+        const aspect = metadata.aspect_ratio;
+        const charset = metadata.charset || ' .:-=+*#%@';
+        
+        const dataView = new DataView(arrayBuffer);
+        const coordX = new Float32Array(count);
+        const coordY = new Float32Array(count);
+        const charIndex = new Float32Array(count);
+        const drawSize = new Float32Array(count);
+        const colorR = new Float32Array(count);
+        const colorG = new Float32Array(count);
+        const colorB = new Float32Array(count);
+        const animSeed = new Uint32Array(count);
+        const baseBrightness = new Float32Array(count);
+        this.maxDrawSize = 0;
+        this.sourceBounds = {left:Infinity,right:-Infinity,bottom:Infinity,top:-Infinity};
+        
+        for (let i = 0; i < count; i++) {
+            const offset = i * 21;
+            coordX[i] = dataView.getFloat32(offset, true);
+            coordY[i] = dataView.getFloat32(offset + 4, true);
+            charIndex[i] = dataView.getUint16(offset + 8, true);
+            drawSize[i] = dataView.getFloat32(offset + 10, true);
+            this.maxDrawSize = Math.max(this.maxDrawSize, drawSize[i]);
+            const radius = drawSize[i] * 0.025;
+            this.sourceBounds.left = Math.min(this.sourceBounds.left, coordX[i] * aspect - radius);
+            this.sourceBounds.right = Math.max(this.sourceBounds.right, coordX[i] * aspect + radius);
+            this.sourceBounds.bottom = Math.min(this.sourceBounds.bottom, coordY[i] - radius);
+            this.sourceBounds.top = Math.max(this.sourceBounds.top, coordY[i] + radius);
+            colorR[i] = dataView.getUint8(offset + 14);
+            colorG[i] = dataView.getUint8(offset + 15);
+            colorB[i] = dataView.getUint8(offset + 16);
+            animSeed[i] = dataView.getUint32(offset + 17, true);
+            baseBrightness[i] = 0.299 * colorR[i] + 0.587 * colorG[i] + 0.114 * colorB[i];
+            baseBrightness[i] /= 255.0;
+        }
+        
+        const animConfig = {
+            minPeriod: 1.0, maxPeriod: 18.0,
+            minBrightness: 0.82, maxBrightness: 1.5,
+            highlightsStability: 0.7, shadowStability: 0.8,
+            animationSpeed: 2.7,
+        };
+        const animParams = deriveAnimParams(count, baseBrightness, animSeed, animConfig);
+        
+        this.particleCount = count;
+        this.aspect = aspect;
+        this.animConfig = animConfig;
+        
+        this.scene = new THREE.Scene();
+        this.scene.background = this.isReference4 ? null : new THREE.Color(this.isHero ? 0x101217 : 0x000000);
+        
+        this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: this.isReference4 });
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setClearColor(0x000000, this.isReference4 ? 0 : 1);
+        document.getElementById('canvas-container').appendChild(this.renderer.domElement);
+        
+        this.camera = new THREE.OrthographicCamera(-aspect, aspect, 1, -1, 0.1, 10);
+        this.camera.position.z = 1;
+        
+        this.initGeometry(count, coordX, coordY, charIndex, drawSize, colorR, colorG, colorB, baseBrightness, animParams, charset);
+        
+        this.currentStage = 'act1';
+        this.scrollProgress = 0;
+        
+        for (let i = 0; i < count; i++) {
+            this.basePositions[i * 3] = this.portraitTargets[i * 3];
+            this.basePositions[i * 3 + 1] = this.portraitTargets[i * 3 + 1];
+            this.basePositions[i * 3 + 2] = this.portraitTargets[i * 3 + 2];
+        }
+        
+        const finishInit = () => {
+            this.onResize();
+            this.assignParticleRoles();
+            this.projectTextTargets();
+            
+            console.log(`LensFlow v24 initialized: ${count} particles, aspect ${aspect}, w=${window.innerWidth}, h=${window.innerHeight}`);
+            
+            document.getElementById('text-overlay').classList.add('visible');
+            setTimeout(() => {
+                document.querySelector('.button-container').classList.add('visible');
+            }, CONFIG.BUTTON_FADEIN_DELAY);
+            
+            this.ready = true;
+            this.animate();
+
+            this.motionPreference.addEventListener('change', (event) => {
+                this.setReducedMotion(event.matches);
+            });
+            
+            window.addEventListener('resize', () => this.onResize());
+            window.addEventListener('scroll', () => this.onScroll());
+        };
+        
+        if (window.innerWidth > 0 && window.innerHeight > 0) {
+            finishInit();
+        } else {
+            console.log(`Window not ready (w=${window.innerWidth}, h=${window.innerHeight}), deferring init...`);
+            const waitReady = () => {
+                if (window.innerWidth > 0 && window.innerHeight > 0) {
+                    finishInit();
+                } else {
+                    requestAnimationFrame(waitReady);
+                }
+            };
+            requestAnimationFrame(waitReady);
+        }
+
+    }
+    
+    initGeometry(count, coordX, coordY, charIndex, drawSize, colorR, colorG, colorB, baseBrightness, animParams, charset) {
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(count * 3);
+        const colors = new Float32Array(count * 3);
+        const charIndices = new Float32Array(count);
+        const drawSizes = new Float32Array(count);
+        const baseBrightnesses = new Float32Array(count);
+        const phases = new Float32Array(count);
+        const periods = new Float32Array(count);
+        const minBrights = new Float32Array(count);
+        const maxBrights = new Float32Array(count);
+        const particleTypes = new Float32Array(count);
+        const attachTimes = new Float32Array(count);
+        
+        this.portraitTargets = new Float32Array(count * 3);
+        this.textTargets = new Float32Array(count * 3);
+        this.basePositions = new Float32Array(count * 3);
+        this.roamingVelocities = new Float32Array(count * 2);
+        this.textPixelPositions = null;
+        this.shuffledIndices = null;
+        
+        for (let i = 0; i < count; i++) {
+            const px = coordX[i] * this.aspect;
+            const py = coordY[i];
+            positions[i * 3] = px;
+            positions[i * 3 + 1] = py;
+            positions[i * 3 + 2] = 0;
+            this.portraitTargets[i * 3] = px;
+            this.portraitTargets[i * 3 + 1] = py;
+            this.portraitTargets[i * 3 + 2] = 0;
+            colors[i * 3] = colorR[i] / 255.0;
+            colors[i * 3 + 1] = colorG[i] / 255.0;
+            colors[i * 3 + 2] = colorB[i] / 255.0;
+            charIndices[i] = charIndex[i];
+            drawSizes[i] = drawSize[i];
+            baseBrightnesses[i] = baseBrightness[i];
+            phases[i] = animParams.phase[i];
+            periods[i] = animParams.period[i];
+            minBrights[i] = animParams.minBright[i];
+            maxBrights[i] = animParams.maxBright[i];
+            particleTypes[i] = 0;
+            attachTimes[i] = 0;
+        }
+        
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('aCharIndex', new THREE.BufferAttribute(charIndices, 1));
+        geometry.setAttribute('aDrawSize', new THREE.BufferAttribute(drawSizes, 1));
+        geometry.setAttribute('aColor', new THREE.BufferAttribute(colors, 3));
+        geometry.setAttribute('aBaseBrightness', new THREE.BufferAttribute(baseBrightnesses, 1));
+        geometry.setAttribute('aPhase', new THREE.BufferAttribute(phases, 1));
+        geometry.setAttribute('aPeriod', new THREE.BufferAttribute(periods, 1));
+        geometry.setAttribute('aMinBright', new THREE.BufferAttribute(minBrights, 1));
+        geometry.setAttribute('aMaxBright', new THREE.BufferAttribute(maxBrights, 1));
+        geometry.setAttribute('aParticleType', new THREE.BufferAttribute(particleTypes, 1));
+        geometry.setAttribute('aAttachTime', new THREE.BufferAttribute(attachTimes, 1));
+        
+        this.atlas = createCharAtlas(charset);
+        
+        const vertexShader = `
+            attribute float aCharIndex;
+            attribute float aDrawSize;
+            attribute vec3  aColor;
+            attribute float aBaseBrightness;
+            attribute float aPhase;
+            attribute float aPeriod;
+            attribute float aMinBright;
+            attribute float aMaxBright;
+            attribute float aParticleType;
+            uniform float uViewportHeight;
+            uniform float uPixelRatio;
+            uniform float uPortraitAspect;
+            varying vec2 vPortraitPosition;
+            varying vec3  vColor;
+            varying float vBaseBrightness;
+            varying float vCharIndex;
+            varying float vPhase;
+            varying float vPeriod;
+            varying float vMinBright;
+            varying float vMaxBright;
+            varying float vParticleType;
+            void main() {
+                vPortraitPosition = vec2(position.x / uPortraitAspect, position.y);
+                vColor = aColor;
+                vBaseBrightness = aBaseBrightness;
+                vCharIndex = aCharIndex;
+                vPhase = aPhase;
+                vPeriod = aPeriod;
+                vMinBright = aMinBright;
+                vMaxBright = aMaxBright;
+                vParticleType = aParticleType;
+                gl_PointSize = aDrawSize * uViewportHeight * 0.025 * uPixelRatio;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        
+        const fragmentShader = `
+            precision highp float;
+            uniform float uTime;
+            uniform float uAnimationSpeed;
+            uniform float uTransitionFactor;
+            uniform sampler2D uCharAtlas;
+            uniform float uAtlasCols;
+            uniform float uBreathColor;
+            uniform float uTextBrightness;
+            uniform float uStage;
+            uniform float uHeroMode;
+            uniform float uHeroLight;
+            uniform float uReference4;
+            uniform vec3 uPaperColor;
+            varying vec2 vPortraitPosition;
+            varying vec3  vColor;
+            varying float vBaseBrightness;
+            varying float vCharIndex;
+            varying float vPhase;
+            varying float vPeriod;
+            varying float vMinBright;
+            varying float vMaxBright;
+            varying float vParticleType;
+            const float PI = 3.14159265359;
+            void main() {
+                float t = uTime * uAnimationSpeed;
+                float omega = 2.0 * PI / vPeriod;
+                float base = sin(omega * t + vPhase);
+                float harmonic = 0.15 * sin(2.0 * omega * t + vPhase * 1.7);
+                float combined = base + harmonic;
+                float mid = (vMinBright + vMaxBright) * 0.5;
+                float amp = (vMaxBright - vMinBright) * 0.5;
+                float flickerDynamic = mid + amp * combined;
+                float flickerFactor = mix(1.0, flickerDynamic, uTransitionFactor);
+                float charIdx = floor(vCharIndex + 0.5);
+                float u = (charIdx + gl_PointCoord.x) / uAtlasCols;
+                float v = gl_PointCoord.y;
+                vec4 charSample = texture2D(uCharAtlas, vec2(u, v));
+                float charAlpha = charSample.a;
+                if (charAlpha < 0.01) discard;
+                float maxComp = max(vColor.r, max(vColor.g, vColor.b));
+                vec3 colorHue = maxComp > 0.01 ? vColor / maxComp : vec3(1.0);
+                float flickerForText = mix(flickerFactor, 1.0, vParticleType * uStage);
+                float bright = pow(vBaseBrightness, 0.7) * 1.3 * flickerForText;
+                float stageBoost = mix(1.0, uBreathColor, uStage * (1.0 - vParticleType));
+                float textBoost = mix(1.0, uTextBrightness, vParticleType * vParticleType * uStage);
+                bright *= stageBoost * textBoost;
+                gl_FragColor = vec4(colorHue * bright, charAlpha);
+                if (uReference4 > 0.5) {
+                    // Linear grayscale only: no inversion, contrast curve,
+                    // face mask, highlight boost, or altered source sampling.
+                    float gray = clamp(vBaseBrightness * flickerForText, 0.0, 1.0);
+                    gl_FragColor = vec4(uPaperColor * gray, charAlpha);
+                }
+                if (uHeroMode > 0.5 && uReference4 < 0.5) {
+                    float tone = clamp(bright * 0.85, 0.03, 0.98);
+                    // Preserve the original additive portrait and its detail.
+                    float gray = tone;
+                    // Feather the source photograph itself, including its
+                    // internal bounds, rather than just the outer iframe.
+                    vec2 edge = smoothstep(vec2(0.78), vec2(1.0), abs(vPortraitPosition));
+                    float feather = mix((1.0 - edge.x) * (1.0 - edge.y), 1.0, uReference4);
+                    gl_FragColor = vec4(vec3(gray), charAlpha * feather);
+                }
+            }
+        `;
+        
+        this.material = new THREE.ShaderMaterial({
+            vertexShader, fragmentShader,
+            transparent: true, depthTest: false,
+            blending: this.isReference4 ? THREE.NormalBlending : THREE.AdditiveBlending,
+            uniforms: {
+                uTime: { value: 0.0 },
+                uAnimationSpeed: { value: this.animConfig.animationSpeed },
+                uTransitionFactor: { value: 1.0 },
+                uPixelRatio: { value: this.isReference4 ? this.renderer.getPixelRatio() : 1 },
+                uViewportHeight: { value: window.innerHeight },
+                uPortraitAspect: { value: this.aspect },
+                uCharAtlas: { value: this.atlas },
+                uAtlasCols: { value: charset.length },
+                uBreathColor: { value: 1.0 },
+                uTextBrightness: { value: 2.5 },
+                uStage: { value: 0.0 },
+                uHeroMode: { value: this.isHero ? 1.0 : 0.0 },
+                uHeroLight: { value: this.heroLight ? 1.0 : 0.0 },
+                uPaperColor: { value: new THREE.Vector3(...this.paperColor) },
+                uReference4: { value: this.isReference4 ? 1.0 : 0.0 },
+            },
+        });
+        
+        this.geometry = geometry;
+        this.points = new THREE.Points(geometry, this.material);
+        this.scene.add(this.points);
+    }
+    
+    initMouseListener() {
+        if (!this.mouseEnabled) return;
+        window.addEventListener('mousemove', (e) => {
+            this.mouseActive = true;
+            this.mousePos.x = (e.clientX - window.innerWidth / 2);
+            this.mousePos.y = -(e.clientY - window.innerHeight / 2);
+        });
+    }
+    
+    assignParticleRoles() {
+        const count = this.particleCount;
+        const typeAttr = this.geometry.attributes.aParticleType;
+
+        
+        const shuffled = new Uint32Array(count);
+        for (let i = 0; i < count; i++) shuffled[i] = i;
+        for (let i = count - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const tmp = shuffled[i];
+            shuffled[i] = shuffled[j];
+            shuffled[j] = tmp;
+        }
+        this.shuffledIndices = shuffled;
+        
+        const fontSize = window.innerWidth < 768 ? 56 : 80;
+        const textPixels = sampleTextLeftAligned(['Photography', 'in Flow'], fontSize, CONFIG.TEXT_PARTICLE_COUNT, window.innerWidth, window.innerHeight);
+        this.textPixelPositions = textPixels;
+        
+        const charIndexAttr = this.geometry.attributes.aCharIndex;
+        
+        const visibleCandidates = [];
+        const otherCandidates = [];
+        for (let t = 0; t < count; t++) {
+            const idx = shuffled[t];
+            if (charIndexAttr.array[idx] > 0.5) {
+                visibleCandidates.push(idx);
+            } else {
+                otherCandidates.push(idx);
+            }
+        }
+
+        
+        const textCount = Math.min(CONFIG.TEXT_PARTICLE_COUNT, textPixels.length, visibleCandidates.length);
+        const remaining = [];
+        for (let t = textCount; t < visibleCandidates.length; t++) {
+            remaining.push(visibleCandidates[t]);
+        }
+        for (let t = 0; t < otherCandidates.length; t++) {
+            remaining.push(otherCandidates[t]);
+        }
+        const nonTextCount = count - textCount;
+        const roamingCount = Math.floor(nonTextCount * CONFIG.ROAMING_PARTICLE_RATIO);
+        
+        for (let i = 0; i < count; i++) {
+            typeAttr.array[i] = 0.0;
+        }
+        
+        for (let t = 0; t < textCount; t++) {
+            typeAttr.array[visibleCandidates[t]] = 1.0;
+        }
+        
+        for (let r = 0; r < roamingCount; r++) {
+            const idx = remaining[r];
+            typeAttr.array[idx] = 0.5;
+            const speed = random(CONFIG.ROAMING_SPEED_MIN, CONFIG.ROAMING_SPEED_MAX);
+            const angle = random(0, 2 * PI);
+            this.roamingVelocities[idx * 2] = Math.cos(angle) * speed;
+            this.roamingVelocities[idx * 2 + 1] = Math.sin(angle) * speed;
+        }
+        
+        this.textParticleCount = textCount;
+        this.roamingParticleCount = roamingCount;
+        typeAttr.needsUpdate = true;
+    }
+    
+    projectTextTargets() {
+        const count = this.particleCount;
+        const typeAttr = this.geometry.attributes.aParticleType;
+        const shuffled = this.shuffledIndices;
+        const textPixels = this.textPixelPositions;
+        if (!shuffled || !textPixels) return;
+        
+        const halfWidth = this.camera.right;
+        const halfHeight = this.camera.top;
+        const textCount = this.textParticleCount;
+        
+        let minPx = Infinity, maxPx = -Infinity, minPy = Infinity, maxPy = -Infinity;
+        for (let t = 0; t < textCount; t++) {
+            if (textPixels[t].x < minPx) minPx = textPixels[t].x;
+            if (textPixels[t].x > maxPx) maxPx = textPixels[t].x;
+            if (textPixels[t].y < minPy) minPy = textPixels[t].y;
+            if (textPixels[t].y > maxPy) maxPy = textPixels[t].y;
+        }
+        const textPixelWidth = Math.max(1, maxPx - minPx);
+        const textPixelHeight = Math.max(1, maxPy - minPy);
+        
+        const camWidth = halfWidth * 2;
+        const camHeight = halfHeight * 2;
+        const margin = 0.85;
+        const scaleX = (camWidth * margin) / textPixelWidth;
+        const scaleY = (camHeight * margin) / textPixelHeight;
+        const uniformScale = Math.min(scaleX, scaleY);
+        
+        for (let t = 0; t < textCount; t++) {
+            const idx = shuffled[t];
+            this.textTargets[idx * 3] = textPixels[t].x * uniformScale;
+            this.textTargets[idx * 3 + 1] = textPixels[t].y * uniformScale;
+            this.textTargets[idx * 3 + 2] = 0;
+        }
+        
+
+        const roamingCount = this.roamingParticleCount;
+        for (let r = 0; r < roamingCount; r++) {
+            const idx = shuffled[textCount + r];
+            this.textTargets[idx * 3] = random(this.camera.left * 0.85, this.camera.right * 0.85);
+            this.textTargets[idx * 3 + 1] = random(this.camera.bottom * 0.85, this.camera.top * 0.85);
+            this.textTargets[idx * 3 + 2] = 0;
+        }
+        
+        const offScreenDist = Math.max(halfWidth, halfHeight) * 3;
+        for (let i = textCount + roamingCount; i < count; i++) {
+            const idx = shuffled[i];
+            const angle = random(0, 2 * PI);
+            this.textTargets[idx * 3] = Math.cos(angle) * offScreenDist;
+            this.textTargets[idx * 3 + 1] = Math.sin(angle) * offScreenDist;
+            this.textTargets[idx * 3 + 2] = 0;
+        }
+    }
+    
+    computeScrollProgress() {
+        const scrollY = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const raw = maxScroll > 0 ? scrollY / maxScroll : 0;
+        const t = Math.max(0, Math.min(1,
+            (raw - CONFIG.SCROLL_TRANSITION_START) / (CONFIG.SCROLL_TRANSITION_END - CONFIG.SCROLL_TRANSITION_START)
+        ));
+        this.scrollProgress = t;
+        this.material.uniforms.uStage.value = t;
+        
+        const overlay = document.getElementById('text-overlay');
+        if (t < 0.01) {
+            overlay.classList.add('visible');
+        } else if (t > 0.05) {
+            overlay.classList.remove('visible');
+        }
+    }
+    
+    updateAndRender(time) {
+        const count = this.particleCount;
+        const t = this.scrollProgress;
+        const easedT = easeInOutQuart(t);
+        
+        const posAttr = this.geometry.attributes.position;
+        const typeAttr = this.geometry.attributes.aParticleType;
+        const phaseAttr = this.geometry.attributes.aPhase;
+        const attachTimeAttr = this.geometry.attributes.aAttachTime;
+        const currentTime = Date.now();
+        
+        const halfWidth = this.camera.right;
+        const halfHeight = this.camera.top;
+        const pixelToOrthoX = halfWidth / (window.innerWidth / 2);
+        const pixelToOrthoY = halfHeight / (window.innerHeight / 2);
+        const breathScale = halfHeight * 0.02;
+        const mouseRadiusOrtho = CONFIG.MOUSE_RADIUS * pixelToOrthoX;
+        const mouseOrthoX = this.mousePos.x * pixelToOrthoX;
+        const mouseOrthoY = this.mousePos.y * pixelToOrthoY;
+        
+        const hasMouseEffect = t > 0.01 && this.mouseEnabled && this.mouseActive;
+        const camLeft = this.camera.left;
+        const camRight = this.camera.right;
+        const camTop = this.camera.top;
+        const camBottom = this.camera.bottom;
+        
+        if (t > 0.01) {
+            for (let i = 0; i < count; i++) {
+                if (typeAttr.array[i] > 0.3 && typeAttr.array[i] < 0.7) {
+                    let rx = this.textTargets[i * 3] + this.roamingVelocities[i * 2];
+                    let ry = this.textTargets[i * 3 + 1] + this.roamingVelocities[i * 2 + 1];
+                    
+                    if (rx < camLeft) { rx = camLeft; this.roamingVelocities[i * 2] = Math.abs(this.roamingVelocities[i * 2]); }
+                    if (rx > camRight) { rx = camRight; this.roamingVelocities[i * 2] = -Math.abs(this.roamingVelocities[i * 2]); }
+                    if (ry < camBottom) { ry = camBottom; this.roamingVelocities[i * 2 + 1] = Math.abs(this.roamingVelocities[i * 2 + 1]); }
+                    if (ry > camTop) { ry = camTop; this.roamingVelocities[i * 2 + 1] = -Math.abs(this.roamingVelocities[i * 2 + 1]); }
+                    
+                    this.textTargets[i * 3] = rx;
+                    this.textTargets[i * 3 + 1] = ry;
+                }
+            }
+        }
+        
+        for (let i = 0; i < count; i++) {
+            const pType = typeAttr.array[i];
+            const isText = pType > 0.9;
+            const isRoaming = pType > 0.3 && pType < 0.7;
+            const phase = phaseAttr.array[i];
+            
+            const baseX = this.portraitTargets[i * 3] + (this.textTargets[i * 3] - this.portraitTargets[i * 3]) * easedT;
+            const baseY = this.portraitTargets[i * 3 + 1] + (this.textTargets[i * 3 + 1] - this.portraitTargets[i * 3 + 1]) * easedT;
+            
+            let finalX = baseX;
+            let finalY = baseY;
+            
+            if (!isText && !isRoaming) {
+                const breathX = Math.sin(time * 0.3 + phase) * breathScale * t;
+                const breathY = Math.cos(time * 0.3 * 0.8 + phase * 1.3) * breathScale * t;
+                finalX += breathX;
+                finalY += breathY;
+            }
+            
+            if (hasMouseEffect && !isText) {
+                const dx = mouseOrthoX - baseX;
+                const dy = mouseOrthoY - baseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const attachTime = attachTimeAttr.array[i];
+                
+                if (dist < mouseRadiusOrtho && dist > 0) {
+                    if (attachTime === 0) {
+                        attachTimeAttr.array[i] = currentTime;
+                    }
+                    if ((currentTime - attachTimeAttr.array[i]) < CONFIG.MOUSE_ATTACH_DURATION) {
+                        const strength = (1.0 - dist / mouseRadiusOrtho);
+                        const angle = Math.atan2(dy, dx);
+                        const targetRadius = mouseRadiusOrtho * 0.5;
+                        const targetX = mouseOrthoX + Math.cos(angle) * targetRadius;
+                        const targetY = mouseOrthoY + Math.sin(angle) * targetRadius;
+                        finalX += (targetX - finalX) * strength * 0.3;
+                        finalY += (targetY - finalY) * strength * 0.3;
+                    }
+                } else if (dist >= mouseRadiusOrtho && attachTime > 0) {
+                    attachTimeAttr.array[i] = 0;
+                }
+            }
+            
+            posAttr.array[i * 3] = finalX;
+            posAttr.array[i * 3 + 1] = finalY;
+            posAttr.array[i * 3 + 2] = 0;
+        }
+        
+        posAttr.needsUpdate = true;
+        if (hasMouseEffect) attachTimeAttr.needsUpdate = true;
+        
+        this.material.uniforms.uBreathColor.value = 0.6 + Math.sin(time * 0.5) * 0.15;
+    }
+    
+    onScroll() {
+    }
+    
+    setReducedMotion(matches) {
+        if (this.reducedMotion === matches) return;
+        this.reducedMotion = matches;
+        if (this.animationFrameId !== null) {
+            cancelAnimationFrame(this.animationFrameId);
+            this.animationFrameId = null;
+        }
+        if (this.ready) this.animate();
+    }
+
+    animate() {
+        this.animationFrameId = null;
+        if (!this.reducedMotion) {
+            this.animationFrameId = requestAnimationFrame(() => this.animate());
+        }
+        const currentTime = Date.now();
+        const time = this.reducedMotion ? 0 : (currentTime - this.startTime) * 0.001;
+        this.material.uniforms.uTime.value = time;
+        this.computeScrollProgress();
+        this.updateAndRender(time);
+        this.renderer.render(this.scene, this.camera);
+    }
+    
+    setHeroTheme(theme, background) {
+        if (!this.isHero) return;
+        this.heroLight = theme === 'light';
+        if (typeof background === 'string') {
+            const color = new THREE.Color(background).convertLinearToSRGB();
+            this.paperColor = [color.r, color.g, color.b];
+        }
+        if (!this.material) return;
+        this.material.uniforms.uPaperColor.value.set(...this.paperColor);
+        this.material.uniforms.uHeroLight.value = this.heroLight ? 1 : 0;
+        if (this.scene.background) this.scene.background.setHex(0x101217);
+        this.renderer.render(this.scene, this.camera);
+    }
+
+    onResize() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        if (w <= 0 || h <= 0) return;
+        this.renderer.setSize(w, h);
+        this.material.uniforms.uViewportHeight.value = h;
+        const windowAspect = w / h;
+        const imageAspect = this.aspect;
+        if (this.isReference4) {
+            // Contain every point, including its full screen-space glyph.
+            const mobile = w <= 720;
+            const safeWidth = mobile ? w - 32 : w * 0.50;
+            const safeHeight = mobile ? h * 0.42 - 24 : h - 40;
+            const bounds = this.sourceBounds;
+            const pixelsPerWorld = Math.min(safeWidth / (bounds.right-bounds.left), safeHeight / (bounds.top-bounds.bottom)) * 0.98;
+            const halfWidth = w / (2 * pixelsPerWorld);
+            const halfHeight = h / (2 * pixelsPerWorld);
+            const targetX = mobile ? w / 2 : w * 0.26;
+            const targetY = mobile ? 16 + safeHeight / 2 : h / 2;
+            const centerX = (w / 2 - targetX) / pixelsPerWorld + (bounds.left+bounds.right)/2;
+            const centerY = (targetY - h / 2) / pixelsPerWorld + (bounds.bottom+bounds.top)/2;
+            this.camera.left = centerX - halfWidth;
+            this.camera.right = centerX + halfWidth;
+            this.camera.top = centerY + halfHeight;
+            this.camera.bottom = centerY - halfHeight;
+            this.material.uniforms.uViewportHeight.value = h / halfHeight;
+        } else if (this.isHero) {
+            // Fit by height: keep forehead/chin in view and fill the full hero.
+            // Extra source-image width may extend beyond the hero on phones;
+            // the portrait's central face stays anchored inside the viewport.
+            const mobile = w <= 720;
+            const pixelsPerWorld = h / 2;
+            const halfWidth = w / (2 * pixelsPerWorld);
+            const halfHeight = h / (2 * pixelsPerWorld);
+            const targetX = mobile ? w / 2 : w * 0.30;
+            const targetY = h / 2;
+            const centerX = (w / 2 - targetX) / pixelsPerWorld;
+            const centerY = (targetY - h / 2) / pixelsPerWorld;
+            this.camera.left = centerX - halfWidth;
+            this.camera.right = centerX + halfWidth;
+            this.camera.top = centerY + halfHeight;
+            this.camera.bottom = centerY - halfHeight;
+            this.material.uniforms.uViewportHeight.value = h / halfHeight;
+        } else if (windowAspect > imageAspect) {
+            this.camera.left = -imageAspect;
+            this.camera.right = imageAspect;
+            const halfHeight = imageAspect / windowAspect;
+            this.camera.top = halfHeight;
+            this.camera.bottom = -halfHeight;
+        } else {
+            this.camera.left = -windowAspect;
+            this.camera.right = windowAspect;
+            this.camera.top = 1.0;
+            this.camera.bottom = -1.0;
+        }
+        this.camera.updateProjectionMatrix();
+        this.projectTextTargets();
+        // setSize clears the canvas; repaint a static scene after resizing.
+        if (this.reducedMotion && this.ready) this.animate();
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing v24...');
+    const app = new LensFlowApp();
+    window.addEventListener('message', (event) => {
+        if (event.origin !== location.origin || event.source !== window.parent) return;
+        if (event.data?.type === 'lensflow-portrait-theme' && ['dark','light'].includes(event.data.theme)) app.setHeroTheme(event.data.theme, event.data.background);
+    });
+});
+    </script>
+</body>
+</html>

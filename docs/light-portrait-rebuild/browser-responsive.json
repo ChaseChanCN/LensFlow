@@ -1,0 +1,104 @@
+[
+  {
+    "viewport": 320,
+    "page": {
+      "frame": "/light-portrait.html?layout=stacked",
+      "hero": {
+        "height": 728.8958740234375,
+        "width": 256.66668701171875
+      },
+      "overflow": false
+    },
+    "bounds": [
+      42.894631029088444,
+      16.675999999999988,
+      214.10536897091157,
+      278.92400000000004
+    ]
+  },
+  {
+    "viewport": 375,
+    "page": {
+      "frame": "/light-portrait.html?layout=stacked",
+      "hero": {
+        "height": 720,
+        "width": 312
+      },
+      "overflow": false
+    },
+    "bounds": [
+      71.54627276412313,
+      16.639999999999986,
+      240.45372723587687,
+      275.36
+    ]
+  },
+  {
+    "viewport": 768,
+    "page": {
+      "frame": "/light-portrait.html?layout=side",
+      "hero": {
+        "height": 660,
+        "width": 680.6666870117188
+      },
+      "overflow": false
+    },
+    "bounds": [
+      10.146900000000016,
+      79.55033355810673,
+      337.1631,
+      580.4496664418932
+    ]
+  },
+  {
+    "viewport": 1024,
+    "page": {
+      "frame": "/light-portrait.html?layout=side",
+      "hero": {
+        "height": 660,
+        "width": 880.6666870117188
+      },
+      "overflow": false
+    },
+    "bounds": [
+      23.75749733283837,
+      22.28000000000003,
+      425.55250266716166,
+      637.72
+    ]
+  },
+  {
+    "viewport": 1440,
+    "page": {
+      "frame": "/light-portrait.html?layout=side",
+      "hero": {
+        "height": 660,
+        "width": 1232
+      },
+      "overflow": false
+    },
+    "bounds": [
+      113.2624973328384,
+      22.28000000000003,
+      515.0575026671617,
+      637.72
+    ]
+  },
+  {
+    "viewport": 1920,
+    "page": {
+      "frame": "/light-portrait.html?layout=side",
+      "hero": {
+        "height": 660,
+        "width": 1232
+      },
+      "overflow": false
+    },
+    "bounds": [
+      113.2624973328384,
+      22.28000000000003,
+      515.0575026671617,
+      637.72
+    ]
+  }
+]

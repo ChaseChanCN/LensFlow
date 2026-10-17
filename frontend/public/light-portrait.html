@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LensFlow 浅色人物粒子</title>
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent}canvas{display:block}#error{font:12px sans-serif;color:#596577}</style>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script></head>
+<body><span id="error"></span><script>
+// Independent light-only renderer. The completed dark renderer is untouched.
+(async()=>{
+ const params=new URLSearchParams(location.search);
+ const staticMode=params.get('motion')==='off';
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const [meta,buffer]=await Promise.all([fetch('/light-portrait/metadata.json').then(r=>r.json()),fetch('/light-portrait/particles.bin').then(r=>r.arrayBuffer())]);
+ const data=new Float32Array(buffer),count=meta.count;
+ const geometry=new THREE.BufferGeometry();
+ const positions=new Float32Array(count*3),style=new Float32Array(count*4),motion=new Float32Array(count*3);
+ for(let i=0;i<count;i++){
+  positions.set([data[i*8],data[i*8+1],0],i*3);
+  style.set([data[i*8+2],data[i*8+3],data[i*8+4],data[i*8+7]],i*4);
+  motion.set([data[i*8+5],data[i*8+6],0],i*3);
+ }
+ geometry.setAttribute('position',new THREE.BufferAttribute(positions,3));
+ geometry.setAttribute('aStyle',new THREE.BufferAttribute(style,4));
+ geometry.setAttribute('aMotion',new THREE.BufferAttribute(motion,3));
+ const atlas=document.createElement('canvas');atlas.width=1024;atlas.height=64;
+ const ctx=atlas.getContext('2d');ctx.fillStyle='#fff';ctx.font='46px Consolas,"Courier New",monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+ ['.',':','+','=','*','#','%','@'].forEach((c,i)=>ctx.fillText(c,i*64+32,32));
+ ctx.fillRect(8*64+8,30,48,4);ctx.fillRect(9*64+14,31,36,2);
+ // Below readable text size, use coverage-preserving ink dots and short marks.
+ ctx.beginPath();ctx.arc(10*64+32,32,23,0,Math.PI*2);ctx.fill();ctx.fillRect(11*64+8,22,48,20);
+ const texture=new THREE.CanvasTexture(atlas);texture.minFilter=THREE.LinearMipmapLinearFilter;texture.magFilter=THREE.LinearFilter;texture.generateMipmaps=true;
+ const renderer=new THREE.WebGLRenderer({alpha:true,antialias:false,premultipliedAlpha:true,powerPreference:'low-power'});
+ renderer.setClearColor(0,0);renderer.setPixelRatio(devicePixelRatio);document.body.appendChild(renderer.domElement);
+ const material=new THREE.ShaderMaterial({transparent:true,depthTest:false,depthWrite:false,blending:THREE.NormalBlending,
+ uniforms:{uAtlas:{value:texture},uScale:{value:1},uDpr:{value:devicePixelRatio},uTime:{value:0},uMotion:{value:0}},
+ vertexShader:`attribute vec4 aStyle;attribute vec3 aMotion;uniform float uScale;uniform float uDpr;varying vec4 vStyle;varying vec3 vMotion;void main(){vStyle=aStyle;vMotion=aMotion;gl_PointSize=aStyle.y*uScale*uDpr;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`precision highp float;uniform sampler2D uAtlas;uniform float uTime;uniform float uMotion;varying vec4 vStyle;varying vec3 vMotion;void main(){float glyph=texture2D(uAtlas,vec2((vStyle.z+gl_PointCoord.x)/16.,gl_PointCoord.y)).a;if(glyph<.01)discard;float amplitude=mix(.038,.006,vStyle.w)*uMotion;float breath=1.+amplitude*sin(uTime*6.283185/vMotion.y+vMotion.x);gl_FragColor=vec4(vec3(.035),glyph*clamp(vStyle.x*breath,0.,1.));}`});
+ const scene=new THREE.Scene();scene.add(new THREE.Points(geometry,material));
+ const camera=new THREE.OrthographicCamera(0,1,1,0,.1,10);camera.position.z=1;
+ let lastLod=null;
+ function setLod(scale){
+  const cell=scale<.32 ? 1.35/(scale*devicePixelRatio) : 0;
+  if(cell===lastLod)return;lastLod=cell;
+  texture.minFilter=cell?THREE.LinearMipmapLinearFilter:THREE.LinearFilter;
+  texture.needsUpdate=true;
+  let n=0;
+  if(cell){
+   const bins=new Map();
+   for(let i=0;i<count;i++){
+    const offset=i*8,x=data[offset],y=data[offset+1],key=Math.floor(x/cell)+','+Math.floor(y/cell);
+    let bin=bins.get(key);
+    if(!bin){bin=[0,0,0,0,0,i];bins.set(key,bin);}
+    bin[0]+=x;bin[1]+=y;bin[2]+=data[offset+2];bin[3]+=data[offset+7];bin[4]++;
+   }
+   for(const bin of bins.values()){
+    const ink=bin[2]/bin[4],seed=bin[5]*8;
+    const jitterX=Math.sin(seed*1.71)*cell*.17,jitterY=Math.cos(seed*2.13)*cell*.17;
+    positions.set([bin[0]/bin[4]+jitterX,bin[1]/bin[4]+jitterY,0],n*3);
+    // Average nearby ink instead of dropping points or letting tiny glyphs alias.
+    style.set([ink,cell*2.1,seed%7<2?11:10,bin[3]/bin[4]],n*4);
+    motion.set([data[seed+5],data[seed+6],0],n*3);n++;
+   }
+  }else{
+   for(let i=0;i<count;i++){
+    positions.set([data[i*8],data[i*8+1],0],i*3);
+    style.set([data[i*8+2],data[i*8+3],data[i*8+4],data[i*8+7]],i*4);
+    motion.set([data[i*8+5],data[i*8+6],0],i*3);
+   }n=count;
+  }
+  geometry.setDrawRange(0,n);geometry.attributes.position.needsUpdate=true;geometry.attributes.aStyle.needsUpdate=true;geometry.attributes.aMotion.needsUpdate=true;
+  document.body.dataset.displayParticles=String(n);
+ }
+ function resize(){
+  const w=innerWidth,h=innerHeight,mobile=params.get('layout')==='stacked';
+  const safeW=mobile?w-28:w*.49,safeH=mobile?h*.40-24:h-32;
+  const [l,b,r,t]=meta.bounds,scale=Math.min(safeW/(r-l),safeH/(t-b))*.98;
+  const x=mobile?w/2:w*.255,y=mobile?14+safeH/2:h/2;
+  const cx=(l+r)/2,cy=(b+t)/2;
+  camera.left=cx-x/scale;camera.right=cx+(w-x)/scale;
+  camera.top=cy+y/scale;camera.bottom=cy-(h-y)/scale;camera.updateProjectionMatrix();
+  renderer.setSize(w,h);material.uniforms.uScale.value=scale;setLod(scale);
+  renderer.render(scene,camera);
+  document.body.dataset.bounds=JSON.stringify([x-(r-l)*scale/2,y-(t-b)*scale/2,x+(r-l)*scale/2,y+(t-b)*scale/2]);
+ }
+ let raf=0,visible=!document.hidden,inView=true,previousFrame=0;
+ const costs=[],intervals=[];
+ function stop(){cancelAnimationFrame(raf);raf=0;}
+ function draw(now){
+  const start=performance.now();material.uniforms.uTime.value=now/1000;renderer.render(scene,camera);
+  costs.push(performance.now()-start);if(previousFrame)intervals.push(now-previousFrame);previousFrame=now;
+  if(costs.length===90){
+   const sorted=costs.toSorted((a,b)=>a-b),frameTimes=intervals.toSorted((a,b)=>a-b);
+   document.body.dataset.performance=JSON.stringify({samples:90,drawCalls:renderer.info.render.calls,points:renderer.info.render.points,cpuSubmitMedianMs:sorted[45],cpuSubmitP95Ms:sorted[85],frameIntervalMedianMs:frameTimes[Math.floor(frameTimes.length/2)],note:'CPU submission timing; not GPU timing'});
+   costs.length=0;intervals.length=0;
+  }
+  raf=requestAnimationFrame(draw);
+ }
+ function updateMotion(){stop();previousFrame=0;const active=!staticMode&&!reduced.matches&&visible&&inView;material.uniforms.uMotion.value=active?1:0;document.body.dataset.animating=String(active);if(active)raf=requestAnimationFrame(draw);else renderer.render(scene,camera);}
+ addEventListener('resize',resize);reduced.addEventListener('change',updateMotion);
+ document.addEventListener('visibilitychange',()=>{visible=!document.hidden;updateMotion();});
+ addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==parent)return;if(e.data?.type==='lensflow-portrait-visibility'){inView=!!e.data.visible;updateMotion();}});
+ addEventListener('pagehide',()=>{stop();geometry.dispose();material.dispose();texture.dispose();renderer.dispose();});
+ resize();updateMotion();document.body.dataset.ready='true';document.body.dataset.particles=String(count);document.body.dataset.motion=staticMode?'static':'breathing';
+})().catch(e=>{document.querySelector('#error').textContent='人物粒子加载失败';console.error(e);});
+</script></body></html>

@@ -1,0 +1,188 @@
+{
+  "catalog_records": 1000,
+  "real_jpeg_files": 8,
+  "sort_and_filter_measurements": [
+    {
+      "query": {
+        "sort": "id_asc"
+      },
+      "records": 1000,
+      "requests": 14,
+      "wall_ms": 107.82,
+      "unique": true
+    },
+    {
+      "query": {
+        "sort": "id_desc"
+      },
+      "records": 1000,
+      "requests": 14,
+      "wall_ms": 109.27,
+      "unique": true
+    },
+    {
+      "query": {
+        "sort": "created_asc"
+      },
+      "records": 1000,
+      "requests": 14,
+      "wall_ms": 126.66,
+      "unique": true
+    },
+    {
+      "query": {
+        "sort": "created_desc"
+      },
+      "records": 1000,
+      "requests": 14,
+      "wall_ms": 135.01,
+      "unique": true
+    },
+    {
+      "query": {
+        "sort": "rating_asc"
+      },
+      "records": 1000,
+      "requests": 14,
+      "wall_ms": 119.26,
+      "unique": true
+    },
+    {
+      "query": {
+        "sort": "rating_desc"
+      },
+      "records": 1000,
+      "requests": 14,
+      "wall_ms": 126.47,
+      "unique": true
+    },
+    {
+      "query": {
+        "rating_min": 4,
+        "pick": "pick"
+      },
+      "records": 57,
+      "requests": 1,
+      "wall_ms": 8.06,
+      "unique": true
+    },
+    {
+      "query": {
+        "rating": 5,
+        "colors": "red,green"
+      },
+      "records": 71,
+      "requests": 1,
+      "wall_ms": 9.07,
+      "unique": true
+    },
+    {
+      "query": {
+        "rating": 0,
+        "pick": "unmarked"
+      },
+      "records": 228,
+      "requests": 4,
+      "wall_ms": 34.31,
+      "unique": true
+    },
+    {
+      "query": {
+        "colors": "none",
+        "pick": "reject"
+      },
+      "records": 43,
+      "requests": 1,
+      "wall_ms": 8.71,
+      "unique": true
+    }
+  ],
+  "query_plans": {
+    "id_asc": [
+      [
+        10,
+        0,
+        49,
+        "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid<?)"
+      ],
+      [
+        16,
+        0,
+        46,
+        "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+      ]
+    ],
+    "created_desc": [
+      [
+        10,
+        0,
+        49,
+        "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid<?)"
+      ],
+      [
+        16,
+        0,
+        46,
+        "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+      ],
+      [
+        61,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ],
+    "rating_desc": [
+      [
+        10,
+        0,
+        49,
+        "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid<?)"
+      ],
+      [
+        16,
+        0,
+        46,
+        "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+      ],
+      [
+        52,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  },
+  "changed_cursor_config": 422,
+  "cross_order_cursor": 422,
+  "customer_private_filter": 403,
+  "customer_unfiltered": 200,
+  "unauthorized_preview": 403,
+  "originals_unchanged": true,
+  "business_counts": {
+    "photo_edit_drafts": 0,
+    "selection_items": 0,
+    "selection_sets": 0,
+    "analysis_results": 0,
+    "retouch_versions": 0,
+    "deliveries": 0
+  },
+  "a_annotation": {
+    "photo_id": 1,
+    "rating": 0,
+    "color_label": null,
+    "pick_status": "pick",
+    "revision": 1,
+    "exists": true,
+    "updated_at": "2026-10-17T13:27:53.345683Z"
+  },
+  "b_annotation": {
+    "photo_id": 2,
+    "rating": 1,
+    "color_label": "green",
+    "pick_status": "reject",
+    "revision": 2,
+    "exists": true,
+    "updated_at": "2026-10-17T13:27:53.521983Z"
+  }
+}

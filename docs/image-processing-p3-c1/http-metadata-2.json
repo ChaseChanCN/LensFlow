@@ -1,0 +1,81 @@
+{
+  "metadata_version": 1,
+  "photo_id": 2,
+  "source_sha256": "6bf54b0afd175596c57d6a2b92f43ac1bcb8d9e55ff2f19bcb3b8dfc9f3c41a3",
+  "camera": {
+    "make": "Canon",
+    "model": "Canon constructed sample",
+    "lens_make": "Canon",
+    "lens_model": "Constructed 50mm",
+    "serial_number": "PRIVATE-SERIAL"
+  },
+  "capture": {
+    "date_time_original": "2026-10-17T14:32:18.123456789+08:00",
+    "timezone_known": true,
+    "date_candidates": [
+      {
+        "source": "exif",
+        "value": "2026-10-17T14:32:18.123456789+08:00",
+        "timezone_known": true,
+        "precision": "fractional"
+      }
+    ],
+    "exposure_seconds": 0.008,
+    "f_number": 2.8,
+    "iso": 400,
+    "focal_length_mm": 50.0,
+    "focal_length_35mm_mm": 80,
+    "exposure_bias_ev": -0.3333333333333333,
+    "flash_fired": true,
+    "orientation": 6
+  },
+  "description": {
+    "title": "构造元数据样本",
+    "caption": null,
+    "creator": "摄影师",
+    "copyright": "© 示例",
+    "keywords": [
+      "测试"
+    ],
+    "localized": {}
+  },
+  "image": {
+    "width": 517,
+    "height": 606,
+    "oriented_width": 606,
+    "oriented_height": 517,
+    "color_space": "sRGB",
+    "icc_profile_name": null,
+    "icc_profile_sha256": null
+  },
+  "gps": {
+    "latitude": 30.25,
+    "longitude": 120.5,
+    "altitude_m": -10.0
+  },
+  "provenance": {
+    "camera.make": "exif",
+    "camera.model": "exif",
+    "camera.lens_make": "exif",
+    "camera.lens_model": "exif",
+    "camera.serial_number": "exif",
+    "capture.exposure_seconds": "exif",
+    "capture.f_number": "exif",
+    "capture.iso": "exif",
+    "capture.focal_length_mm": "exif",
+    "capture.focal_length_35mm_mm": "exif",
+    "capture.exposure_bias_ev": "exif",
+    "capture.orientation": "exif",
+    "capture.flash_fired": "exif",
+    "capture.date_time_original": "exif",
+    "description.title": "xmp",
+    "description.creator": "exif",
+    "description.copyright": "exif",
+    "description.keywords": "iptc",
+    "image.color_space": "exif",
+    "gps": "exif"
+  },
+  "warnings": [
+    "description.title.conflict"
+  ]
+}

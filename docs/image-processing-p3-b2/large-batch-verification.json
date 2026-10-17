@@ -1,0 +1,86 @@
+{
+  "selected": 1000,
+  "elapsedIncludingAutomationMs": 962,
+  "events": [
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 79.36
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 72.99
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 76.63
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 72.13
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 71.07
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 69.64
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 72.04
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 72.34
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 71.22
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/photos/annotations/batch",
+      "query": "",
+      "status": 200,
+      "cache": null,
+      "duration_ms": 75.38
+    }
+  ]
+}

@@ -8,7 +8,7 @@ dependencies = [
     "uvicorn[standard]>=0.29.0",
     "sqlalchemy>=2.0.29",
     "alembic>=1.13.0",
-    "pydantic>=2.6.0",
+    "pydantic[email]>=2.6.0",
     "pydantic-settings>=2.2.0",
     "python-jose[cryptography]>=3.3.0",
     "passlib[bcrypt]>=1.7.4",
@@ -21,6 +21,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+postgres = ["psycopg2-binary>=2.9,<3"]
 dev = [
     "pytest>=8.1.0",
     "pytest-asyncio>=0.23.0",
