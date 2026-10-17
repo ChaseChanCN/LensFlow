@@ -1,0 +1,35 @@
+{
+  "source_files": [
+    "backend/app/schemas/photo_metadata.py",
+    "backend/app/services/metadata_segments.py",
+    "backend/app/services/metadata_embedded.py",
+    "backend/app/services/photo_metadata.py",
+    "backend/app/api/v1/photo_metadata.py",
+    "backend/app/main.py",
+    "backend/tests/metadata_samples.py",
+    "backend/tests/test_photo_metadata.py",
+    "frontend/src/api/photoMetadata.ts",
+    "frontend/src/api/photoMetadata.test.ts",
+    "frontend/src/components/photo-library/MetadataDetails.tsx",
+    "frontend/src/components/photo-library/MetadataDetails.test.tsx",
+    "frontend/src/components/photo-library/metadata-details.css",
+    "frontend/src/components/photo-library/PhotoViewer.tsx"
+  ],
+  "hashes": {
+    "backend/app/schemas/photo_metadata.py": "9c3043c49cdb3226b39d890e9ab96866ebe4882e04eb344505fc11c953190ba8",
+    "backend/app/services/metadata_segments.py": "2a004ed6c5019e5185a470940e1ef94c90fcfc2b08b34a78059cb05f6eab1b7d",
+    "backend/app/services/metadata_embedded.py": "ef81736c6fe10ea0746bdf16e9a5eb27e35d902ce53efda8a9ffea40a04bf8de",
+    "backend/app/services/photo_metadata.py": "0c756faa2970ed56fffb881b2182318e3191b072f7465f452d287ad5348061b1",
+    "backend/app/api/v1/photo_metadata.py": "c440802824237a74fc2304db3c0d3087d3515ff84ad6943e4d9550585640a97c",
+    "backend/app/main.py": "64d83ccb4537e0730c31f8af7e0453f35ccf90af5df32abd275d03907ad9acc6",
+    "backend/tests/metadata_samples.py": "bd619dba10c46fba2d9f3afb722246a345b439c1839f3158311ce7f20f069482",
+    "backend/tests/test_photo_metadata.py": "cf4107cee5fe903dabf878bc5b87765cd2622702379637e73609e86d1835643a",
+    "frontend/src/api/photoMetadata.ts": "13544e2aaba5d844d7b7985035f9930d678314b53c5f261f15257614589c0391",
+    "frontend/src/api/photoMetadata.test.ts": "91cd850e81c22d7be374dc2a12cc8fd38e9ba30cc16b31aaccc2a3c82b60f07e",
+    "frontend/src/components/photo-library/MetadataDetails.tsx": "587ff94e79f9f114b523dd93e572c6930bdd58010ad072d1ff43a26fbbd75ac0",
+    "frontend/src/components/photo-library/MetadataDetails.test.tsx": "ee3a7915745c9021546352024fd4067032565f643e4593ed530da991bdb216d6",
+    "frontend/src/components/photo-library/metadata-details.css": "198a412ea687df464a904362cc5a21f992925b1b0b304baaad1b650706d004df",
+    "frontend/src/components/photo-library/PhotoViewer.tsx": "f57028a6829422a4db18899ae12e74b081696d94818c443d363b10ff8f5cbc4c"
+  },
+  "protected_files_unchanged": 51
+}

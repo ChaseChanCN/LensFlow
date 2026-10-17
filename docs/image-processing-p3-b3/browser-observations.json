@@ -1,0 +1,337 @@
+{
+  "editedMembershipId": 570,
+  "observations": [
+    {
+      "cards": [
+        {
+          "id": "6",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "11",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "41",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "66",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "96",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "101",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "126",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "131",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "156",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "161",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "186",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "191",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "216",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "221",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "251",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "276",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "306",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "311",
+          "pick": "pick",
+          "rating": "4"
+        },
+        {
+          "id": "336",
+          "pick": "pick",
+          "rating": "5"
+        },
+        {
+          "id": "341",
+          "pick": "pick",
+          "rating": "4"
+        }
+      ],
+      "loaded": "50",
+      "stage": "min4-pick"
+    },
+    {
+      "cards": [
+        {
+          "color": "green",
+          "id": "990",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "978",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "966",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "954",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "942",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "930",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "906",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "894",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "882",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "870",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "858",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "846",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "822",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "810",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "798",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "786",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "774",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "762",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "738",
+          "rating": "5"
+        },
+        {
+          "color": "green",
+          "id": "726",
+          "rating": "5"
+        }
+      ],
+      "loaded": "50",
+      "stage": "exact5-red-green-rating-desc"
+    },
+    {
+      "first": "570",
+      "loaded": "72",
+      "mounted": 35,
+      "stage": "filtered-last-page"
+    },
+    {
+      "stage": "independent-zoom",
+      "views": [
+        {
+          "cx": "0.5",
+          "cy": "0.5",
+          "id": "1",
+          "zoom": "2.44140625"
+        },
+        {
+          "cx": "0.5",
+          "cy": "0.5",
+          "id": "2",
+          "zoom": "1"
+        }
+      ]
+    },
+    {
+      "stage": "independent-pointer-pan",
+      "views": [
+        {
+          "cx": "0.5898604247044342",
+          "cy": "0.46714438502673794",
+          "id": "1",
+          "zoom": "2.44140625"
+        },
+        {
+          "cx": "0.5",
+          "cy": "0.5",
+          "id": "2",
+          "zoom": "1"
+        }
+      ]
+    },
+    {
+      "stage": "synced-pan",
+      "views": [
+        {
+          "cx": "0.6302885383588991",
+          "cy": "0.46714438502673794",
+          "id": "1",
+          "zoom": "2.44140625"
+        },
+        {
+          "cx": "0.6302885383588991",
+          "cy": "0.46714438502673794",
+          "id": "2",
+          "zoom": "2.44140625"
+        }
+      ]
+    },
+    {
+      "stage": "wheel-zoom",
+      "views": [
+        {
+          "cx": "0.541150225413414",
+          "cy": "0.46714438502673794",
+          "zoom": "1.9671272018395498"
+        },
+        {
+          "cx": "0.6302885383588991",
+          "cy": "0.46714438502673794",
+          "zoom": "1.9671272018395498"
+        }
+      ]
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"2\" data-created=\"2\" data-closed=\"0\" data-object-urls=\"0\"></output>",
+      "stage": "before-editor"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"2\" data-created=\"5\" data-closed=\"3\" data-object-urls=\"0\"></output>",
+      "stage": "after-editor-return"
+    },
+    {
+      "pick": "pick",
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"0\" data-created=\"5\" data-closed=\"5\" data-object-urls=\"4\"></output>",
+      "reject": "reject",
+      "stage": "gallery-after-lighttable"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"2\" data-created=\"7\" data-closed=\"5\" data-object-urls=\"0\"></output>",
+      "stage": "cycle-open-1"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"0\" data-created=\"7\" data-closed=\"7\" data-object-urls=\"4\"></output>",
+      "stage": "cycle-close-1"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"2\" data-created=\"9\" data-closed=\"7\" data-object-urls=\"0\"></output>",
+      "stage": "cycle-open-2"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"0\" data-created=\"9\" data-closed=\"9\" data-object-urls=\"4\"></output>",
+      "stage": "cycle-close-2"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"2\" data-created=\"11\" data-closed=\"9\" data-object-urls=\"0\"></output>",
+      "stage": "cycle-open-3"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"0\" data-created=\"11\" data-closed=\"11\" data-object-urls=\"4\"></output>",
+      "stage": "cycle-close-3"
+    },
+    {
+      "loaded": "1000",
+      "mounted": 20,
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"0\" data-created=\"13\" data-closed=\"13\" data-object-urls=\"20\"></output>",
+      "stage": "1000-end-ready"
+    },
+    {
+      "probe": "<output id=\"dam-resource-probe\" hidden=\"\" data-live-bitmaps=\"0\" data-created=\"13\" data-closed=\"13\" data-object-urls=\"0\"></output>",
+      "stage": "all-photo-pages-closed"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { listOrders } from '@/api/orders'
 import { listBookings, cancelBooking, type Booking } from '@/api/bookings'
 import { extractErrorMessage } from '@/api/auth'
 import { LargeTitle, ListGroup, ListItem, Button, StatusBadge, EmptyState, LoadingState, ErrorState } from '@/components/ui'
+import { QuickActions } from '@/components/effects/QuickActions'
 
 const STATUS_MAP: Record<string, string> = {
   PENDING_CONFIRM: 'pending', CONFIRMED: 'confirmed', WAITING_SHOOT: 'confirmed',
@@ -60,13 +61,8 @@ export function ClientPage() {
         </div>
       )}
 
-      <ListGroup header="快捷操作">
-        <ListItem
-          title="预约摄影师"
-          subtitle="填写拍摄需求，提交预约"
-          onClick={() => navigate('/booking')}
-          showChevron
-        />
+      <QuickActions items={[{label:'预约摄影师',path:'/booking',icon:'booking'},{label:'查看我的订单',path:'#my-orders',icon:'orders'}]} description="从拍摄需求，到你的下一组作品" />
+      <ListGroup header="概览">
         <ListItem
           title="进行中订单"
           trailing={<span className="text-body-lg font-bold text-label">{ordersLoading || ordersError ? '—' : activeOrders.length}</span>}
@@ -109,7 +105,7 @@ export function ClientPage() {
         )}
       </ListGroup>
 
-      <ListGroup header="我的订单">
+      <ListGroup header="我的订单" id="my-orders">
         {ordersLoading ? <LoadingState label="正在加载我的订单" /> : ordersError ? <ErrorState title="订单加载失败" onRetry={() => { void refetchOrders() }} /> : activeOrders.length === 0 ? (
           <EmptyState title="暂无订单" description="预约被摄影师确认后将生成订单。" />
         ) : (

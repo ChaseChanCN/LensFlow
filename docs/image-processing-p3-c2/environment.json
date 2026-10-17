@@ -1,0 +1,23 @@
+{
+  "sandbox": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c2-browser-57c1ewre",
+  "database": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c2-browser-57c1ewre\\browser.sqlite",
+  "storage": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c2-browser-57c1ewre\\uploads",
+  "ports": [
+    8052,
+    4252
+  ],
+  "metadata_records": 1000,
+  "distinct_source_files": 8,
+  "source_variants": 4,
+  "camera_metadata": "constructed injected EXIF, not camera originals",
+  "source_hashes": {
+    "3fa9408cc08f4a50be79e11b167770ed.jpg": "5aa700b2f4012a7e6bd24fa95d6881c46af1ad862eded35178bcaf5860a61531",
+    "4c5e43da9fe743b5a235ad3804ff2f1f.jpg": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+    "5729782624434103901cb18ac4b210ea.jpg": "ff56caba00590ba2cd4957eab434643502c6462b5c8111301ad263e8fd7c4dcb",
+    "5e44e17d693a491abb3c750abea41724.jpg": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+    "752c95a4db3345828b023e474dd24d86.jpg": "f7cc033f05728674baccce9a9dfe648a234e76a30890b038ea90c219d1b6958e",
+    "7adf6e99301b485eae2c0b4bd95205a6.jpg": "f7cc033f05728674baccce9a9dfe648a234e76a30890b038ea90c219d1b6958e",
+    "a91f8ea65a464cc2880234ab357afcea.jpg": "5aa700b2f4012a7e6bd24fa95d6881c46af1ad862eded35178bcaf5860a61531",
+    "c427eff9bdc3457685b0576d6c538c24.jpg": "ff56caba00590ba2cd4957eab434643502c6462b5c8111301ad263e8fd7c4dcb"
+  }
+}

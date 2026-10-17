@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "count": 59021,
+  "stride": 8,
+  "image": [
+    1333,
+    1180
+  ],
+  "bounds": [
+    232.71066284179688,
+    3.519807815551758,
+    955.383544921875,
+    1110.4569091796875
+  ],
+  "fields": [
+    "x",
+    "y",
+    "ink",
+    "size",
+    "glyph",
+    "phase",
+    "period",
+    "stability"
+  ],
+  "source": "scripts/assets/light-portrait-source.png",
+  "sourceSha256": "449b8aa990423c82212ac0dfd13b45bf4c11f4099480cd3c3a1b6058a125fc77",
+  "glyphs": [
+    ".",
+    ":",
+    "+",
+    "=",
+    "*",
+    "#",
+    "%",
+    "@",
+    "short-line",
+    "fine-line"
+  ],
+  "preprocessing": "glyph-support envelope; exterior-connected lower negative space removed; local glyph closing; charcoal resampling",
+  "limitations": "ASCII source only; no photographic source or ground-truth foreground alpha"
+}

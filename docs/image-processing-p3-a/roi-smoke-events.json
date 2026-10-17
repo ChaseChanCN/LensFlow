@@ -1,0 +1,64 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "body": {
+      "edit": {
+        "schema_version": 2,
+        "exposure_ev": 0.1,
+        "contrast": 0,
+        "saturation": 0,
+        "geometry": {
+          "rotation_quadrants": 1,
+          "flip_horizontal": false,
+          "flip_vertical": false,
+          "crop": {
+            "x": 0,
+            "y": 0.109284332688588,
+            "width": 1,
+            "height": 0.781431334622824
+          }
+        }
+      }
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 2,
+        "exposure_ev": 0.1,
+        "contrast": 0,
+        "saturation": 0,
+        "geometry": {
+          "rotation_quadrants": 1,
+          "flip_horizontal": false,
+          "flip_vertical": false,
+          "crop": {
+            "x": 0,
+            "y": 0.109284332688588,
+            "width": 1,
+            "height": 0.781431334622824
+          }
+        }
+      },
+      "expected_revision": 0,
+      "expected_source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8"
+    }
+  }
+]

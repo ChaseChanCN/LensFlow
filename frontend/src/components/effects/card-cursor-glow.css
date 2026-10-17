@@ -1,0 +1,14 @@
+:root { --cursor-glow-color:165 190 218; }
+.lf-material, .material-page { --cursor-glow-color:225 232 242; }
+.lf-material[data-theme=light], .material-page[data-theme=light] { --cursor-glow-color:165 190 218; }
+[data-cursor-glow] { position:relative; }
+[data-cursor-glow]::after {
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  background:radial-gradient(circle at var(--cursor-glow-x) var(--cursor-glow-y),
+    rgb(var(--cursor-glow-color) / .65) 0px,
+    rgb(var(--cursor-glow-color) / .45) 10px, transparent 20px);
+  filter:blur(6px);clip-path:inset(0 round 16px);
+  opacity:0;transition:opacity 160ms ease;
+}
+[data-cursor-glow=active]::after { opacity:1; }
+@media(prefers-reduced-motion:reduce) { [data-cursor-glow]::after { transition:none; } }

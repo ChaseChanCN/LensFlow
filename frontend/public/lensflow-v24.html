@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LensFlow — Photography, in Flow</title>
+    <script>if (new URLSearchParams(location.search).get('portrait') === 'hero') document.documentElement.classList.add('portrait-hero');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
@@ -80,6 +81,11 @@
         }
         
         .scroll-spacer { height: 200vh; position: relative; z-index: 0; }
+        /* Embedded portrait keeps the original renderer and breathing, without
+           the legacy page's text overlay or scroll-to-text transformation. */
+        .portrait-hero, .portrait-hero body { width:100%;height:100%;overflow:hidden;background:transparent; }
+        .portrait-hero #text-overlay, .portrait-hero .scroll-spacer { display:none; }
+        .portrait-hero #canvas-container { height:100%; }
         
         #error-display {
             position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -285,6 +291,10 @@ function sampleTextLeftAligned(lines, fontSize, count, width, height) {
 
 class LensFlowApp {
     constructor() {
+        this.isHero = document.documentElement.classList.contains('portrait-hero');
+        this.isReference4 = this.isHero && new URLSearchParams(location.search).get('dataset') === 'reference4';
+        this.heroLight = this.isReference4;
+        this.paperColor = [245/255, 244/255, 240/255];
         if (typeof THREE === 'undefined') {
             showError('THREE.js 加载失败');
             return;
@@ -306,9 +316,10 @@ class LensFlowApp {
     
     async loadData() {
         try {
+            const directory = this.isReference4 ? '/reference4_particles' : '/data';
             const [binRes, metaRes] = await Promise.all([
-                fetch('data/particles.bin'),
-                fetch('data/metadata.json')
+                fetch(`${directory}/particles.bin`),
+                fetch(`${directory}/metadata.json`)
             ]);
             if (!binRes.ok || !metaRes.ok) throw new Error('数据文件加载失败');
             const arrayBuffer = await binRes.arrayBuffer();
@@ -335,6 +346,8 @@ class LensFlowApp {
         const colorB = new Float32Array(count);
         const animSeed = new Uint32Array(count);
         const baseBrightness = new Float32Array(count);
+        this.maxDrawSize = 0;
+        this.sourceBounds = {left:Infinity,right:-Infinity,bottom:Infinity,top:-Infinity};
         
         for (let i = 0; i < count; i++) {
             const offset = i * 21;
@@ -342,6 +355,12 @@ class LensFlowApp {
             coordY[i] = dataView.getFloat32(offset + 4, true);
             charIndex[i] = dataView.getUint16(offset + 8, true);
             drawSize[i] = dataView.getFloat32(offset + 10, true);
+            this.maxDrawSize = Math.max(this.maxDrawSize, drawSize[i]);
+            const radius = drawSize[i] * 0.025;
+            this.sourceBounds.left = Math.min(this.sourceBounds.left, coordX[i] * aspect - radius);
+            this.sourceBounds.right = Math.max(this.sourceBounds.right, coordX[i] * aspect + radius);
+            this.sourceBounds.bottom = Math.min(this.sourceBounds.bottom, coordY[i] - radius);
+            this.sourceBounds.top = Math.max(this.sourceBounds.top, coordY[i] + radius);
             colorR[i] = dataView.getUint8(offset + 14);
             colorG[i] = dataView.getUint8(offset + 15);
             colorB[i] = dataView.getUint8(offset + 16);
@@ -363,12 +382,12 @@ class LensFlowApp {
         this.animConfig = animConfig;
         
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0x000000);
+        this.scene.background = this.isReference4 ? null : new THREE.Color(this.isHero ? 0x101217 : 0x000000);
         
-        this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false });
+        this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: this.isReference4 });
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setClearColor(0x000000, 1);
+        this.renderer.setClearColor(0x000000, this.isReference4 ? 0 : 1);
         document.getElementById('canvas-container').appendChild(this.renderer.domElement);
         
         this.camera = new THREE.OrthographicCamera(-aspect, aspect, 1, -1, 0.1, 10);
@@ -493,6 +512,9 @@ class LensFlowApp {
             attribute float aMaxBright;
             attribute float aParticleType;
             uniform float uViewportHeight;
+            uniform float uPixelRatio;
+            uniform float uPortraitAspect;
+            varying vec2 vPortraitPosition;
             varying vec3  vColor;
             varying float vBaseBrightness;
             varying float vCharIndex;
@@ -502,6 +524,7 @@ class LensFlowApp {
             varying float vMaxBright;
             varying float vParticleType;
             void main() {
+                vPortraitPosition = vec2(position.x / uPortraitAspect, position.y);
                 vColor = aColor;
                 vBaseBrightness = aBaseBrightness;
                 vCharIndex = aCharIndex;
@@ -510,7 +533,7 @@ class LensFlowApp {
                 vMinBright = aMinBright;
                 vMaxBright = aMaxBright;
                 vParticleType = aParticleType;
-                gl_PointSize = aDrawSize * uViewportHeight * 0.025;
+                gl_PointSize = aDrawSize * uViewportHeight * 0.025 * uPixelRatio;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
             }
         `;
@@ -526,6 +549,11 @@ class LensFlowApp {
             uniform float uBreathColor;
             uniform float uTextBrightness;
             uniform float uStage;
+            uniform float uHeroMode;
+            uniform float uHeroLight;
+            uniform float uReference4;
+            uniform vec3 uPaperColor;
+            varying vec2 vPortraitPosition;
             varying vec3  vColor;
             varying float vBaseBrightness;
             varying float vCharIndex;
@@ -559,23 +587,45 @@ class LensFlowApp {
                 float textBoost = mix(1.0, uTextBrightness, vParticleType * vParticleType * uStage);
                 bright *= stageBoost * textBoost;
                 gl_FragColor = vec4(colorHue * bright, charAlpha);
+                if (uReference4 > 0.5) {
+                    // Linear grayscale only: no inversion, contrast curve,
+                    // face mask, highlight boost, or altered source sampling.
+                    float gray = clamp(vBaseBrightness * flickerForText, 0.0, 1.0);
+                    gl_FragColor = vec4(uPaperColor * gray, charAlpha);
+                }
+                if (uHeroMode > 0.5 && uReference4 < 0.5) {
+                    float tone = clamp(bright * 0.85, 0.03, 0.98);
+                    // Preserve the original additive portrait and its detail.
+                    float gray = tone;
+                    // Feather the source photograph itself, including its
+                    // internal bounds, rather than just the outer iframe.
+                    vec2 edge = smoothstep(vec2(0.78), vec2(1.0), abs(vPortraitPosition));
+                    float feather = mix((1.0 - edge.x) * (1.0 - edge.y), 1.0, uReference4);
+                    gl_FragColor = vec4(vec3(gray), charAlpha * feather);
+                }
             }
         `;
         
         this.material = new THREE.ShaderMaterial({
             vertexShader, fragmentShader,
             transparent: true, depthTest: false,
-            blending: THREE.AdditiveBlending,
+            blending: this.isReference4 ? THREE.NormalBlending : THREE.AdditiveBlending,
             uniforms: {
                 uTime: { value: 0.0 },
                 uAnimationSpeed: { value: this.animConfig.animationSpeed },
                 uTransitionFactor: { value: 1.0 },
+                uPixelRatio: { value: this.isReference4 ? this.renderer.getPixelRatio() : 1 },
                 uViewportHeight: { value: window.innerHeight },
+                uPortraitAspect: { value: this.aspect },
                 uCharAtlas: { value: this.atlas },
                 uAtlasCols: { value: charset.length },
                 uBreathColor: { value: 1.0 },
                 uTextBrightness: { value: 2.5 },
                 uStage: { value: 0.0 },
+                uHeroMode: { value: this.isHero ? 1.0 : 0.0 },
+                uHeroLight: { value: this.heroLight ? 1.0 : 0.0 },
+                uPaperColor: { value: new THREE.Vector3(...this.paperColor) },
+                uReference4: { value: this.isReference4 ? 1.0 : 0.0 },
             },
         });
         
@@ -854,6 +904,20 @@ class LensFlowApp {
         this.renderer.render(this.scene, this.camera);
     }
     
+    setHeroTheme(theme, background) {
+        if (!this.isHero) return;
+        this.heroLight = theme === 'light';
+        if (typeof background === 'string') {
+            const color = new THREE.Color(background).convertLinearToSRGB();
+            this.paperColor = [color.r, color.g, color.b];
+        }
+        if (!this.material) return;
+        this.material.uniforms.uPaperColor.value.set(...this.paperColor);
+        this.material.uniforms.uHeroLight.value = this.heroLight ? 1 : 0;
+        if (this.scene.background) this.scene.background.setHex(0x101217);
+        this.renderer.render(this.scene, this.camera);
+    }
+
     onResize() {
         const w = window.innerWidth;
         const h = window.innerHeight;
@@ -862,7 +926,42 @@ class LensFlowApp {
         this.material.uniforms.uViewportHeight.value = h;
         const windowAspect = w / h;
         const imageAspect = this.aspect;
-        if (windowAspect > imageAspect) {
+        if (this.isReference4) {
+            // Contain every point, including its full screen-space glyph.
+            const mobile = w <= 720;
+            const safeWidth = mobile ? w - 32 : w * 0.50;
+            const safeHeight = mobile ? h * 0.42 - 24 : h - 40;
+            const bounds = this.sourceBounds;
+            const pixelsPerWorld = Math.min(safeWidth / (bounds.right-bounds.left), safeHeight / (bounds.top-bounds.bottom)) * 0.98;
+            const halfWidth = w / (2 * pixelsPerWorld);
+            const halfHeight = h / (2 * pixelsPerWorld);
+            const targetX = mobile ? w / 2 : w * 0.26;
+            const targetY = mobile ? 16 + safeHeight / 2 : h / 2;
+            const centerX = (w / 2 - targetX) / pixelsPerWorld + (bounds.left+bounds.right)/2;
+            const centerY = (targetY - h / 2) / pixelsPerWorld + (bounds.bottom+bounds.top)/2;
+            this.camera.left = centerX - halfWidth;
+            this.camera.right = centerX + halfWidth;
+            this.camera.top = centerY + halfHeight;
+            this.camera.bottom = centerY - halfHeight;
+            this.material.uniforms.uViewportHeight.value = h / halfHeight;
+        } else if (this.isHero) {
+            // Fit by height: keep forehead/chin in view and fill the full hero.
+            // Extra source-image width may extend beyond the hero on phones;
+            // the portrait's central face stays anchored inside the viewport.
+            const mobile = w <= 720;
+            const pixelsPerWorld = h / 2;
+            const halfWidth = w / (2 * pixelsPerWorld);
+            const halfHeight = h / (2 * pixelsPerWorld);
+            const targetX = mobile ? w / 2 : w * 0.30;
+            const targetY = h / 2;
+            const centerX = (w / 2 - targetX) / pixelsPerWorld;
+            const centerY = (targetY - h / 2) / pixelsPerWorld;
+            this.camera.left = centerX - halfWidth;
+            this.camera.right = centerX + halfWidth;
+            this.camera.top = centerY + halfHeight;
+            this.camera.bottom = centerY - halfHeight;
+            this.material.uniforms.uViewportHeight.value = h / halfHeight;
+        } else if (windowAspect > imageAspect) {
             this.camera.left = -imageAspect;
             this.camera.right = imageAspect;
             const halfHeight = imageAspect / windowAspect;
@@ -883,7 +982,11 @@ class LensFlowApp {
 
 window.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing v24...');
-    new LensFlowApp();
+    const app = new LensFlowApp();
+    window.addEventListener('message', (event) => {
+        if (event.origin !== location.origin || event.source !== window.parent) return;
+        if (event.data?.type === 'lensflow-portrait-theme' && ['dark','light'].includes(event.data.theme)) app.setHeroTheme(event.data.theme, event.data.background);
+    });
 });
     </script>
 </body>

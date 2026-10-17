@@ -67,7 +67,7 @@ export function BookingPage() {
           <div className="overflow-hidden rounded-card bg-system-bg shadow-card">
             <div className="border-b border-separator-opaque p-4">
               <Select
-                aria-label="拍摄类型" name="shootType"
+                label="拍摄类型" aria-label="拍摄类型" name="shootType"
                 value={shootType}
                 onChange={(e) => setShootType(e.target.value)}
                 variant="grouped"
@@ -92,7 +92,7 @@ export function BookingPage() {
             <div className="border-b border-separator-opaque p-4">
               <Input
                 type="text"
-                aria-label="拍摄地点" name="location"
+                label="拍摄地点" aria-label="拍摄地点" name="location"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="拍摄地点"
@@ -104,7 +104,7 @@ export function BookingPage() {
                 type="number"
                 step="0.5"
                 min="0.5"
-                aria-label="拍摄时长（小时）" name="durationHours"
+                label="拍摄时长（小时）" aria-label="拍摄时长（小时）" name="durationHours"
                 value={durationHours}
                 onChange={(e) => setDurationHours(e.target.value)}
                 placeholder="拍摄时长（小时）"
@@ -114,7 +114,7 @@ export function BookingPage() {
             <div className="p-4">
               <Input
                 type="text"
-                aria-label="联系方式" name="contactInfo"
+                label="联系方式" aria-label="联系方式" name="contactInfo"
                 value={contactInfo}
                 onChange={(e) => setContactInfo(e.target.value)}
                 placeholder="联系方式（手机号或邮箱）"
@@ -127,7 +127,7 @@ export function BookingPage() {
 
         <div className="px-4 pt-4">
           <Textarea
-            aria-label="备注" name="note"
+            label="备注" aria-label="备注" name="note"
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="特殊需求或备注说明"
@@ -136,7 +136,7 @@ export function BookingPage() {
         </div>
 
         <div className="px-4 pt-4">
-          <Button type="submit" fullWidth size="lg" loading={loading} disabled={!!success}>
+          <Button effect="beam" type="submit" fullWidth size="lg" loading={loading} disabled={!!success}>
             提交预约
           </Button>
         </div>

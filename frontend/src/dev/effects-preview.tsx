@@ -1,10 +1,12 @@
-﻿import { useEffect, useRef, useState } from 'react'
-import { BorderBeam, type BorderBeamSize, type BorderBeamColorVariant } from 'border-beam'
+import { useEffect, useRef, useState } from 'react'
+import { BorderBeam, type BorderBeamSize } from 'border-beam'
 import { ThinkingOrb, type OrbState } from 'thinking-orbs'
 import { Liquid } from 'liquid-gooey'
 import { MetalFx, type MetalFxPreset } from 'metal-fx'
 import './effects-preview.css'
-import { choose, EFFECT_STRENGTH, METAL_PRESETS, randomBeam } from '../components/effects/presets'
+import '../components/effects/effects.css'
+import { useCardCursorGlow } from '../components/effects/useCardCursorGlow'
+import { beamThemeTuning, choose, EFFECT_STRENGTH, METAL_PRESETS, randomBeam } from '../components/effects/presets'
 
 const orbStates: OrbState[] = ['working', 'searching', 'solving', 'listening', 'connecting', 'weaving', 'composing', 'breathing', 'shaping']
 const orbLabels: Record<OrbState, string> = { working: '正在处理素材', searching: '正在查找素材', solving: '正在分析画面', listening: '等待你的输入', connecting: '正在建立连接', weaving: '正在整理关联', composing: '正在生成结果', breathing: '准备就绪', shaping: '正在优化结果' }
@@ -24,16 +26,17 @@ function useMotionPolicy() {
 }
 
 export function EffectsPreview() {
+  const cursorGlowRef = useCardCursorGlow<HTMLElement>()
   const [dark, setDark] = useState(true)
   const [paused, setPaused] = useState(false)
   const [simulateReduced, setSimulateReduced] = useState(false)
   const { reduced, hidden } = useMotionPolicy()
   const stop = paused || simulateReduced || reduced || hidden
   const theme = dark ? 'dark' : 'light'
+  const beamTuning = beamThemeTuning(theme)
   const strength = EFFECT_STRENGTH
   const [initialBeam] = useState(randomBeam)
   const [beamSize, setBeamSize] = useState<BorderBeamSize>(initialBeam.size)
-  const [beamColor, setBeamColor] = useState<BorderBeamColorVariant>(initialBeam.colorVariant)
   const [orbState, setOrbState] = useState<OrbState>('solving')
   const [orbSize, setOrbSize] = useState<20 | 64>(64)
   const [preset, setPreset] = useState<MetalFxPreset>(() => choose(METAL_PRESETS))
@@ -44,7 +47,7 @@ export function EffectsPreview() {
   const action = (name: string) => { setMessage(`${name} · 预览操作已触发`); closeMenu() }
   useEffect(() => { document.documentElement.dataset.theme = theme; return () => { delete document.documentElement.dataset.theme } }, [theme])
 
-  return <main className="material-page" data-theme={theme} data-motion={stop ? 'paused' : 'running'}>
+  return <main ref={cursorGlowRef} className="material-page" data-theme={theme} data-motion={stop ? 'paused' : 'running'}>
     <div className="material-shell">
       <header className="material-topbar">
         <a className="material-wordmark" href="#top" aria-label="LensFlow 交互预览首页"><span className="material-mark" aria-hidden="true">◉</span> LensFlow<span className="material-divider">/</span><span className="material-lab">INTERACTION LAB</span></a>
@@ -68,11 +71,12 @@ export function EffectsPreview() {
         <section className="material-study material-beam">
           <div className="material-study-heading"><div><span className="material-number">01 / BEAM</span><h2>光沿边界流动</h2></div><span className="material-tag">重点卡片</span></div>
           <div className="material-stage material-beam-stage">
-            <BorderBeam size={beamSize} colorVariant={beamColor} strength={strength} theme={theme} active={!stop} borderRadius={22} className="material-beam-wrap">
+            <div className="material-beam-wrap effects-surface effects-surface-beam" data-effect-theme={theme} data-beam-size={beamSize} data-beam-color="mono">
               <article className="material-album"><div className="material-album-top"><span className="material-aperture" aria-hidden="true">✳</span><span className="material-mini-label">CURATED COLLECTION</span><span aria-hidden="true">↗</span></div><div className="material-album-lines" aria-hidden="true"><i /><i /><i /><i /><i /></div><div className="material-album-bottom"><div><span className="material-mini-label">人像摄影 / VOL. 024</span><h3>光影之间</h3></div><span className="material-album-count">24<span>张精选</span></span></div></article>
-            </BorderBeam>
+              <div className="effects-surface-overlay" aria-hidden="true" inert><BorderBeam size={beamSize} colorVariant="mono" staticColors strength={strength} theme="dark" active={!stop} brightness={beamTuning.brightness} glowSize={beamTuning.glowSize} style={{width:'100%',height:'100%',...beamTuning.style}} borderRadius={22} className="effects-surface-renderer"><span className="effects-surface-shape" /></BorderBeam></div>
+            </div>
           </div>
-          <div className="material-controls material-controls-two"><label>光效形态<select value={beamSize} onChange={e => setBeamSize(e.target.value as BorderBeamSize)}>{['md','sm','line','pulse-inner','pulse-outside'].map(x => <option key={x}>{x}</option>)}</select></label><label>色彩<select value={beamColor} onChange={e => setBeamColor(e.target.value as BorderBeamColorVariant)}>{['ocean','colorful','mono','sunset'].map(x => <option key={x}>{x}</option>)}</select></label></div>
+          <div className="material-controls material-controls-two"><label>光效形态<select value={beamSize} onChange={e => setBeamSize(e.target.value as BorderBeamSize)}>{['md','sm','line','pulse-inner','pulse-outside'].map(x => <option key={x}>{x}</option>)}</select></label><div className="material-fixed-strength">色彩<span>mono / 固定</span></div></div>
           <p className="material-caption">引导注意力，让重要内容自然浮现。</p>
         </section>
 
@@ -108,7 +112,3 @@ export function EffectsPreview() {
     </div>
   </main>
 }
-
-
-
-

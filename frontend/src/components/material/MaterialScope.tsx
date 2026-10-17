@@ -1,9 +1,17 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import { EffectsTheme } from '@/components/effects/EffectsTheme'
 import { MATERIAL_THEME_KEY, MaterialThemeContext } from './MaterialTheme'
 import './material.css'
+import './site.css'
+
+const InMaterialScope = createContext(false)
 
 export function MaterialScope({ children }: { children: ReactNode }) {
+  const inherited = useContext(InMaterialScope)
+  return inherited ? children : <MaterialRoot>{children}</MaterialRoot>
+}
+
+function MaterialRoot({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     try { return localStorage.getItem(MATERIAL_THEME_KEY) === 'light' ? 'light' : 'dark' } catch { return 'dark' }
   })
@@ -17,5 +25,5 @@ export function MaterialScope({ children }: { children: ReactNode }) {
     try { localStorage.setItem(MATERIAL_THEME_KEY, next) } catch { /* Switching still works without persistence. */ }
     setTheme(next)
   }
-  return <MaterialThemeContext.Provider value={{theme,toggle}}><EffectsTheme.Provider value={theme}><div className="lf-material" data-theme={theme}>{children}</div></EffectsTheme.Provider></MaterialThemeContext.Provider>
+  return <InMaterialScope.Provider value><MaterialThemeContext.Provider value={{theme,toggle}}><EffectsTheme.Provider value={theme}><div className="lf-material" data-theme={theme}>{children}</div></EffectsTheme.Provider></MaterialThemeContext.Provider></InMaterialScope.Provider>
 }

@@ -6,12 +6,23 @@ local filesystem (dev) and Huawei OBS (prod).
 
 import os
 from abc import ABC, abstractmethod
+from contextlib import contextmanager
+from pathlib import Path, PureWindowsPath
 from uuid import uuid4
 
 from app.core.config import settings
+from app.core.exceptions import AppException, ValidationException
 
 
 class Storage(ABC):
+    @contextmanager
+    def open_read(self, storage_key: str):
+        """Backends must explicitly support authenticated binary reads."""
+        raise AppException(
+            "STORAGE_UNAVAILABLE", "Binary storage reads unavailable", status_code=503
+        )
+        yield  # pragma: no cover
+
     @abstractmethod
     def save(self, filename: str, content: bytes, content_type: str = "") -> str:
         """Save file content, return storage_key."""
@@ -31,19 +42,38 @@ class Storage(ABC):
 
 class LocalStorage(Storage):
     def __init__(self, base_path: str | None = None):
-        self.base_path = base_path or settings.storage_local_path
+        self.base_path = str(Path(base_path or settings.storage_local_path).resolve())
         os.makedirs(self.base_path, exist_ok=True)
 
     def save(self, filename: str, content: bytes, content_type: str = "") -> str:
         ext = os.path.splitext(filename)[1]
         storage_key = f"{uuid4().hex}{ext}"
-        file_path = os.path.join(self.base_path, storage_key)
-        with open(file_path, "wb") as f:
+        file_path = self.get_path(storage_key)
+        with open(file_path, "xb") as f:
             f.write(content)
         return storage_key
 
     def get_path(self, storage_key: str) -> str:
-        return os.path.join(self.base_path, storage_key)
+        root = Path(self.base_path).resolve()
+        if (
+            not storage_key
+            or "\\" in storage_key
+            or "\x00" in storage_key
+            or ":" in storage_key
+            or PureWindowsPath(storage_key).drive
+            or Path(storage_key).is_absolute()
+            or ".." in Path(storage_key).parts
+        ):
+            raise ValidationException("Invalid storage key")
+        target = (root / storage_key).resolve()
+        if target == root or not target.is_relative_to(root):
+            raise ValidationException("Invalid storage key")
+        return str(target)
+
+    @contextmanager
+    def open_read(self, storage_key: str):
+        with open(self.get_path(storage_key), "rb") as stream:
+            yield stream
 
     def delete(self, storage_key: str) -> bool:
         file_path = self.get_path(storage_key)

@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/auth'
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -25,6 +26,7 @@ const DECISION_LABELS: Record<string, string> = {
 }
 
 export function AnalysisResultPage() {
+  const isPhotographer=useAuthStore(state=>state.user?.role==='photographer')
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -58,6 +60,8 @@ export function AnalysisResultPage() {
         }
       />
       </div>
+
+      {isPhotographer && <div className="mx-4 mb-4"><Button variant="plain" onClick={() => navigate(`/orders/${id}/library`)}>照片图库</Button></div>}
 
       {error && (
         <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
@@ -105,6 +109,7 @@ function AnalysisSection({
   pendingDecision?: { analysisId: number; decision: 'exclude' | 'keep' | 'pending' }
   showActivity: boolean
 }) {
+  const navigate = useNavigate()
   const { data: analysis, isLoading, isError, refetch } = useQuery({
     queryKey: ['analysis', photo.id],
     queryFn: () => getAnalysis(photo.id),
@@ -122,6 +127,8 @@ function AnalysisSection({
 
   return (
     <section className="material-analysis-photo" aria-label={`照片 ${photo.filename}`}>
+      <div className="px-4 pt-3"><Button variant="plain" size="sm"
+        onClick={() => navigate(`/orders/${photo.order_id}/photos/${photo.id}/edit`)}>基础修图</Button></div>
       <header className="material-analysis-photo-heading"><span className="material-overline">FRAME / {String(photo.id).padStart(3,'0')}</span><h2>{`#${photo.id} ${photo.filename}`}</h2><span className="material-analysis-photo-tag">图像分析</span></header>
       <div className="material-metrics">
         <ListItem title="清晰度" trailing={analysis.sharpness_score?.toFixed(1) ?? '-'} />

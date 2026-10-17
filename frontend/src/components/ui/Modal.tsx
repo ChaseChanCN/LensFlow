@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useId, useRef, type ReactNode, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
 import { isTopModal, mountModal } from './modalManager'
+import { useMaterialTheme } from '@/components/material/MaterialTheme'
 
 const ModalDepth = createContext(0)
 export interface ModalProps {
@@ -20,6 +21,7 @@ export interface ModalProps {
 const SIZES = { sm: 'max-w-sm', md: 'max-w-lg', lg: 'max-w-content-md' }
 
 export function Modal({ isOpen, onClose, title, children, footer, size = 'md', closeOnBackdrop = true, closeOnEsc = true, ariaLabel = '对话框', ariaDescribedBy, role = 'dialog', initialFocusRef }: ModalProps) {
+  const {theme} = useMaterialTheme()
   const depth = useContext(ModalDepth)
   const titleId = useId()
   const root = useRef<HTMLDivElement>(null)
@@ -33,7 +35,7 @@ export function Modal({ isOpen, onClose, title, children, footer, size = 'md', c
   if (!isOpen || typeof document === 'undefined') return null
   return createPortal(
     <ModalDepth.Provider value={depth + 1}>
-      <div ref={root} data-modal-root="" className="fixed inset-0 flex items-center justify-center overflow-y-auto bg-brand-darkroom-overlay p-4" style={{ zIndex: 'var(--z-modal-backdrop)' }}
+      <div ref={root} data-modal-root="" data-theme={theme} className="lf-material material-portal fixed inset-0 flex items-center justify-center overflow-y-auto bg-brand-darkroom-overlay p-4" style={{ zIndex: 'var(--z-modal-backdrop)' }}
         onClick={(event) => { if (event.target === event.currentTarget && closeOnBackdrop && root.current && isTopModal(root.current)) onClose() }}>
         <div ref={panel} role={role} aria-modal="true" aria-labelledby={title ? titleId : undefined} aria-label={title ? undefined : ariaLabel} aria-describedby={ariaDescribedBy} tabIndex={-1}
           className={`flex max-h-[calc(100dvh-2rem)] w-full flex-col rounded-sheet bg-surface-primary text-label shadow-[var(--shadow-modal)] focus-visible:outline-2 focus-visible:outline-action-primary-strong ${SIZES[size]}`}>

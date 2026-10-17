@@ -110,7 +110,7 @@ export function SelectionPage() {
       </div>
 
       <div className="px-4 pt-6">
-        <Button type="button" size="lg" fullWidth onClick={handleSubmit} loading={submitMutation.isPending} disabled={selected.size === 0}>
+        <Button effect="beam" type="button" size="lg" fullWidth onClick={handleSubmit} loading={submitMutation.isPending} disabled={selected.size === 0}>
           提交选片
         </Button>
       </div>

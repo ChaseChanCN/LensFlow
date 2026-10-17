@@ -8,7 +8,7 @@ import { useAuthStore } from '@/stores/auth'
 import { extractErrorMessage } from '@/api/auth'
 import { LargeTitle, ListGroup, ListItem, Button, StatusBadge, EmptyState, Spinner } from '@/components/ui'
 import { QuickActions } from '@/components/effects/QuickActions'
-import { BeamSurface, MetalSurface } from '@/components/effects/EffectSurfaces'
+import { BeamSurface } from '@/components/effects/EffectSurfaces'
 
 export function DashboardPage() {
   const queryClient = useQueryClient()
@@ -53,8 +53,8 @@ export function DashboardPage() {
       )}
 
       <div className="material-stat-grid" aria-label="概览">
-        <BeamSurface><button type="button" className="material-stat-card" onClick={() => pendingRef.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })}><span className="material-stat-label">待确认预约 <span aria-hidden="true">↗</span></span><strong>{bookingsLoading || bookingsError ? '—' : pendingBookings.length}</strong><span className="material-overline" aria-hidden="true">UP NEXT / BOOKINGS</span></button></BeamSurface>
-        <button type="button" className="material-stat-card" onClick={() => navigate('/orders')}><span className="material-stat-label">进行中订单 <span aria-hidden="true">↗</span></span><strong>{ordersLoading || ordersError ? '—' : activeOrders.length}</strong><span className="material-overline" aria-hidden="true">IN PROGRESS / ORDERS</span></button>
+        <BeamSurface enabled={!bookingsLoading && !bookingsError && pendingBookings.length > 0}><button type="button" className="material-stat-card" onClick={() => pendingRef.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })}><span className="material-stat-label">待确认预约 <span aria-hidden="true">↗</span></span><strong>{bookingsLoading || bookingsError ? '—' : pendingBookings.length}</strong><span className="material-overline" aria-hidden="true">UP NEXT / BOOKINGS</span></button></BeamSurface>
+        <BeamSurface enabled={!ordersLoading && !ordersError && activeOrders.length > 0}><button type="button" className="material-stat-card" onClick={() => navigate('/orders')}><span className="material-stat-label">进行中订单 <span aria-hidden="true">↗</span></span><strong>{ordersLoading || ordersError ? '—' : activeOrders.length}</strong><span className="material-overline" aria-hidden="true">IN PROGRESS / ORDERS</span></button></BeamSurface>
         <button type="button" className="material-stat-card" onClick={() => navigate('/orders')}><span className="material-stat-label">总订单数 <span aria-hidden="true">↗</span></span><strong>{ordersLoading || ordersError ? '—' : orders?.length || 0}</strong><span className="material-overline" aria-hidden="true">YOUR WORK / TOTAL</span></button>
       </div>
 
@@ -74,7 +74,7 @@ export function DashboardPage() {
                 title={<Link to={`/bookings/${b.id}`} className="rounded-control focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-action-primary-strong">{`#${b.id} · ${b.shoot_type}`}</Link>}
                 subtitle={new Date(b.created_at).toLocaleDateString()}
                 trailing={
-                  <MetalSurface><Button
+                  <BeamSurface radius={999}><Button
                     className="material-primary-button material-confirm-button"
                     type="button"
                     size="sm"
@@ -88,7 +88,7 @@ export function DashboardPage() {
                     loading={confirmMutation.isPending && confirmMutation.variables === b.id}
                   >
                     确认
-                  </Button></MetalSurface>
+                  </Button></BeamSurface>
                 }
                 isLast={i === pendingBookings.length - 1}
               />

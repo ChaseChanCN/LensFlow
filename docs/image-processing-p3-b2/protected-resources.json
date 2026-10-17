@@ -1,0 +1,15 @@
+{
+  "checked_files": 91,
+  "unchanged_files": 90,
+  "intentional_model_registration_only": [
+    "backend\\app\\models\\__init__.py"
+  ],
+  "development_db_revision": "5e0b2fd720d3",
+  "development_database_upgraded": false,
+  "localhost_ports": {
+    "5432": false,
+    "8049": true,
+    "4249": true
+  },
+  "postgresql_online_validated": false
+}

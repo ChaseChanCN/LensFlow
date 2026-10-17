@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/auth'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getOrder, getOrderTimeline, updateOrderStatus, type OrderTimeline } from '@/api/orders'
@@ -34,6 +35,7 @@ const NEXT_ACTIONS: Record<string, { status: OrderStatus; label: string; action:
 }
 
 export function OrderDetailPage() {
+  const isPhotographer=useAuthStore(state=>state.user?.role==='photographer')
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -82,6 +84,8 @@ export function OrderDetailPage() {
         }
       />
 
+      {isPhotographer && <div className="mx-4 mb-4"><Button variant="plain" onClick={() => navigate(`/orders/${id}/library`)}>照片图库</Button></div>}
+
       {error && (
         <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
@@ -99,6 +103,7 @@ export function OrderDetailPage() {
           {actions.map((act, i) => (
             <ListItem
               key={act.action}
+              effect="beam"
               title={act.label}
               disabled={statusMutation.isPending}
               aria-busy={statusMutation.isPending}

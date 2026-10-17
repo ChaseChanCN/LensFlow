@@ -1,0 +1,37 @@
+{
+  "backend": {
+    "tests": 322,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 321
+  },
+  "frontend": {
+    "tests": 279,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 279
+  },
+  "targeted-backend": {
+    "tests": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 34
+  },
+  "baseline-backend": {
+    "tests": 299,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 298
+  },
+  "baseline-frontend": {
+    "tests": 266,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 266
+  }
+}

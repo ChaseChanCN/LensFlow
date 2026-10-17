@@ -5,7 +5,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import '@/test-effects-mocks'
 import { AnalysisActivity, BeamSurface, MetalSurface } from './EffectSurfaces'
 import { QuickActions } from './QuickActions'
-import { BEAM_COLORS, BEAM_SIZES, choose, METAL_PRESETS } from './presets'
+import { beamThemeTuning, BEAM_COLORS, BEAM_SIZES, choose, METAL_PRESETS, randomBeam } from './presets'
 import { EffectBoundary } from './EffectBoundary'
 
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals() })
@@ -18,6 +18,45 @@ function motion(initial = false) {
 }
 
 describe('effects pilot adapters', () => {
+  it('does not initialize an effect when disabled and preserves the button when toggled', async () => {
+    motion()
+    const frames = vi.spyOn(window,'requestAnimationFrame')
+    const {container,rerender} = render(<BeamSurface enabled={false}><button>普通操作</button></BeamSurface>)
+    const button=screen.getByRole('button',{name:'普通操作'})
+    expect(container.querySelector('.effects-surface-overlay')).toBeNull()
+    expect(container.querySelector('[data-beam-size]')).toBeNull()
+    expect(frames).not.toHaveBeenCalled()
+    rerender(<BeamSurface enabled><button>普通操作</button></BeamSurface>)
+    await screen.findByTestId('beam-renderer')
+    expect(screen.getByRole('button',{name:'普通操作'})).toBe(button)
+    rerender(<BeamSurface enabled={false}><button>普通操作</button></BeamSurface>)
+    expect(container.querySelector('.effects-surface-overlay')).toBeNull()
+    expect(screen.queryByTestId('beam-renderer')).not.toBeInTheDocument()
+    expect(screen.getByRole('button',{name:'普通操作'})).toBe(button)
+  })
+  it('uses a silver blue decorative renderer only in light mode', () => {
+    const light=beamThemeTuning('light'), dark=beamThemeTuning('dark')
+    expect(light.glowSize).toBe(1)
+    expect(light.brightness).toBe(dark.brightness)
+    expect(light.style).toEqual({filter:'brightness(0) saturate(100%) invert(78%) sepia(18%) saturate(430%) hue-rotate(176deg) brightness(95%) contrast(92%)'})
+    expect(dark.style).toEqual({})
+  })
+  it.each(BEAM_SIZES.map((size,index) => ({size,random:(index+.5)/BEAM_SIZES.length})))('can draw $size on a fresh mount, always in mono', ({size,random}) => {
+    vi.spyOn(Math,'random').mockReturnValue(random)
+    expect(randomBeam()).toEqual({size,colorVariant:'mono'})
+  })
+  it('draws a new shape on remount but keeps it during rerenders', () => {
+    motion()
+    const random = vi.spyOn(Math,'random').mockReturnValue(0)
+    const {container,rerender} = render(<BeamSurface key="first"><button>操作</button></BeamSurface>)
+    expect(container.firstChild).toHaveAttribute('data-beam-size','md')
+    random.mockReturnValue(.99)
+    rerender(<BeamSurface key="first"><button>已更新</button></BeamSurface>)
+    expect(container.firstChild).toHaveAttribute('data-beam-size','md')
+    rerender(<BeamSurface key="new-mount"><button>新实例</button></BeamSurface>)
+    expect(container.firstChild).toHaveAttribute('data-beam-size','pulse-outside')
+    expect(container.firstChild).toHaveAttribute('data-beam-color','mono')
+  })
   it.each([{ Surface: BeamSurface, renderer: 'beam-renderer' }, { Surface: MetalSurface, renderer: 'metal-renderer' }])('keeps the real button mounted while $renderer initializes', async ({ Surface, renderer }) => {
     motion()
     const clicked = vi.fn()
@@ -44,7 +83,7 @@ describe('effects pilot adapters', () => {
     const { rerender } = render(<><BeamSurface><p>first</p></BeamSurface><MetalSurface><button>save</button></MetalSurface></>)
     const beam = await screen.findByTestId('beam-renderer')
     const metal = await screen.findByTestId('metal-renderer')
-    expect(beam).toHaveAttribute('data-size', 'md'); expect(beam).toHaveAttribute('data-color', 'colorful')
+    expect(beam).toHaveAttribute('data-size', 'md'); expect(beam).toHaveAttribute('data-color', 'mono')
     expect(metal).toHaveAttribute('data-preset', 'chromatic')
     random.mockReturnValue(0.99)
     rerender(<><BeamSurface><p>updated</p></BeamSurface><MetalSurface><button>saved</button></MetalSurface></>)

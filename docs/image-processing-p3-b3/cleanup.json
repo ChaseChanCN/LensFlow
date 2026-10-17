@@ -1,0 +1,12 @@
+{
+  "owned_root": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3b3-browser-gh96c371",
+  "removed": false,
+  "ports_listening": {
+    "8050": false,
+    "4250": false
+  },
+  "agent_tab_closed": 19,
+  "directory_cleanup_status": "blocked_by_automatic_approval",
+  "reported_reason": "blocked by policy",
+  "destructive_commands_executed": false
+}

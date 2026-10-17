@@ -1,0 +1,89 @@
+{
+  "exc1_invalid_image": {
+    "pass": true,
+    "returncode": 1
+  },
+  "exc2_missing_input": {
+    "has_error_msg": true,
+    "pass": true,
+    "returncode": 1
+  },
+  "exc3_invalid_params": {
+    "details": {
+      "empty_charset": true,
+      "invalid_color_mode": true,
+      "negative_spacing": true,
+      "zero_max_particles": true
+    },
+    "pass": true
+  },
+  "exc4_empty_particles": {
+    "has_warning": true,
+    "pass": true,
+    "returncode": 0
+  },
+  "exc5_corrupted_binary": {
+    "corrupted_detected": true,
+    "pass": true
+  },
+  "metrics_verdict": "advisory",
+  "overall_pass": true,
+  "peak_memory_bytes": 6277869,
+  "preset": "medium",
+  "seed_cross_process": {
+    "pass": true,
+    "seed_count": 1000
+  },
+  "step1_preprocess": {
+    "files_exist": {
+      "comparison.png": true,
+      "metadata.json": true,
+      "metrics.json": true,
+      "particles.bin": true,
+      "preview.png": true
+    },
+    "pass": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout_tail": "分布: [1643, 3714, 4095, 2099, 1460, 2426, 2198, 0, 0, 0]\n总处理时间: 5423.3 ms\n各阶段耗时:\n  image_load: 1941.0 ms\n  sample_filter: 969.7 ms\n  char_color_map: 99.4 ms\n  write_binary: 240.7 ms\n  render_preview: 1709.4 ms\n  compute_metrics: 463.0 ms\n输出文件大小:\n  particles.bin: 370335 字节 (361.7 KB)\n  metadata.json: 2782 字节 (2.7 KB)\n  preview.png: 152368 字节 (148.8 KB)\n  comparison.png: 310013 字节 (302.7 KB)\n  metrics.json: 245 字节 (0.2 KB)\n峰值内存: 559.8 MB\n============================================================\n"
+  },
+  "step2_readback": {
+    "count_match": true,
+    "fields_valid": true,
+    "file_size_ok": true,
+    "metadata_count": 17635,
+    "particle_count": 17635,
+    "pass": true
+  },
+  "step3_determinism": {
+    "comparisons": {
+      "comparison.png": true,
+      "metadata.json (excl. timestamp)": true,
+      "metrics.json": true,
+      "particles.bin": true,
+      "preview.png": true
+    },
+    "pass": true
+  },
+  "step4_preview": {
+    "aspect_ok": true,
+    "comparison_exists": true,
+    "pass": true,
+    "preview_exists": true
+  },
+  "step5_metrics": {
+    "all_present": true,
+    "hist_ok": true,
+    "iou_ok": true,
+    "mae_ok": true,
+    "pass": true,
+    "ssim_ok": true,
+    "values": {
+      "contour_iou": 0.2688777823132067,
+      "histogram_distance": 0.3899171122009392,
+      "mae": 27.61747932434082,
+      "ssim": 0.13977983593940735
+    }
+  },
+  "timestamp": 1791987868.966469
+}

@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="266" failures="0" errors="0" time="33.0142791">
+    <testsuite name="src/api/deliveries.test.ts" timestamp="2026-10-17T07:40:23.593Z" hostname="Chase-Surface" tests="1" failures="0" errors="0" skipped="0" time="0.0046765">
+        <testcase classname="src/api/deliveries.test.ts" name="downloads through the authenticated API client in Blob mode" time="0.002321">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/api/imageEdit.test.ts" timestamp="2026-10-17T07:40:23.595Z" hostname="Chase-Surface" tests="8" failures="0" errors="0" skipped="0" time="0.011709">
+        <testcase classname="src/api/imageEdit.test.ts" name="requests protected JPEG blobs only through the authenticated client, with cancellation" time="0.0043057">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="rejects invalid parameters before sending requests and rejects non-JPEG success" time="0.0025173">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="explains HTTP 403" time="0.0006687">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="explains HTTP 404" time="0.0002768">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="explains HTTP 413" time="0.0002592">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="explains HTTP 422" time="0.0002214">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="explains HTTP 429" time="0.000248">
+        </testcase>
+        <testcase classname="src/api/imageEdit.test.ts" name="explains HTTP 503" time="0.0002171">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/api/photoCatalog.test.ts" timestamp="2026-10-17T07:40:23.598Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.0118413">
+        <testcase classname="src/api/photoCatalog.test.ts" name="adapts only real metadata and never carries storage keys or invented EXIF" time="0.0042234">
+        </testcase>
+        <testcase classname="src/api/photoCatalog.test.ts" name="uses authenticated catalog/asset clients and sends only the current cursor" time="0.0026528">
+        </testcase>
+        <testcase classname="src/api/photoCatalog.test.ts" name="rejects inconsistent pages and non-JPEG thumbnail responses" time="0.0018604">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ProtectedRoute.test.tsx" timestamp="2026-10-17T07:40:23.599Z" hostname="Chase-Surface" tests="2" failures="0" errors="0" skipped="0" time="0.0632267">
+        <testcase classname="src/components/ProtectedRoute.test.tsx" name="ProtectedRoute &gt; redirects to login when not authenticated" time="0.0477933">
+        </testcase>
+        <testcase classname="src/components/ProtectedRoute.test.tsx" name="ProtectedRoute &gt; renders content when authenticated" time="0.0106325">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/effects/Effects.test.tsx" timestamp="2026-10-17T07:40:23.600Z" hostname="Chase-Surface" tests="17" failures="0" errors="0" skipped="0" time="1.7876348">
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; does not initialize an effect when disabled and preserves the button when toggled" time="0.5508299">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; uses a silver blue decorative renderer only in light mode" time="0.0018248">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; can draw md on a fresh mount, always in mono" time="0.0006593">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; can draw sm on a fresh mount, always in mono" time="0.0002999">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; can draw line on a fresh mount, always in mono" time="0.0002863">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; can draw pulse-inner on a fresh mount, always in mono" time="0.0002794">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; can draw pulse-outside on a fresh mount, always in mono" time="0.00025">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; draws a new shape on remount but keeps it during rerenders" time="0.0051219">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; keeps the real button mounted while beam-renderer initializes" time="0.1247807">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; keeps the real button mounted while metal-renderer initializes" time="0.4184676">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; chooses the first and last supported options within bounds" time="0.0012353">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; keeps random presets and fixed strength stable across rerenders" time="0.0916158">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; updates motion preferences and removes subscriptions on unmount" time="0.3917256">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; pauses when the page is hidden" time="0.0654608">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; preserves the underlying control on renderer failure" time="0.0103001">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; shows named shortcuts immediately and navigates with one click" time="0.095311">
+        </testcase>
+        <testcase classname="src/components/effects/Effects.test.tsx" name="effects pilot adapters &gt; provides static actions with reduced motion enabled" time="0.0252058">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/material/MaterialScope.test.tsx" timestamp="2026-10-17T07:40:23.603Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.3065222">
+        <testcase classname="src/components/material/MaterialScope.test.tsx" name="material pilot scope &gt; uses dark renderer tuning inside the pilot and keeps the default outside" time="0.0318644">
+        </testcase>
+        <testcase classname="src/components/material/MaterialScope.test.tsx" name="material pilot scope &gt; removes the scoped palette when leaving the pilot" time="0.0062973">
+        </testcase>
+        <testcase classname="src/components/material/MaterialScope.test.tsx" name="material pilot scope &gt; switches renderer theme, persists the choice and restores it on another page" time="0.2648885">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/DraftSession.test.ts" timestamp="2026-10-17T07:40:23.604Z" hostname="Chase-Surface" tests="14" failures="0" errors="0" skipped="0" time="0.0266872">
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="restores defaults or saved parameters without writing on load" time="0.0078963">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="never writes default parameters before remote loading finishes" time="0.001513">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="debounces only actual edits and saves complete latest parameters" time="0.0023577">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="serializes saves; an old success cannot acknowledge newer UI parameters" time="0.0012804">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="keeps a revert dirty while a different write is in flight" time="0.0010923">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="preserves edits on error, pauses retries and retries explicitly" time="0.0012929">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="pauses on revision conflict; explicit overwrite refetches revision before conditional save" time="0.0012476">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="can reload remote conflict state instead of overwriting it" time="0.0008945">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="source mismatch blocks restoration and never offers forced overwrite" time="0.0008268">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="ignores late loads and aborts requests when a photo session is disposed" time="0.0009564">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="blocks further writes after a source conflict returned by PUT" time="0.0008117">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="pauses again if another writer wins during explicit overwrite" time="0.000872">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="ignores an old save acknowledgement after leaving the photo" time="0.0006909">
+        </testcase>
+        <testcase classname="src/components/photo-editor/DraftSession.test.ts" name="restores v1 without rewriting and autosaves complete v2 geometry through the same queue" time="0.0014876">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/PhotoViewport.test.tsx" timestamp="2026-10-17T07:40:23.606Z" hostname="Chase-Surface" tests="7" failures="0" errors="0" skipped="0" time="0.6531618">
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="coalesces unpainted updates and restores full preview resolution after interaction" time="0.3576094">
+        </testcase>
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="fits and refits on ResizeObserver, supports zoom and returns to fit" time="0.0693909">
+        </testcase>
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="displays authoritative server pixels without applying the edits twice" time="0.0163391">
+        </testcase>
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="cancels pending RAF, refinement and resize observation on unmount" time="0.0068427">
+        </testcase>
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="keeps crop coordinates stable across zoom, ResizeObserver and DPR 1" time="0.0731683">
+        </testcase>
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="keeps crop coordinates stable across zoom, ResizeObserver and DPR 2" time="0.0616421">
+        </testcase>
+        <testcase classname="src/components/photo-editor/PhotoViewport.test.tsx" name="keeps crop coordinates stable across zoom, ResizeObserver and DPR 3" time="0.0649547">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/controls.test.tsx" timestamp="2026-10-17T07:40:23.608Z" hostname="Chase-Surface" tests="5" failures="0" errors="0" skipped="0" time="0.374344">
+        <testcase classname="src/components/photo-editor/controls.test.tsx" name="downloads the backend full-size JPEG blob using the clicked parameter snapshot" time="0.2570654">
+        </testcase>
+        <testcase classname="src/components/photo-editor/controls.test.tsx" name="restores export controls on failure and shows a clear retryable error" time="0.028412">
+        </testcase>
+        <testcase classname="src/components/photo-editor/controls.test.tsx" name="aborts export and ignores completion after leaving the photo" time="0.0097905">
+        </testcase>
+        <testcase classname="src/components/photo-editor/controls.test.tsx" name="only offers three supported sliders with exact version 1 ranges and reset" time="0.0554756">
+        </testcase>
+        <testcase classname="src/components/photo-editor/controls.test.tsx" name="exports the complete current v2 geometry instead of a prior color-only state" time="0.0200405">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/geometryControls.test.tsx" timestamp="2026-10-17T07:40:23.609Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.5174412">
+        <testcase classname="src/components/photo-editor/geometryControls.test.tsx" name="keeps all eight resize handles inside bounds, respecting physical aspect ratios" time="0.0130192">
+        </testcase>
+        <testcase classname="src/components/photo-editor/geometryControls.test.tsx" name="uses pointer positions relative to the image, coalesces moves, and cancels interrupted gestures" time="0.336751">
+        </testcase>
+        <testcase classname="src/components/photo-editor/geometryControls.test.tsx" name="cancels without history, commits crop once, and geometry/reset are undoable" time="0.164443">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/history.test.tsx" timestamp="2026-10-17T07:40:23.610Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.5259512">
+        <testcase classname="src/components/photo-editor/history.test.tsx" name="groups a continuous gesture, supports undo/redo, clears branches and bounds history" time="0.00542">
+        </testcase>
+        <testcase classname="src/components/photo-editor/history.test.tsx" name="one drag is one undo; reset can be undone and shortcuts leave text editing alone" time="0.4502106">
+        </testcase>
+        <testcase classname="src/components/photo-editor/history.test.tsx" name="protects refresh and SPA departure, supports staying or explicitly leaving" time="0.0670705">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/imageResource.test.ts" timestamp="2026-10-17T07:40:23.611Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.0112948">
+        <testcase classname="src/components/photo-editor/imageResource.test.ts" name="releases decoded ImageBitmap explicitly" time="0.004114">
+        </testcase>
+        <testcase classname="src/components/photo-editor/imageResource.test.ts" name="revokes fallback Blob URL on decode completion/failure (false)" time="0.0016096">
+        </testcase>
+        <testcase classname="src/components/photo-editor/imageResource.test.ts" name="revokes fallback Blob URL on decode completion/failure (true)" time="0.0023494">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-editor/previewHooks.test.tsx" timestamp="2026-10-17T07:40:23.611Z" hostname="Chase-Surface" tests="7" failures="0" errors="0" skipped="0" time="0.0812083">
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="ignores old photo responses and aborts requests on switching and unmount" time="0.0260056">
+        </testcase>
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="closes a bitmap that finishes decoding after its photo was abandoned" time="0.0041594">
+        </testcase>
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="retries base loading after errors without leaking resources" time="0.0041203">
+        </testcase>
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="debounces edits, aborts stale server calls and accepts only latest parameters" time="0.012932">
+        </testcase>
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="keeps edits through server errors and retry sends the same snapshot" time="0.005918">
+        </testcase>
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="never revives a disposed preview when undo returns to the same parameter key" time="0.0030872">
+        </testcase>
+        <testcase classname="src/components/photo-editor/previewHooks.test.tsx" name="rejects outdated geometry preview responses even with identical color parameters" time="0.0217562">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-library/PhotoViewer.test.tsx" timestamp="2026-10-17T07:40:23.612Z" hostname="Chase-Surface" tests="2" failures="0" errors="0" skipped="0" time="0.5357581">
+        <testcase classname="src/components/photo-library/PhotoViewer.test.tsx" name="cancels old photos, ignores late responses and releases the active bitmap when viewer closes" time="0.3883863">
+        </testcase>
+        <testcase classname="src/components/photo-library/PhotoViewer.test.tsx" name="keeps navigation available when a preview is unavailable and supports retry" time="0.1437574">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-library/ThumbnailPool.test.ts" timestamp="2026-10-17T07:40:23.613Z" hostname="Chase-Surface" tests="6" failures="0" errors="0" skipped="0" time="0.0324509">
+        <testcase classname="src/components/photo-library/ThumbnailPool.test.ts" name="shares requests, revokes URL on final release, reuses bounded Blob cache on remount" time="0.0071871">
+        </testcase>
+        <testcase classname="src/components/photo-library/ThumbnailPool.test.ts" name="bounds concurrency, aborts unmounted requests and ignores late recycled responses" time="0.0026921">
+        </testcase>
+        <testcase classname="src/components/photo-library/ThumbnailPool.test.ts" name="shows failures, retries once explicitly and caps automatic busy retries" time="0.0041452">
+        </testcase>
+        <testcase classname="src/components/photo-library/ThumbnailPool.test.ts" name="clears resources on auth/page lifecycle and can reactivate after StrictMode cleanup" time="0.0009733">
+        </testcase>
+        <testcase classname="src/components/photo-library/ThumbnailPool.test.ts" name="evicts old unreferenced blobs rather than growing with the whole library" time="0.0129263">
+        </testcase>
+        <testcase classname="src/components/photo-library/ThumbnailPool.test.ts" name="never starts image requests for an unauthenticated resource scope" time="0.0011748">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-library/library.test.tsx" timestamp="2026-10-17T07:40:23.614Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.7434292">
+        <testcase classname="src/components/photo-library/library.test.tsx" name="uses the real virtualizer to bound 1000 cards and preserve geometry through density changes" time="0.5436733">
+        </testcase>
+        <testcase classname="src/components/photo-library/library.test.tsx" name="deduplicates the same cursor fetch and ignores old order responses" time="0.0322421">
+        </testcase>
+        <testcase classname="src/components/photo-library/library.test.tsx" name="viewer navigates only loaded photos, edits the right asset, and Escape closes" time="0.1642669">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/Button.test.tsx" timestamp="2026-10-17T07:40:23.614Z" hostname="Chase-Surface" tests="8" failures="0" errors="0" skipped="0" time="0.4227674">
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; keeps its accessible name while busy and blocks submission" time="0.3042912">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; keeps icons decorative and preserves native aria props and disabled" time="0.0601849">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; supports the existing filled variant" time="0.0084523">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; supports the existing tinted variant" time="0.0075197">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; supports the existing gray variant" time="0.0069624">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; supports the existing plain variant" time="0.0126335">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; supports the existing destructive variant" time="0.0095516">
+        </testcase>
+        <testcase classname="src/components/ui/Button.test.tsx" name="Button &gt; supports large loading buttons and full width without discarding caller classes" time="0.0093866">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/Feedback.test.tsx" timestamp="2026-10-17T07:40:23.616Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.2418855">
+        <testcase classname="src/components/ui/Feedback.test.tsx" name="Spinner &gt; announces loading by default and hides decorative instances" time="0.1323164">
+        </testcase>
+        <testcase classname="src/components/ui/Feedback.test.tsx" name="EmptyState &gt; renders a named region without requiring optional content" time="0.0292168">
+        </testcase>
+        <testcase classname="src/components/ui/Feedback.test.tsx" name="EmptyState &gt; renders a custom icon, description and non-submitting action" time="0.0764716">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/Input.test.tsx" timestamp="2026-10-17T07:40:23.616Z" hostname="Chase-Surface" tests="10" failures="0" errors="0" skipped="0" time="0.4793309">
+        <testcase classname="src/components/ui/Input.test.tsx" name="input fields &gt; associates labels without requiring an id or name and generates unique ids" time="0.2530879">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="input fields &gt; preserves caller descriptions, wires errors, and clears invalid state" time="0.0431174">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="input fields &gt; supports name-based ids, unlabeled native aria names, and grouped errors" time="0.0095571">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="select fields &gt; associates labels without requiring an id or name and generates unique ids" time="0.0479139">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="select fields &gt; preserves caller descriptions, wires errors, and clears invalid state" time="0.0139112">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="select fields &gt; supports name-based ids, unlabeled native aria names, and grouped errors" time="0.0025467">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="textarea fields &gt; associates labels without requiring an id or name and generates unique ids" time="0.0489728">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="textarea fields &gt; preserves caller descriptions, wires errors, and clears invalid state" time="0.009914">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="textarea fields &gt; supports name-based ids, unlabeled native aria names, and grouped errors" time="0.0021221">
+        </testcase>
+        <testcase classname="src/components/ui/Input.test.tsx" name="forwards native field refs and input events" time="0.0442184">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/ListItem.test.tsx" timestamp="2026-10-17T07:40:23.618Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.3381103">
+        <testcase classname="src/components/ui/ListItem.test.tsx" name="ListItem native element behavior &gt; keeps passive rows as divs and accepts React content for the title" time="0.0302906">
+        </testcase>
+        <testcase classname="src/components/ui/ListItem.test.tsx" name="ListItem native element behavior &gt; uses a non-submitting button for clickable rows" time="0.1829886">
+        </testcase>
+        <testcase classname="src/components/ui/ListItem.test.tsx" name="ListItem native element behavior &gt; keeps clickable rows keyboard operable" time="0.1211854">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/Modal.test.tsx" timestamp="2026-10-17T07:40:23.618Z" hostname="Chase-Surface" tests="11" failures="0" errors="0" skipped="0" time="1.6315632">
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; does not render closed dialogs" time="0.0274754">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; portals to body, moves initial focus, locks scrolling, restores inert state and opener in StrictMode" time="0.6326192">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; wraps Tab and Shift+Tab while skipping disabled and hidden controls" time="0.2472655">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; honors Escape and backdrop settings, closes only on the actual backdrop, and updates callbacks" time="0.1338747">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; closes only the nested top dialog and restores its trigger before restoring the outer trigger" time="0.2186674">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; does not treat IME composition cancellation as a dialog dismissal" time="0.0139668">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; restores the original trigger when parent and child dialogs unmount together" time="0.2089849">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; handles simultaneously mounted nested dialogs without the outer stealing focus" time="0.0254156">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; supports explicit accessible descriptions and ignores hidden initial focus targets" time="0.0138038">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; contains programmatic focus and falls back to the panel if controls become disabled" time="0.0257693">
+        </testcase>
+        <testcase classname="src/components/ui/Modal.test.tsx" name="Modal &gt; uses checked radios as group tab stops and allows contenteditable and positive tab indices" time="0.0798471">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/PageState.test.tsx" timestamp="2026-10-17T07:40:23.620Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.368821">
+        <testcase classname="src/components/ui/PageState.test.tsx" name="page feedback and pending actions &gt; names the loading status and supports its default label" time="0.1540765">
+        </testcase>
+        <testcase classname="src/components/ui/PageState.test.tsx" name="page feedback and pending actions &gt; announces failures and retries only when an action is supplied" time="0.0998263">
+        </testcase>
+        <testcase classname="src/components/ui/PageState.test.tsx" name="page feedback and pending actions &gt; disables native list buttons while an action is pending" time="0.1111818">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/Toast.test.tsx" timestamp="2026-10-17T07:40:23.621Z" hostname="Chase-Surface" tests="10" failures="0" errors="0" skipped="0" time="0.417646">
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; creates a portal, stacks messages, and does not reset an earlier timer on store updates" time="0.0629612">
+            <system-err>
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; supports default lifetimes and normalizes invalid durations" time="0.1146892">
+            <system-err>
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; keeps persistent messages and runs onClose exactly once on manual or programmatic dismissal" time="0.0492628">
+            <system-err>
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; pauses automatic dismissal while hovered or focused, then grants a fresh reading interval" time="0.0301706">
+            <system-err>
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; announces success with appropriate urgency" time="0.015277">
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; announces warning with appropriate urgency" time="0.0117412">
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; announces error with appropriate urgency" time="0.0068191">
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; announces info with appropriate urgency" time="0.0060893">
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; supports standalone lifetime, manual cleanup, and a new toast id" time="0.0139914">
+        </testcase>
+        <testcase classname="src/components/ui/Toast.test.tsx" name="Toast &gt; keeps notices inside the active modal, then returns them to body when it closes" time="0.1027598">
+            <system-err>
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/DesignSystemMigration.test.tsx" timestamp="2026-10-17T07:40:23.623Z" hostname="Chase-Surface" tests="24" failures="0" errors="0" skipped="0" time="7.2906902">
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 booking migration &gt; names all fields, uses grouped controls and submits optional values" time="1.0495389">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 booking migration &gt; blocks empty contact and displays loading and success before redirect" time="2.0075545">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 booking migration &gt; edits using a native form, prevents invalid save and invalidates detail/list" time="0.6988876">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 booking migration &gt; announces booking fetch errors and retries" time="0.158809">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 booking migration &gt; guards the client booking action while pending" time="0.1696107">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 booking migration &gt; guards the photographer booking action while pending" time="0.1605437">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; protects order status transitions and invalidates related queries" time="0.1707603">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; reports order and timeline errors independently" time="0.0645417">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; uploads JPEG, prevents reselection while pending and reports the caught error" time="0.1673395">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; deletes a photo with pending protection and photo query invalidation" time="0.1957288">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; shows photos request failure separately from empty uploads" time="0.0572925">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; reviews an analysis using loading feedback and keeps review API values" time="0.3062412">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 photographer migration &gt; does not leave failed analysis stuck in a loading state" time="0.1011615">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; distinguishes client loading and empty states" time="0.0854573">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; removes nested buttons and cancels only the chosen booking" time="0.2767786">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; reports client orders errors instead of showing an empty order list" time="0.0678961">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; enforces selection limit, supports deselection, and submits selected ids" time="0.5182761">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; distinguishes empty selections and request errors" time="0.067173">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; renders an authenticated download action without nested controls" time="0.0969422">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; distinguishes missing delivery (404) from failure (404)" time="0.0536303">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; distinguishes missing delivery (404) from failure (503)" time="0.0680772">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; uploads delivery with pending state and invalidates order and delivery" time="0.2352386">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; submits nonempty client feedback and confirms all retouch tasks" time="0.3223319">
+        </testcase>
+        <testcase classname="src/pages/DesignSystemMigration.test.tsx" name="P4 client and collaboration migration &gt; provides photographer preview uploading and independent versions error" time="0.1866158">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/LandingPage.test.tsx" timestamp="2026-10-17T07:40:23.626Z" hostname="Chase-Surface" tests="1" failures="0" errors="0" skipped="0" time="0.3505321">
+        <testcase classname="src/pages/LandingPage.test.tsx" name="renders the material homepage with named navigation actions" time="0.3474778">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/NotFoundPage.test.tsx" timestamp="2026-10-17T07:40:23.627Z" hostname="Chase-Surface" tests="2" failures="0" errors="0" skipped="0" time="0.0815839">
+        <testcase classname="src/pages/NotFoundPage.test.tsx" name="NotFoundPage &gt; renders 404 text" time="0.0612291">
+        </testcase>
+        <testcase classname="src/pages/NotFoundPage.test.tsx" name="NotFoundPage &gt; has a link to home" time="0.0168745">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/auth/LoginPage.test.tsx" timestamp="2026-10-17T07:40:23.627Z" hostname="Chase-Surface" tests="8" failures="0" errors="0" skipped="0" time="3.7299146">
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; uses one monochrome Beam layer and no Metal layer for login" time="0.6468474">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; renders named grouped inputs with autocomplete and native validation" time="0.052296">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; supports Tab order and the register link" time="0.4206397">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; blocks invalid native form submission" time="0.0843796">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; submits with Enter and routes photographer after storing auth" time="0.5904695">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; submits with Enter and routes client after storing auth" time="0.5911575">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; submits with Enter and routes admin after storing auth" time="0.5246499">
+        </testcase>
+        <testcase classname="src/pages/auth/LoginPage.test.tsx" name="LoginPage &gt; keeps button name, blocks duplicate submission and announces failure before retry" time="0.8156882">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/auth/RegisterPage.test.tsx" timestamp="2026-10-17T07:40:23.628Z" hostname="Chase-Surface" tests="5" failures="0" errors="0" skipped="0" time="4.4046324">
+        <testcase classname="src/pages/auth/RegisterPage.test.tsx" name="RegisterPage regression &gt; provides grouped, named fields, autocomplete and keyboard order" time="0.8581724">
+        </testcase>
+        <testcase classname="src/pages/auth/RegisterPage.test.tsx" name="RegisterPage regression &gt; keeps the register name and guards pending submission" time="0.9109225">
+        </testcase>
+        <testcase classname="src/pages/auth/RegisterPage.test.tsx" name="RegisterPage regression &gt; preserves client registration and routes to the correct home" time="0.9109303">
+        </testcase>
+        <testcase classname="src/pages/auth/RegisterPage.test.tsx" name="RegisterPage regression &gt; preserves photographer registration and routes to the correct home" time="0.8590828">
+        </testcase>
+        <testcase classname="src/pages/auth/RegisterPage.test.tsx" name="RegisterPage regression &gt; keeps the login link and displays a rejected registration" time="0.8618769">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/client/BookingPage.test.tsx" timestamp="2026-10-17T07:40:23.629Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.3612773">
+        <testcase classname="src/pages/client/BookingPage.test.tsx" name="BookingPage &gt; renders booking form" time="0.0885434">
+        </testcase>
+        <testcase classname="src/pages/client/BookingPage.test.tsx" name="BookingPage &gt; has submit button" time="0.2419035">
+        </testcase>
+        <testcase classname="src/pages/client/BookingPage.test.tsx" name="BookingPage &gt; has shoot type options" time="0.0273267">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/client/DeliveryPage.test.tsx" timestamp="2026-10-17T07:40:23.630Z" hostname="Chase-Surface" tests="5" failures="0" errors="0" skipped="0" time="0.7774662">
+        <testcase classname="src/pages/client/DeliveryPage.test.tsx" name="DeliveryPage &gt; authenticates download, preserves filename, and blocks duplicate clicks while pending" time="0.4844878">
+        </testcase>
+        <testcase classname="src/pages/client/DeliveryPage.test.tsx" name="DeliveryPage &gt; announces failed authenticated downloads and allows retry" time="0.1817549">
+        </testcase>
+        <testcase classname="src/pages/client/DeliveryPage.test.tsx" name="DeliveryPage &gt; renders page title" time="0.0228519">
+        </testcase>
+        <testcase classname="src/pages/client/DeliveryPage.test.tsx" name="DeliveryPage &gt; renders delivery info" time="0.0425631">
+        </testcase>
+        <testcase classname="src/pages/client/DeliveryPage.test.tsx" name="DeliveryPage &gt; renders download button" time="0.042701">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/client/SelectionPage.test.tsx" timestamp="2026-10-17T07:40:23.631Z" hostname="Chase-Surface" tests="4" failures="0" errors="0" skipped="0" time="0.3913927">
+        <testcase classname="src/pages/client/SelectionPage.test.tsx" name="SelectionPage &gt; renders page title" time="0.2645251">
+        </testcase>
+        <testcase classname="src/pages/client/SelectionPage.test.tsx" name="SelectionPage &gt; renders photo options" time="0.0681983">
+        </testcase>
+        <testcase classname="src/pages/client/SelectionPage.test.tsx" name="SelectionPage &gt; renders submit button" time="0.0275096">
+        </testcase>
+        <testcase classname="src/pages/client/SelectionPage.test.tsx" name="SelectionPage &gt; renders max select info" time="0.0277326">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/AnalysisResultPage.test.tsx" timestamp="2026-10-17T07:40:23.631Z" hostname="Chase-Surface" tests="4" failures="0" errors="0" skipped="0" time="0.4734155">
+        <testcase classname="src/pages/photographer/AnalysisResultPage.test.tsx" name="AnalysisResultPage &gt; renders page title" time="0.077309">
+        </testcase>
+        <testcase classname="src/pages/photographer/AnalysisResultPage.test.tsx" name="AnalysisResultPage &gt; renders photo with analysis data" time="0.0708259">
+        </testcase>
+        <testcase classname="src/pages/photographer/AnalysisResultPage.test.tsx" name="AnalysisResultPage &gt; renders review buttons" time="0.1257912">
+        </testcase>
+        <testcase classname="src/pages/photographer/AnalysisResultPage.test.tsx" name="AnalysisResultPage &gt; renders back to upload link" time="0.1960016">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/DashboardPage.test.tsx" timestamp="2026-10-17T07:40:23.632Z" hostname="Chase-Surface" tests="14" failures="0" errors="0" skipped="0" time="2.7129529">
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; enables only nonzero statistic cards: pending=false active=false" time="0.4384452">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; enables only nonzero statistic cards: pending=true active=false" time="0.2283751">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; enables only nonzero statistic cards: pending=false active=true" time="0.184842">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; enables only nonzero statistic cards: pending=true active=true" time="0.1678589">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; does not highlight confirmed bookings or archived/cancelled orders" time="0.1420849">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; uses shared empty state only after loading" time="0.1126649">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; shows failures instead of reporting zero/empty" time="0.118623">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; opens booking details without nested buttons" time="0.1873907">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; opens orders with 进行中订单" time="0.1472191">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; opens orders with 总订单数" time="0.1379453">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; opens orders with 查看全部订单 →" time="0.1092975">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; confirms once, shows loading and invalidates both queries" time="0.3413108">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; announces confirmation errors and permits retry" time="0.2696657">
+        </testcase>
+        <testcase classname="src/pages/photographer/DashboardPage.test.tsx" name="DashboardPage &gt; respects reduced motion when scrolling to bookings" time="0.1233796">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/OrdersPage.test.tsx" timestamp="2026-10-17T07:40:23.635Z" hostname="Chase-Surface" tests="6" failures="0" errors="0" skipped="0" time="0.9155376">
+        <testcase classname="src/pages/photographer/OrdersPage.test.tsx" name="OrdersPage &gt; renders title and Spinner while loading without an empty state" time="0.1670271">
+        </testcase>
+        <testcase classname="src/pages/photographer/OrdersPage.test.tsx" name="OrdersPage &gt; renders the shared empty state" time="0.0649917">
+        </testcase>
+        <testcase classname="src/pages/photographer/OrdersPage.test.tsx" name="OrdersPage &gt; loads orders and navigates by keyboard with back and forward history" time="0.3572062">
+        </testcase>
+        <testcase classname="src/pages/photographer/OrdersPage.test.tsx" name="OrdersPage &gt; shows an actionable load error and retries" time="0.1334159">
+        </testcase>
+        <testcase classname="src/pages/photographer/OrdersPage.test.tsx" name="OrdersPage &gt; uses the dashboard route and logs out" time="0.1322863">
+        </testcase>
+        <testcase classname="src/pages/photographer/OrdersPage.test.tsx" name="OrdersPage &gt; retains status badges and labels" time="0.0565435">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/PhotoEditorPage.test.tsx" timestamp="2026-10-17T07:40:23.636Z" hostname="Chase-Surface" tests="6" failures="0" errors="0" skipped="0" time="0.4182951">
+        <testcase classname="src/pages/photographer/PhotoEditorPage.test.tsx" name="does not request protected photos when unauthenticated" time="0.0403242">
+        </testcase>
+        <testcase classname="src/pages/photographer/PhotoEditorPage.test.tsx" name="does not request photos for customer roles" time="0.0300688">
+        </testcase>
+        <testcase classname="src/pages/photographer/PhotoEditorPage.test.tsx" name="loads existing order photos and mounts the selected workbench" time="0.2194231">
+        </testcase>
+        <testcase classname="src/pages/photographer/PhotoEditorPage.test.tsx" name="rejects photo IDs outside the displayed order" time="0.0209956">
+        </testcase>
+        <testcase classname="src/pages/photographer/PhotoEditorPage.test.tsx" name="explains permission errors from the order photo list" time="0.0181784">
+        </testcase>
+        <testcase classname="src/pages/photographer/PhotoEditorPage.test.tsx" name="from-library editor reads one asset and retains a library return action" time="0.0858091">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/PhotoLibraryPage.test.tsx" timestamp="2026-10-17T07:40:23.637Z" hostname="Chase-Surface" tests="2" failures="0" errors="0" skipped="0" time="0.3894245">
+        <testcase classname="src/pages/photographer/PhotoLibraryPage.test.tsx" name="distinguishes empty catalog from loading and failures" time="0.1092943">
+        </testcase>
+        <testcase classname="src/pages/photographer/PhotoLibraryPage.test.tsx" name="preserves prior pages through next-page errors and retries explicitly" time="0.2769303">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/RetouchPage.test.tsx" timestamp="2026-10-17T07:40:23.637Z" hostname="Chase-Surface" tests="3" failures="0" errors="0" skipped="0" time="0.5062165">
+        <testcase classname="src/pages/photographer/RetouchPage.test.tsx" name="RetouchPage &gt; renders page title" time="0.2949478">
+        </testcase>
+        <testcase classname="src/pages/photographer/RetouchPage.test.tsx" name="RetouchPage &gt; renders task list" time="0.051926">
+        </testcase>
+        <testcase classname="src/pages/photographer/RetouchPage.test.tsx" name="RetouchPage &gt; renders file input for photographer" time="0.1550039">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/pages/photographer/UploadPage.test.tsx" timestamp="2026-10-17T07:40:23.638Z" hostname="Chase-Surface" tests="4" failures="0" errors="0" skipped="0" time="0.4801826">
+        <testcase classname="src/pages/photographer/UploadPage.test.tsx" name="UploadPage &gt; renders page title" time="0.2868756">
+        </testcase>
+        <testcase classname="src/pages/photographer/UploadPage.test.tsx" name="UploadPage &gt; renders file input" time="0.0342945">
+        </testcase>
+        <testcase classname="src/pages/photographer/UploadPage.test.tsx" name="UploadPage &gt; renders uploaded photos list" time="0.0887516">
+        </testcase>
+        <testcase classname="src/pages/photographer/UploadPage.test.tsx" name="UploadPage &gt; renders link to analysis results" time="0.0661715">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/download.test.ts" timestamp="2026-10-17T07:40:23.639Z" hostname="Chase-Surface" tests="1" failures="0" errors="0" skipped="0" time="0.0272884">
+        <testcase classname="src/utils/download.test.ts" name="starts a named Blob download and releases the object URL after it starts" time="0.0239032">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/imageEdit.test.ts" timestamp="2026-10-17T07:40:23.639Z" hostname="Chase-Surface" tests="15" failures="0" errors="0" skipped="0" time="0.0562874">
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; matches actual backend NumPy outputs within one uint8 level per channel" time="0.008425">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; all sliders change pixels, reset restores the immutable original" time="0.0344591">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure NaN" time="0.0012748">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure Infinity" time="0.0002772">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure -Infinity" time="0.000315">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure 1" time="0.0002376">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure true" time="0.0024657">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure null" time="0.0010455">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure 2.01" time="0.0010366">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects invalid exposure -2.01" time="0.0011592">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects other out of range controls 101" time="0.0004479">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects other out of range controls -101" time="0.0002559">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects other out of range controls NaN" time="0.0002206">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; rejects other out of range controls Infinity" time="0.0002033">
+        </testcase>
+        <testcase classname="src/utils/imageEdit.test.ts" name="image edit v1 &gt; preserves aspect ratio across viewports and zoom levels" time="0.0007082">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/imageGeometry.test.ts" timestamp="2026-10-17T07:40:23.641Z" hostname="Chase-Surface" tests="7" failures="0" errors="0" skipped="0" time="0.0344741">
+        <testcase classname="src/utils/imageGeometry.test.ts" name="preserves v1 until an actual edit and normalizes all colors to v2" time="0.0031465">
+        </testcase>
+        <testcase classname="src/utils/imageGeometry.test.ts" name="strictly validates v2 and deep clones geometry" time="0.0019733">
+        </testcase>
+        <testcase classname="src/utils/imageGeometry.test.ts" name="uses the specified stable pixel edges including 1px and odd bounds" time="0.0005854">
+        </testcase>
+        <testcase classname="src/utils/imageGeometry.test.ts" name="preserves crop content through rotation/flip composition" time="0.0007185">
+        </testcase>
+        <testcase classname="src/utils/imageGeometry.test.ts" name="aspect ratio is based on physical pixels and pointers on CSS image bounds, independent of DPR" time="0.0005718">
+        </testcase>
+        <testcase classname="src/utils/imageGeometry.test.ts" name="transposes asymmetric pixels with exact quadrant and flip semantics" time="0.000521">
+        </testcase>
+        <testcase classname="src/utils/imageGeometry.test.ts" name="rotating or flipping after a crop preserves exactly the same integer pixel content" time="0.0235396">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/imageGeometryParity.test.ts" timestamp="2026-10-17T07:40:23.643Z" hostname="Chase-Surface" tests="16" failures="0" errors="0" skipped="0" time="0.020298">
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: asymmetric-odd-q0" time="0.0034348">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: asymmetric-odd-q1" time="0.0006715">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: asymmetric-odd-q2" time="0.0006662">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: asymmetric-odd-q3" time="0.0005522">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-portrait-q0" time="0.0015037">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-portrait-q1" time="0.001232">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-portrait-q2" time="0.0011321">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-portrait-q3" time="0.0008239">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-landscape-q0" time="0.0011391">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-landscape-q1" time="0.0010782">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-landscape-q2" time="0.0008584">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-landscape-q3" time="0.0007003">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-exif-6-q0" time="0.0008011">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-exif-6-q1" time="0.0008021">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-exif-6-q2" time="0.0007982">
+        </testcase>
+        <testcase classname="src/utils/imageGeometryParity.test.ts" name="matches actual backend vectors: real-exif-6-q3" time="0.0006718">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/previewGeometry.test.ts" timestamp="2026-10-17T07:40:23.645Z" hostname="Chase-Surface" tests="1" failures="0" errors="0" skipped="0" time="0.0049556">
+        <testcase classname="src/utils/previewGeometry.test.ts" name="uses one canonical full-size ROI for every preview resolution, without expanding low-res edges" time="0.0025959">
+        </testcase>
+    </testsuite>
+</testsuites>

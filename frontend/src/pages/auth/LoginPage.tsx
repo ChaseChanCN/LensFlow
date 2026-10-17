@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { login, extractErrorMessage } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
 import { Button, Input } from '@/components/ui'
-import { MetalSurface } from '@/components/effects/EffectSurfaces'
+import { BeamSurface } from '@/components/effects/EffectSurfaces'
 import { MaterialScope } from '@/components/material/MaterialScope'
 import { ThemeToggle } from '@/components/material/ThemeToggle'
 
@@ -86,9 +86,9 @@ export function LoginPage() {
               />
             </div>
           </div>
-          <MetalSurface><Button type="submit" fullWidth size="lg" loading={loading} className="material-primary-button">
+          <BeamSurface radius={999}><Button type="submit" fullWidth size="lg" loading={loading} className="material-primary-button">
             登录
-          </Button></MetalSurface>
+          </Button></BeamSurface>
         </form>
 
         <p className="mt-6 text-center text-body-sm text-label-muted">

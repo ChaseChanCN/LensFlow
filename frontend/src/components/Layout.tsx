@@ -10,7 +10,7 @@ interface LayoutProps {
   appearance?: 'default' | 'material'
 }
 
-export function Layout({ children, title = 'LensFlow', appearance = 'default' }: LayoutProps) {
+export function Layout({ children, title = 'LensFlow', appearance = 'material' }: LayoutProps) {
   const location = useLocation()
   const navigate = useNavigate()
   const user = useAuthStore((s) => s.user)
@@ -45,7 +45,7 @@ export function Layout({ children, title = 'LensFlow', appearance = 'default' }:
           <div className="flex items-center gap-1">
             {appearance === 'material' && <ThemeToggle />}
             {navItems.map((item) => {
-              const active = location.pathname === item.to
+              const active = location.pathname === item.to || (item.to === '/orders' && location.pathname.startsWith('/orders/'))
               return (
                 <Link
                   key={item.to}

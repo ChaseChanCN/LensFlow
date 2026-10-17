@@ -1,0 +1,135 @@
+{
+  "aspect_ratio": 1.128165,
+  "byte_order": "little",
+  "charset": " .:-=+*#%@",
+  "coordinate_range": {
+    "x": [
+      -1.0,
+      1.0
+    ],
+    "y": [
+      -1.0,
+      1.0
+    ]
+  },
+  "deterministic_fields": [
+    "schema_version",
+    "image_width",
+    "image_height",
+    "aspect_ratio",
+    "coordinate_range",
+    "sampling_params",
+    "charset",
+    "field_layout",
+    "byte_order",
+    "particle_count",
+    "deterministic_fields",
+    "input_file_path",
+    "input_file_sha256",
+    "input_color_mode",
+    "input_bit_depth",
+    "input_file_size",
+    "processing_params"
+  ],
+  "field_layout": [
+    {
+      "bytes": 4,
+      "name": "coord_x",
+      "offset": 0,
+      "type": "float32"
+    },
+    {
+      "bytes": 4,
+      "name": "coord_y",
+      "offset": 4,
+      "type": "float32"
+    },
+    {
+      "bytes": 2,
+      "name": "char_index",
+      "offset": 8,
+      "type": "uint16"
+    },
+    {
+      "bytes": 4,
+      "name": "draw_size",
+      "offset": 10,
+      "type": "float32"
+    },
+    {
+      "bytes": 1,
+      "name": "color_r",
+      "offset": 14,
+      "type": "uint8"
+    },
+    {
+      "bytes": 1,
+      "name": "color_g",
+      "offset": 15,
+      "type": "uint8"
+    },
+    {
+      "bytes": 1,
+      "name": "color_b",
+      "offset": 16,
+      "type": "uint8"
+    },
+    {
+      "bytes": 4,
+      "name": "anim_seed",
+      "offset": 17,
+      "type": "uint32"
+    }
+  ],
+  "image_height": 1264,
+  "image_width": 1426,
+  "input_bit_depth": 8,
+  "input_color_mode": "RGB",
+  "input_file_path": "public/reference3.png",
+  "input_file_sha256": "b29c9450a87876abb1123713c5b451b33c756f71551ab1a57ff29ae45a6b6ead",
+  "input_file_size": 345519,
+  "particle_count": 22111,
+  "processing_params": {
+    "blue_gray_params": {
+      "hue_shift": 200,
+      "lum_min": 0.1,
+      "sat_max": 0.4
+    },
+    "charset": " .:-=+*#%@",
+    "cli_overrides": [
+      "spacing",
+      "threshold",
+      "max_particles"
+    ],
+    "color_mode": "rgb",
+    "contrast": 1.1,
+    "edge_threshold": 0.3,
+    "global_seed": 42,
+    "input_path": "public/reference3.png",
+    "luma_layers": 8,
+    "max_particles": 40000,
+    "max_shift": 2,
+    "output_dir": "public/data",
+    "preset": "medium",
+    "soft_threshold": false,
+    "spacing": 2,
+    "threshold": 0.005,
+    "window": 5
+  },
+  "sampling_params": {
+    "color_mode": "rgb",
+    "contrast": 1.1,
+    "edge_threshold": 0.3,
+    "global_seed": 42,
+    "luma_layers": 8,
+    "max_particles": 40000,
+    "max_shift": 2,
+    "preset": "medium",
+    "soft_threshold": false,
+    "spacing": 2,
+    "threshold": 0.005,
+    "window": 5
+  },
+  "schema_version": 1,
+  "timestamp": 1792168959.6673448
+}

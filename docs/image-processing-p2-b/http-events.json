@@ -1,0 +1,467 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 0.7,
+        "contrast": 25,
+        "saturation": -30
+      },
+      "expected_revision": 0,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": 25,
+        "saturation": -30
+      },
+      "expected_revision": 1,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 0.7,
+        "contrast": 25,
+        "saturation": -30
+      },
+      "expected_revision": 2,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": 25,
+        "saturation": -30
+      },
+      "expected_revision": 3,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": 26,
+        "saturation": -30
+      },
+      "expected_revision": 4,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 409,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -30
+      },
+      "expected_revision": 4,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -30
+      },
+      "expected_revision": 5,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 409,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 0.9,
+        "contrast": 26,
+        "saturation": -30
+      },
+      "expected_revision": 5,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -45
+      },
+      "expected_revision": 6,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/export",
+    "status": 200,
+    "body": {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -45
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/preview",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 409,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -31
+      },
+      "expected_revision": 6,
+      "expected_source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/export",
+    "status": 200,
+    "body": {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -31
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/1/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/photos/1/export",
+    "status": 200,
+    "body": {
+      "edit": {
+        "schema_version": 1,
+        "exposure_ev": 1,
+        "contrast": -20,
+        "saturation": -31
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": -0.4,
+        "contrast": 0,
+        "saturation": 0
+      },
+      "expected_revision": 0,
+      "expected_source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 409,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 0.4,
+        "contrast": 0,
+        "saturation": 0
+      },
+      "expected_revision": 0,
+      "expected_source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": -0.4,
+        "contrast": 0,
+        "saturation": 0
+      },
+      "expected_revision": 1,
+      "expected_source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 409,
+    "body": {
+      "parameters": {
+        "schema_version": 1,
+        "exposure_ev": 0.4,
+        "contrast": 0,
+        "saturation": 0
+      },
+      "expected_revision": 1,
+      "expected_source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/photos/2/edit-draft",
+    "status": 200,
+    "body": null
+  }
+]

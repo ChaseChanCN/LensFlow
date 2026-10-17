@@ -1,0 +1,322 @@
+[
+  {
+    "theme": "light",
+    "foreground": "--mat-text",
+    "background": "--mat-page",
+    "colors": [
+      "#202b3b",
+      "#f5f4f0"
+    ],
+    "ratio": 12.979233719877122
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-text",
+    "background": "--mat-panel",
+    "colors": [
+      "#202b3b",
+      "#fffefa"
+    ],
+    "ratio": 14.1547347825523
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-text",
+    "background": "--mat-control",
+    "colors": [
+      "#202b3b",
+      "#efeee9"
+    ],
+    "ratio": 12.296006322584397
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-muted",
+    "background": "--mat-page",
+    "colors": [
+      "#596577",
+      "#f5f4f0"
+    ],
+    "ratio": 5.370966923437202
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-muted",
+    "background": "--mat-panel",
+    "colors": [
+      "#596577",
+      "#fffefa"
+    ],
+    "ratio": 5.857403754944805
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-muted",
+    "background": "--mat-control",
+    "colors": [
+      "#596577",
+      "#efeee9"
+    ],
+    "ratio": 5.088239003496482
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-accent",
+    "background": "--mat-panel",
+    "colors": [
+      "#435f88",
+      "#fffefa"
+    ],
+    "ratio": 6.440354416677953
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-accent",
+    "background": "--mat-page",
+    "colors": [
+      "#435f88",
+      "#f5f4f0"
+    ],
+    "ratio": 5.9055055779599295
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-button-text",
+    "background": "--mat-control",
+    "colors": [
+      "#202b3b",
+      "#efeee9"
+    ],
+    "ratio": 12.296006322584397
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-field",
+    "background": "--mat-control",
+    "colors": [
+      "#455369",
+      "#efeee9"
+    ],
+    "ratio": 6.709128679446422
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-placeholder",
+    "background": "--mat-control",
+    "colors": [
+      "#596577",
+      "#efeee9"
+    ],
+    "ratio": 5.088239003496482
+  },
+  {
+    "theme": "light",
+    "foreground": "--mat-body",
+    "background": "--mat-panel",
+    "colors": [
+      "#455369",
+      "#fffefa"
+    ],
+    "ratio": 7.723315569962991
+  },
+  {
+    "theme": "light",
+    "foreground": "--color-success-label",
+    "background": "--color-success-bg",
+    "colors": [
+      "#21643b",
+      "#e4f3e9"
+    ],
+    "ratio": 6.200475224933401
+  },
+  {
+    "theme": "light",
+    "foreground": "--color-warning-label",
+    "background": "--color-warning-bg",
+    "colors": [
+      "#79500d",
+      "#f6ecd9"
+    ],
+    "ratio": 6.040827296424696
+  },
+  {
+    "theme": "light",
+    "foreground": "--color-error-label",
+    "background": "--color-error-bg",
+    "colors": [
+      "#a42a26",
+      "#fae6e5"
+    ],
+    "ratio": 5.962178963171884
+  },
+  {
+    "theme": "light",
+    "foreground": "--color-info-label",
+    "background": "--color-info-bg",
+    "colors": [
+      "#315780",
+      "#e4edf8"
+    ],
+    "ratio": 6.333082698782319
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-text",
+    "background": "--mat-page",
+    "colors": [
+      "#f0f1f3",
+      "#101217"
+    ],
+    "ratio": 16.576806376775796
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-text",
+    "background": "--mat-panel",
+    "colors": [
+      "#f0f1f3",
+      "#171a21"
+    ],
+    "ratio": 15.405526820166713
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-text",
+    "background": "--mat-control",
+    "colors": [
+      "#f0f1f3",
+      "#20252f"
+    ],
+    "ratio": 13.591929214312906
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-muted",
+    "background": "--mat-page",
+    "colors": [
+      "#a0a8b7",
+      "#101217"
+    ],
+    "ratio": 7.832402327294315
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-muted",
+    "background": "--mat-panel",
+    "colors": [
+      "#a0a8b7",
+      "#171a21"
+    ],
+    "ratio": 7.278982536015944
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-muted",
+    "background": "--mat-control",
+    "colors": [
+      "#a0a8b7",
+      "#20252f"
+    ],
+    "ratio": 6.422072840263824
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-accent",
+    "background": "--mat-panel",
+    "colors": [
+      "#b5c8e7",
+      "#171a21"
+    ],
+    "ratio": 10.264362387829745
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-accent",
+    "background": "--mat-page",
+    "colors": [
+      "#b5c8e7",
+      "#101217"
+    ],
+    "ratio": 11.04476009618686
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-button-text",
+    "background": "--mat-control",
+    "colors": [
+      "#edf2fa",
+      "#20252f"
+    ],
+    "ratio": 13.66566109002671
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-field",
+    "background": "--mat-control",
+    "colors": [
+      "#b8c4d6",
+      "#20252f"
+    ],
+    "ratio": 8.708316310711181
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-placeholder",
+    "background": "--mat-control",
+    "colors": [
+      "#8f9aad",
+      "#20252f"
+    ],
+    "ratio": 5.408273593635441
+  },
+  {
+    "theme": "dark",
+    "foreground": "--mat-body",
+    "background": "--mat-panel",
+    "colors": [
+      "#bdc4d0",
+      "#171a21"
+    ],
+    "ratio": 9.924588379909055
+  },
+  {
+    "theme": "dark",
+    "foreground": "--color-success-label",
+    "background": "--color-success-bg",
+    "colors": [
+      "#9dd7b2",
+      "#182e25"
+    ],
+    "ratio": 8.786804308865115
+  },
+  {
+    "theme": "dark",
+    "foreground": "--color-warning-label",
+    "background": "--color-warning-bg",
+    "colors": [
+      "#e7c48e",
+      "#332a1b"
+    ],
+    "ratio": 8.525729182872665
+  },
+  {
+    "theme": "dark",
+    "foreground": "--color-error-label",
+    "background": "--color-error-bg",
+    "colors": [
+      "#ffb4b0",
+      "#371f26"
+    ],
+    "ratio": 8.949201612528435
+  },
+  {
+    "theme": "dark",
+    "foreground": "--color-info-label",
+    "background": "--color-info-bg",
+    "colors": [
+      "#b5d0fa",
+      "#202e44"
+    ],
+    "ratio": 8.704606160804948
+  }
+]

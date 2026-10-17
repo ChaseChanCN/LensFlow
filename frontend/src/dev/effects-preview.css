@@ -47,6 +47,7 @@ body { margin:0; }
 .material-tag { color:var(--m-muted);border:1px solid var(--m-line);border-radius:20px;font-size:10px;padding:6px 10px;white-space:nowrap; }
 .material-stage { background:var(--m-stage);height:286px;border:1px solid var(--m-line);border-radius:10px;margin:25px 0 20px;position:relative;display:flex;align-items:center;justify-content:center; }
 .material-beam-wrap { width:calc(100% - 64px);max-width:340px; }
+.material-beam-wrap.effects-surface-beam { height:auto;border-radius:22px; }
 .material-album { background:var(--m-card);border:1px solid var(--m-line);border-radius:22px;padding:21px 23px;position:relative; }
 .material-album-top { display:flex;align-items:center;gap:10px; }
 .material-aperture { font-size:27px;line-height:1;color:var(--m-accent); }

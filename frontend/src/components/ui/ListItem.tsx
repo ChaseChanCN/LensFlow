@@ -1,4 +1,5 @@
 import { type ReactNode, type HTMLAttributes } from 'react'
+import { BeamSurface } from '@/components/effects/EffectSurfaces'
 
 interface ListItemProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
   leading?: ReactNode
@@ -10,6 +11,7 @@ interface ListItemProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
   destructive?: boolean
   isLast?: boolean
   disabled?: boolean
+  effect?: 'beam'
 }
 
 export function ListItem({
@@ -22,13 +24,12 @@ export function ListItem({
   destructive = false,
   isLast = false,
   disabled = false,
+  effect,
   className = '',
   ...props
 }: ListItemProps) {
   const Tag = onClick ? 'button' : 'div'
-  return (
-    <>
-      <Tag
+  const row = <Tag
         {...(onClick ? { onClick, type: 'button' as const, disabled } : {})}
         className={`flex w-full items-center gap-3 px-4 py-3 text-left transition-colors duration-[var(--duration-fast)] ${onClick ? 'enabled:hover:bg-system-bg-grouped enabled:active:bg-system-bg-grouped disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-action-primary-strong' : ''} ${className}`}
         {...props}
@@ -49,6 +50,9 @@ export function ListItem({
           </svg>
         )}
       </Tag>
+  return (
+    <>
+      {effect ? <BeamSurface radius={16} enabled={!disabled}>{row}</BeamSurface> : row}
       {!isLast && <div className="ml-4 border-b border-separator-opaque" />}
     </>
   )

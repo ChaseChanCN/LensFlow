@@ -24,6 +24,14 @@ async function fill(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText('密码'), 'password123')
 }
 describe('LoginPage', () => {
+  it('uses one monochrome Beam layer and no Metal layer for login', async () => {
+    setup()
+    expect(await screen.findByTestId('beam-renderer')).toHaveAttribute('data-color','mono')
+    expect(screen.queryByTestId('metal-renderer')).not.toBeInTheDocument()
+    const button=screen.getByRole('button',{name:'登录'})
+    expect(button.closest('.effects-surface')).toHaveClass('effects-surface-beam')
+    expect(button.closest('.effects-surface')?.querySelectorAll('.effects-surface-overlay')).toHaveLength(1)
+  })
   it('renders named grouped inputs with autocomplete and native validation', () => {
     setup()
     expect(screen.getByRole('heading', { name: '欢迎回来' })).toBeInTheDocument()

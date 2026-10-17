@@ -1,0 +1,23 @@
+{
+  "photo_id": 1003,
+  "status": "indexed",
+  "source_sha256": "5aa700b2f4012a7e6bd24fa95d6881c46af1ad862eded35178bcaf5860a61531",
+  "parser_version": "c1-v1.index-v1",
+  "reused": false,
+  "busy": false,
+  "error_code": null,
+  "camera_make": "canon",
+  "camera_model": "eos 70d",
+  "lens_make": "canon",
+  "lens_model": "constructed 35mm",
+  "iso": 100,
+  "focal_length_mm": 35.0,
+  "f_number": 2.8,
+  "exposure_seconds": 0.008,
+  "capture_datetime_local": "2026-01-02T00:30:00",
+  "capture_date": "2026-01-02",
+  "capture_timezone_known": false,
+  "capture_timezone_offset_minutes": null,
+  "indexed_at": "2026-10-17T14:43:58.680758",
+  "warning_count": 0
+}

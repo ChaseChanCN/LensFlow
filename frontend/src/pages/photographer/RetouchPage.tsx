@@ -71,7 +71,7 @@ export function RetouchPage() {
 
           {!isPhotographer && (
             <div className="px-4 pt-4">
-              <Button type="button" size="lg" fullWidth onClick={() => { setError(''); confirmMutation.mutate() }} loading={confirmMutation.isPending}>
+              <Button effect="beam" type="button" size="lg" fullWidth onClick={() => { setError(''); confirmMutation.mutate() }} loading={confirmMutation.isPending}>
                 确认全部修图
               </Button>
             </div>

@@ -1,0 +1,39 @@
+{
+  "browser": "Actual IAB browser, not jsdom",
+  "origin": "http://127.0.0.1:4251",
+  "photographerLogin": true,
+  "realJpegDisplayed": true,
+  "onDemandOnly": true,
+  "metadataFieldsDisplayed": true,
+  "missingExifHonest": true,
+  "navigationResetsExpansion": true,
+  "lightAndDarkChecked": true,
+  "editorReturnChecked": true,
+  "lightTableTwoPreviewsChecked": true,
+  "gpsAndSerialNotInViewer": true,
+  "browserConsoleErrors": [],
+  "staleRequestAndRetry": "automated component tests, not separately forced in browser",
+  "visibleSummary": "相机\nCanon constructed sample\n镜头\nConstructed 50mm\n拍摄时间\n2026-10-17 14:32:18.123456789+08:00\n曝光时间\n1/125 秒\n光圈\nf/2.8\nISO\n400\n焦距\n50 mm\n原始像素\n517 × 606\n版权\n© 示例\n说明\n未记录\n\n部分元数据无效、不完整或存在冲突；仅展示可安全读取的信息。\n\n来自原始文件，信息可被文件作者修改。此处不显示位置与设备序列号。",
+  "metadata_requests_from_browser": [
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/metadata",
+      "status": 200,
+      "duration_ms": 11.26
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/1/metadata",
+      "status": 200,
+      "duration_ms": 15.45
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/2/metadata",
+      "status": 200,
+      "duration_ms": 13.7
+    }
+  ],
+  "grid_and_collapsed_viewer_requests": 0,
+  "database_and_source_unchanged_after_browser": true
+}

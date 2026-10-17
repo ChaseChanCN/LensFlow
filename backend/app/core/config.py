@@ -3,7 +3,9 @@
 from functools import lru_cache
 from typing import Literal
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from sqlalchemy.engine import URL
 
 
 class Settings(BaseSettings):
@@ -29,6 +31,10 @@ class Settings(BaseSettings):
     db_pg_password: str = "changeme"
     db_pg_name: str = "lensflow"
     db_pg_driver: str = "asyncpg"
+    db_pool_size: int = Field(default=5, ge=1, le=50)
+    db_max_overflow: int = Field(default=5, ge=0, le=50)
+    db_pool_timeout_seconds: int = Field(default=10, ge=1, le=120)
+    db_connect_timeout_seconds: int = Field(default=5, ge=1, le=60)
 
     # Security
     jwt_secret_key: str = "change-this-to-a-random-secret"
@@ -38,6 +44,9 @@ class Settings(BaseSettings):
     # Storage
     storage_type: Literal["local", "obs"] = "local"
     storage_local_path: str = "storage_local/uploads"
+    image_max_bytes: int = Field(default=20 * 1024 * 1024, gt=0)
+    image_max_pixels: int = Field(default=24_000_000, gt=0)
+    image_max_dimension: int = Field(default=12_000, gt=0)
     obs_bucket: str = ""
     obs_endpoint: str = ""
     obs_ak: str = ""
@@ -60,20 +69,20 @@ class Settings(BaseSettings):
     def database_url(self) -> str:
         if self.db_type == "sqlite":
             return f"sqlite:///{self.db_sqlite_path}"
-        return (
-            f"postgresql+{self.db_pg_driver}://{self.db_pg_user}:{self.db_pg_password}"
-            f"@{self.db_pg_host}:{self.db_pg_port}/{self.db_pg_name}"
-        )
+        return self._pg_url(self.db_pg_driver)
 
     @property
     def sync_database_url(self) -> str:
         """Synchronous DB URL for Alembic migrations."""
         if self.db_type == "sqlite":
             return f"sqlite:///{self.db_sqlite_path}"
-        return (
-            f"postgresql+psycopg2://{self.db_pg_user}:{self.db_pg_password}"
-            f"@{self.db_pg_host}:{self.db_pg_port}/{self.db_pg_name}"
-        )
+        return self._pg_url("psycopg2")
+
+    def _pg_url(self, driver: str) -> str:
+        return URL.create(
+            f"postgresql+{driver}", username=self.db_pg_user, password=self.db_pg_password,
+            host=self.db_pg_host, port=self.db_pg_port, database=self.db_pg_name,
+        ).render_as_string(hide_password=False)
 
 
 @lru_cache

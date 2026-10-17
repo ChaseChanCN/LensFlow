@@ -107,7 +107,7 @@ export function DeliveryPage() {
           </ListGroup>
 
           <div className="px-4 pt-4">
-            <Button type="button" loading={downloadMutation.isPending} onClick={() => { setError(''); downloadMutation.mutate() }}>下载成片</Button>
+            <Button effect="metal" type="button" loading={downloadMutation.isPending} onClick={() => { setError(''); downloadMutation.mutate() }}>下载成片</Button>
           </div>
         </>
       )}

@@ -1,0 +1,126 @@
+[
+  {
+    "first": "40",
+    "loaded": "100",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "91",
+    "loaded": "150",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "139",
+    "loaded": "200",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "190",
+    "loaded": "250",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "241",
+    "loaded": "300",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "289",
+    "loaded": "350",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "340",
+    "loaded": "400",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "391",
+    "loaded": "450",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "439",
+    "loaded": "500",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "490",
+    "loaded": "550",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "541",
+    "loaded": "600",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "589",
+    "loaded": "650",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "640",
+    "loaded": "700",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "691",
+    "loaded": "750",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "739",
+    "loaded": "800",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "790",
+    "loaded": "850",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "841",
+    "loaded": "900",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "889",
+    "loaded": "950",
+    "mounted": 21,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "first": "940",
+    "loaded": "1000",
+    "mounted": 18,
+    "selectedCount": "已选 2 张"
+  },
+  {
+    "mounted": 20,
+    "selectedCount": "已选 2 张",
+    "stage": "density-compact"
+  },
+  {
+    "mounted": 12,
+    "selectedCount": "已选 2 张",
+    "stage": "density-large"
+  }
+]

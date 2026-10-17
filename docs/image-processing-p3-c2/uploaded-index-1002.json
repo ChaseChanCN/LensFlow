@@ -1,0 +1,23 @@
+{
+  "photo_id": 1002,
+  "status": "indexed",
+  "source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "parser_version": "c1-v1.index-v1",
+  "reused": false,
+  "busy": false,
+  "error_code": null,
+  "camera_make": null,
+  "camera_model": null,
+  "lens_make": null,
+  "lens_model": null,
+  "iso": null,
+  "focal_length_mm": null,
+  "f_number": null,
+  "exposure_seconds": null,
+  "capture_datetime_local": null,
+  "capture_date": null,
+  "capture_timezone_known": false,
+  "capture_timezone_offset_minutes": null,
+  "indexed_at": "2026-10-17T14:43:58.523152",
+  "warning_count": 0
+}

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "status": "UI_ROLLOUT_COMPLETE_FINAL_SYSTEM_ACCEPTANCE_PENDING",
+  "routes": 15,
+  "tests": {
+    "passed": 155,
+    "failed": 0,
+    "total": 155,
+    "success": true
+  },
+  "build": "PASS",
+  "previewBuild": "PASS",
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 2
+  },
+  "browser": {
+    "contrastPairs": 32,
+    "scopeFailures": 0,
+    "overflowFailures": 0,
+    "environment": "Codex in-app browser on Windows; synthetic API fixture",
+    "minimumTextContrast": 5.088239003496482,
+    "stateChecks": 8,
+    "layoutChecks": 90
+  },
+  "bundle": {
+    "totalBytes": 1160622,
+    "earlierMaterialPilotBytes": 1141343,
+    "comparisonLimit": "Historical comparison only, not an adjacent-version performance gate",
+    "historicalChangePercent": 1.69
+  },
+  "remaining": [
+    "Three paired performance samples and resource-count stability",
+    "Real WebGL2 disabled/context-loss verification",
+    "Real Safari/iOS and other browser matrix",
+    "Actual screen reader and manual keyboard acceptance",
+    "P5 ownership/business-flow blockers: unchanged; real API not rerun"
+  ]
+}

@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/auth'
 import { useState, useRef } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -16,6 +17,7 @@ const STATUS_MAP: Record<string, string> = {
 }
 
 export function UploadPage() {
+  const isPhotographer=useAuthStore(state=>state.user?.role==='photographer')
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -40,6 +42,7 @@ export function UploadPage() {
   const uploadMutation = useMutation({
     mutationFn: (file: File) => uploadPhoto(orderId, file),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['photo-catalog'] })
       queryClient.invalidateQueries({ queryKey: ['photos', id] })
       queryClient.invalidateQueries({ queryKey: ['order', id] })
     },
@@ -48,6 +51,7 @@ export function UploadPage() {
   const deleteMutation = useMutation({
     mutationFn: (photoId: number) => deletePhoto(orderId, photoId),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['photo-catalog'] })
       queryClient.invalidateQueries({ queryKey: ['photos', id] })
     },
     onError: (err) => setError(extractErrorMessage(err)),
@@ -92,6 +96,8 @@ export function UploadPage() {
       )}
       {orderError && <ErrorState title="订单状态加载失败" onRetry={() => { void refetchOrder() }} />}
 
+      {isPhotographer && <div className="mx-4 mb-4"><Button variant="plain" onClick={() => navigate(`/orders/${id}/library`)}>照片图库</Button></div>}
+
       {error && (
         <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
@@ -133,11 +139,15 @@ export function UploadPage() {
               title={photo.filename}
               subtitle={`${photo.width && photo.height ? `${photo.width}×${photo.height} · ` : ''}${(photo.size_bytes / 1024).toFixed(0)} KB`}
               trailing={
-                canDelete ? (
+                <div className="flex items-center gap-2">
+                  <Button type="button" variant="tinted" size="sm" aria-label={`编辑 ${photo.filename}`}
+                    onClick={() => navigate(`/orders/${orderId}/photos/${photo.id}/edit`)}>基础修图</Button>
+                {canDelete ? (
                   <Button type="button" variant="destructive" size="sm" aria-label={`删除 ${photo.filename}`} disabled={deleteMutation.isPending} loading={deleteMutation.isPending && deleteMutation.variables === photo.id} onClick={() => { setError(''); deleteMutation.mutate(photo.id) }}>
                     删除
                   </Button>
-                ) : undefined
+                ) : null}
+                </div>
               }
               isLast={i === photos.length - 1}
             />
@@ -149,7 +159,7 @@ export function UploadPage() {
 
       {photos && photos.length > 0 && (
         <div className="px-4 pt-4">
-          <Button onClick={() => navigate(`/orders/${orderId}/analysis`)}>查看分析结果</Button>
+          <Button effect="beam" onClick={() => navigate(`/orders/${orderId}/analysis`)}>查看分析结果</Button>
         </div>
       )}
     </Layout>

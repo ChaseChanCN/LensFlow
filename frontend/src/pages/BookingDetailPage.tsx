@@ -141,6 +141,7 @@ export function BookingDetailPage() {
               {isPhotographer && (
                 <ListItem
                   title="确认预约"
+                  effect="beam"
                   disabled={confirmMutation.isPending}
                   aria-busy={confirmMutation.isPending}
                   trailing={confirmMutation.isPending ? <Spinner decorative size="sm" /> : undefined}
@@ -159,7 +160,7 @@ export function BookingDetailPage() {
             <div className="overflow-hidden rounded-card bg-system-bg shadow-card">
               <div className="border-b border-separator-opaque p-4">
                 <Select
-                  aria-label="拍摄类型" name="shoot_type"
+                  label="拍摄类型" aria-label="拍摄类型" name="shoot_type"
                   value={form.shoot_type}
                   onChange={(e) => setForm({ ...form, shoot_type: e.target.value })}
                   variant="grouped"
@@ -183,7 +184,7 @@ export function BookingDetailPage() {
               <div className="border-b border-separator-opaque p-4">
                 <Input
                   type="text"
-                  aria-label="拍摄地点" name="location"
+                  label="拍摄地点" aria-label="拍摄地点" name="location"
                   value={form.location}
                   onChange={(e) => setForm({ ...form, location: e.target.value })}
                   placeholder="拍摄地点"
@@ -195,7 +196,7 @@ export function BookingDetailPage() {
                   type="number"
                   step="0.5"
                   min="0.5"
-                  aria-label="拍摄时长（小时）" name="duration_hours"
+                  label="拍摄时长（小时）" aria-label="拍摄时长（小时）" name="duration_hours"
                   value={form.duration_hours}
                   onChange={(e) => setForm({ ...form, duration_hours: e.target.value })}
                   placeholder="拍摄时长（小时）"
@@ -205,7 +206,7 @@ export function BookingDetailPage() {
               <div className="p-4">
                 <Input
                   type="text"
-                  aria-label="联系方式" name="contact_info"
+                  label="联系方式" aria-label="联系方式" name="contact_info"
                   value={form.contact_info}
                   onChange={(e) => setForm({ ...form, contact_info: e.target.value })}
                   placeholder="联系方式"
@@ -218,7 +219,7 @@ export function BookingDetailPage() {
 
           <div className="px-4 pt-4">
             <Textarea
-              aria-label="备注" name="note"
+              label="备注" aria-label="备注" name="note"
               value={form.note}
               onChange={(e) => setForm({ ...form, note: e.target.value })}
               placeholder="备注"
@@ -227,7 +228,7 @@ export function BookingDetailPage() {
           </div>
 
           <div className="flex gap-3 px-4 pt-4">
-            <Button type="submit" loading={updateMutation.isPending}>
+            <Button effect="beam" type="submit" loading={updateMutation.isPending}>
               保存修改
             </Button>
             <Button type="button" variant="gray" disabled={updateMutation.isPending} onClick={() => setEditing(false)}>

@@ -1,0 +1,50 @@
+[
+  {
+    "route": "orders",
+    "fixture": "error",
+    "message": "订单加载失败",
+    "retry": 1
+  },
+  {
+    "route": "orders",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  },
+  {
+    "route": "upload",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  },
+  {
+    "route": "analysis",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  },
+  {
+    "route": "retouch",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  },
+  {
+    "route": "client",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  },
+  {
+    "route": "selection",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  },
+  {
+    "route": "delivery",
+    "fixture": "empty",
+    "overflow": false,
+    "theme": "light"
+  }
+]

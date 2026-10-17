@@ -1,5 +1,6 @@
 import { type ButtonHTMLAttributes, type ReactNode } from 'react'
 import { Spinner } from './Spinner'
+import { BeamSurface, MetalSurface } from '@/components/effects/EffectSurfaces'
 
 type Variant = 'filled' | 'tinted' | 'gray' | 'plain' | 'destructive'
 type Size = 'sm' | 'md' | 'lg'
@@ -12,6 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean
   leftIcon?: ReactNode
   rightIcon?: ReactNode
+  effect?: 'beam' | 'metal'
 }
 
 const VARIANT_CLASSES: Record<Variant, string> = {
@@ -42,13 +44,15 @@ export function Button({
   loading = false,
   leftIcon,
   rightIcon,
+  effect,
   disabled,
   'aria-busy': ariaBusy,
   ...props
 }: ButtonProps) {
-  return (
+  const control = (
     <button
       {...props}
+      data-ui-button={variant}
       disabled={disabled || loading}
       aria-busy={loading || ariaBusy}
       className={`relative inline-flex items-center justify-center font-medium transition-all duration-[var(--duration-fast)] ease-[var(--ease-out)] active:scale-[0.97] motion-reduce:active:scale-100 disabled:opacity-40 disabled:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-action-primary-strong ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${fullWidth ? 'w-full' : ''} ${className}`}
@@ -61,4 +65,8 @@ export function Button({
       {loading && <span className="absolute inset-0 flex items-center justify-center"><Spinner size={size === 'lg' ? 'md' : 'sm'} color="current" decorative /></span>}
     </button>
   )
+  if (!effect) return control
+  return <span className={`effects-action ${fullWidth ? 'effects-action-full' : ''}`}>
+    {effect === 'beam' ? <BeamSurface radius={999} enabled={!disabled && !loading}>{control}</BeamSurface> : <MetalSurface>{control}</MetalSurface>}
+  </span>
 }

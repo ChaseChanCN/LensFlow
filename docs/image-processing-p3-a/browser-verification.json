@@ -1,0 +1,110 @@
+{
+  "v1_open_without_rewrite": true,
+  "browser_export": {
+    "file": "C:/Users/Chase/Downloads/photo-1-edited (2).jpg",
+    "parameters": {
+      "schema_version": 2,
+      "exposure_ev": 0.7,
+      "contrast": 0,
+      "saturation": 0,
+      "geometry": {
+        "rotation_quadrants": 1,
+        "flip_horizontal": true,
+        "flip_vertical": true,
+        "crop": {
+          "x": 0.03638967199728782,
+          "y": 0.13772038097388462,
+          "width": 0.9029608746738991,
+          "height": 0.7056019214086174
+        }
+      }
+    },
+    "independent_pixel_box": [
+      22,
+      71,
+      570,
+      436
+    ],
+    "dimensions": [
+      548,
+      365
+    ],
+    "decoded_jpeg_pixels_equal_independent_pillow_result": true
+  },
+  "large_http_export": {
+    "parameters": {
+      "schema_version": 2,
+      "exposure_ev": 0.7,
+      "contrast": 25,
+      "saturation": -30,
+      "geometry": {
+        "rotation_quadrants": 1,
+        "flip_horizontal": true,
+        "flip_vertical": false,
+        "crop": {
+          "x": 0.1,
+          "y": 0.1,
+          "width": 0.8,
+          "height": 0.8
+        }
+      }
+    },
+    "original_size": [
+      1551,
+      1818
+    ],
+    "pixel_box": [
+      181,
+      155,
+      1637,
+      1396
+    ],
+    "dimensions": [
+      1456,
+      1241
+    ],
+    "preview_max_side_127_dimensions": [
+      127,
+      108
+    ],
+    "decoded_jpeg_pixels_equal_independent_pillow_result": true
+  },
+  "final_remote_draft": {
+    "schema_version": 2,
+    "exposure_ev": 0.7,
+    "contrast": 0.0,
+    "saturation": 0.0,
+    "geometry": {
+      "rotation_quadrants": 0,
+      "flip_horizontal": false,
+      "flip_vertical": true,
+      "crop": {
+        "x": 0.15667769761749795,
+        "y": 0.06064945332881311,
+        "width": 0.7056019214086174,
+        "height": 0.9029608746738991
+      }
+    }
+  },
+  "reopened_crop_style": "left: 15.6678%; top: 6.06495%; width: 70.5602%; height: 90.2961%;",
+  "reopened_crop_matches_remote": true,
+  "source_files_unchanged": true,
+  "no_orphan_files": true,
+  "business_counts_before": {
+    "retouch_tasks": 0,
+    "retouch_versions": 0,
+    "deliveries": 0,
+    "retouch_feedbacks": 0
+  },
+  "business_counts_after": {
+    "retouch_tasks": 0,
+    "retouch_versions": 0,
+    "deliveries": 0,
+    "retouch_feedbacks": 0
+  },
+  "source_hashes": {
+    "176843ee1fd945419f5735f24e3e001d.jpg": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8",
+    "3458d0316d714926bbf9f00467feafa2.jpg": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+  },
+  "revision_conflicts": 2
+}

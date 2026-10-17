@@ -1,0 +1,45 @@
+{
+  "metadata_version": 1,
+  "photo_id": 1,
+  "source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "camera": {
+    "make": null,
+    "model": null,
+    "lens_make": null,
+    "lens_model": null,
+    "serial_number": null
+  },
+  "capture": {
+    "date_time_original": null,
+    "timezone_known": false,
+    "date_candidates": [],
+    "exposure_seconds": null,
+    "f_number": null,
+    "iso": null,
+    "focal_length_mm": null,
+    "focal_length_35mm_mm": null,
+    "exposure_bias_ev": null,
+    "flash_fired": null,
+    "orientation": null
+  },
+  "description": {
+    "title": null,
+    "caption": null,
+    "creator": null,
+    "copyright": null,
+    "keywords": [],
+    "localized": {}
+  },
+  "image": {
+    "width": 517,
+    "height": 606,
+    "oriented_width": 517,
+    "oriented_height": 606,
+    "color_space": null,
+    "icc_profile_name": null,
+    "icc_profile_sha256": null
+  },
+  "gps": null,
+  "provenance": {},
+  "warnings": []
+}

@@ -1,0 +1,127 @@
+{
+  "export": {
+    "browser_file": "C:/Users/Chase/Downloads/photo-1-edited (1).jpg",
+    "ui_parameters": {
+      "schema_version": 1,
+      "exposure_ev": 1,
+      "contrast": -20,
+      "saturation": -31
+    },
+    "persisted_draft_parameters": {
+      "schema_version": 1,
+      "exposure_ev": 1.0,
+      "contrast": -20.0,
+      "saturation": -45.0
+    },
+    "byte_identical_to_matching_server_export": true,
+    "dimensions": [
+      517,
+      606
+    ],
+    "sha256": "1297e098929a4b06faf07bb34cfbd29df7161f8e2dba74f24ac85cb20f6b5fd9"
+  },
+  "real_http_concurrency": [
+    {
+      "phase": "create",
+      "expected_revision": 0,
+      "results": [
+        {
+          "status": 200,
+          "exposure_ev": -0.4,
+          "response": {
+            "photo_id": 2,
+            "exists": true,
+            "parameters": {
+              "schema_version": 1,
+              "exposure_ev": -0.4,
+              "contrast": 0.0,
+              "saturation": 0.0
+            },
+            "revision": 1,
+            "source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8",
+            "updated_at": "2026-10-17T05:57:26.100884Z"
+          }
+        },
+        {
+          "status": 409,
+          "exposure_ev": 0.4,
+          "response": {
+            "code": "DRAFT_REVISION_CONFLICT",
+            "message": "Draft changed in another session",
+            "detail": ""
+          }
+        }
+      ],
+      "persisted": {
+        "photo_id": 2,
+        "exists": true,
+        "parameters": {
+          "schema_version": 1,
+          "exposure_ev": -0.4,
+          "contrast": 0.0,
+          "saturation": 0.0
+        },
+        "revision": 1,
+        "source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8",
+        "updated_at": "2026-10-17T05:57:26.100884Z"
+      }
+    },
+    {
+      "phase": "update",
+      "expected_revision": 1,
+      "results": [
+        {
+          "status": 200,
+          "exposure_ev": -0.4,
+          "response": {
+            "photo_id": 2,
+            "exists": true,
+            "parameters": {
+              "schema_version": 1,
+              "exposure_ev": -0.4,
+              "contrast": 0.0,
+              "saturation": 0.0
+            },
+            "revision": 2,
+            "source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8",
+            "updated_at": "2026-10-17T05:57:26.162698Z"
+          }
+        },
+        {
+          "status": 409,
+          "exposure_ev": 0.4,
+          "response": {
+            "code": "DRAFT_REVISION_CONFLICT",
+            "message": "Draft changed in another session",
+            "detail": ""
+          }
+        }
+      ],
+      "persisted": {
+        "photo_id": 2,
+        "exists": true,
+        "parameters": {
+          "schema_version": 1,
+          "exposure_ev": -0.4,
+          "contrast": 0.0,
+          "saturation": 0.0
+        },
+        "revision": 2,
+        "source_sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8",
+        "updated_at": "2026-10-17T05:57:26.162698Z"
+      }
+    }
+  ],
+  "source_hashes": [
+    {
+      "photo_id": 1,
+      "sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+      "unchanged": true
+    },
+    {
+      "photo_id": 2,
+      "sha256": "133b9efec2b96f338e75b2737fbbf2fa2c7f2da232284d7b62818a33f6c30db8",
+      "unchanged": true
+    }
+  ]
+}

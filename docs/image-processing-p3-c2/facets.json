@@ -1,0 +1,62 @@
+{
+  "camera_make": [
+    {
+      "value": "canon",
+      "count": 501
+    },
+    {
+      "value": "nikon",
+      "count": 250
+    }
+  ],
+  "camera_model": [
+    {
+      "value": "d750",
+      "count": 250
+    },
+    {
+      "value": "eos 700d",
+      "count": 250
+    },
+    {
+      "value": "eos 70d",
+      "count": 251
+    }
+  ],
+  "lens_make": [
+    {
+      "value": "canon",
+      "count": 501
+    },
+    {
+      "value": "nikon",
+      "count": 250
+    }
+  ],
+  "lens_model": [
+    {
+      "value": "constructed 35mm",
+      "count": 251
+    },
+    {
+      "value": "constructed 50mm",
+      "count": 250
+    },
+    {
+      "value": "constructed 85mm",
+      "count": 250
+    }
+  ],
+  "truncated": false,
+  "counts": {
+    "total": 1002,
+    "indexed": 1002,
+    "pending": 0,
+    "failed": 0,
+    "unsupported": 0,
+    "unindexed": 0,
+    "active": 0,
+    "generation": "1002:1002:2008:2026-10-17 14:47:37.929476",
+    "parser_version": "c1-v1.index-v1"
+  }
+}

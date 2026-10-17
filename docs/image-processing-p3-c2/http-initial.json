@@ -1,0 +1,22 @@
+{
+  "actual_tcp": true,
+  "uploaded_real_jpeg_ids": [
+    1002,
+    1003
+  ],
+  "independent_pillow_comparison": true,
+  "camera_values": "constructed EXIF, not camera-original files",
+  "partial_counts": {
+    "total": 1002,
+    "indexed": 7,
+    "pending": 995,
+    "failed": 0,
+    "unsupported": 0,
+    "unindexed": 995,
+    "active": 0,
+    "generation": "1002:7:14:2026-10-17 14:43:58.929772",
+    "parser_version": "c1-v1.index-v1"
+  },
+  "customer_and_cross_order_denied": true,
+  "customer_unfiltered_catalog_works": true
+}

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import { createPortal } from 'react-dom'
 import { useToastStore, type ToastMessage } from '@/stores/toast'
 import { focusActiveModal, getActiveModalPanel, subscribeModalStack } from './modalManager'
+import { useMaterialTheme } from '@/components/material/MaterialTheme'
 
 export type ToastProps = ToastMessage
 const TONES = {
@@ -53,12 +54,13 @@ export function Toast(props: ToastProps) {
 }
 
 export function ToastViewport({ position = 'top' }: { position?: 'top' | 'bottom' }) {
+  const {theme} = useMaterialTheme()
   const modalPanel = useSyncExternalStore(subscribeModalStack, getActiveModalPanel, () => null)
   const toasts = useToastStore((state) => state.toasts)
   const removeToast = useToastStore((state) => state.removeToast)
   if (!toasts.length || typeof document === 'undefined') return null
   return createPortal(
-    <div data-toast-viewport={position} className={`pointer-events-none fixed inset-x-4 z-[var(--z-toast)] mx-auto flex max-w-sm flex-col gap-3 ${position === 'top' ? 'top-4' : 'bottom-4'}`}>
+    <div data-theme={theme} data-toast-viewport={position} className={`lf-material material-portal pointer-events-none fixed inset-x-4 z-[var(--z-toast)] mx-auto flex max-w-sm flex-col gap-3 ${position === 'top' ? 'top-4' : 'bottom-4'}`}>
       {toasts.map((toast) => <Toast key={toast.id} {...toast} onClose={() => removeToast(toast.id)} />)}
     </div>, modalPanel ?? document.body,
   )

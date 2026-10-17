@@ -1,0 +1,9 @@
+{
+  "samples": 90,
+  "drawCalls": 1,
+  "points": 59021,
+  "cpuSubmitMedianMs": 0.10000000149011612,
+  "cpuSubmitP95Ms": 0.20000000298023224,
+  "frameIntervalMedianMs": 16.700000000000728,
+  "note": "CPU submission timing; not GPU timing"
+}

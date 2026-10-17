@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-16",
+  "branch": "design-system",
+  "tests": {
+    "numTotalTests": 148,
+    "numPassedTests": 148,
+    "numFailedTests": 0,
+    "success": true
+  },
+  "build": "PASS",
+  "previewBuild": "PASS",
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 2
+  },
+  "policy": {
+    "color": "mono",
+    "staticColors": true,
+    "strength": 0.7,
+    "shapeSelection": "Independent draw on each mount; stable on rerender; repeats are allowed.",
+    "login": "One Beam; no Metal.",
+    "bookingConfirmation": "One Beam; no Metal."
+  },
+  "observedShapeCounts": {
+    "pulse-outside": 4,
+    "pulse-inner": 6,
+    "md": 7,
+    "line": 3,
+    "sm": 4
+  },
+  "browser": {
+    "samples": [
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "pulse-outside"
+          },
+          {
+            "color": "mono",
+            "size": "pulse-outside"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "pulse-inner"
+          },
+          {
+            "color": "mono",
+            "size": "md"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "line"
+          },
+          {
+            "color": "mono",
+            "size": "pulse-inner"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "md"
+          },
+          {
+            "color": "mono",
+            "size": "pulse-inner"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "md"
+          },
+          {
+            "color": "mono",
+            "size": "pulse-outside"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "pulse-inner"
+          },
+          {
+            "color": "mono",
+            "size": "md"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "md"
+          },
+          {
+            "color": "mono",
+            "size": "sm"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "sm"
+          },
+          {
+            "color": "mono",
+            "size": "line"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "pulse-inner"
+          },
+          {
+            "color": "mono",
+            "size": "sm"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "line"
+          },
+          {
+            "color": "mono",
+            "size": "pulse-inner"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "pulse-outside"
+          },
+          {
+            "color": "mono",
+            "size": "md"
+          }
+        ],
+        "metalLayers": 0
+      },
+      {
+        "beams": [
+          {
+            "color": "mono",
+            "size": "md"
+          },
+          {
+            "color": "mono",
+            "size": "sm"
+          }
+        ],
+        "metalLayers": 0
+      }
+    ],
+    "loginBefore": {
+      "beams": 1,
+      "metal": 0,
+      "size": "line"
+    },
+    "loginAfter": {
+      "beams": 1,
+      "metal": 0,
+      "size": "line"
+    },
+    "confirm": {
+      "buttonCount": 1,
+      "canvases": 0,
+      "color": "mono",
+      "effectLayers": 1,
+      "metalLayers": 0,
+      "size": "sm"
+    }
+  },
+  "scope": "Populated local fixtures; no business API or full-system acceptance changes."
+}
