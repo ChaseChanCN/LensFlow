@@ -1,0 +1,105 @@
+
+name: Sync LensFlow Clients
+
+on:
+  push:
+    branches:
+      - design-system
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */2 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: lensflow-client-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - dev/wechat
+          - dev/harmony
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Prepare Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Prepare synchronization branch
+        id: prepare
+        env:
+          TARGET: ${{ matrix.target }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin \
+            design-system "$TARGET"
+
+          SOURCE="origin/design-system"
+          TARGET_REF="origin/$TARGET"
+          SYNC_BRANCH="automation/sync-${TARGET#dev/}"
+
+          git switch -C "$SYNC_BRANCH" "$TARGET_REF"
+
+          if git merge-base --is-ancestor "$SOURCE" HEAD; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            echo "Already synchronized."
+            exit 0
+          fi
+
+          if ! git merge --no-ff --no-edit "$SOURCE"; then
+            git merge --abort || true
+            echo "::error::Merge conflict for $TARGET"
+            exit 1
+          fi
+
+          git push --force-with-lease origin \
+            "HEAD:refs/heads/$SYNC_BRANCH"
+
+          echo "needed=true" >> "$GITHUB_OUTPUT"
+          echo "branch=$SYNC_BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update pull request
+        if: steps.prepare.outputs.needed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ matrix.target }}
+          SYNC_BRANCH: ${{ steps.prepare.outputs.branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PR_NUMBER=$(gh pr list \
+            --base "$TARGET" \
+            --head "$SYNC_BRANCH" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          if [ -n "$PR_NUMBER" ]; then
+            echo "Existing PR #$PR_NUMBER"
+            gh pr comment "$PR_NUMBER" \
+              --body "Synchronization branch updated from design-system."
+          else
+            gh pr create \
+              --base "$TARGET" \
+              --head "$SYNC_BRANCH" \
+              --title "sync: design-system → $TARGET" \
+              --body "Automated LensFlow main-program synchronization. Review changes and CI before merging."
+          fi
