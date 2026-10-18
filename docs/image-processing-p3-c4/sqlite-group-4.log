@@ -1,0 +1,146 @@
+..FF.................................................................... [ 22%]
+..........................ssssssssssssssssssssssssssssssssssssssssssssss [ 45%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.. [ 68%]
+........................................................................ [ 91%]
+..........................                                               [100%]
+================================== FAILURES ===================================
+___________ test_real_sqlite_process_kill_and_restart[during_parse] ___________
+
+jpeg_case = (<sqlalchemy.orm.session.Session object at 0x000002C36A850290>, [<app.models.user.User object at 0x000002C36A850350>, ...hbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzkyNDA2NTYzfQ.v2e8Phb4ucz0a1g5r5zpJj_5zBqa2y7dj3-aJcVx8GI'})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002C368F1E3C0>
+stage = 'during_parse'
+
+    @pytest.mark.parametrize(
+        "stage",
+        [
+            "before_claim_commit",
+            "after_claim_commit",
+            "during_parse",
+            "before_publish_commit",
+            "after_publish_commit",
+        ],
+    )
+    def test_real_sqlite_process_kill_and_restart(jpeg_case, monkeypatch, stage):
+        db, users, order, photo, storage, headers = jpeg_case
+        id, key = photo.id, photo.storage_key
+        source = Path(storage.get_path(key))
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()
+        business = db.execute(text("SELECT * FROM photos")).all()
+        monkeypatch.setenv("STORAGE_LOCAL_PATH", str(storage.base_path))
+        db.rollback()
+        context = multiprocessing.get_context("spawn")
+        ready = context.Event()
+        worker = context.Process(target=interrupt_at, args=(stage, id, key, ready))
+        worker.start()
+        try:
+            assert ready.wait(timeout=20), f"worker did not reach {stage}"
+            worker.terminate()
+            worker.join(timeout=10)
+>           assert worker.exitcode is not None and worker.exitcode != 0
+E           AssertionError: assert (0 is not None and 0 != 0)
+E            +  where 0 = <SpawnProcess name='SpawnProcess-3' pid=21460 parent=24540 stopped exitcode=0>.exitcode
+E            +  and   0 = <SpawnProcess name='SpawnProcess-3' pid=21460 parent=24540 stopped exitcode=0>.exitcode
+
+tests\test_metadata_reliability.py:46: AssertionError
+______ test_real_sqlite_process_kill_and_restart[before_publish_commit] _______
+
+jpeg_case = (<sqlalchemy.orm.session.Session object at 0x000002C36A853F80>, [<app.models.user.User object at 0x000002C36A8BC080>, ...hbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzkyNDA2NTg4fQ.zCGMWjyI74pGA9XiXQzj4ec-u8RLiJesdNt3humuDwA'})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002C36A851610>
+stage = 'before_publish_commit'
+
+    @pytest.mark.parametrize(
+        "stage",
+        [
+            "before_claim_commit",
+            "after_claim_commit",
+            "during_parse",
+            "before_publish_commit",
+            "after_publish_commit",
+        ],
+    )
+    def test_real_sqlite_process_kill_and_restart(jpeg_case, monkeypatch, stage):
+        db, users, order, photo, storage, headers = jpeg_case
+        id, key = photo.id, photo.storage_key
+        source = Path(storage.get_path(key))
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()
+        business = db.execute(text("SELECT * FROM photos")).all()
+        monkeypatch.setenv("STORAGE_LOCAL_PATH", str(storage.base_path))
+        db.rollback()
+        context = multiprocessing.get_context("spawn")
+        ready = context.Event()
+        worker = context.Process(target=interrupt_at, args=(stage, id, key, ready))
+        worker.start()
+        try:
+>           assert ready.wait(timeout=20), f"worker did not reach {stage}"
+E           AssertionError: worker did not reach before_publish_commit
+E           assert False
+E            +  where False = wait(timeout=20)
+E            +    where wait = <Event at 0x2c36a853ef0 unset>.wait
+
+tests\test_metadata_reliability.py:43: AssertionError
+============================== warnings summary ===============================
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_metadata_overlay.py::test_overlay_migration_sqlite_roundtrip
+tests/test_metadata_overlay.py::test_overlay_migration_sqlite_roundtrip
+tests/test_metadata_overlay.py::test_overlay_migration_sqlite_roundtrip
+  C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Lib\site-packages\alembic\config.py:604: DeprecationWarning: No path_separator found in configuration; falling back to legacy splitting on spaces, commas, and colons for prepend_sys_path.  Consider adding path_separator=os to Alembic config.
+    util.warn_deprecated(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [6] tests\test_catalog_filters.py:55: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_catalog_filters.py:63: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [8] tests\test_catalog_filters.py:40: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:37: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [4] tests\test_metadata_index.py:210: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:170: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:347: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:405: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [2] tests\test_metadata_index.py:83: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [9] tests\test_metadata_index.py:306: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:99: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:69: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index_edges.py:60: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index_edges.py:164: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [6] tests\test_metadata_index_edges.py:118: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index_edges.py:50: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [9] tests\test_metadata_issues.py:140: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [5] tests\test_metadata_issues.py:77: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_issues.py:57: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_issues.py:90: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_issues.py:115: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_queries.py:59: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [2] tests\postgres\test_concurrency.py:42: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_concurrency.py:60: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_concurrency.py:73: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [5] tests\postgres\test_concurrency.py:136: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_concurrency.py:189: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_migrations.py:8: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_migrations.py:77: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_migrations.py:143: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:13: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:33: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:75: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [2] tests\postgres\test_runtime.py:124: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:179: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [3] tests\postgres\test_runtime.py:221: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:259: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:165: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:130: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:425: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [9] tests\test_metadata_overlay.py:95: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [7] tests\test_metadata_overlay.py:118: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:485: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:264: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:50: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:463: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:330: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_overlay.py:398: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [4] tests\postgres\test_metadata_overlay.py:44: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_metadata_overlay.py:124: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+FAILED tests/test_metadata_reliability.py::test_real_sqlite_process_kill_and_restart[during_parse]
+FAILED tests/test_metadata_reliability.py::test_real_sqlite_process_kill_and_restart[before_publish_commit]
+2 failed, 196 passed, 116 skipped, 4 warnings in 526.95s (0:08:46)

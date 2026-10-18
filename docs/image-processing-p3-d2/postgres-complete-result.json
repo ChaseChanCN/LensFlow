@@ -1,0 +1,7 @@
+{
+  "job": "postgres-complete",
+  "exit_code": 0,
+  "seconds": 324.81,
+  "database_removed": true,
+  "temp_removed": true
+}

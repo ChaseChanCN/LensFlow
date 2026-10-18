@@ -14,6 +14,11 @@ from app.schemas.photo_catalog import PhotoAssetResponse, PhotoCatalogResponse
 from app.schemas.catalog_filters import CatalogFilters
 from app.models.photo_metadata_index import PhotoMetadataIndex as MetadataIndex
 from app.services.metadata_search import metadata_predicates
+from app.services.keyword_search import keyword_predicate
+
+
+def cursor_version(filters):
+    return 4 if filters.keywords else 3 if filters.metadata.active else 2
 
 
 def sign(values):
@@ -42,7 +47,7 @@ def decode_cursor(cursor, order_id, user_id, filters=CatalogFilters()):
         if len(values) == 5 and values[0] == 1 and filters == CatalogFilters():
             version, order, user, after_id, ceiling = values
             after_value = after_id
-        elif len(values) == 7 and values[0] == (3 if filters.metadata.active else 2) and values[3] == filters.identity():
+        elif len(values) == 7 and values[0] == cursor_version(filters) and values[3] == filters.identity():
             version, order, user, _, after_value, after_id, ceiling = values
         else:
             raise ValueError()
@@ -69,6 +74,8 @@ def catalog_statement(order_id, user_id, filters, private_annotations, ceiling, 
     if private_annotations:
         statement = statement.add_columns(Annotation.rating, Annotation.color_label, Annotation.pick_status, Annotation.revision, Annotation.updated_at.label('annotation_updated_at')).outerjoin(Annotation, (Annotation.photo_id == Photo.id) & (Annotation.user_id == user_id))
     statement = statement.where(Photo.order_id == order_id, Photo.id <= ceiling)
+    if filters.keywords:
+        statement = statement.where(keyword_predicate(user_id, filters.keywords))
     if filters.metadata.active:
         statement = statement.outerjoin(MetadataIndex, MetadataIndex.photo_id == Photo.id).where(*metadata_predicates(filters.metadata))
     if filters.rating is not None:
@@ -117,5 +124,5 @@ def catalog_page(db, order_id, user_id, limit, cursor, *, private_annotations=Tr
         last = rows[limit - 1]
         field = filters.sort.split('_')[0]
         value = last['created_at'].isoformat(timespec='microseconds') if field == 'created' else (last['rating'] or 0) if field == 'rating' else last['id']
-        cursor_value = sign([3 if filters.metadata.active else 2, order_id, user_id, filters.identity(), value, last['id'], ceiling])
+        cursor_value = sign([cursor_version(filters), order_id, user_id, filters.identity(), value, last['id'], ceiling])
     return PhotoCatalogResponse(items=items, has_more=more, next_cursor=cursor_value)

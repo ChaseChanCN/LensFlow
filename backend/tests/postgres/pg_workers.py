@@ -68,11 +68,53 @@ def interrupt_at(stage, photo_id, storage_key, ready):
 
             db.commit = commit_at_boundary
             if stage == "during_parse":
+                from app.services import photo_metadata
+
+                segments = photo_metadata.jpeg_segments
 
                 def blocked_parser(*args):
+                    segments(*args)
                     _pause(ready)
 
-                metadata_index.normalize_metadata = blocked_parser
+                photo_metadata.jpeg_segments = blocked_parser
             metadata_index.index_photo(db, photo_id, storage_key)
+    finally:
+        engine.dispose()
+
+
+def sqlite_compete(operation, photo_id, user_id, expected, rating, barrier, output):
+    """SQLite fallback evidence is explicitly separate from PostgreSQL tests."""
+    import os
+    import tempfile
+    from pathlib import Path
+
+    target = Path(os.environ["DB_SQLITE_PATH"]).resolve()
+    if not target.is_relative_to(
+        Path(tempfile.gettempdir()).resolve()
+    ) or not target.parent.name.startswith("lensflow-pytest-"):
+        raise RuntimeError("Refusing non-pytest SQLite worker database")
+    from app.core.database import SessionLocal, engine
+    from app.models.user import User
+    from app.schemas.photo_annotation import BatchItem
+    from app.services import metadata_index
+    from app.services.photo_annotation import write_annotations
+
+    try:
+        with SessionLocal() as db:
+            barrier.wait(timeout=15)
+            if operation == "claim":
+                token, _ = metadata_index.claim(db, photo_id)
+                output.put({"claimed": token is not None})
+            else:
+                user = db.get(User, user_id)
+                response = write_annotations(
+                    db,
+                    user,
+                    [BatchItem(photo_id=photo_id, expected_revision=expected)],
+                    {"rating": rating},
+                )
+                output.put({"success": response.succeeded, "conflict": response.conflicted})
+    except Exception as exc:
+        output.put({"exception": type(exc).__name__})
     finally:
         engine.dispose()

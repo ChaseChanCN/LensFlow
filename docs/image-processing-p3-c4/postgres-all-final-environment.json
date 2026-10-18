@@ -1,0 +1,14 @@
+{
+  "database": "lensflow_test_3b9710ee233752513bfe639cbc9d2e5a",
+  "oid": 105508,
+  "owner": "postgres",
+  "nonce_verified": true,
+  "locale": {
+    "datlocprovider": "c",
+    "datlocale": null,
+    "datcollate": "English_United States.936",
+    "datctype": "English_United States.936",
+    "encoding": "UTF8"
+  },
+  "temp_root": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-pgc4-x8s2yk0p"
+}

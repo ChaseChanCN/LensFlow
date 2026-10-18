@@ -1,0 +1,12 @@
+{
+  "complete_collection": true,
+  "nodes": 672,
+  "files": 36,
+  "passed": 555,
+  "skipped": 117,
+  "failures": 0,
+  "errors": 0,
+  "group4_rerun": true,
+  "group4_seconds": 267.98,
+  "duplicate_nodes": false
+}

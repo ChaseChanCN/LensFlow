@@ -1,0 +1,33 @@
+{
+  "database": "PostgreSQL",
+  "actual_tcp": true,
+  "port": 8054,
+  "actual_uploads": [
+    72,
+    73
+  ],
+  "independent_pillow_metadata": true,
+  "status": {
+    "total": 72,
+    "indexed": 70,
+    "pending": 0,
+    "failed": 1,
+    "unsupported": 1,
+    "unindexed": 0,
+    "active": 0,
+    "generation": "c1-v1.index-v1:72:72:144:2026-10-18 05:47:11.903329",
+    "parser_version": "c1-v1.index-v1"
+  },
+  "authentication_authorization": true,
+  "annotation_cas": true,
+  "full_size_export": [
+    517,
+    606
+  ],
+  "source_files": 7,
+  "camera_original_metadata": false,
+  "sample_note": "Real Grace Hopper JPEG; explicitly constructed EXIF/XMP variants",
+  "source_files_unchanged": true,
+  "selection_delivery_retouch_unchanged": true,
+  "browser_claim": "See separate browser evidence; HTTP is not a browser test"
+}

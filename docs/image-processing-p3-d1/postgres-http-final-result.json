@@ -1,0 +1,7 @@
+{
+  "job": "postgres-http-final",
+  "exit_code": 0,
+  "seconds": 160.84,
+  "database_removed": true,
+  "temp_removed": true
+}

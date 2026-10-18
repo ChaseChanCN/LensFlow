@@ -1,0 +1,470 @@
+[
+  {
+    "records": 1000,
+    "operation": "filtered-catalog",
+    "sql_queries": 2.0,
+    "median_ms": 3.278,
+    "max_ms": 12.516,
+    "explain_execution_ms": 0.653,
+    "planning_ms": 0.427,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 2,
+      "Sort": 1,
+      "Nested Loop": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 700,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "rating-desc",
+    "sql_queries": 2.0,
+    "median_ms": 2.816,
+    "max_ms": 4.584,
+    "explain_execution_ms": 0.672,
+    "planning_ms": 0.274,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 1,
+      "Sort": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 26,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "created-desc",
+    "sql_queries": 2.0,
+    "median_ms": 2.978,
+    "max_ms": 3.373,
+    "explain_execution_ms": 1.33,
+    "planning_ms": 0.201,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 1,
+      "Sort": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 26,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "facets",
+    "sql_queries": 5.0,
+    "median_ms": 5.801,
+    "max_ms": 11.492,
+    "explain_execution_ms": 1.853,
+    "planning_ms": 0.579,
+    "node_types": {
+      "Limit": 4,
+      "Sort": 4,
+      "Aggregate": 5,
+      "Hash Join": 4,
+      "Seq Scan": 9,
+      "Hash": 4,
+      "Nested Loop": 1,
+      "Index Scan": 1
+    },
+    "indexes": [
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 185,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "timeline-year",
+    "sql_queries": 4.0,
+    "median_ms": 6.454,
+    "max_ms": 9.718,
+    "explain_execution_ms": 2.148,
+    "planning_ms": 0.736,
+    "node_types": {
+      "Aggregate": 4,
+      "Nested Loop": 3,
+      "Hash Join": 4,
+      "Seq Scan": 8,
+      "Hash": 4,
+      "Index Scan": 3,
+      "Limit": 1,
+      "Sort": 1
+    },
+    "indexes": [
+      "photo_metadata_indexes_photo_id_key"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 2131,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "timeline-month",
+    "sql_queries": 4.0,
+    "median_ms": 5.924,
+    "max_ms": 8.252,
+    "explain_execution_ms": 1.868,
+    "planning_ms": 0.763,
+    "node_types": {
+      "Aggregate": 4,
+      "Nested Loop": 4,
+      "Hash Join": 3,
+      "Seq Scan": 6,
+      "Hash": 3,
+      "Index Scan": 4,
+      "Limit": 1,
+      "Sort": 1,
+      "Bitmap Heap Scan": 1,
+      "Bitmap Index Scan": 1
+    },
+    "indexes": [
+      "ix_photo_metadata_indexes_camera_model",
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey",
+      "uq_photo_annotation_owner"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 1760,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "timeline-day",
+    "sql_queries": 4.0,
+    "median_ms": 6.055,
+    "max_ms": 8.481,
+    "explain_execution_ms": 1.819,
+    "planning_ms": 0.852,
+    "node_types": {
+      "Aggregate": 4,
+      "Nested Loop": 4,
+      "Hash Join": 3,
+      "Seq Scan": 6,
+      "Hash": 3,
+      "Index Scan": 4,
+      "Limit": 1,
+      "Sort": 1,
+      "Bitmap Heap Scan": 1,
+      "Bitmap Index Scan": 1
+    },
+    "indexes": [
+      "ix_photo_metadata_indexes_camera_model",
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey",
+      "uq_photo_annotation_owner"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 1478,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "completeness",
+    "sql_queries": 1.0,
+    "median_ms": 1.385,
+    "max_ms": 1.649,
+    "explain_execution_ms": 0.483,
+    "planning_ms": 0.116,
+    "node_types": {
+      "Aggregate": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 40,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 1000,
+    "operation": "issues",
+    "sql_queries": 2.0,
+    "median_ms": 1.933,
+    "max_ms": 3.648,
+    "explain_execution_ms": 0.088,
+    "planning_ms": 0.193,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 3,
+      "Merge Join": 1
+    },
+    "indexes": [
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 13,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "filtered-catalog",
+    "sql_queries": 2.0,
+    "median_ms": 9.101,
+    "max_ms": 13.983,
+    "explain_execution_ms": 6.516,
+    "planning_ms": 0.359,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 2,
+      "Sort": 1,
+      "Nested Loop": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 7007,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "rating-desc",
+    "sql_queries": 2.0,
+    "median_ms": 7.332,
+    "max_ms": 8.292,
+    "explain_execution_ms": 5.867,
+    "planning_ms": 0.231,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 1,
+      "Sort": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 224,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "created-desc",
+    "sql_queries": 2.0,
+    "median_ms": 9.03,
+    "max_ms": 9.711,
+    "explain_execution_ms": 8.478,
+    "planning_ms": 0.227,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 1,
+      "Sort": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 224,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "facets",
+    "sql_queries": 5.0,
+    "median_ms": 22.922,
+    "max_ms": 24.626,
+    "explain_execution_ms": 18.657,
+    "planning_ms": 0.828,
+    "node_types": {
+      "Limit": 4,
+      "Sort": 4,
+      "Aggregate": 5,
+      "Hash Join": 4,
+      "Seq Scan": 9,
+      "Hash": 4,
+      "Nested Loop": 1,
+      "Index Scan": 1
+    },
+    "indexes": [
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 1792,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "timeline-year",
+    "sql_queries": 4.0,
+    "median_ms": 27.632,
+    "max_ms": 28.817,
+    "explain_execution_ms": 26.017,
+    "planning_ms": 1.041,
+    "node_types": {
+      "Aggregate": 4,
+      "Nested Loop": 3,
+      "Hash Join": 4,
+      "Seq Scan": 8,
+      "Hash": 4,
+      "Index Scan": 3,
+      "Limit": 1,
+      "Sort": 1
+    },
+    "indexes": [
+      "photo_metadata_indexes_photo_id_key"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 21399,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "timeline-month",
+    "sql_queries": 4.0,
+    "median_ms": 24.733,
+    "max_ms": 27.551,
+    "explain_execution_ms": 21.339,
+    "planning_ms": 1.105,
+    "node_types": {
+      "Aggregate": 4,
+      "Nested Loop": 4,
+      "Hash Join": 3,
+      "Seq Scan": 6,
+      "Hash": 3,
+      "Index Scan": 4,
+      "Limit": 1,
+      "Sort": 1,
+      "Bitmap Heap Scan": 1,
+      "Bitmap Index Scan": 1
+    },
+    "indexes": [
+      "ix_photo_metadata_indexes_camera_model",
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey",
+      "uq_photo_annotation_owner"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 17597,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "timeline-day",
+    "sql_queries": 4.0,
+    "median_ms": 23.629,
+    "max_ms": 24.244,
+    "explain_execution_ms": 26.724,
+    "planning_ms": 1.02,
+    "node_types": {
+      "Aggregate": 4,
+      "Nested Loop": 4,
+      "Hash Join": 3,
+      "Seq Scan": 6,
+      "Hash": 3,
+      "Index Scan": 4,
+      "Limit": 1,
+      "Sort": 1,
+      "Bitmap Heap Scan": 1,
+      "Bitmap Index Scan": 1
+    },
+    "indexes": [
+      "ix_photo_metadata_indexes_camera_model",
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey",
+      "uq_photo_annotation_owner"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 14880,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "completeness",
+    "sql_queries": 1.0,
+    "median_ms": 6.415,
+    "max_ms": 8.669,
+    "explain_execution_ms": 7.876,
+    "planning_ms": 0.245,
+    "node_types": {
+      "Aggregate": 1,
+      "Hash Join": 1,
+      "Seq Scan": 2,
+      "Hash": 1
+    },
+    "indexes": [],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 387,
+    "shared_read_blocks": 0
+  },
+  {
+    "records": 10000,
+    "operation": "issues",
+    "sql_queries": 2.0,
+    "median_ms": 2.479,
+    "max_ms": 2.906,
+    "explain_execution_ms": 0.091,
+    "planning_ms": 0.199,
+    "node_types": {
+      "Result": 1,
+      "Limit": 2,
+      "Index Scan": 3,
+      "Merge Join": 1
+    },
+    "indexes": [
+      "photo_metadata_indexes_photo_id_key",
+      "photos_pkey"
+    ],
+    "temp_read_blocks": 0,
+    "temp_written_blocks": 0,
+    "shared_hit_blocks": 13,
+    "shared_read_blocks": 0
+  }
+]

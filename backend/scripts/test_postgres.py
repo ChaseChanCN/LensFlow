@@ -1,15 +1,24 @@
 """Run the separate PostgreSQL suite, creating only a newly owned disposable database."""
 
 import argparse
+import getpass
 import importlib.util
 import os
 import secrets
 import subprocess
 import sys
 import tempfile
+import warnings
 from pathlib import Path
 
-from postgres_sandbox import OwnedPostgres, SafetyError, admin_configuration, safe_connection_label
+from postgres_sandbox import (
+    ACK,
+    OwnedPostgres,
+    SafetyError,
+    admin_configuration,
+    safe_connection_label,
+)
+from sqlalchemy.engine import URL
 
 BACKEND = Path(__file__).resolve().parents[1]
 
@@ -17,6 +26,13 @@ BACKEND = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--require-postgres", action="store_true")
+    parser.add_argument(
+        "--prompt-password",
+        action="store_true",
+        help="Read a hidden password locally; never put it in a DSN argument",
+    )
+    parser.add_argument("--pg-user", default="postgres")
+    parser.add_argument("--pg-port", type=int, default=5432)
     parser.add_argument("pytest_args", nargs=argparse.REMAINDER)
     args = parser.parse_args()
     extra = args.pytest_args
@@ -34,9 +50,38 @@ def main():
         *extra,
     ]
     try:
-        config = admin_configuration()
+        if args.prompt_password:
+            if not sys.stdin.isatty():
+                raise getpass.GetPassWarning("Hidden input requires an interactive terminal")
+            # Explicit --prompt-password opts into newly created disposable databases only.
+            # getpass normally falls back to echoing stdin on unsupported terminals.
+            # Fail instead: this flag promises a hidden, interactive local input.
+            with warnings.catch_warnings():
+                warnings.simplefilter("error", getpass.GetPassWarning)
+                password = getpass.getpass("Local PostgreSQL test password (hidden): ")
+            url = URL.create(
+                "postgresql+psycopg2",
+                username=args.pg_user,
+                password=password,
+                host="127.0.0.1",
+                port=args.pg_port,
+                database="postgres",
+            )
+            config = admin_configuration(
+                {
+                    "LENSFLOW_PG_TEST_ADMIN_DSN": url.render_as_string(hide_password=False),
+                    "LENSFLOW_PG_TEST_ALLOW_CREATE": ACK,
+                }
+            )
+        else:
+            config = admin_configuration()
     except SafetyError as exc:
         print(f"PostgreSQL harness refused: {exc}", file=sys.stderr)
+        return 2
+    except (getpass.GetPassWarning, EOFError):
+        print(
+            "A local terminal with hidden input is required; refusing echoed input", file=sys.stderr
+        )
         return 2
     available = config is not None and importlib.util.find_spec("psycopg2") is not None
     if not available:

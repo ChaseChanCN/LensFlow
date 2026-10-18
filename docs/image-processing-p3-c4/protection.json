@@ -1,0 +1,26 @@
+{
+  "baseline_files": 340,
+  "unchanged": 326,
+  "changed_existing_files": [
+    "backend/app/main.py",
+    "backend/app/models/__init__.py",
+    "backend/app/schemas/catalog_filters.py",
+    "backend/app/services/photo_catalog.py",
+    "backend/app/services/schema_readiness.py",
+    "backend/app/api/v1/metadata_index.py",
+    "backend/app/api/v1/photo_catalog.py",
+    "backend/tests/postgres/test_runtime.py",
+    "frontend/src/utils/catalogFilters.ts",
+    "frontend/src/components/photo-library/PhotoViewer.test.tsx",
+    "frontend/src/components/photo-library/PhotoViewer.tsx",
+    "frontend/src/pages/photographer/CatalogNavigation.test.tsx",
+    "frontend/src/pages/photographer/PhotoLibraryPage.test.tsx",
+    "frontend/src/pages/photographer/PhotoLibraryPage.tsx"
+  ],
+  "protected_files": 82,
+  "protected_all_unchanged": true,
+  "development_sqlite_sha256": "5c923e9d00775cc54a40d44e00c718146bc4858767fe5474fbadff5b757d1fef",
+  "development_sqlite_revision": "5e0b2fd720d3",
+  "real_jpeg_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "comparison": "Before-C4 workspace baseline; preexisting C3/D1 dirty work preserved"
+}

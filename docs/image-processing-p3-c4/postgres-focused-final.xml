@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="28" time="34.649" timestamp="2026-10-18T18:39:19.106302+08:00" hostname="Chase-Surface"><testcase classname="test_metadata_overlay" name="test_batch_effective_keywords_conflicts_authorization_and_rollback" time="1.919" /><testcase classname="test_metadata_overlay" name="test_contract_privacy_bounds" time="0.971" /><testcase classname="test_metadata_overlay" name="test_database_constraints_and_delete_cascade" time="0.845" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field0]" time="0.883" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field1]" time="0.865" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field2]" time="0.773" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field3]" time="0.749" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field4]" time="1.580" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field5]" time="0.781" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field6]" time="0.786" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field7]" time="0.813" /><testcase classname="test_metadata_overlay" name="test_invalid_fields[field8]" time="0.858" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[value0]" time="0.901" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[value1]" time="0.836" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[value2]" time="0.750" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[value3]" time="0.873" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[value4]" time="0.965" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[value5]" time="0.870" /><testcase classname="test_metadata_overlay" name="test_invalid_keywords[x]" time="0.872" /><testcase classname="test_metadata_overlay" name="test_keyword_search_source_parser_and_cursor" time="1.203" /><testcase classname="test_metadata_overlay" name="test_modes_cas_reset_immutability" time="0.874" /><testcase classname="test_metadata_overlay" name="test_source_change_preserves_overlay_and_rebuild_uses_current_revision" time="0.900" /><testcase classname="test_metadata_overlay" name="test_xmp_roundtrip_whitelist_headers_and_bytes" time="0.826"><failure message="AssertionError: assert {WindowsPath(...02.jpg'), ...} == {WindowsPath(...56be4ed.jpg')}&#10;  &#10;  Extra items in the left set:&#10;  WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/92524daa433d4118a2a71368e73d7201.jpg')&#10;  WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/5f4897f784be46809e5d17edf63aad6f.jpg')&#10;  WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/64641e5963d947308868fe139decc7fa.jpg')&#10;  WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/405e21c0b9fe4e279cbb1140d9096702.jpg')&#10;  WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/34dd7312c947486dbabcfdb44cc7e640.jpg')...&#10;  &#10;  ...Full output truncated (17 lines hidden), use '-vv' to show">client = &lt;starlette.testclient.TestClient object at 0x00000207A4272690&gt;
+jpeg_case = (&lt;sqlalchemy.orm.session.Session object at 0x00000207A42BD490&gt;, [&lt;app.models.user.User object at 0x00000207A42BEBD0&gt;, ...hbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzkyNDA2MzgxfQ.D0nUgoDAVEH7bD_7xWQkHFMfJdQ0QqW0u5g4IFvLNt0'})
+
+    def test_xmp_roundtrip_whitelist_headers_and_bytes(client, jpeg_case):
+        db, users, order, photo, storage, headers = jpeg_case
+        original_keywords(storage.get_path(photo.storage_key))
+        path = Path(storage.get_path(photo.storage_key))
+        before = hashlib.sha256(path.read_bytes()).hexdigest()
+        fields = {
+            n: {"mode": "override", "value": '中文 &lt;&amp;&gt; " 📷'}
+            for n in ("title", "caption", "creator", "copyright")
+        }
+        fields["keywords"] = {"mode": "override", "value": ["人像", "A&amp;B", "&lt;rdf:li&gt;恶意&lt;/rdf:li&gt;"]}
+        saved = client.put(paths(photo)[1], headers=headers, json=snapshot(**fields))
+        assert saved.status_code == 200, saved.text
+        response = client.get(f"/api/v1/photos/{photo.id}/metadata-sidecar.xmp", headers=headers)
+        assert response.status_code == 200
+        assert validate_xmp(response.content) == saved.json()["effective"]
+        assert response.content == serialize_sidecar(saved.json()["effective"])
+        assert response.headers["content-disposition"] == f'attachment; filename="photo-{photo.id}.xmp"'
+        assert response.headers["cache-control"].startswith("private, no-store")
+        assert all(
+            term not in response.content.lower()
+            for term in [b"gps", b"makernote", b"serial", b"storage_key"]
+        )
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == before
+&gt;       assert set(path.parent.iterdir()) == {path}
+E       AssertionError: assert {WindowsPath(...02.jpg'), ...} == {WindowsPath(...56be4ed.jpg')}
+E         
+E         Extra items in the left set:
+E         WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/92524daa433d4118a2a71368e73d7201.jpg')
+E         WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/5f4897f784be46809e5d17edf63aad6f.jpg')
+E         WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/64641e5963d947308868fe139decc7fa.jpg')
+E         WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/405e21c0b9fe4e279cbb1140d9096702.jpg')
+E         WindowsPath('C:/Users/Chase/AppData/Local/Temp/lensflow-pgc4-aa1dbmy0/uploads/34dd7312c947486dbabcfdb44cc7e640.jpg')...
+E         
+E         ...Full output truncated (17 lines hidden), use '-vv' to show
+
+tests\test_metadata_overlay.py:419: AssertionError</failure></testcase><testcase classname="test_metadata_overlay" name="test_process_cas_and_rebuild_races[False-False-False]" time="2.550" /><testcase classname="test_metadata_overlay" name="test_process_cas_and_rebuild_races[True-False-False]" time="2.625" /><testcase classname="test_metadata_overlay" name="test_process_cas_and_rebuild_races[True-True-False]" time="2.591" /><testcase classname="test_metadata_overlay" name="test_process_cas_and_rebuild_races[True-True-True]" time="2.599" /><testcase classname="test_metadata_overlay" name="test_migration_roundtrip_and_utc" time="0.991" /></testsuite></testsuites>

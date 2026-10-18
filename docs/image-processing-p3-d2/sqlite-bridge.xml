@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="35" time="43.715" timestamp="2026-10-18T19:38:31.741977+08:00" hostname="Chase-Surface"><testcase classname="tests.test_customer_bridge" name="test_identity_auth_and_safe_order_projection" time="1.178" /><testcase classname="tests.test_customer_bridge" name="test_order_and_photo_sql_pagination_no_n_plus_one" time="1.176" /><testcase classname="tests.test_customer_bridge" name="test_booking_retry_recovery_mismatch_and_scope" time="1.247" /><testcase classname="tests.test_customer_bridge" name="test_booking_legacy_access_boundaries[bookings/{id}-get]" time="1.040" /><testcase classname="tests.test_customer_bridge" name="test_booking_legacy_access_boundaries[bookings/{id}/cancel-patch]" time="0.998" /><testcase classname="tests.test_customer_bridge" name="test_booking_legacy_access_boundaries[bookings/{id}/confirm-patch]" time="1.055" /><testcase classname="tests.test_customer_bridge" name="test_selection_operations_cas_web_coexistence_and_submission" time="1.080"><failure message="TypeError: Object of type datetime is not JSON serializable">scope = {'type': 'http', 'http_version': '1.1', 'method': 'PUT', 'path': '/api/v1/customer/orders/1/selection', ...}
+receive = &lt;function BaseHTTPMiddleware.__call__.&lt;locals&gt;.call_next.&lt;locals&gt;.receive_or_disconnect at 0x0000020A7F39C7C0&gt;
+send = &lt;function wrap_app_handling_exceptions.&lt;locals&gt;.wrapped_app.&lt;locals&gt;.sender at 0x0000020A7F39E3E0&gt;
+
+    async def wrapped_app(scope: Scope, receive: Receive, send: Send) -&gt; None:
+        response_started = False
+    
+        async def sender(message: Message) -&gt; None:
+            nonlocal response_started
+    
+            if message["type"] == "http.response.start":
+                response_started = True
+            await send(message)
+    
+        try:
+&gt;           await app(scope, receive, sender)
+
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\_exception_handler.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:151: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:727: in app
+    raw_response = await run_endpoint_function(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:362: in run_endpoint_function
+    return await run_in_threadpool(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\anyio\_backends\_asyncio.py:2706: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\anyio\_backends\_asyncio.py:1100: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+app\api\v1\customer.py:98: in write_selection
+    return change_selection(db, user, order_id, request.expected_revision, request.selected_photo_ids, operation=request.operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\services\customer_workflow.py:175: in change_selection
+    revision_conflict(state)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+state = {'id': 1, 'order_id': 1, 'revision': 1, 'selected_photo_ids': [1], ...}
+
+    def revision_conflict(state):
+        # Keep the repository code/message/detail envelope, with a typed current snapshot.
+&gt;       raise AppException("SELECTION_CONFLICT", "Selection changed; reload authoritative state", detail={"current": state}, status_code=409)
+E       app.core.exceptions.AppException: Selection changed; reload authoritative state
+
+app\services\customer_workflow.py:145: AppException
+
+The above exception was the direct cause of the following exception:
+
+client = &lt;starlette.testclient.TestClient object at 0x0000020A7F388A10&gt;
+bridge_case = (&lt;sqlalchemy.orm.session.Session object at 0x0000020A7F3CB8F0&gt;, [&lt;app.models.user.User object at 0x0000020A7EFBD400&gt;, ...B0&gt;, &lt;app.models.photo.Photo object at 0x0000020A7F011760&gt;, &lt;app.models.photo.Photo object at 0x0000020A7EFBDF40&gt;, ...)
+
+    def test_selection_operations_cas_web_coexistence_and_submission(client, bridge_case):
+        db, users, order, photo, extra, _, _, selection, _, _, _ = bridge_case
+        h = headers(users[2]); url = f"/api/v1/customer/orders/{order.id}/selection"
+        assert client.get(url, headers=h).json()["revision"] == 0
+        def write(rev, ids, operation="replace"):
+            return client.put(url, json={"expected_revision": rev, "selected_photo_ids": ids, "operation": operation}, headers=h)
+        assert write(0, [photo.id]).json()["revision"] == 1
+&gt;       conflict = write(0, [extra.id]); assert conflict.status_code == 409
+                   ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_customer_bridge.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_customer_bridge.py:121: in write
+    return client.put(url, json={"expected_revision": rev, "selected_photo_ids": ids, "operation": operation}, headers=h)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\httpx\_client.py:1181: in put
+    return self.request(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\testclient.py:457: in request
+    return super().request(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+..\.agentwork\design-system\p5-venv\Lib\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\applications.py:1216: in __call__
+    await super().__call__(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\base.py:203: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\main.py:83: in private_customer_responses
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\base.py:179: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:2791: in app
+    await route.handle(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:1819: in handle
+    await self.original_router.handle(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:2874: in handle
+    await included_router._handle_selected(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:1845: in _handle_selected
+    await original_route.handle(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:1308: in handle
+    await effective_context.app(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\routing.py:165: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\_exception_handler.py:59: in wrapped_app
+    response = await handler(conn, exc)  # type: ignore[arg-type]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+app\core\exceptions.py:80: in app_exception_handler
+    return JSONResponse(
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\responses.py:195: in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\responses.py:46: in __init__
+    self.body = self.render(content)
+                ^^^^^^^^^^^^^^^^^^^^
+..\.agentwork\design-system\p5-venv\Lib\site-packages\starlette\responses.py:198: in render
+    return json.dumps(
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py:238: in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:200: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:258: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;json.encoder.JSONEncoder object at 0x0000020A7F38A3F0&gt;
+o = datetime.datetime(2026, 10, 18, 11, 38, 39, 265358, tzinfo=datetime.timezone.utc)
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+&gt;       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type datetime is not JSON serializable
+
+..\..\..\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py:180: TypeError</failure></testcase><testcase classname="tests.test_customer_bridge" name="test_selection_validation[duplicate]" time="1.062" /><testcase classname="tests.test_customer_bridge" name="test_selection_validation[cross_order]" time="1.145" /><testcase classname="tests.test_customer_bridge" name="test_selection_validation[private]" time="1.083" /><testcase classname="tests.test_customer_bridge" name="test_selection_validation[quota]" time="1.091" /><testcase classname="tests.test_customer_bridge" name="test_selection_validation[bool]" time="1.022" /><testcase classname="tests.test_customer_bridge" name="test_selection_validation[unknown]" time="1.162" /><testcase classname="tests.test_customer_bridge" name="test_selection_validation[negative]" time="1.042" /><testcase classname="tests.test_customer_bridge" name="test_selection_expiry_publication_and_empty_submit" time="1.052" /><testcase classname="tests.test_customer_bridge" name="test_real_media_preview_reuse_scope_and_original_immutability" time="1.867" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[expired]" time="1.297" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[disabled]" time="1.198" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[owner]" time="1.031" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[cancelled]" time="0.924" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[unpublished]" time="1.337" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[replacement]" time="1.074" /><testcase classname="tests.test_customer_bridge" name="test_grant_expiry_and_immediate_revocation[deleted]" time="0.976" /><testcase classname="tests.test_customer_bridge" name="test_media_limits_and_missing_storage" time="0.983" /><testcase classname="tests.test_customer_bridge" name="test_delivery_publication_stream_bytes_revocation_and_safe_legacy" time="0.989" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[orders/{order}]" time="0.910" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[orders/{order}/timeline]" time="0.947" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[orders/{order}/selection-set]" time="2.307" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[selection-sets/{selection}]" time="4.063" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[selection-sets/{selection}/submission]" time="0.876" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[orders/{order}/retouch-tasks]" time="0.869" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[retouch-tasks/{task}/versions]" time="0.941" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[retouch-tasks/{task}/feedback]" time="0.996" /><testcase classname="tests.test_customer_bridge" name="test_cross_customer_legacy_routes[orders/{order}/delivery]" time="1.112" /><testcase classname="tests.test_customer_bridge" name="test_customer_cannot_skip_selection_or_see_private_storage" time="1.233" /></testsuite></testsuites>

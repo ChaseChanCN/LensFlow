@@ -1,0 +1,36 @@
+{
+  "actual_tcp": true,
+  "database": "PostgreSQL",
+  "catalog_rows": 1007,
+  "catalog_fixture": "Synthetic 1007 DB references to one real JPEG; explicitly constructed EXIF/XMP tags",
+  "source_sha256": "02d1a54074f2c95f70f6ee8f2c46f32c656fc0f3f659064eeaac4a69eed849bc",
+  "actual_upload_photo_id": 1009,
+  "http_single_write_ms": 139.94,
+  "http_batch_two_ms": 123.889,
+  "http_conflict_preserved": true,
+  "http_private_authorization": true,
+  "http_sql_combined_filter": true,
+  "xmp_independent_dom_roundtrip": true,
+  "xmp_private_redacted": true,
+  "xmp_bytes": 709,
+  "db_keyword_catalog_ms": {
+    "runs": 5,
+    "median": 11.201200000868994,
+    "max": 29.16410000034375
+  },
+  "db_batch_100_with_source_reads_ms": 2384.1694999991887,
+  "pure_resolver_ms": {
+    "runs": 100,
+    "median": 0.04965000061929459,
+    "max": 0.302100001135841
+  },
+  "pure_xmp_ms": {
+    "runs": 100,
+    "median": 0.15209999946819153,
+    "max": 0.31289999969885685,
+    "bytes": 695
+  },
+  "source_files_unchanged": true,
+  "source_storage_key_unchanged": true,
+  "selection_delivery_retouch_draft_unchanged": true
+}

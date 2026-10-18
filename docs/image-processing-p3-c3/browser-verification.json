@@ -1,0 +1,21 @@
+{
+  "environment": "Actual Chromium/IAB + FastAPI + SQLite, not PostgreSQL",
+  "verified": [
+    "owner login; 72 actual catalog records including two real multipart JPEG uploads",
+    "partial index 4/72 and bounded client batches",
+    "failed/unsupported/warning classifications",
+    "one missing-file item restored and explicit UI retry succeeded",
+    "one explicit C1 warning read returns xmp.invalid_or_unsafe_packet",
+    "actual backend process kill/restart; completed results survived",
+    "40 derived parser versions deliberately invalidated, second process restart then browser reload and explicit continuation 30/72 to70/72",
+    "diagnostic category pending empty; warning pagination reaches photo68",
+    "dark and light screenshots; browser console error list empty at final inspection"
+  ],
+  "not_claimed": [
+    "in-flight browser parsing crash; first browser batch completed before kill",
+    "real PostgreSQL API or browser",
+    "Safari or physical mobile",
+    "actual 120-second wait; only temporary leases advanced for tests"
+  ],
+  "cleanup": "own browser tab closed; services stopped; one SQLite temp directory retained after automatic approval rejection"
+}

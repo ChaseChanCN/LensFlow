@@ -28,22 +28,25 @@ class CatalogFilters:
     pick: tuple[str, ...] = ()
     sort: str = 'id_asc'
     metadata: MetadataFilters = field(default_factory=MetadataFilters)
+    keywords: tuple[str, ...] = ()
 
     @property
     def private(self):
-        return self.rating is not None or self.rating_min is not None or bool(self.colors or self.pick) or self.sort.startswith('rating_') or self.metadata.active
+        return self.rating is not None or self.rating_min is not None or bool(self.colors or self.pick or self.keywords) or self.sort.startswith('rating_') or self.metadata.active
 
     def identity(self):
         legacy = [self.rating, self.rating_min, list(self.colors), list(self.pick), self.sort]
+        if self.keywords:
+            return [*legacy, hashlib.sha256(json.dumps([self.metadata.identity(), self.keywords],sort_keys=True,separators=(',',':')).encode()).hexdigest()]
         if not self.metadata.active:
             return legacy
         digest = hashlib.sha256(json.dumps(self.metadata.identity(), sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         return [*legacy, digest]
 
 
-def normalize_filters(rating=None, rating_min=None, colors=None, pick=None, sort='id_asc', metadata=None):
+def normalize_filters(rating=None, rating_min=None, colors=None, pick=None, sort='id_asc', metadata=None, keywords=()):
     if rating is not None and rating_min is not None:
         raise ValidationException('rating and rating_min are mutually exclusive')
     if sort not in SORTS or any(type(v) is not int or not 0 <= v <= 5 for v in (rating, rating_min) if v is not None):
         raise ValidationException('Invalid rating or sort')
-    return CatalogFilters(rating, rating_min if rating_min else None, csv_values(colors, COLORS), csv_values(pick, PICKS), sort, metadata or MetadataFilters())
+    return CatalogFilters(rating, rating_min if rating_min else None, csv_values(colors, COLORS), csv_values(pick, PICKS), sort, metadata or MetadataFilters(), keywords)

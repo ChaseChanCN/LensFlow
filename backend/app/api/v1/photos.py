@@ -123,7 +123,12 @@ def list_photos(
     db: Session = Depends(get_db),
 ):
     require_order_access(db, order_id, current_user)
-    return db.query(Photo).filter(Photo.order_id == order_id).all()
+    rows = db.query(Photo).filter(Photo.order_id == order_id).all()
+    if current_user.role == "client":
+        from fastapi.responses import JSONResponse
+        from app.services.customer_media import HEADERS
+        return JSONResponse([PhotoResponse.model_validate(p).model_dump(mode="json", exclude={"storage_key"}) for p in rows], headers=HEADERS)
+    return rows
 
 
 @router.delete("/orders/{order_id}/photos/{photo_id}")

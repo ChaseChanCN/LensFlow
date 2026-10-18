@@ -1,0 +1,39 @@
+{
+  "actual_browser": true,
+  "frontend_port": 4254,
+  "api_port": 8054,
+  "database": "PostgreSQL",
+  "checks": [
+    "photographer login",
+    "real authenticated JPEG thumbnails",
+    "camera eos 70d filter:23 photos",
+    "capture-local year to month timeline",
+    "diagnostics:failed unsupported warning",
+    "photo5 rating5 pick persisted in viewer and Light Table",
+    "metadata:+14:00 fractional original timestamp",
+    "two real previews synchronized zoom125%",
+    "Light Table to editor preserves filter and comparison context",
+    "editor shows server-calibrated result and saved draft"
+  ],
+  "screenshots": [
+    "browser-library.png",
+    "browser-viewer.png",
+    "browser-light-table.png",
+    "browser-editor.png"
+  ],
+  "note": "Core workflows repeated after application UTC-session fix; diagnostics and year-to-month click also verified in first browser round",
+  "checks_after_utc_fix": [
+    "login",
+    "camera and date filtered library",
+    "photo5 rating5 and pick",
+    "viewer upload timestamp is current local display",
+    "EXIF remains 2026-01-02T00:30:00.123456789+14:00",
+    "Light Table synchronized125%",
+    "editor navigation and server-calibrated preview"
+  ],
+  "final_screenshots": [
+    "browser-viewer-final.png",
+    "browser-light-table-final.png",
+    "browser-editor-final.png"
+  ]
+}

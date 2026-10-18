@@ -1,11 +1,11 @@
 """Booking API routes."""
 
-from fastapi import APIRouter, Depends
-from sqlalchemy import or_, and_
+from fastapi import APIRouter, Depends, Header
+from sqlalchemy import and_, or_, update
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
-from app.core.exceptions import ConflictException, ForbiddenException, NotFoundException
+from app.core.exceptions import ConflictException, ForbiddenException
 from app.deps import get_current_user, require_role
 from app.models.booking import Booking
 from app.models.order import Order
@@ -16,6 +16,8 @@ from app.schemas.booking import (
     BookingResponse,
     BookingUpdateRequest,
 )
+from app.services.customer_workflow import booking_access
+from app.services.customer_workflow import create_booking as save_booking
 from app.services.order_state import OrderStatus
 
 router = APIRouter(prefix="/bookings", tags=["bookings"])
@@ -24,24 +26,11 @@ router = APIRouter(prefix="/bookings", tags=["bookings"])
 @router.post("", response_model=BookingResponse, status_code=201)
 def create_booking(
     req: BookingCreateRequest,
+    idempotency_key: str | None = Header(default=None, max_length=128),
     current_user: User = Depends(require_role("client")),
     db: Session = Depends(get_db),
 ):
-    booking = Booking(
-        client_id=current_user.id,
-        photographer_id=req.photographer_id,
-        shoot_type=req.shoot_type,
-        preferred_date=req.preferred_date,
-        contact_info=req.contact_info,
-        note=req.note,
-        location=req.location,
-        duration_hours=req.duration_hours,
-        status="pending",
-    )
-    db.add(booking)
-    db.commit()
-    db.refresh(booking)
-    return booking
+    return save_booking(db, current_user, req, idempotency_key)
 
 
 @router.get("", response_model=list[BookingResponse])
@@ -68,9 +57,7 @@ def get_booking(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    booking = db.query(Booking).filter(Booking.id == booking_id).first()
-    if not booking:
-        raise NotFoundException("Booking")
+    booking = booking_access(db, booking_id, current_user)
     return booking
 
 
@@ -81,18 +68,33 @@ def update_booking(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    booking = db.query(Booking).filter(Booking.id == booking_id).first()
-    if not booking:
-        raise NotFoundException("Booking")
+    booking = booking_access(db, booking_id, current_user, lock=True)
     if current_user.role == "client" and booking.client_id != current_user.id:
         raise ForbiddenException()
-    if current_user.role == "photographer" and booking.photographer_id is not None and booking.photographer_id != current_user.id:
+    if (
+        current_user.role == "photographer"
+        and booking.photographer_id is not None
+        and booking.photographer_id != current_user.id
+    ):
         raise ForbiddenException()
     if booking.status != "pending":
         raise ConflictException(message="Only pending booking can be modified")
     data = req.model_dump(exclude_unset=True)
-    for key, value in data.items():
-        setattr(booking, key, value)
+    if any(data.get(field, "omitted") is None for field in ("shoot_type", "contact_info")):
+        from app.core.exceptions import ValidationException
+
+        raise ValidationException("shoot_type/contact_info cannot be null")
+    result = (
+        db.execute(
+            update(Booking)
+            .where(Booking.id == booking_id, Booking.status == "pending")
+            .values(**data)
+        )
+        if data
+        else None
+    )
+    if result is not None and result.rowcount != 1:
+        raise ConflictException("Booking changed")
     db.commit()
     db.refresh(booking)
     return booking
@@ -105,14 +107,17 @@ def confirm_booking(
     current_user: User = Depends(require_role("photographer")),
     db: Session = Depends(get_db),
 ):
-    booking = db.query(Booking).filter(Booking.id == booking_id).first()
-    if not booking:
-        raise NotFoundException("Booking")
+    booking = booking_access(db, booking_id, current_user, lock=True)
     if booking.status != "pending":
         raise ConflictException(message="Booking is not pending")
 
-    booking.status = "confirmed"
-    booking.photographer_id = current_user.id
+    changed = db.execute(
+        update(Booking)
+        .where(Booking.id == booking_id, Booking.status == "pending")
+        .values(status="confirmed", photographer_id=current_user.id)
+    )
+    if changed.rowcount != 1:
+        raise ConflictException("Booking changed")
 
     order = Order(
         booking_id=booking.id,
@@ -132,13 +137,17 @@ def cancel_booking(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    booking = db.query(Booking).filter(Booking.id == booking_id).first()
-    if not booking:
-        raise NotFoundException("Booking")
+    booking = booking_access(db, booking_id, current_user, lock=True)
     if booking.status in ("confirmed", "cancelled"):
         raise ConflictException(message="Booking cannot be cancelled")
 
-    booking.status = "cancelled"
+    changed = db.execute(
+        update(Booking)
+        .where(Booking.id == booking_id, Booking.status == "pending")
+        .values(status="cancelled")
+    )
+    if changed.rowcount != 1:
+        raise ConflictException("Booking changed")
     db.commit()
     db.refresh(booking)
     return booking

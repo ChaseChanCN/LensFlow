@@ -49,8 +49,16 @@ class LocalStorage(Storage):
         ext = os.path.splitext(filename)[1]
         storage_key = f"{uuid4().hex}{ext}"
         file_path = self.get_path(storage_key)
-        with open(file_path, "xb") as f:
-            f.write(content)
+        created = False
+        try:
+            with open(file_path, "xb") as f:
+                created = True
+                f.write(content)
+        except BaseException:
+            # Remove only a file created by this exclusive save, never a collision.
+            if created:
+                Path(file_path).unlink(missing_ok=True)
+            raise
         return storage_key
 
     def get_path(self, storage_key: str) -> str:

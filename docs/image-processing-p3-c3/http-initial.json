@@ -1,0 +1,78 @@
+{
+  "actual_tcp": true,
+  "actual_uploads": [
+    72,
+    73
+  ],
+  "independent_pillow_check": true,
+  "partial": {
+    "total": 72,
+    "indexed": 4,
+    "pending": 65,
+    "failed": 2,
+    "unsupported": 1,
+    "unindexed": 65,
+    "active": 0,
+    "generation": "c1-v1.index-v1:72:7:14:2026-10-18 04:56:25.645985",
+    "parser_version": "c1-v1.index-v1"
+  },
+  "issues": {
+    "items": [
+      {
+        "photo_id": 1,
+        "filename": "temporarily-missing.jpg",
+        "index_status": "failed",
+        "error_code": "NOT_FOUND",
+        "warning_count": 0,
+        "indexed_at": null,
+        "retryable": true,
+        "current_parser_version": "c1-v1.index-v1",
+        "parser_version": "c1-v1.index-v1",
+        "identity_state": "current_parser",
+        "source_verified": false
+      },
+      {
+        "photo_id": 2,
+        "filename": "invalid-jpeg.jpg",
+        "index_status": "failed",
+        "error_code": "INVALID_JPEG",
+        "warning_count": 0,
+        "indexed_at": null,
+        "retryable": false,
+        "current_parser_version": "c1-v1.index-v1",
+        "parser_version": "c1-v1.index-v1",
+        "identity_state": "current_parser",
+        "source_verified": false
+      },
+      {
+        "photo_id": 3,
+        "filename": "unsupported-source.png",
+        "index_status": "unsupported",
+        "error_code": "UNSUPPORTED_FORMAT",
+        "warning_count": 0,
+        "indexed_at": null,
+        "retryable": false,
+        "current_parser_version": "c1-v1.index-v1",
+        "parser_version": "c1-v1.index-v1",
+        "identity_state": "current_parser",
+        "source_verified": false
+      },
+      {
+        "photo_id": 5,
+        "filename": "photograph-005.jpg",
+        "index_status": "indexed",
+        "error_code": "METADATA_WARNINGS",
+        "warning_count": 1,
+        "indexed_at": "2026-10-18T04:56:25.645985Z",
+        "retryable": true,
+        "current_parser_version": "c1-v1.index-v1",
+        "parser_version": "c1-v1.index-v1",
+        "identity_state": "current_parser",
+        "source_verified": false
+      }
+    ],
+    "next_cursor": null
+  },
+  "authorization_checks": true,
+  "withheld_test_source_restored": true
+}

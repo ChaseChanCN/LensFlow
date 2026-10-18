@@ -1,0 +1,56 @@
+{
+  "backend-baseline.xml": {
+    "tests": 442,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "frontend-baseline.xml": {
+    "tests": 315,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "backend-final.xml": {
+    "tests": 540,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 14
+  },
+  "frontend-full.xml": {
+    "tests": 328,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend-targeted.xml": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "reliability-final.xml": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "backend-c1-compatibility.xml": {
+    "tests": 83,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "postgres.xml": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 13
+  },
+  "typescript_exit": 0,
+  "production_build_exit": 0,
+  "lint_exit": 0,
+  "lint_existing_warnings": 4,
+  "ruff_modified_files_exit": 0,
+  "postgres_required_mode_exit": 2
+}

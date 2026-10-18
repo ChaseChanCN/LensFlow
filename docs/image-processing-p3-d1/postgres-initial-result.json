@@ -1,0 +1,7 @@
+{
+  "job": "postgres-initial",
+  "exit_code": 0,
+  "seconds": 23.99,
+  "database_removed": true,
+  "temp_removed": true
+}

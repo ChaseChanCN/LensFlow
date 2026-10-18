@@ -7,6 +7,8 @@ import { useAuthStore } from '@/stores/auth'
 import { PhotoLibraryPage } from './PhotoLibraryPage'
 vi.mock('@/api/photoCatalog',()=>({loadCatalog:vi.fn(),loadThumbnail:vi.fn()}))
 vi.mock('@/components/photo-library/MetadataTools',()=>({MetadataTools:()=>null}))
+// Catalog regression owns only catalog responses; keyword status has its own integration tests.
+vi.mock('@/api/metadataOverlay',async original=>({...await original<typeof import('@/api/metadataOverlay')>(),keywordStatus:vi.fn().mockResolvedValue({total:0,indexed:0,unknown:0,complete:true,source_freshness:'verified_at_index_only'})}))
 vi.mock('@/components/Layout',()=>({Layout:({children}:{children:React.ReactNode})=><>{children}</>}))
 vi.mock('@/components/photo-library/AssetGrid',()=>({AssetGrid:({items,onMore,onOpen}:{items:{id:number;filename:string}[];onMore:()=>void;onOpen:(item:{id:number;filename:string})=>void})=><div><p>图库 {items.length} 张</p><button onClick={onMore}>滚动到下一页</button><button onClick={()=>onOpen(items[0])}>打开首图</button></div>}))
 vi.mock('@/components/photo-library/PhotoViewer',()=>({PhotoViewer:({id,onClose,onEdit,items}:{id:number;onClose:()=>void;onEdit:(asset:{id:number;filename:string})=>void;items:{id:number;filename:string}[]})=><div role="dialog"><p>查看 {id}</p><button onClick={onClose}>关闭查看器</button><button onClick={()=>onEdit(items[0])}>编辑照片</button></div>}))

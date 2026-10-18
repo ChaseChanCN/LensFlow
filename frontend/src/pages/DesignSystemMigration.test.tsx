@@ -178,7 +178,7 @@ describe('P4 client and collaboration migration',()=>{
     await user.click(first); await user.click(second); expect(first).toHaveAttribute('aria-pressed','true'); expect(third).toBeDisabled()
     await user.click(first); expect(third).toBeEnabled(); await user.click(third)
     const submit=screen.getByRole('button',{name:'提交选片'}); await user.click(submit); expect(submit).toBeDisabled(); expect(third).toBeDisabled()
-    expect(selections.submitSelection).toHaveBeenCalledExactlyOnceWith(4,[11,12])
+    expect(selections.submitSelection).toHaveBeenCalledExactlyOnceWith(4,[11,12],0)
     await act(async()=>pending.reject(new Error('选片提交失败'))); expect(await screen.findByRole('alert')).toHaveTextContent('选片提交失败')
   })
   it('distinguishes empty selections and request errors',async()=>{

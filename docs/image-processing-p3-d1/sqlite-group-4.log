@@ -1,0 +1,49 @@
+........................................................................ [ 25%]
+..........................ssssssssssssssssssssssssssssssssssssssssssssss [ 51%]
+ssssssssssssssssssssssssssssssssssssssss................................ [ 76%]
+.................................................................        [100%]
+============================== warnings summary ===============================
+..\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [6] tests\test_catalog_filters.py:55: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_catalog_filters.py:63: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [8] tests\test_catalog_filters.py:40: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:37: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [4] tests\test_metadata_index.py:210: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:170: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:347: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:405: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [2] tests\test_metadata_index.py:83: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [9] tests\test_metadata_index.py:306: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:99: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index.py:69: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index_edges.py:60: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index_edges.py:164: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [6] tests\test_metadata_index_edges.py:118: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_index_edges.py:50: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [9] tests\test_metadata_issues.py:140: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [5] tests\test_metadata_issues.py:77: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_issues.py:57: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_issues.py:90: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\test_metadata_issues.py:115: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_queries.py:59: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [2] tests\postgres\test_concurrency.py:42: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_concurrency.py:60: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_concurrency.py:73: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [5] tests\postgres\test_concurrency.py:136: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_concurrency.py:189: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_migrations.py:8: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_migrations.py:77: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_migrations.py:143: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:13: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:33: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:75: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [2] tests\postgres\test_runtime.py:124: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:179: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [3] tests\postgres\test_runtime.py:221: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+SKIPPED [1] tests\postgres\test_runtime.py:259: PostgreSQL unavailable: use scripts/test_postgres.py with explicit test config
+195 passed, 86 skipped, 1 warning in 323.58s (0:05:23)

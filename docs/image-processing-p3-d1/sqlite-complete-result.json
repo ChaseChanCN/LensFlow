@@ -1,0 +1,18 @@
+{
+  "complete_collection": true,
+  "files": 34,
+  "nodes": 616,
+  "passed": 529,
+  "skipped": 87,
+  "failures": 0,
+  "errors": 0,
+  "group_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "wall_seconds": 331.17,
+  "duplicate_nodes": false,
+  "original_isolation_fixtures": true
+}

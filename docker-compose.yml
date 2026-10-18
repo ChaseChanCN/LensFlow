@@ -17,7 +17,13 @@ services:
       - BARK_SERVER_URL=${BARK_SERVER_URL:-https://api.day.app}
       - BARK_DEVICE_KEY=${BARK_DEVICE_KEY:-}
       - CORS_ORIGINS=${CORS_ORIGINS:-*}
-    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    # Apply reviewed migrations separately; app startup never mutates database schema.
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=5)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
     ports:
       - "8000:8000"
     volumes:

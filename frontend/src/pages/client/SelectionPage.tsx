@@ -13,7 +13,7 @@ export function SelectionPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
-  const [selected, setSelected] = useState<Set<number>>(new Set())
+  const [edit, setEdit] = useState<{ orderId: number; ids: Set<number>; revision: number } | null>(null)
   const [error, setError] = useState('')
 
   const orderId = Number(id)
@@ -23,9 +23,11 @@ export function SelectionPage() {
     queryFn: () => getOrderSelectionSet(orderId),
     enabled: !!id,
   })
+  const currentEdit = edit?.orderId === orderId ? edit : null
+  const selected = currentEdit?.ids ?? new Set(selectionSet?.draft_selected_photo_ids ?? [])
 
   const submitMutation = useMutation({
-    mutationFn: (photoIds: number[]) => submitSelection(selectionSet!.id, photoIds),
+    mutationFn: (photoIds: number[]) => submitSelection(selectionSet!.id, photoIds, currentEdit?.revision ?? selectionSet!.revision ?? 0),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['selection-set', id] })
       navigate('/client')
@@ -54,7 +56,7 @@ export function SelectionPage() {
       if (next.size >= maxSelect) return
       next.add(photoId)
     }
-    setSelected(next)
+    setEdit({ orderId, ids: next, revision: currentEdit?.revision ?? selectionSet.revision ?? 0 })
   }
 
   const handleSubmit = () => {
@@ -78,6 +80,7 @@ export function SelectionPage() {
       {error && (
         <div role="alert" className="mx-4 mb-2 rounded-card bg-error-bg px-4 py-3 text-body-sm text-error-label">
           {error}
+          <Button type="button" variant="plain" onClick={async () => { const result = await refetch(); if (result.isSuccess) { setEdit(null); setError('') } }}>重新加载服务端选择</Button>
         </div>
       )}
 
@@ -91,7 +94,7 @@ export function SelectionPage() {
               key={item.id}
               type="button"
               aria-pressed={isSelected}
-              disabled={submitMutation.isPending || (!isSelected && remaining <= 0)}
+              disabled={selectionSet.submitted || submitMutation.isPending || (!isSelected && remaining <= 0)}
               onClick={() => toggleSelect(item.photo_id)}
               className={`rounded-card p-4 text-left transition-shadow duration-[var(--duration-fast)] active:scale-95 motion-reduce:active:scale-100 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-action-primary-strong ${
                 isSelected
@@ -110,7 +113,7 @@ export function SelectionPage() {
       </div>
 
       <div className="px-4 pt-6">
-        <Button effect="beam" type="button" size="lg" fullWidth onClick={handleSubmit} loading={submitMutation.isPending} disabled={selected.size === 0}>
+        <Button effect="beam" type="button" size="lg" fullWidth onClick={handleSubmit} loading={submitMutation.isPending} disabled={selectionSet.submitted || selected.size === 0}>
           提交选片
         </Button>
       </div>

@@ -1,0 +1,12 @@
+{
+  "database_engine": "SQLite",
+  "database": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c3-browser-qwvwssns\\browser.sqlite",
+  "sandbox": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c3-browser-qwvwssns",
+  "storage": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c3-browser-qwvwssns\\uploads",
+  "ports": [
+    8053,
+    4253
+  ],
+  "initial_order_records": 70,
+  "samples": "existing real JPEG plus constructed EXIF/XMP, invalid and unsupported fixtures"
+}

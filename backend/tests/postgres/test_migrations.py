@@ -89,17 +89,55 @@ def test_historical_upgrade_preserves_existing_photo_rows(pg_database, pg_sandbo
     command.downgrade(config, "base")
     command.upgrade(config, "5e0b2fd720d3")
     with engine.begin() as connection:
+        # Representative connected historical business records, not an orphan
+        # Photo that happens to be accepted by the legacy FK-free schema.
         connection.execute(
             text(
-                "INSERT INTO photos(order_id,filename,storage_key,mime,size_bytes) VALUES(1,'historical.jpg','read-only','image/jpeg',123)"
+                "INSERT INTO users(id,email,password_hash,name,role,is_active) VALUES "
+                "(1,'historical-owner@test.invalid','unused','Owner','photographer',true),"
+                "(2,'historical-client@test.invalid','unused','Client','client',true)"
+            )
+        )
+        connection.execute(
+            text(
+                "INSERT INTO bookings(id,client_id,photographer_id,shoot_type,contact_info,status) "
+                "VALUES(1,2,1,'portrait','test-only','confirmed')"
+            )
+        )
+        connection.execute(
+            text(
+                "INSERT INTO orders(id,booking_id,client_id,photographer_id,status) "
+                "VALUES(1,1,2,1,'WAITING_UPLOAD')"
+            )
+        )
+        connection.execute(
+            text(
+                "INSERT INTO photos(order_id,filename,storage_key,mime,size_bytes) "
+                "VALUES(1,'historical.jpg','read-only','image/jpeg',123)"
             )
         )
         before = connection.execute(text("SELECT * FROM photos ORDER BY id")).all()
+        snapshots = {}
+        for table in ("users", "bookings", "orders", "deliveries"):
+            result = connection.execute(text(f'SELECT * FROM "{table}" ORDER BY id'))
+            snapshots[table] = (list(result.keys()), result.all())
     engine.dispose()
     command.upgrade(config, "head")
     with engine.connect() as connection:
         assert connection.execute(text("SELECT * FROM photos ORDER BY id")).all() == before
         assert connection.scalar(text("SELECT count(*) FROM photo_metadata_indexes")) == 0
+        for table, (columns, records) in snapshots.items():
+            quoted = ",".join(f'"{column}"' for column in columns)
+            assert (
+                connection.execute(text(f'SELECT {quoted} FROM "{table}" ORDER BY id')).all()
+                == records
+            )
+    from app.core.database import SessionLocal
+    from app.models.user import User
+    from app.services.photo_access import require_photo_access
+
+    with SessionLocal() as upgraded:
+        assert require_photo_access(upgraded, 1, upgraded.get(User, 1)).order_id == 1
 
 
 def test_metadata_downgrade_and_reupgrade_preserve_business_and_annotations(pg_case, pg_sandbox):

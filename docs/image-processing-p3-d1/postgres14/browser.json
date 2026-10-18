@@ -1,0 +1,25 @@
+{
+  "actual_browser": true,
+  "database": "PostgreSQL 14.24",
+  "database_port": 5433,
+  "frontend_port": 4254,
+  "api_port": 8054,
+  "checks": [
+    "login",
+    "authenticated real JPEG grid",
+    "camera eos70d:23 photos",
+    "capture-local year-to-month timeline",
+    "diagnostics:failed unsupported warning",
+    "rating5 and pick saved",
+    "viewer correct UTC-derived local upload time",
+    "EXIF local time preserved with +14 offset and 9-digit subseconds",
+    "two-photo Light Table synchronized125%",
+    "editor server-calibrated preview and saved draft"
+  ],
+  "screenshots": [
+    "browser-library.png",
+    "browser-viewer.png",
+    "browser-light-table.png",
+    "browser-editor.png"
+  ]
+}

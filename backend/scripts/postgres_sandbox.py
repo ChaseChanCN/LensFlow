@@ -52,7 +52,8 @@ def engine_for(url):
         poolclass=NullPool,
         connect_args={
             "connect_timeout": 5,
-            "options": "-c statement_timeout=15000 -c lock_timeout=5000",
+            "options": "-c statement_timeout=15000 -c lock_timeout=5000 "
+            "-c idle_in_transaction_session_timeout=15000",
         },
     )
 
@@ -97,6 +98,8 @@ class Identity:
             "DB_PG_PASSWORD": url.password or "",
             "DB_PG_NAME": self.name,
             "APP_DEBUG": "false",
+            "PGOPTIONS": "-c statement_timeout=15000 -c lock_timeout=5000 "
+            "-c idle_in_transaction_session_timeout=15000",
             "BARK_DEVICE_KEY": "",
             "WECHAT_WORK_WEBHOOK_URL": "",
         }
@@ -120,6 +123,7 @@ def identity_from_environment(environ=None):
             and url.database == identity.name
             and url.username == identity.owner
             and url.host in ("127.0.0.1", "localhost", "::1")
+            and not url.query
             and re.fullmatch(r"lensflow_test_[0-9a-f]{32}", identity.name)
             and re.fullmatch(r"lensflow-pg-owned:[0-9a-f]{64}", identity.marker)
             and identity.oid > 0
@@ -139,6 +143,15 @@ class OwnedPostgres:
         self.engine = None
 
     def __enter__(self):
+        try:
+            return self._create()
+        except BaseException:
+            # __exit__ is not invoked when __enter__ fails. Only a fully recorded
+            # ownership capability permits cleanup; uncertainty must fail closed.
+            self.__exit__(*__import__("sys").exc_info())
+            raise
+
+    def _create(self):
         marker = "lensflow-pg-owned:" + secrets.token_hex(32)
         quoted_name = self.admin.dialect.identifier_preparer.quote(self.url.database)
         with self.admin.connect().execution_options(isolation_level="AUTOCOMMIT") as conn:

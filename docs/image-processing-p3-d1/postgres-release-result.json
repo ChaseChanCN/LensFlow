@@ -1,0 +1,7 @@
+{
+  "job": "postgres-release",
+  "exit_code": 0,
+  "seconds": 109.12,
+  "database_removed": true,
+  "temp_removed": true
+}

@@ -1,0 +1,401 @@
+{
+  "passed": [
+    "real_login",
+    "booking_retry",
+    "booking_mismatch",
+    "confirmed_booking",
+    "order_ownership",
+    "published_catalog",
+    "private_preview",
+    "scope_rejected",
+    "expired_grant",
+    "cross_device_conflict",
+    "idempotent_selection_submit",
+    "actual_retouch_workflow",
+    "published_delivery",
+    "full_final_byte_integrity",
+    "immediate_user_revocation",
+    "original_sha256",
+    "1001_photo_sql_pagination"
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "status": 201,
+      "ms": 797.1
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200,
+      "ms": 762.79
+    },
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "status": 201,
+      "ms": 677.82
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200,
+      "ms": 757.21
+    },
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "status": 201,
+      "ms": 711.24
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200,
+      "ms": 719.11
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "status": 200,
+      "ms": 25.72
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders",
+      "status": 401,
+      "ms": 11.15
+    },
+    {
+      "method": "POST",
+      "path": "/bookings",
+      "status": 201,
+      "ms": 97.26
+    },
+    {
+      "method": "POST",
+      "path": "/bookings",
+      "status": 201,
+      "ms": 17.18
+    },
+    {
+      "method": "POST",
+      "path": "/bookings",
+      "status": 409,
+      "ms": 17.8
+    },
+    {
+      "method": "GET",
+      "path": "/bookings/1",
+      "status": 403,
+      "ms": 17.75
+    },
+    {
+      "method": "PATCH",
+      "path": "/bookings/1/confirm",
+      "status": 200,
+      "ms": 52.48
+    },
+    {
+      "method": "GET",
+      "path": "/customer/bookings",
+      "status": 200,
+      "ms": 23.85
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders?limit=1",
+      "status": 200,
+      "ms": 91.89
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1",
+      "status": 200,
+      "ms": 28.02
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1",
+      "status": 403,
+      "ms": 19.22
+    },
+    {
+      "method": "PATCH",
+      "path": "/orders/1/status",
+      "status": 200,
+      "ms": 77.53
+    },
+    {
+      "method": "PATCH",
+      "path": "/orders/1/status",
+      "status": 200,
+      "ms": 48.44
+    },
+    {
+      "method": "POST",
+      "path": "/orders/1/photos",
+      "status": 201,
+      "ms": 232.49
+    },
+    {
+      "method": "PATCH",
+      "path": "/orders/1/status",
+      "status": 200,
+      "ms": 274.98
+    },
+    {
+      "method": "POST",
+      "path": "/orders/1/selection-set",
+      "status": 201,
+      "ms": 6160.79
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=1",
+      "status": 200,
+      "ms": 23.69
+    },
+    {
+      "method": "POST",
+      "path": "/customer/media-grants",
+      "status": 201,
+      "ms": 20.51
+    },
+    {
+      "method": "GET",
+      "path": "/customer/media",
+      "status": 200,
+      "ms": 36.76
+    },
+    {
+      "method": "POST",
+      "path": "/customer/media-grants",
+      "status": 403,
+      "ms": 14.96
+    },
+    {
+      "method": "GET",
+      "path": "/customer/media?variant=download",
+      "status": 422,
+      "ms": 5.8
+    },
+    {
+      "method": "GET",
+      "path": "/customer/media",
+      "status": 401,
+      "ms": 5.48
+    },
+    {
+      "method": "PUT",
+      "path": "/customer/orders/1/selection",
+      "status": 200,
+      "ms": 37.23
+    },
+    {
+      "method": "PUT",
+      "path": "/customer/orders/1/selection",
+      "status": 409,
+      "ms": 35.55
+    },
+    {
+      "method": "POST",
+      "path": "/customer/orders/1/selection/submit",
+      "status": 200,
+      "ms": 54.67
+    },
+    {
+      "method": "POST",
+      "path": "/customer/orders/1/selection/submit",
+      "status": 200,
+      "ms": 29.04
+    },
+    {
+      "method": "GET",
+      "path": "/orders/1/retouch-tasks",
+      "status": 200,
+      "ms": 38.37
+    },
+    {
+      "method": "POST",
+      "path": "/retouch-tasks/1/versions",
+      "status": 201,
+      "ms": 57.03
+    },
+    {
+      "method": "POST",
+      "path": "/orders/1/confirm-retouch",
+      "status": 200,
+      "ms": 61.62
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/deliveries",
+      "status": 200,
+      "ms": 20.61
+    },
+    {
+      "method": "POST",
+      "path": "/orders/1/delivery",
+      "status": 201,
+      "ms": 6103.77
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/deliveries",
+      "status": 200,
+      "ms": 39.63
+    },
+    {
+      "method": "POST",
+      "path": "/customer/media-grants",
+      "status": 201,
+      "ms": 26.42
+    },
+    {
+      "method": "GET",
+      "path": "/customer/media",
+      "status": 200,
+      "ms": 26.43
+    },
+    {
+      "method": "GET",
+      "path": "/customer/media",
+      "status": 401,
+      "ms": 10.21
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=0",
+      "status": 200,
+      "ms": 77.02
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=50",
+      "status": 200,
+      "ms": 67.9
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=100",
+      "status": 200,
+      "ms": 67.64
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=150",
+      "status": 200,
+      "ms": 51.68
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=200",
+      "status": 200,
+      "ms": 44.29
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=250",
+      "status": 200,
+      "ms": 49.22
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=300",
+      "status": 200,
+      "ms": 42.16
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=350",
+      "status": 200,
+      "ms": 42.27
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=400",
+      "status": 200,
+      "ms": 32.81
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=450",
+      "status": 200,
+      "ms": 33.18
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=500",
+      "status": 200,
+      "ms": 55.12
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=550",
+      "status": 200,
+      "ms": 33.36
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=600",
+      "status": 200,
+      "ms": 35.05
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=650",
+      "status": 200,
+      "ms": 33.86
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=700",
+      "status": 200,
+      "ms": 32.18
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=750",
+      "status": 200,
+      "ms": 39.44
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=800",
+      "status": 200,
+      "ms": 34.89
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=850",
+      "status": 200,
+      "ms": 32.9
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=900",
+      "status": 200,
+      "ms": 27.37
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=950",
+      "status": 200,
+      "ms": 30.77
+    },
+    {
+      "method": "GET",
+      "path": "/customer/orders/1/photos?limit=50&after=1000",
+      "status": 200,
+      "ms": 26.22
+    }
+  ],
+  "source_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "source_bytes": 73746,
+  "final_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "port": 8057,
+  "real_tcp": true,
+  "album_rows": 1001
+}

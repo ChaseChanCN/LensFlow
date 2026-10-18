@@ -1,0 +1,19 @@
+{
+  "button": {
+    "background": "rgb(239, 238, 233)",
+    "color": "rgb(32, 43, 59)",
+    "height": 44,
+    "radius": "999px"
+  },
+  "heading": {
+    "fontSize": "44px",
+    "fontWeight": "500",
+    "letterSpacing": "-1.8px"
+  },
+  "page": "rgb(245, 244, 240)",
+  "theme": "light",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}

@@ -1,0 +1,30 @@
+Backend working directory: C:/Users/Chase/Desktop/LensFlow/backend
+Python: ../.agentwork/design-system/p5-venv/Scripts/python.exe
+
+python -m pytest -q --tb=short --junitxml=../.agentwork/p3-c3/backend-baseline.xml
+python -m pytest -q --tb=short --junitxml=../.agentwork/p3-c3/backend-final.xml
+python -m pytest -q tests/test_metadata_issues.py tests/test_metadata_reliability.py --tb=short --junitxml=../.agentwork/p3-c3/reliability.xml
+python -m pytest -q tests/test_metadata_reliability.py tests/test_metadata_index_edges.py --tb=short --junitxml=../.agentwork/p3-c3/reliability-final.xml
+python -m pytest tests/test_photo_metadata.py tests/test_metadata_compatibility.py -q --tb=short --junitxml=../.agentwork/p3-c3/backend-c1-compatibility.xml
+python scripts/test_postgres.py -- -q --junitxml=../.agentwork/p3-c3/postgres.xml
+python scripts/test_postgres.py --require-postgres -- -q
+python -m ruff check app/core/config.py app/core/database.py app/services/metadata_index.py app/services/photo_annotation.py app/services/metadata_issues.py app/services/schema_readiness.py app/schemas/metadata_index.py app/api/v1/metadata_index.py app/main.py alembic/env.py scripts/postgres_sandbox.py scripts/test_postgres.py tests/postgres tests/test_metadata_issues.py tests/test_metadata_reliability.py tests/test_metadata_compatibility.py --output-format concise
+
+Frontend working directory: C:/Users/Chase/Desktop/LensFlow/frontend
+npx --no-install vitest run --reporter=junit --outputFile=../.agentwork/p3-c3/frontend-baseline.xml
+npx --no-install vitest run --reporter=junit --outputFile=../.agentwork/p3-c3/frontend-full.xml
+npx --no-install vitest run src/components/photo-library/MetadataIssues.test.tsx src/components/photo-library/MetadataTools.test.tsx src/api/metadataIndex.test.ts --reporter=default --reporter=junit --outputFile.junit=../.agentwork/p3-c3/frontend-targeted.xml
+npx --no-install tsc -b
+npm run build
+npm run lint
+
+Task-owned disposable integration helpers from repository root:
+python .agentwork/p3-c3/measure_queries.py
+python .agentwork/p3-c3/browser_controller.py
+python .agentwork/p3-c3/verify_http.py
+python .agentwork/p3-c3/verify_http.py --final
+python .agentwork/p3-c3/final_evidence.py
+
+Browser work used the in-app Chromium at 127.0.0.1:4253 with real UI login and authorized API requests.
+PostgreSQL require-mode exit 2 is an environment gate, not a successful PG integration run.
+Existing project lint is oxlint; ESLint was not installed or run.

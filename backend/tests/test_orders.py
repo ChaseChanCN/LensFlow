@@ -346,7 +346,7 @@ class TestPermissionIsolation:
             f"/api/v1/bookings/{create.json()['id']}",
             headers=auth_headers(t2),
         )
-        assert resp.status_code == 200
+        assert resp.status_code == 403
 
     def test_client_cannot_see_other_orders(self, client):
         t1, _ = register_user(client, "c1@test.com", "client")

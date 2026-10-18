@@ -1,0 +1,7 @@
+{
+  "job": "postgres-all",
+  "exit_code": 1,
+  "seconds": 438.03,
+  "database_removed": true,
+  "temp_removed": true
+}

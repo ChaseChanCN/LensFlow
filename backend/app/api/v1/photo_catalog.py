@@ -12,6 +12,7 @@ from app.services.thumbnails import thumbnail
 from app.schemas.catalog_filters import normalize_filters
 from app.schemas.metadata_filters import METADATA_KEYS, normalize_metadata_filters
 from app.core.exceptions import ForbiddenException
+from app.services.keyword_search import parse_keywords
 
 router = APIRouter(tags=["photos"])
 
@@ -62,11 +63,11 @@ def get_catalog(
     user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
-    known_query(request, {"limit", "cursor", "rating", "rating_min", "colors", "pick", "sort"} | METADATA_KEYS)
+    known_query(request, {"limit", "cursor", "rating", "rating_min", "colors", "pick", "sort", "keywords"} | METADATA_KEYS)
     if any(len(request.query_params.getlist(key)) != 1 for key in request.query_params):
         raise ValidationException('Repeated query parameters are not supported')
     require_order_access(db, order_id, user)
-    filters = normalize_filters(rating, rating_min, colors, pick, sort, normalize_metadata_filters(request.query_params))
+    filters = normalize_filters(rating, rating_min, colors, pick, sort, normalize_metadata_filters(request.query_params), parse_keywords(request.query_params.get('keywords')))
     if user.role != 'photographer' and filters.private:
         raise ForbiddenException('Photographer annotation filters are private')
     response.headers["Cache-Control"] = "private, no-store"

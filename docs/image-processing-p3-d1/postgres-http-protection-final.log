@@ -1,0 +1,8 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 5e0b2fd720d3, initial schema
+INFO  [alembic.runtime.migration] Running upgrade 5e0b2fd720d3 -> f3a1c2d4e5b6, add booking location and duration
+INFO  [alembic.runtime.migration] Running upgrade f3a1c2d4e5b6 -> b2d4a6c8e010, Add isolated photo edit drafts; no existing business table is altered.
+INFO  [alembic.runtime.migration] Running upgrade b2d4a6c8e010 -> c4e6a8b0d212, Private asset annotations; no backfill or changes to business tables.
+INFO  [alembic.runtime.migration] Running upgrade c4e6a8b0d212 -> d5f7a9c1e323, Isolated rebuildable metadata index; no backfill or business table alterations.
+Real PostgreSQL HTTP verified; browser fixture ready

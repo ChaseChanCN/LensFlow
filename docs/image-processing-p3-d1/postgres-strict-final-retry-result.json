@@ -1,0 +1,7 @@
+{
+  "job": "postgres-strict-final-retry",
+  "exit_code": 0,
+  "seconds": 117.86,
+  "database_removed": true,
+  "temp_removed": true
+}

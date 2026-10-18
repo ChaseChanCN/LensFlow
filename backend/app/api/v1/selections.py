@@ -8,9 +8,8 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.exceptions import ConflictException, NotFoundException, ValidationException
 from app.deps import require_role
-from app.models.order import Order, OrderTimeline
+from app.models.order import OrderTimeline
 from app.models.photo import Photo
-from app.models.retouch import RetouchTask
 from app.models.selection import SelectionItem, SelectionSet, SelectionSubmission
 from app.models.user import User
 from app.schemas.selection import (
@@ -18,6 +17,11 @@ from app.schemas.selection import (
     SelectionSetResponse,
     SelectionSubmissionResponse,
     SelectionSubmitRequest,
+)
+from app.services.customer_workflow import (
+    change_selection,
+    order_access,
+    selection_state,
 )
 from app.services.notification_service import send_notification
 from app.services.order_state import OrderStateMachine, OrderStatus
@@ -36,9 +40,7 @@ def create_selection_set(
     current_user: User = Depends(require_role("photographer")),
     db: Session = Depends(get_db),
 ):
-    order = db.query(Order).filter(Order.id == order_id).first()
-    if not order:
-        raise NotFoundException("Order")
+    order = order_access(db, order_id, current_user, lock=True)
 
     if order.status not in (
         OrderStatus.WAITING_REVIEW.value,
@@ -51,26 +53,20 @@ def create_selection_set(
     if not req.photo_ids:
         raise ValidationException(detail="At least one photo is required")
 
-    photos = (
-        db.query(Photo)
-        .filter(Photo.order_id == order_id, Photo.id.in_(req.photo_ids))
-        .all()
-    )
+    photos = db.query(Photo).filter(Photo.order_id == order_id, Photo.id.in_(req.photo_ids)).all()
     if len(photos) != len(req.photo_ids):
         raise ValidationException(detail="Some photos not found in this order")
 
-    existing = (
-        db.query(SelectionSet)
-        .filter(SelectionSet.order_id == order_id)
-        .first()
-    )
+    existing = db.query(SelectionSet).filter(SelectionSet.order_id == order_id).first()
     if existing:
         raise ConflictException(message="Selection set already exists for this order")
 
     selection_set = SelectionSet(
         order_id=order_id,
         max_select=req.max_select,
-        expires_at=req.expires_at,
+        expires_at=req.expires_at.astimezone(timezone.utc).replace(tzinfo=None)
+        if req.expires_at
+        else None,
         published_at=datetime.now(timezone.utc),
     )
     db.add(selection_set)
@@ -105,7 +101,7 @@ def create_selection_set(
 
     send_notification(db, "selection_published", order=order)
 
-    return selection_set
+    return legacy_selection(db, selection_set, current_user)
 
 
 @router.get("/selection-sets/{selection_set_id}", response_model=SelectionSetResponse)
@@ -114,14 +110,10 @@ def get_selection_set(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
-    selection_set = (
-        db.query(SelectionSet)
-        .filter(SelectionSet.id == selection_set_id)
-        .first()
-    )
+    selection_set = db.query(SelectionSet).filter(SelectionSet.id == selection_set_id).first()
     if not selection_set:
         raise NotFoundException("SelectionSet")
-    return selection_set
+    return legacy_selection(db, selection_set, current_user)
 
 
 @router.get(
@@ -133,14 +125,10 @@ def get_order_selection_set(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
-    selection_set = (
-        db.query(SelectionSet)
-        .filter(SelectionSet.order_id == order_id)
-        .first()
-    )
+    selection_set = db.query(SelectionSet).filter(SelectionSet.order_id == order_id).first()
     if not selection_set:
         raise NotFoundException("SelectionSet")
-    return selection_set
+    return legacy_selection(db, selection_set, current_user)
 
 
 @router.post(
@@ -154,79 +142,20 @@ def submit_selection(
     current_user: User = Depends(require_role("client")),
     db: Session = Depends(get_db),
 ):
-    selection_set = (
-        db.query(SelectionSet)
-        .filter(SelectionSet.id == selection_set_id)
-        .first()
-    )
+    selection_set = db.query(SelectionSet).filter(SelectionSet.id == selection_set_id).first()
     if not selection_set:
         raise NotFoundException("SelectionSet")
 
-    existing_submission = (
-        db.query(SelectionSubmission)
-        .filter(SelectionSubmission.selection_set_id == selection_set_id)
-        .first()
+    change_selection(
+        db,
+        current_user,
+        selection_set.order_id,
+        req.expected_revision,
+        req.selected_photo_ids,
+        submit=True,
+        legacy=True,
     )
-    if existing_submission:
-        raise ConflictException(message="Selection already submitted")
-
-    if not req.selected_photo_ids:
-        raise ValidationException(detail="At least one photo must be selected")
-
-    if len(req.selected_photo_ids) > selection_set.max_select:
-        raise ValidationException(
-            detail=f"Cannot select more than {selection_set.max_select} photos"
-        )
-
-    valid_photo_ids = {
-        item.photo_id
-        for item in (
-            db.query(SelectionItem)
-            .filter(SelectionItem.selection_set_id == selection_set_id)
-            .all()
-        )
-    }
-    for photo_id in req.selected_photo_ids:
-        if photo_id not in valid_photo_ids:
-            raise ValidationException(
-                detail=f"Photo {photo_id} is not in this selection set"
-            )
-
-    submission = SelectionSubmission(
-        selection_set_id=selection_set_id,
-        selected_photo_ids=",".join(str(pid) for pid in req.selected_photo_ids),
-    )
-    db.add(submission)
-
-    order = db.query(Order).filter(Order.id == selection_set.order_id).first()
-    if order and order.status == OrderStatus.WAITING_SELECTION.value:
-        old_status = order.status
-        new_status = OrderStateMachine.transition(
-            from_status=OrderStatus.WAITING_SELECTION,
-            to_status=OrderStatus.WAITING_RETOUCH,
-            actor_role=current_user.role,
-        )
-        order.status = new_status.value
-        timeline = OrderTimeline(
-            order_id=order.id,
-            from_status=old_status,
-            to_status=new_status.value,
-            actor_id=current_user.id,
-            action="submit_selection",
-        )
-        db.add(timeline)
-
-        for photo_id in req.selected_photo_ids:
-            task = RetouchTask(
-                order_id=order.id,
-                photo_id=photo_id,
-                status="pending",
-            )
-            db.add(task)
-
-    db.commit()
-    db.refresh(submission)
-    return submission
+    return db.query(SelectionSubmission).filter_by(selection_set_id=selection_set_id).one()
 
 
 @router.get(
@@ -238,6 +167,10 @@ def get_submission(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
+    selection_set = db.get(SelectionSet, selection_set_id)
+    if not selection_set:
+        raise NotFoundException("SelectionSet")
+    legacy_selection(db, selection_set, current_user)
     submission = (
         db.query(SelectionSubmission)
         .filter(SelectionSubmission.selection_set_id == selection_set_id)
@@ -246,3 +179,14 @@ def get_submission(
     if not submission:
         raise NotFoundException("SelectionSubmission")
     return submission
+
+
+def legacy_selection(db, selection, user):
+    order = order_access(db, selection.order_id, user)
+    if user.role == "client" and not selection.published_at:
+        raise NotFoundException("Published selection")
+    state = selection_state(db, order, selection)
+    selection.revision = state["revision"]
+    selection.draft_selected_photo_ids = state["selected_photo_ids"]
+    selection.submitted = state["status"] == "submitted"
+    return selection

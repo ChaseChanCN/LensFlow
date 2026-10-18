@@ -21,7 +21,13 @@ def get_current_user(
     if not user_id:
         raise UnauthorizedException(detail="Invalid token")
 
-    user = db.query(User).filter(User.id == int(user_id)).first()
+    try:
+        parsed_id = int(user_id)
+        if parsed_id <= 0 or parsed_id > 2**31 - 1:
+            raise ValueError
+    except (ValueError, TypeError):
+        raise UnauthorizedException(detail="Invalid token subject") from None
+    user = db.query(User).filter(User.id == parsed_id).first()
     if user is None:
         raise UnauthorizedException(detail="User not found")
     if not user.is_active:

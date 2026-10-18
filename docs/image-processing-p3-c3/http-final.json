@@ -1,0 +1,42 @@
+{
+  "actual_tcp": true,
+  "status": {
+    "total": 72,
+    "indexed": 70,
+    "pending": 0,
+    "failed": 1,
+    "unsupported": 1,
+    "unindexed": 0,
+    "active": 0,
+    "generation": "c1-v1.index-v1:72:72:226:2026-10-18 04:59:44.612070",
+    "parser_version": "c1-v1.index-v1"
+  },
+  "issues_pages_size": 3,
+  "unique_issue_records": 24,
+  "warning_identifiers_from_explicit_C1": [
+    "xmp.invalid_or_unsafe_packet"
+  ],
+  "source_files_unchanged": 8,
+  "non_index_tables_unchanged": [
+    "alembic_version",
+    "analysis_results",
+    "audit_logs",
+    "bookings",
+    "deliveries",
+    "notification_logs",
+    "order_timelines",
+    "orders",
+    "photo_asset_annotations",
+    "photo_edit_drafts",
+    "photos",
+    "retouch_feedbacks",
+    "retouch_tasks",
+    "retouch_versions",
+    "selection_items",
+    "selection_sets",
+    "selection_submissions",
+    "todo_items",
+    "users"
+  ],
+  "filters_facets_timeline_200": true
+}

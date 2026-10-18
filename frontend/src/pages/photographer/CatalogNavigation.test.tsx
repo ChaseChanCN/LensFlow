@@ -7,6 +7,7 @@ import {batchAnnotations} from '@/api/photoAnnotations'
 import {useAuthStore} from '@/stores/auth'
 import {PhotoLibraryPage} from './PhotoLibraryPage'
 vi.mock('@/components/photo-library/MetadataTools',()=>({MetadataTools:()=>null}))
+vi.mock('@/api/metadataOverlay',async original=>({...await original<typeof import('@/api/metadataOverlay')>(),keywordStatus:vi.fn().mockResolvedValue({total:0,indexed:0,unknown:0,complete:true,source_freshness:'verified_at_index_only'})}))
 vi.mock('@/api/photoCatalog',()=>({loadCatalog:vi.fn(),loadThumbnail:vi.fn()}))
 vi.mock('@/api/photoAnnotations',()=>({batchAnnotations:vi.fn(),readAnnotation:vi.fn()}))
 vi.mock('@/components/Layout',()=>({Layout:({children}:{children:React.ReactNode})=><>{children}</>}))

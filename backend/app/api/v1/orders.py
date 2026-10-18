@@ -1,10 +1,11 @@
 """Order API routes."""
 
 from fastapi import APIRouter, Depends
+from sqlalchemy import update
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
-from app.core.exceptions import NotFoundException
+from app.core.exceptions import ConflictException
 from app.deps import get_current_user
 from app.models.order import Order, OrderTimeline
 from app.models.todo import TodoItem
@@ -14,6 +15,7 @@ from app.schemas.order import (
     OrderStatusUpdateRequest,
     OrderTimelineResponse,
 )
+from app.services.customer_workflow import order_access
 from app.services.order_state import OrderStateMachine, OrderStatus
 
 router = APIRouter(prefix="/orders", tags=["orders"])
@@ -46,9 +48,7 @@ def get_order(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    order = db.query(Order).filter(Order.id == order_id).first()
-    if not order:
-        raise NotFoundException("Order")
+    order = order_access(db, order_id, current_user)
     return order
 
 
@@ -59,9 +59,10 @@ def update_order_status(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    order = db.query(Order).filter(Order.id == order_id).first()
-    if not order:
-        raise NotFoundException("Order")
+    order = order_access(db, order_id, current_user, lock=True)
+    # Selection submission must validate membership/quota and create domain tasks.
+    if current_user.role == "client" and req.target_status == OrderStatus.WAITING_RETOUCH:
+        raise ConflictException("Use the selection submission endpoint")
 
     from_status = OrderStatus(order.status)
     new_status = OrderStateMachine.transition(
@@ -71,7 +72,13 @@ def update_order_status(
     )
 
     old_status = order.status
-    order.status = new_status.value
+    changed = db.execute(
+        update(Order)
+        .where(Order.id == order.id, Order.status == old_status)
+        .values(status=new_status.value)
+    )
+    if changed.rowcount != 1:
+        raise ConflictException("Order changed")
 
     timeline = OrderTimeline(
         order_id=order.id,
@@ -108,6 +115,7 @@ def get_order_timeline(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    order_access(db, order_id, current_user)
     timelines = (
         db.query(OrderTimeline)
         .filter(OrderTimeline.order_id == order_id)

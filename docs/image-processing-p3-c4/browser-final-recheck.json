@@ -1,0 +1,9 @@
+{
+  "duplicate_key_warnings": 0,
+  "final_frontend_recheck": true,
+  "dirty_rating_disabled": true,
+  "database": "isolated temporary SQLite",
+  "save_success": true,
+  "preview_count": 1,
+  "notes": "Full workflow PostgreSQL browser evidence is separate; this final check follows the React key and dirty guard corrections."
+}

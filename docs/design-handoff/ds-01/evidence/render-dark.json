@@ -1,0 +1,21 @@
+{
+  "modal": {
+    "background": "rgba(10, 15, 23, 0.65)",
+    "theme": "dark"
+  },
+  "page": "rgb(16, 18, 23)",
+  "photo": {
+    "background": "rgb(50, 50, 50)",
+    "cssHeight": "395.99px",
+    "cssWidth": "337.833px",
+    "filter": "none",
+    "height": 606,
+    "shadow": "none",
+    "width": 517
+  },
+  "theme": "dark",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}

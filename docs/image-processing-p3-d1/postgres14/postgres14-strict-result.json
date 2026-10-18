@@ -1,0 +1,7 @@
+{
+  "job": "postgres14-strict",
+  "exit_code": 0,
+  "seconds": 190.33,
+  "database_removed": true,
+  "temp_removed": true
+}

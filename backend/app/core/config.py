@@ -80,8 +80,12 @@ class Settings(BaseSettings):
 
     def _pg_url(self, driver: str) -> str:
         return URL.create(
-            f"postgresql+{driver}", username=self.db_pg_user, password=self.db_pg_password,
-            host=self.db_pg_host, port=self.db_pg_port, database=self.db_pg_name,
+            f"postgresql+{driver}",
+            username=self.db_pg_user,
+            password=self.db_pg_password,
+            host=self.db_pg_host,
+            port=self.db_pg_port,
+            database=self.db_pg_name,
         ).render_as_string(hide_password=False)
 
 

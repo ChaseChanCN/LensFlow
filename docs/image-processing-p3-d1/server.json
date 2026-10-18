@@ -1,0 +1,98 @@
+{
+  "version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit",
+  "encoding": "UTF8",
+  "collation_guc": null,
+  "ctype_guc": null,
+  "timezone": "Asia/Shanghai",
+  "max_connections": "100",
+  "isolation": "read committed",
+  "database_locale": {
+    "datlocprovider": "c",
+    "datlocale": null,
+    "datcollate": "English_United States.936",
+    "datctype": "English_United States.936",
+    "encoding": "UTF8"
+  },
+  "roles": [
+    {
+      "rolname": "postgres",
+      "rolsuper": true,
+      "rolcreatedb": true,
+      "rolcanlogin": true
+    }
+  ],
+  "hba_rules": [
+    {
+      "type": "local",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "type": "local",
+      "database": [
+        "replication"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "type": "host",
+      "database": [
+        "replication"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "type": "host",
+      "database": [
+        "replication"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    }
+  ]
+}

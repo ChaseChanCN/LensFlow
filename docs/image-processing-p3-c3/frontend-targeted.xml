@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="22" failures="0" errors="0" time="1.9336509">
+    <testsuite name="src/api/metadataIndex.test.ts" timestamp="2026-10-18T04:50:23.079Z" hostname="Chase-Surface" tests="8" failures="0" errors="0" skipped="0" time="0.0158979">
+        <testcase classname="src/api/metadataIndex.test.ts" name="uses authenticated bounded APIs and cancellation without per-photo requests" time="0.0039777">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="checks counts and bounded facet values instead of inventing devices" time="0.0013456">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="queries timeline by capture-local parent while retaining device and manual filters" time="0.0007103">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="loads bounded authenticated diagnostics and drops private fields at the adapter boundary" time="0.0008769">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="validates issue identity, order-independent paging bounds and normalizes unknown error text" time="0.002904">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="retries an explicit photo and returns only allowlisted status fields" time="0.0008865">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="validates every batch outcome and does not retain extra response fields" time="0.0006532">
+        </testcase>
+        <testcase classname="src/api/metadataIndex.test.ts" name="reads genuine C1 warning identifiers only on explicit request without retaining private metadata" time="0.0010101">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-library/MetadataIssues.test.tsx" timestamp="2026-10-18T04:50:23.082Z" hostname="Chase-Surface" tests="8" failures="0" errors="0" skipped="0" time="0.6487376">
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="is compact by default and loads only after explicit expansion with honest identity copy" time="0.1570684">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="shows failure, unsupported and warnings without inventing parser warnings or loading originals" time="0.0946675">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="keeps retry failure local while another photo can still succeed and invalidates only metadata scopes" time="0.1065373">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="reports server-side pending or failed retry outcomes instead of false success" time="0.0875918">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="reads actual warning identifiers on one explicit click and handles unknown codes safely" time="0.0561402">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="shows pending and stale identity states and cancels stale category requests" time="0.046303">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="does not allow an old order response to enter the new order and aborts retry on unmount" time="0.04288">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataIssues.test.tsx" name="supports list retry and bounded next-page continuation without losing the first page" time="0.0550101">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/photo-library/MetadataTools.test.tsx" timestamp="2026-10-18T04:50:23.084Z" hostname="Chase-Surface" tests="6" failures="0" errors="0" skipped="0" time="1.2690154">
+        <testcase classname="src/components/photo-library/MetadataTools.test.tsx" name="shows incomplete indexing honestly and applies real device/numeric URL conditions" time="0.3375043">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataTools.test.tsx" name="clears unapplied input without submitting it as a new filter" time="0.3039997">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataTools.test.tsx" name="navigates date buckets and explicit unknown without browser timezone conversion" time="0.1663267">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataTools.test.tsx" name="continues bounded batches and exposes explicit retry failures" time="0.1112592">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataTools.test.tsx" name="cancels stale filter requests and stops client continuation on unmount" time="0.0368926">
+        </testcase>
+        <testcase classname="src/components/photo-library/MetadataTools.test.tsx" name="restarts metadata catalog sequences on generation changes without touching thumbnail data" time="0.3104156">
+        </testcase>
+    </testsuite>
+</testsuites>

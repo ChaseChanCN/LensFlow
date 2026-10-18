@@ -1,0 +1,5 @@
+{
+  "non_interactive_exit": 2,
+  "synthetic_input_not_echoed": true,
+  "output": "A local terminal with hidden input is required; refusing echoed input\n"
+}

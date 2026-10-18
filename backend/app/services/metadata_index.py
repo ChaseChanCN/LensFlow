@@ -55,15 +55,30 @@ def database_failure(db, exc):
     db.rollback()
     state = getattr(getattr(exc, "orig", None), "pgcode", None)
     state = state or getattr(getattr(exc, "orig", None), "sqlstate", None)
+    original_message = str(getattr(exc, "orig", "")).lower()
+    fallback = (
+        "INDEX_DATABASE_BUSY"
+        if isinstance(exc, TimeoutError)
+        or "locked" in original_message
+        or "database is busy" in original_message
+        else "INDEX_DATABASE_ERROR"
+    )
     code = {
+        "42P01": "SCHEMA_NOT_READY",
         "40P01": "INDEX_DATABASE_DEADLOCK",
         "40001": "INDEX_DATABASE_RETRY",
         "55P03": "INDEX_DATABASE_BUSY",
         "57014": "INDEX_DATABASE_BUSY",
-    }.get(state, "INDEX_DATABASE_ERROR" if state else "INDEX_DATABASE_BUSY")
+    }.get(state, fallback if state is None else "INDEX_DATABASE_ERROR")
+    if state is None and "no such table:" in original_message:
+        code = "SCHEMA_NOT_READY"
     logger.warning("Metadata index transaction failed: %s", code)
-    raise AppException(code, "Metadata index transaction failed; refresh before retrying",
-                       status_code=503) from None
+    message = (
+        "Review and apply Alembic migrations before using DAM metadata"
+        if code == "SCHEMA_NOT_READY"
+        else "Metadata index transaction failed; refresh before retrying"
+    )
+    raise AppException(code, message, status_code=503) from None
 
 
 def current_index():

@@ -1,0 +1,7 @@
+{
+  "job": "postgres-http-protection-final",
+  "exit_code": 0,
+  "seconds": 8.88,
+  "database_removed": true,
+  "temp_removed": true
+}

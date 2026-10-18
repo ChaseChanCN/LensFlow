@@ -10,6 +10,8 @@ export interface CaptureTimeline { level: 'year'|'month'|'day'; buckets: {date:s
 function object(value: unknown): Record<string,unknown> { if (!value || typeof value !== 'object' || Array.isArray(value)) throw Error('索引响应无效'); return value as Record<string,unknown> }
 const indexStates=['pending','indexed','failed','unsupported'] as const
 export const indexErrorMessages:Readonly<Record<string,string>>={
+  INDEX_DATABASE_DEADLOCK:'索引事务发生死锁，已回滚，请稍后重试', INDEX_DATABASE_RETRY:'索引事务冲突，已回滚，请刷新后重试',
+  INDEX_DATABASE_ERROR:'索引数据库暂不可用，请联系管理员检查', INDEX_ERROR:'索引返回未识别错误，请联系管理员检查',
   METADATA_BUSY:'元数据读取繁忙，请稍后重试', LEASE_EXPIRED:'上次处理超时，可重新索引', INDEX_DATABASE_BUSY:'索引数据库繁忙，请稍后重试',
   UNSUPPORTED_FORMAT:'当前仅支持 JPEG', UNSUPPORTED_STORAGE:'当前存储不支持读取原始文件', UNSUPPORTED_JPEG:'此 JPEG 编码暂不支持',
   UNSUPPORTED_COLOR_SPACE:'此色彩模式暂不支持', INVALID_JPEG:'JPEG 文件无效或损坏', IMAGE_TOO_LARGE:'原始文件超过处理上限',

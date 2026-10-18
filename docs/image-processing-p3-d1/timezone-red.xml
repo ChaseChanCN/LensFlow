@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.758" timestamp="2026-10-18T13:49:38.621555+08:00" hostname="Chase-Surface"><testcase classname="test_runtime" name="test_application_timestamps_are_utc_on_non_utc_server" time="1.490"><failure message="AssertionError: assert 'Asia/Shanghai' == 'UTC'&#10;  &#10;  - UTC&#10;  + Asia/Shanghai">pg_case = (&lt;sqlalchemy.orm.session.Session object at 0x000001FF8C1B8E00&gt;, &lt;app.models.user.User object at 0x000001FF8C4BB020&gt;, &lt;...8CACAE40&gt;, &lt;app.models.photo.Photo object at 0x000001FF8CAFA4E0&gt;, &lt;alembic.config.Config object at 0x000001FF8A493A40&gt;)
+
+    def test_application_timestamps_are_utc_on_non_utc_server(pg_case):
+        from datetime import datetime, timezone
+    
+        from sqlalchemy import text
+    
+        from app.schemas.photo_annotation import BatchItem
+        from app.services.photo_annotation import write_annotations
+    
+        db, owner, client, order, photo, config = pg_case
+&gt;       assert db.scalar(text("SHOW TimeZone")) == "UTC"
+E       AssertionError: assert 'Asia/Shanghai' == 'UTC'
+E         
+E         - UTC
+E         + Asia/Shanghai
+
+tests\postgres\test_runtime.py:22: AssertionError</failure></testcase></testsuite></testsuites>

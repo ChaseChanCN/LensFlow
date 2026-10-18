@@ -1,0 +1,7 @@
+{
+  "job": "postgres-timezone-red",
+  "exit_code": 1,
+  "seconds": 3.91,
+  "database_removed": true,
+  "temp_removed": true
+}

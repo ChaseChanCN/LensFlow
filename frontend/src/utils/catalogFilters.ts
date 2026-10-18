@@ -1,9 +1,9 @@
 import {metadataKeys,parseMetadataFilters,serializeMetadata,type MetadataFilters} from './metadataFilters'
 export const catalogSorts=['id_asc','id_desc','created_asc','created_desc','rating_asc','rating_desc'] as const
 export type CatalogSort=typeof catalogSorts[number]
-export interface CatalogFilters {rating:number|null;ratingMin:number|null;colors:string[];pick:string[];sort:CatalogSort;metadata?:MetadataFilters}
+export interface CatalogFilters {rating:number|null;ratingMin:number|null;colors:string[];pick:string[];sort:CatalogSort;metadata?:MetadataFilters;keywords?:string[]}
 export const defaultFilters=():CatalogFilters=>({rating:null,ratingMin:null,colors:[],pick:[],sort:'id_asc'})
-const allowed=['rating','rating_min','colors','pick','sort',...metadataKeys]
+const allowed=['rating','rating_min','colors','pick','sort','keywords',...metadataKeys]
 function csv(value:string|null,values:string[]){if(value===null)return [];const parts=value.split(',').map(v=>v.trim());if(parts.length>values.length||parts.some(v=>!values.includes(v)))throw Error('筛选条件含无效选项');return [...new Set(parts)].sort()}
 export function parseFilters(search:URLSearchParams):CatalogFilters {
   if([...search.keys()].some(key=>!allowed.includes(key)||search.getAll(key).length!==1))throw Error('筛选地址含未知或重复参数')
@@ -12,7 +12,9 @@ export function parseFilters(search:URLSearchParams):CatalogFilters {
   if(exact!==null&&minimum!==null)throw Error('精确评分和最低评分不能同时设置')
   if(!(catalogSorts as readonly string[]).includes(sort))throw Error('排序条件无效')
   const metadata=parseMetadataFilters(search)
-  return {rating:exact,ratingMin:minimum||null,colors:csv(search.get('colors'),['none','red','yellow','green','blue','purple']),pick:csv(search.get('pick'),['unmarked','pick','reject']),sort:sort as CatalogSort,...(metadata?{metadata}:{})}
+  let keywords:string[]|undefined
+  if(search.has('keywords')){const values:unknown=JSON.parse(search.get('keywords')!);if(!Array.isArray(values)||values.length<1||values.length>10||values.some(v=>typeof v!=='string'||!v.trim()||v.length>128||/[\p{Cc}\p{Cs}]/u.test(v)))throw Error('关键词筛选无效');keywords=[...new Set((values as string[]).map(v=>v.normalize('NFC').trim()))].sort()}
+  return {rating:exact,ratingMin:minimum||null,colors:csv(search.get('colors'),['none','red','yellow','green','blue','purple']),pick:csv(search.get('pick'),['unmarked','pick','reject']),sort:sort as CatalogSort,...(metadata?{metadata}:{}),...(keywords?{keywords}:{})}
 }
 export function serializeFilters(filters:CatalogFilters){
   const params=new URLSearchParams()
@@ -22,9 +24,10 @@ export function serializeFilters(filters:CatalogFilters){
   if(filters.pick.length)params.set('pick',[...new Set(filters.pick)].sort().join(','))
   if(filters.sort!=='id_asc')params.set('sort',filters.sort)
   for(const [key,value] of serializeMetadata(filters.metadata))params.set(key,value)
+  if(filters.keywords?.length)params.set('keywords',JSON.stringify([...new Set(filters.keywords.map(v=>v.normalize('NFC').trim()))].sort()))
   return params.toString()
 }
-export const sensitiveCatalog=(signature:string)=>{const f=parseFilters(new URLSearchParams(signature));return f.rating!==null||f.ratingMin!==null||!!(f.colors.length||f.pick.length)||f.sort.startsWith('rating_')}
+export const sensitiveCatalog=(signature:string)=>{const f=parseFilters(new URLSearchParams(signature));return f.rating!==null||f.ratingMin!==null||!!(f.colors.length||f.pick.length||f.keywords?.length)||f.sort.startsWith('rating_')}
 export function libraryPath(orderId:number,search=''){const clean=serializeFilters(parseFilters(new URLSearchParams(search)));return `/orders/${orderId}/library${clean?'?'+clean:''}`}
 export function compareIds(a:string|null,b:string|null):[number,number]|null{const values=[a,b];if(values.some(v=>v===null||!/^\d+$/.test(v)||!Number.isSafeInteger(Number(v))||Number(v)<1)||a===b)return null;const result=values.map(Number);if(result[0]===result[1])return null;return result as [number,number]}
 export function lightTablePath(orderId:number,ids:[number,number],search=''){const params=new URLSearchParams({a:String(ids[0]),b:String(ids[1])});const clean=serializeFilters(parseFilters(new URLSearchParams(search)));if(clean)params.set('library',clean);return `/orders/${orderId}/light-table?${params}`}

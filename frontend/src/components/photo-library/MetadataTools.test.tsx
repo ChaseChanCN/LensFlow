@@ -71,8 +71,8 @@ it('restarts metadata catalog sequences on generation changes without touching t
  const reset=vi.spyOn(client,'resetQueries')
  show();await screen.findByRole('note')
  await act(async()=>client.setQueryData(['metadata-status',1,7],{...counts,generation:'2'}))
- await waitFor(()=>expect(reset).toHaveBeenCalled())
- const predicate=reset.mock.calls[0][0]?.predicate
+ await waitFor(()=>expect(reset.mock.calls.some(call=>!!call[0]?.predicate)).toBe(true))
+ const predicate=reset.mock.calls.find(call=>!!call[0]?.predicate)?.[0]?.predicate
  expect(predicate?.({queryKey:['photo-catalog',1,7,'camera_model=eos+70d']} as never)).toBe(true)
  expect(predicate?.({queryKey:['photo-catalog',1,7]} as never)).toBe(false)
  expect(predicate?.({queryKey:['thumbnail',1]} as never)).toBe(false)

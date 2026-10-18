@@ -2,13 +2,13 @@
 
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, StrictInt, AwareDatetime
 
 
 class SelectionSetCreateRequest(BaseModel):
-    photo_ids: list[int]
-    max_select: int = 3
-    expires_at: datetime | None = None
+    photo_ids: list[StrictInt] = Field(min_length=1, max_length=10000)
+    max_select: int = Field(default=3, ge=1, le=100)
+    expires_at: AwareDatetime | None = None
 
 
 class SelectionItemResponse(BaseModel):
@@ -27,12 +27,16 @@ class SelectionSetResponse(BaseModel):
     published_at: datetime | None = None
     created_at: datetime
     items: list[SelectionItemResponse] = []
+    revision: int = 0
+    draft_selected_photo_ids: list[int] = []
+    submitted: bool = False
 
     model_config = {"from_attributes": True}
 
 
 class SelectionSubmitRequest(BaseModel):
-    selected_photo_ids: list[int]
+    selected_photo_ids: list[StrictInt] = Field(min_length=1, max_length=100)
+    expected_revision: StrictInt = Field(default=0, ge=0, le=2**31 - 2)
 
 
 class SelectionSubmissionResponse(BaseModel):

@@ -1,0 +1,10 @@
+.descriptive-metadata{margin-block:var(--space-4,1rem);border-top:1px solid var(--border-color,#7a859344);padding-top:1rem}
+.descriptive-metadata fieldset{border:0;padding:0;min-width:0}
+.descriptive-field{display:grid;gap:.5rem;margin-block:1rem;padding-block:.75rem;border-bottom:1px solid var(--border-color,#7a859344)}
+.descriptive-field label{display:grid;gap:.35rem}
+.descriptive-field input,.descriptive-field textarea,.descriptive-field select,.metadata-batch textarea,.metadata-batch select,.keyword-filter input{font:inherit;color:inherit;background:var(--surface-secondary,transparent);border:1px solid var(--border-color,#7a859366);border-radius:.5rem;padding:.6rem;max-width:100%;min-width:0}
+.descriptive-field textarea{resize:vertical}
+.descriptive-original,.descriptive-metadata dd{white-space:pre-wrap;overflow-wrap:anywhere}
+.descriptive-actions,.metadata-batch{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-block:1rem}
+.metadata-batch label,.keyword-filter label{display:grid;gap:.35rem}
+.keyword-filter{display:flex;gap:.75rem;flex-wrap:wrap;align-items:end;margin-block:1rem}

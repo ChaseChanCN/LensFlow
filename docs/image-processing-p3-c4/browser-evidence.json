@@ -1,0 +1,99 @@
+{
+  "actualPostgres": true,
+  "realJpeg": true,
+  "savedRevision": 5,
+  "conflictServerRevision": 3,
+  "conflictDraftPreserved": true,
+  "explicitReapply": true,
+  "keywordBatchAndCombinedFilter": true,
+  "xmpDownloadAction": true,
+  "lightAndDarkScreenshots": true,
+  "lightTableAndPixelEditor": true,
+  "loaded": 1008,
+  "mountedAfterDensity": 40,
+  "selectedText": "已选 1008 张\n全选已加载\n清除选择\n评分：混合值\n0 星\n1 星\n2 星\n3 星\n4 星\n5 星\n颜色：混合值\n无颜色\n红色\n黄色\n绿色\n蓝色\n紫色\n标记：混合值\n未标记\n保留\n拒绝",
+  "samples": [
+    {
+      "loaded": 100,
+      "mounted": 35
+    },
+    {
+      "loaded": 150,
+      "mounted": 35
+    },
+    {
+      "loaded": 200,
+      "mounted": 30
+    },
+    {
+      "loaded": 250,
+      "mounted": 30
+    },
+    {
+      "loaded": 300,
+      "mounted": 35
+    },
+    {
+      "loaded": 350,
+      "mounted": 35
+    },
+    {
+      "loaded": 400,
+      "mounted": 30
+    },
+    {
+      "loaded": 450,
+      "mounted": 30
+    },
+    {
+      "loaded": 500,
+      "mounted": 35
+    },
+    {
+      "loaded": 550,
+      "mounted": 35
+    },
+    {
+      "loaded": 600,
+      "mounted": 30
+    },
+    {
+      "loaded": 650,
+      "mounted": 30
+    },
+    {
+      "loaded": 700,
+      "mounted": 35
+    },
+    {
+      "loaded": 750,
+      "mounted": 35
+    },
+    {
+      "loaded": 800,
+      "mounted": 30
+    },
+    {
+      "loaded": 850,
+      "mounted": 35
+    },
+    {
+      "loaded": 900,
+      "mounted": 35
+    },
+    {
+      "loaded": 950,
+      "mounted": 35
+    },
+    {
+      "loaded": 1000,
+      "mounted": 30
+    },
+    {
+      "loaded": 1008,
+      "mounted": 28
+    }
+  ],
+  "elapsedAutomationMs": 56610,
+  "notes": "1007 synthetic catalog rows reference one real JPEG, plus one real HTTP upload. Browser automation elapsed is not frame latency or a memory measurement."
+}

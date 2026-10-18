@@ -4,38 +4,46 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from starlette.concurrency import run_in_threadpool
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.api.v1 import auth as auth_router
 from app.api.v1 import bookings as bookings_router
+from app.api.v1 import customer as customer_router
 from app.api.v1 import deliveries as deliveries_router
 from app.api.v1 import image_edit as image_edit_router
-from app.api.v1 import orders as orders_router
-from app.api.v1 import photo_catalog as photo_catalog_router
-from app.api.v1 import photo_metadata as photo_metadata_router
 from app.api.v1 import metadata_index as metadata_index_router
+from app.api.v1 import metadata_overlay as metadata_overlay_router
+from app.api.v1 import orders as orders_router
+from app.api.v1 import photo_annotation as photo_annotation_router
+from app.api.v1 import photo_catalog as photo_catalog_router
 from app.api.v1 import photo_edit_draft as photo_edit_draft_router
+from app.api.v1 import photo_metadata as photo_metadata_router
 from app.api.v1 import photos as photos_router
 from app.api.v1 import retouch as retouch_router
 from app.api.v1 import selections as selections_router
 from app.api.v1 import todos as todos_router
 from app.core.config import settings
+from app.core.database import engine
 from app.core.exceptions import (
     AppException,
     app_exception_handler,
     generic_exception_handler,
+    database_exception_handler,
 )
 from app.core.logging import logger
-from app.core.database import engine
 from app.services.schema_readiness import REQUIRED_REVISION, schema_ready
-from starlette.concurrency import run_in_threadpool
-from fastapi.responses import JSONResponse
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting %s in %s mode", settings.app_name, settings.app_env)
     if not await run_in_threadpool(schema_ready, engine):
-        logger.warning("DAM schema not ready; review and apply Alembic migrations to %s before serving DAM traffic", REQUIRED_REVISION)
+        logger.warning(
+            "DAM schema not ready; review Alembic migrations to %s before serving DAM traffic",
+            REQUIRED_REVISION,
+        )
     yield
     logger.info("Shutting down %s", settings.app_name)
 
@@ -67,15 +75,28 @@ app.add_middleware(
 
 app.add_exception_handler(AppException, app_exception_handler)
 app.add_exception_handler(Exception, generic_exception_handler)
+app.add_exception_handler(SQLAlchemyError, database_exception_handler)
+
+
+@app.middleware("http")
+async def private_customer_responses(request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith("/api/v1/"):
+        response.headers["Cache-Control"] = "private, no-store, max-age=0"
+        response.headers["Vary"] = ", ".join(dict.fromkeys([
+            *[v.strip() for v in response.headers.get("Vary", "").split(",") if v.strip()], "Authorization"
+        ]))
+    return response
 
 app.include_router(auth_router.router, prefix="/api/v1")
 app.include_router(bookings_router.router, prefix="/api/v1")
+app.include_router(customer_router.router, prefix="/api/v1")
 app.include_router(orders_router.router, prefix="/api/v1")
 app.include_router(photos_router.router, prefix="/api/v1")
 app.include_router(photo_catalog_router.router, prefix="/api/v1")
 app.include_router(photo_metadata_router.router, prefix="/api/v1")
 app.include_router(metadata_index_router.router, prefix="/api/v1")
-from app.api.v1 import photo_annotation as photo_annotation_router
+app.include_router(metadata_overlay_router.router, prefix="/api/v1")
 app.include_router(photo_annotation_router.router, prefix="/api/v1")
 app.include_router(image_edit_router.router, prefix="/api/v1")
 app.include_router(photo_edit_draft_router.router, prefix="/api/v1")
@@ -110,7 +131,12 @@ async def root():
 def readiness():
     if schema_ready(engine):
         return {"status": "ready"}
-    return JSONResponse({"status": "not_ready", "code": "SCHEMA_NOT_READY",
-                         "required_revision": REQUIRED_REVISION,
-                         "action": "Review and apply Alembic migrations; startup never upgrades schema"},
-                        status_code=503)
+    return JSONResponse(
+        {
+            "status": "not_ready",
+            "code": "SCHEMA_NOT_READY",
+            "required_revision": REQUIRED_REVISION,
+            "action": "Review and apply Alembic migrations; startup never upgrades schema",
+        },
+        status_code=503,
+    )

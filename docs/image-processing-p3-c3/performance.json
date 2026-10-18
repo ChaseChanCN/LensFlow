@@ -1,0 +1,556 @@
+{
+  "measurements": [
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "catalog",
+      "iterations": 10,
+      "sql_queries": 2.0,
+      "median_ms": 3.167,
+      "max_ms": 5.922,
+      "result": {
+        "items": 50
+      },
+      "plans": [
+        {
+          "sql": "SELECT max(photos.id) AS max_1 \nFROM photos \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)"
+          ]
+        },
+        {
+          "sql": "SELECT photos.id, photos.order_id, photos.filename, photos.mime, photos.size_bytes, photos.width, photos.height, photos.created_at, photo_asset_annotations.rating, photo_asset_annotations.color_label, photo_asset_annotations.pick_status, photo_asset_annotations.revision, photo_asset_annotations.updated_at AS annotation_updated_at \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? ORDER BY photos.id ASC, photos.id ASC\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "facets",
+      "iterations": 10,
+      "sql_queries": 5.0,
+      "median_ms": 4.607,
+      "max_ms": 9.731,
+      "result": {
+        "indexed": 676
+      },
+      "plans": [
+        {
+          "sql": "SELECT photo_metadata_indexes.camera_make, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_make IS NOT NULL GROUP BY photo_metadata_indexes.camera_make ORDER BY photo_metadata_indexes.camera_make\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT photo_metadata_indexes.camera_model, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model IS NOT NULL GROUP BY photo_metadata_indexes.camera_model ORDER BY photo_metadata_indexes.camera_model\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_camera_model (camera_model>?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)"
+          ]
+        },
+        {
+          "sql": "SELECT photo_metadata_indexes.lens_make, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.lens_make IS NOT NULL GROUP BY photo_metadata_indexes.lens_make ORDER BY photo_metadata_indexes.lens_make\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT photo_metadata_indexes.lens_model, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.lens_model IS NOT NULL GROUP BY photo_metadata_indexes.lens_model ORDER BY photo_metadata_indexes.lens_model\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_lens_model (lens_model>?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "timeline-year",
+      "iterations": 10,
+      "sql_queries": 4.0,
+      "median_ms": 3.848,
+      "max_ms": 7.047,
+      "result": {
+        "buckets": 4,
+        "matched": 52
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NULL",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_capture_date (capture_date=?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_1, count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NOT NULL GROUP BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) ORDER BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER)\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "timeline-month",
+      "iterations": 10,
+      "sql_queries": 4.0,
+      "median_ms": 4.145,
+      "max_ms": 5.274,
+      "result": {
+        "buckets": 6,
+        "matched": 52
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NULL",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_capture_date (capture_date=?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_1, CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_2, count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) = ? AND photo_metadata_indexes.capture_date IS NOT NULL GROUP BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) ORDER BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER)\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "timeline-day",
+      "iterations": 10,
+      "sql_queries": 4.0,
+      "median_ms": 4.515,
+      "max_ms": 5.727,
+      "result": {
+        "buckets": 1,
+        "matched": 52
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NULL",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_capture_date (capture_date=?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_1, CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_2, CAST(STRFTIME('%d', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_3, count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) = ? AND CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) = ? AND photo_metadata_indexes.capture_date IS NOT NULL GROUP BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%d', photo_metadata_indexes.capture_date) AS INTEGER) ORDER BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%d', photo_metadata_indexes.capture_date) AS INTEGER)\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "status",
+      "iterations": 10,
+      "sql_queries": 1.0,
+      "median_ms": 1.428,
+      "max_ms": 2.365,
+      "result": {
+        "total": 900
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 1000,
+      "order_records": 900,
+      "operation": "issues",
+      "iterations": 10,
+      "sql_queries": 2.0,
+      "median_ms": 1.625,
+      "max_ms": 4.322,
+      "result": {
+        "items": 20
+      },
+      "plans": [
+        {
+          "sql": "SELECT max(photos.id) AS max_1 \nFROM photos \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)"
+          ]
+        },
+        {
+          "sql": "SELECT photos.id, photos.filename, photo_metadata_indexes.photo_id, photo_metadata_indexes.source_sha256, photo_metadata_indexes.parser_version, photo_metadata_indexes.status, photo_metadata_indexes.camera_make, photo_metadata_indexes.camera_model, photo_metadata_indexes.lens_make, photo_metadata_indexes.lens_model, photo_metadata_indexes.iso, photo_metadata_indexes.focal_length_mm, photo_metadata_indexes.f_number, photo_metadata_indexes.exposure_seconds, photo_metadata_indexes.capture_datetime_local, photo_metadata_indexes.capture_timezone_offset_minutes, photo_metadata_indexes.capture_date, photo_metadata_indexes.capture_timezone_known, photo_metadata_indexes.indexed_at, photo_metadata_indexes.error_code, photo_metadata_indexes.lease_token, photo_metadata_indexes.lease_expires_at, photo_metadata_indexes.revision, photo_metadata_indexes.warning_count, photo_metadata_indexes.id AS id_1, photo_metadata_indexes.created_at, photo_metadata_indexes.updated_at \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id > ? AND photos.id <= ? AND (photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.status = ? OR photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.status = ? OR photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.warning_count > ?) ORDER BY photos.id\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid>? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "catalog",
+      "iterations": 10,
+      "sql_queries": 2.0,
+      "median_ms": 2.875,
+      "max_ms": 3.927,
+      "result": {
+        "items": 50
+      },
+      "plans": [
+        {
+          "sql": "SELECT max(photos.id) AS max_1 \nFROM photos \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)"
+          ]
+        },
+        {
+          "sql": "SELECT photos.id, photos.order_id, photos.filename, photos.mime, photos.size_bytes, photos.width, photos.height, photos.created_at, photo_asset_annotations.rating, photo_asset_annotations.color_label, photo_asset_annotations.pick_status, photo_asset_annotations.revision, photo_asset_annotations.updated_at AS annotation_updated_at \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? ORDER BY photos.id ASC, photos.id ASC\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "facets",
+      "iterations": 10,
+      "sql_queries": 5.0,
+      "median_ms": 42.531,
+      "max_ms": 51.711,
+      "result": {
+        "indexed": 6731
+      },
+      "plans": [
+        {
+          "sql": "SELECT photo_metadata_indexes.camera_make, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_make IS NOT NULL GROUP BY photo_metadata_indexes.camera_make ORDER BY photo_metadata_indexes.camera_make\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT photo_metadata_indexes.camera_model, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model IS NOT NULL GROUP BY photo_metadata_indexes.camera_model ORDER BY photo_metadata_indexes.camera_model\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_camera_model (camera_model>?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)"
+          ]
+        },
+        {
+          "sql": "SELECT photo_metadata_indexes.lens_make, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.lens_make IS NOT NULL GROUP BY photo_metadata_indexes.lens_make ORDER BY photo_metadata_indexes.lens_make\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT photo_metadata_indexes.lens_model, count(*) AS count_1 \nFROM photo_metadata_indexes JOIN photos ON photos.id = photo_metadata_indexes.photo_id \nWHERE photos.order_id = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.lens_model IS NOT NULL GROUP BY photo_metadata_indexes.lens_model ORDER BY photo_metadata_indexes.lens_model\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_lens_model (lens_model>?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "timeline-year",
+      "iterations": 10,
+      "sql_queries": 4.0,
+      "median_ms": 22.562,
+      "max_ms": 25.44,
+      "result": {
+        "buckets": 4,
+        "matched": 498
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NULL",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_capture_date (capture_date=?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_1, count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NOT NULL GROUP BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) ORDER BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER)\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "timeline-month",
+      "iterations": 10,
+      "sql_queries": 4.0,
+      "median_ms": 21.829,
+      "max_ms": 22.549,
+      "result": {
+        "buckets": 6,
+        "matched": 498
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NULL",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_capture_date (capture_date=?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_1, CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_2, count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) = ? AND photo_metadata_indexes.capture_date IS NOT NULL GROUP BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) ORDER BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER)\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "timeline-day",
+      "iterations": 10,
+      "sql_queries": 4.0,
+      "median_ms": 24.685,
+      "max_ms": 30.09,
+      "result": {
+        "buckets": 13,
+        "matched": 498
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.capture_date IS NULL",
+          "plan": [
+            "SEARCH photo_metadata_indexes USING INDEX ix_photo_metadata_indexes_capture_date (capture_date=?)",
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN"
+          ]
+        },
+        {
+          "sql": "SELECT CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_1, CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_2, CAST(STRFTIME('%d', photo_metadata_indexes.capture_date) AS INTEGER) AS anon_3, count(photos.id) AS count_1 \nFROM photos LEFT OUTER JOIN photo_asset_annotations ON photo_asset_annotations.photo_id = photos.id AND photo_asset_annotations.user_id = ? LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id <= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.camera_model = ? AND photo_metadata_indexes.iso >= ? AND photo_metadata_indexes.f_number <= ? AND coalesce(photo_asset_annotations.rating, ?) >= ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ? AND CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER) = ? AND CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER) = ? AND photo_metadata_indexes.capture_date IS NOT NULL GROUP BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%d', photo_metadata_indexes.capture_date) AS INTEGER) ORDER BY CAST(STRFTIME('%Y', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%m', photo_metadata_indexes.capture_date) AS INTEGER), CAST(STRFTIME('%d', photo_metadata_indexes.capture_date) AS INTEGER)\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)",
+            "SEARCH photo_asset_annotations USING INDEX sqlite_autoindex_photo_asset_annotations_1 (photo_id=? AND user_id=?) LEFT-JOIN",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "status",
+      "iterations": 10,
+      "sql_queries": 1.0,
+      "median_ms": 7.4,
+      "max_ms": 10.072,
+      "result": {
+        "total": 9000
+      },
+      "plans": [
+        {
+          "sql": "SELECT count(photos.id) AS total, count(photo_metadata_indexes.id) AS rows, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS \"indexed\", sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS failed, sum(CASE WHEN (photo_metadata_indexes.status = ? AND photo_metadata_indexes.parser_version = ?) THEN ? ELSE ? END) AS unsupported, sum(CASE WHEN (photo_metadata_indexes.lease_expires_at > ?) THEN ? ELSE ? END) AS active, coalesce(sum(photo_metadata_indexes.revision), ?) AS revisions, max(photo_metadata_indexes.updated_at) AS latest \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?) LEFT-JOIN"
+          ]
+        }
+      ]
+    },
+    {
+      "database": "SQLite",
+      "synthetic_records": 10000,
+      "order_records": 9000,
+      "operation": "issues",
+      "iterations": 10,
+      "sql_queries": 2.0,
+      "median_ms": 1.785,
+      "max_ms": 2.469,
+      "result": {
+        "items": 20
+      },
+      "plans": [
+        {
+          "sql": "SELECT max(photos.id) AS max_1 \nFROM photos \nWHERE photos.order_id = ?",
+          "plan": [
+            "SEARCH photos USING COVERING INDEX ix_photos_order_id (order_id=?)"
+          ]
+        },
+        {
+          "sql": "SELECT photos.id, photos.filename, photo_metadata_indexes.photo_id, photo_metadata_indexes.source_sha256, photo_metadata_indexes.parser_version, photo_metadata_indexes.status, photo_metadata_indexes.camera_make, photo_metadata_indexes.camera_model, photo_metadata_indexes.lens_make, photo_metadata_indexes.lens_model, photo_metadata_indexes.iso, photo_metadata_indexes.focal_length_mm, photo_metadata_indexes.f_number, photo_metadata_indexes.exposure_seconds, photo_metadata_indexes.capture_datetime_local, photo_metadata_indexes.capture_timezone_offset_minutes, photo_metadata_indexes.capture_date, photo_metadata_indexes.capture_timezone_known, photo_metadata_indexes.indexed_at, photo_metadata_indexes.error_code, photo_metadata_indexes.lease_token, photo_metadata_indexes.lease_expires_at, photo_metadata_indexes.revision, photo_metadata_indexes.warning_count, photo_metadata_indexes.id AS id_1, photo_metadata_indexes.created_at, photo_metadata_indexes.updated_at \nFROM photos LEFT OUTER JOIN photo_metadata_indexes ON photo_metadata_indexes.photo_id = photos.id \nWHERE photos.order_id = ? AND photos.id > ? AND photos.id <= ? AND (photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.status = ? OR photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.status = ? OR photo_metadata_indexes.parser_version = ? AND photo_metadata_indexes.status = ? AND photo_metadata_indexes.warning_count > ?) ORDER BY photos.id\n LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH photos USING INDEX ix_photos_order_id (order_id=? AND rowid>? AND rowid<?)",
+            "SEARCH photo_metadata_indexes USING INDEX sqlite_autoindex_photo_metadata_indexes_1 (photo_id=?)"
+          ]
+        }
+      ]
+    }
+  ],
+  "sandbox_removed": true,
+  "note": "SQL-only synthetic metadata, no JPEG throughput; SQLite EXPLAIN QUERY PLAN, not PostgreSQL EXPLAIN ANALYZE"
+}

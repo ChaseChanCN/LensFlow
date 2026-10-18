@@ -1,0 +1,4 @@
+{
+  "exit_code": 2,
+  "output": "PostgreSQL integration unavailable: No explicit disposable PostgreSQL administrator configuration\n"
+}

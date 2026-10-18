@@ -1,0 +1,7 @@
+{
+  "actual_process_kill": true,
+  "old_pid": 11956,
+  "new_pid": 16560,
+  "restarts": 2,
+  "lease_expiry": "advanced only test pending leases; did not wait 120 seconds"
+}

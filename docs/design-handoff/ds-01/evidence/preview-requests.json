@@ -1,0 +1,221 @@
+{
+  "说明": "独立 Vite 内存夹具，无代理，无后端；不记录登录请求正文。",
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bookings"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/photos/metadata-facets"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/photos/timeline"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/photos/catalog"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94001/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94002/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94003/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94004/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94006/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94005/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94001/preview"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bookings"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/selection-set"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/delivery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/selection-set"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bookings"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bookings"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/photos/metadata-facets"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/photos/timeline"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/photos/catalog"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94001/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94002/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94003/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94004/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94006/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94005/thumbnail"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/photos/94001/preview"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-keywords/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/orders/91001/metadata-index/status"
+    }
+  ]
+}

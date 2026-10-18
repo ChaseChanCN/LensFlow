@@ -1,0 +1,26 @@
+{
+  "sqlite_databases": [
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-1942a3w_/test.sqlite",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-bn50ywnv/test.sqlite",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-gw2ekdp2/test.sqlite",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-w7licro3/test.sqlite"
+  ],
+  "storage_roots": [
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-1942a3w_/cases",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-bn50ywnv/cases",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-gw2ekdp2/cases",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-w7licro3/cases"
+  ],
+  "temporary_roots": [
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-1942a3w_",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-bn50ywnv",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-gw2ekdp2",
+    "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-w7licro3"
+  ],
+  "removed": [
+    true,
+    true,
+    true,
+    true
+  ]
+}

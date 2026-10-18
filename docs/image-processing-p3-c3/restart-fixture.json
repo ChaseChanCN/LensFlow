@@ -1,0 +1,4 @@
+{
+  "derived_rows_explicitly_invalidated": 40,
+  "reason": "test-only parser-version invalidation before actual backend restart; business rows and sources unchanged"
+}

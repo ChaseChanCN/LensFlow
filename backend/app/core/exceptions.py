@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 class AppException(Exception):
     """Base application exception."""
 
-    def __init__(self, code: str, message: str, detail: str = "", status_code: int = 400):
+    def __init__(self, code: str, message: str, detail: str | dict = "", status_code: int = 400):
         self.code = code
         self.message = message
         self.detail = detail
@@ -84,7 +84,15 @@ async def app_exception_handler(request: Request, exc: AppException) -> JSONResp
             "message": exc.message,
             "detail": exc.detail,
         },
+        headers={"Cache-Control": "private, no-store", "Vary": "Authorization"},
     )
+
+
+async def database_exception_handler(request: Request, exc: Exception) -> JSONResponse:
+    # Driver messages may contain SQL, private paths or connection credentials.
+    return JSONResponse(status_code=503, content={
+        "code": "DATABASE_UNAVAILABLE", "message": "Database is busy or unavailable; retry safely", "detail": "",
+    }, headers={"Cache-Control": "private, no-store", "Retry-After": "1"})
 
 
 async def generic_exception_handler(request: Request, exc: Exception) -> JSONResponse:

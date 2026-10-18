@@ -3,7 +3,7 @@ import client from './client'
 export interface Delivery {
   id: number
   order_id: number
-  storage_key: string
+  storage_key?: string
   filename: string
   delivered_at: string
 }

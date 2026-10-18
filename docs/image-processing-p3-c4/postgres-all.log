@@ -1,0 +1,166 @@
+......F.............................F................................... [ 54%]
+...........................................................              [100%]
+================================== FAILURES ===================================
+__________ test_real_process_termination_and_recovery[during_parse] ___________
+
+pg_case = (<sqlalchemy.orm.session.Session object at 0x0000025A672F03B0>, <app.models.user.User object at 0x0000025A67977710>, <...679776B0>, <app.models.photo.Photo object at 0x0000025A67251760>, <alembic.config.Config object at 0x0000025A676DFC80>)
+stage = 'during_parse'
+
+    @pytest.mark.parametrize(
+        "stage",
+        [
+            "before_claim_commit",
+            "after_claim_commit",
+            "during_parse",
+            "before_publish_commit",
+            "after_publish_commit",
+        ],
+    )
+    def test_real_process_termination_and_recovery(pg_case, stage):
+        from sqlalchemy import select
+    
+        from app.models.photo_metadata_index import PhotoMetadataIndex as Index
+        from app.services import metadata_index
+        from app.services.storage import get_storage
+    
+        db, owner, client, order, photo, config = pg_case
+        photo_id, storage_key = photo.id, photo.storage_key
+        source = Path(get_storage().get_path(storage_key))
+        before = hashlib.sha256(source.read_bytes()).hexdigest()
+        db.rollback()
+        context = multiprocessing.get_context("spawn")
+        ready = context.Event()
+        worker = context.Process(target=interrupt_at, args=(stage, photo_id, storage_key, ready))
+        worker.start()
+        try:
+>           assert ready.wait(timeout=20), f"worker did not reach {stage}"
+E           AssertionError: worker did not reach during_parse
+E           assert False
+E            +  where False = wait(timeout=20)
+E            +    where wait = <Event at 0x25a67694b00 unset>.wait
+
+tests\postgres\test_concurrency.py:163: AssertionError
+---------------------------- Captured stderr setup ----------------------------
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running downgrade e6a8c0d2f434 -> d5f7a9c1e323, Descriptive overlays and rebuildable effective keyword projection. No backfill.
+INFO  [alembic.runtime.migration] Running downgrade d5f7a9c1e323 -> c4e6a8b0d212, Isolated rebuildable metadata index; no backfill or business table alterations.
+INFO  [alembic.runtime.migration] Running downgrade c4e6a8b0d212 -> b2d4a6c8e010, Private asset annotations; no backfill or changes to business tables.
+INFO  [alembic.runtime.migration] Running downgrade b2d4a6c8e010 -> f3a1c2d4e5b6, Add isolated photo edit drafts; no existing business table is altered.
+INFO  [alembic.runtime.migration] Running downgrade f3a1c2d4e5b6 -> 5e0b2fd720d3, add booking location and duration
+INFO  [alembic.runtime.migration] Running downgrade 5e0b2fd720d3 -> , initial schema
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 5e0b2fd720d3, initial schema
+INFO  [alembic.runtime.migration] Running upgrade 5e0b2fd720d3 -> f3a1c2d4e5b6, add booking location and duration
+INFO  [alembic.runtime.migration] Running upgrade f3a1c2d4e5b6 -> b2d4a6c8e010, Add isolated photo edit drafts; no existing business table is altered.
+INFO  [alembic.runtime.migration] Running upgrade b2d4a6c8e010 -> c4e6a8b0d212, Private asset annotations; no backfill or changes to business tables.
+INFO  [alembic.runtime.migration] Running upgrade c4e6a8b0d212 -> d5f7a9c1e323, Isolated rebuildable metadata index; no backfill or business table alterations.
+INFO  [alembic.runtime.migration] Running upgrade d5f7a9c1e323 -> e6a8c0d2f434, Descriptive overlays and rebuildable effective keyword projection. No backfill.
+____________ test_process_cas_and_rebuild_races[True-False-False] _____________
+
+pg_case = (<sqlalchemy.orm.session.Session object at 0x0000025A7787AAE0>, <app.models.user.User object at 0x0000025A77363A40>, <...771E7350>, <app.models.photo.Photo object at 0x0000025A77731BE0>, <alembic.config.Config object at 0x0000025A67009010>)
+existing = True, reversed_ids = False, rebuild_only = False
+
+    @pytest.mark.parametrize(
+        "existing,reversed_ids,rebuild_only",
+        [(False, False, False), (True, False, False), (True, True, False), (True, True, True)],
+    )
+    def test_process_cas_and_rebuild_races(pg_case, existing, reversed_ids, rebuild_only):
+        from app.schemas.metadata_overlay import BatchItem, Operation
+        from app.services.metadata_overlay import mutate
+    
+        db, owner, customer, order, photo, config = pg_case
+        photos = [photo]
+        if reversed_ids:
+            second = Photo(
+                order_id=order.id,
+                filename="second.jpg",
+                storage_key=photo.storage_key,
+                mime="image/jpeg",
+                size_bytes=1,
+            )
+            db.add(second)
+            db.commit()
+            photos.append(second)
+        ids = [p.id for p in photos]
+        if existing:
+            assert mutate(
+                db,
+                owner,
+                [BatchItem(photo_id=i, expected_revision=0) for i in ids],
+                operation=Operation(type="keywords_add", keywords=["初始"]),
+            )["succeeded"] == len(ids)
+        owner_id = owner.id
+        db.rollback()
+        context = multiprocessing.get_context("spawn")
+        barrier = context.Barrier(2)
+        output = context.Queue()
+        jobs = [
+            context.Process(
+                target=compete, args=(ids, owner_id, [int(existing)] * len(ids), "甲", barrier, output)
+            ),
+            context.Process(
+                target=compete,
+                args=(
+                    list(reversed(ids)) if reversed_ids else ids,
+                    owner_id,
+                    [int(existing)] * len(ids),
+                    "乙",
+                    barrier,
+                    output,
+                    rebuild_only,
+                ),
+            ),
+        ]
+        try:
+            for job in jobs:
+                job.start()
+            values = [output.get(timeout=35) for _ in jobs]
+            for job in jobs:
+                job.join(timeout=10)
+            assert all(job.exitcode == 0 for job in jobs), values
+>           assert not any("exception" in v for v in values), values
+E           AssertionError: [{'success': 1, 'conflict': 0}, {'exception': 'OperationalError'}]
+E           assert not True
+E            +  where True = any(<generator object test_process_cas_and_rebuild_races.<locals>.<genexpr> at 0x0000025A67053ED0>)
+
+tests\postgres\test_metadata_overlay.py:102: AssertionError
+---------------------------- Captured stderr setup ----------------------------
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running downgrade e6a8c0d2f434 -> d5f7a9c1e323, Descriptive overlays and rebuildable effective keyword projection. No backfill.
+INFO  [alembic.runtime.migration] Running downgrade d5f7a9c1e323 -> c4e6a8b0d212, Isolated rebuildable metadata index; no backfill or business table alterations.
+INFO  [alembic.runtime.migration] Running downgrade c4e6a8b0d212 -> b2d4a6c8e010, Private asset annotations; no backfill or changes to business tables.
+INFO  [alembic.runtime.migration] Running downgrade b2d4a6c8e010 -> f3a1c2d4e5b6, Add isolated photo edit drafts; no existing business table is altered.
+INFO  [alembic.runtime.migration] Running downgrade f3a1c2d4e5b6 -> 5e0b2fd720d3, add booking location and duration
+INFO  [alembic.runtime.migration] Running downgrade 5e0b2fd720d3 -> , initial schema
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 5e0b2fd720d3, initial schema
+INFO  [alembic.runtime.migration] Running upgrade 5e0b2fd720d3 -> f3a1c2d4e5b6, add booking location and duration
+INFO  [alembic.runtime.migration] Running upgrade f3a1c2d4e5b6 -> b2d4a6c8e010, Add isolated photo edit drafts; no existing business table is altered.
+INFO  [alembic.runtime.migration] Running upgrade b2d4a6c8e010 -> c4e6a8b0d212, Private asset annotations; no backfill or changes to business tables.
+INFO  [alembic.runtime.migration] Running upgrade c4e6a8b0d212 -> d5f7a9c1e323, Isolated rebuildable metadata index; no backfill or business table alterations.
+INFO  [alembic.runtime.migration] Running upgrade d5f7a9c1e323 -> e6a8c0d2f434, Descriptive overlays and rebuildable effective keyword projection. No backfill.
+============================== warnings summary ===============================
+test_concurrency.py: 20 warnings
+test_metadata_overlay.py: 62 warnings
+test_migrations.py: 12 warnings
+test_queries.py: 126 warnings
+test_runtime.py: 21 warnings
+  C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Lib\site-packages\alembic\config.py:604: DeprecationWarning: No path_separator found in configuration; falling back to legacy splitting on spaces, commas, and colons for prepend_sys_path.  Consider adding path_separator=os to Alembic config.
+    util.warn_deprecated(
+
+test_metadata_overlay.py::test_batch_effective_keywords_conflicts_authorization_and_rollback
+  C:\Users\Chase\Desktop\LensFlow\.agentwork\design-system\p5-venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+test_runtime.py::test_real_statement_and_row_lock_timeouts_are_sanitized
+  test_runtime.py:75: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests\postgres\test_concurrency.py::test_real_process_termination_and_recovery[during_parse]
+FAILED tests\postgres\test_metadata_overlay.py::test_process_cas_and_rebuild_races[True-False-False]
+2 failed, 129 passed, 243 warnings in 426.28s (0:07:06)

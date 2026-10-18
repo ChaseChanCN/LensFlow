@@ -1,0 +1,14 @@
+{
+  "sandbox": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-p3c3-browser-qwvwssns",
+  "removed": false,
+  "service_ports_closed": {
+    "8053": true,
+    "4253": true
+  },
+  "initial_cleanup_error": "Controller retained sqlite3 connection; fixed using contextlib.closing",
+  "cleanup_blocked_by_policy": true,
+  "policy_reason": "Automatic approval rejected the subsequent removal with blocked by policy; no bypass attempted",
+  "remaining_files": [
+    "browser.sqlite"
+  ]
+}

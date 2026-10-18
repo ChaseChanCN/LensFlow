@@ -1,0 +1,7 @@
+{
+  "job": "postgres-performance",
+  "exit_code": 0,
+  "seconds": 17.12,
+  "database_removed": true,
+  "temp_removed": true
+}

@@ -1,5 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { getOrderSelectionSet, submitSelection } from '@/api/selections'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { SelectionPage } from '@/pages/client/SelectionPage'
@@ -41,6 +43,31 @@ function renderWithProviders(ui: React.ReactElement) {
 }
 
 describe('SelectionPage', () => {
+  it('restores a cross-device draft and submits its expected revision', async () => {
+    vi.mocked(getOrderSelectionSet).mockResolvedValueOnce({
+      id: 1, order_id: 1, max_select: 2, expires_at: null,
+      published_at: '2026-10-18T00:00:00Z', created_at: '2026-10-18T00:00:00Z',
+      revision: 4, draft_selected_photo_ids: [10], submitted: false,
+      items: [{ id: 1, selection_set_id: 1, photo_id: 10 }],
+    })
+    renderWithProviders(<SelectionPage />)
+    expect(await screen.findByText(/最多 2 张，已选 1 张/)).toBeInTheDocument()
+    await userEvent.click(screen.getByText('提交选片'))
+    await waitFor(() => expect(submitSelection).toHaveBeenCalledWith(1, [10], 4))
+  })
+
+  it('keeps local choice on a conflict and offers explicit server reload', async () => {
+    vi.mocked(submitSelection).mockRejectedValueOnce(new Error('Selection changed'))
+    renderWithProviders(<SelectionPage />)
+    await screen.findByText('照片 10')
+    await userEvent.click(screen.getByText('照片 10'))
+    await userEvent.click(screen.getByText('提交选片'))
+    expect(await screen.findByRole('alert')).toHaveTextContent('Selection changed')
+    expect(screen.getByRole('status')).toHaveTextContent('已选 1 张')
+    await userEvent.click(screen.getByText('重新加载服务端选择'))
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument())
+  })
+
   it('renders page title', async () => {
     renderWithProviders(<SelectionPage />)
     expect(await screen.findByRole('heading', { name: '选片' })).toBeInTheDocument()

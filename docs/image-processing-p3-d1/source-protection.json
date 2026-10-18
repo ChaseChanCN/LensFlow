@@ -1,0 +1,18 @@
+{
+  "snapshot_files_excluding_caches": 336,
+  "unchanged_files": 332,
+  "expected_changed_existing_files": [
+    "backend/app/core/database.py",
+    "backend/scripts/test_postgres.py",
+    "backend/tests/postgres/test_migrations.py",
+    "backend/tests/postgres/test_sandbox_guards.py"
+  ],
+  "unexpected_changed_files": [],
+  "development_sqlite_revision": "5e0b2fd720d3",
+  "development_sqlite_sha256": "5c923e9d00775cc54a40d44e00c718146bc4858767fe5474fbadff5b757d1fef",
+  "development_sqlite_byte_identical": true,
+  "real_jpeg_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "migration_files_unchanged": true,
+  "frontend_particles_design_system_unchanged": true,
+  "snapshot_note": "Unrelated-source protection snapshot was captured after the first sandbox-only guard hardening; sandbox is explicitly in the allowed change list."
+}

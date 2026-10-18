@@ -1,11 +1,16 @@
 """Retouch API routes: S5-T05, S5-T06."""
 
-
 from fastapi import APIRouter, Depends, UploadFile
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
-from app.core.exceptions import ConflictException, NotFoundException, ValidationException
+from app.core.exceptions import (
+    ConflictException,
+    ForbiddenException,
+    NotFoundException,
+    ValidationException,
+)
 from app.deps import require_role
 from app.models.order import Order, OrderTimeline
 from app.models.retouch import RetouchFeedback, RetouchTask, RetouchVersion
@@ -17,6 +22,8 @@ from app.schemas.retouch import (
     RetouchTaskStatusUpdateRequest,
     RetouchVersionResponse,
 )
+from app.services.customer_media import HEADERS
+from app.services.customer_workflow import order_access
 from app.services.notification_service import send_notification
 from app.services.order_state import OrderStateMachine, OrderStatus
 from app.services.storage import get_storage
@@ -36,6 +43,7 @@ def list_retouch_tasks(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
+    order_access(db, order_id, current_user)
     return (
         db.query(RetouchTask)
         .filter(RetouchTask.order_id == order_id)
@@ -58,11 +66,12 @@ async def upload_retouch_version(
     task = db.query(RetouchTask).filter(RetouchTask.id == task_id).first()
     if not task:
         raise NotFoundException("RetouchTask")
+    order_access(db, task.order_id, current_user, lock=True)
 
     if file.content_type not in ALLOWED_MIME:
         raise ValidationException(detail="Only JPEG/PNG images are supported")
 
-    content = await file.read()
+    content = await file.read(MAX_FILE_SIZE + 1)
     if len(content) > MAX_FILE_SIZE:
         raise ValidationException(detail="File size exceeds 20MB limit")
     if len(content) == 0:
@@ -72,9 +81,7 @@ async def upload_retouch_version(
     storage_key = storage.save(file.filename or "retouch.jpg", content, file.content_type)
 
     version_count = (
-        db.query(RetouchVersion)
-        .filter(RetouchVersion.retouch_task_id == task_id)
-        .count()
+        db.query(RetouchVersion).filter(RetouchVersion.retouch_task_id == task_id).count()
     )
     version_no = version_count + 1
 
@@ -119,6 +126,28 @@ def list_retouch_versions(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
+    task = db.get(RetouchTask, task_id)
+    if not task:
+        raise NotFoundException("RetouchTask")
+    order_access(db, task.order_id, current_user)
+    if current_user.role == "client":
+        if task.status not in ("preview_uploaded", "confirmed", "rejected"):
+            return JSONResponse([], headers=HEADERS)
+        versions = (
+            db.query(RetouchVersion)
+            .filter_by(retouch_task_id=task_id)
+            .order_by(RetouchVersion.version_no)
+            .all()
+        )
+        return JSONResponse(
+            [
+                RetouchVersionResponse.model_validate(v).model_dump(
+                    mode="json", exclude={"storage_key"}
+                )
+                for v in versions
+            ],
+            headers=HEADERS,
+        )
     return (
         db.query(RetouchVersion)
         .filter(RetouchVersion.retouch_task_id == task_id)
@@ -141,6 +170,7 @@ def create_feedback(
     task = db.query(RetouchTask).filter(RetouchTask.id == task_id).first()
     if not task:
         raise NotFoundException("RetouchTask")
+    order_access(db, task.order_id, current_user, lock=True)
 
     latest_version = (
         db.query(RetouchVersion)
@@ -197,6 +227,10 @@ def update_task_status(
     task = db.query(RetouchTask).filter(RetouchTask.id == task_id).first()
     if not task:
         raise NotFoundException("RetouchTask")
+    order_access(db, task.order_id, current_user, lock=True)
+
+    if current_user.role == "client" and req.status not in ("confirmed", "rejected"):
+        raise ForbiddenException("Customers may only confirm or reject published work")
 
     valid_statuses = ("pending", "in_progress", "preview_uploaded", "confirmed", "rejected")
     if req.status not in valid_statuses:
@@ -209,11 +243,7 @@ def update_task_status(
 
         order = db.query(Order).filter(Order.id == task.order_id).first()
         if order and order.status == OrderStatus.RETOUCHING.value:
-            all_tasks = (
-                db.query(RetouchTask)
-                .filter(RetouchTask.order_id == order.id)
-                .all()
-            )
+            all_tasks = db.query(RetouchTask).filter(RetouchTask.order_id == order.id).all()
             if all(t.status == "confirmed" for t in all_tasks):
                 old_status = order.status
                 new_status = OrderStateMachine.transition(
@@ -251,6 +281,10 @@ def list_feedback(
     current_user: User = Depends(require_role("photographer", "client")),
     db: Session = Depends(get_db),
 ):
+    task = db.get(RetouchTask, task_id)
+    if not task:
+        raise NotFoundException("RetouchTask")
+    order_access(db, task.order_id, current_user)
     return (
         db.query(RetouchFeedback)
         .filter(RetouchFeedback.retouch_task_id == task_id)
@@ -268,9 +302,9 @@ def confirm_all_retouch(
     current_user: User = Depends(require_role("client")),
     db: Session = Depends(get_db),
 ):
-    order = db.query(Order).filter(Order.id == order_id).first()
-    if not order:
-        raise NotFoundException("Order")
+    order = order_access(db, order_id, current_user, lock=True)
+    if not db.query(RetouchTask.id).filter_by(order_id=order_id).first():
+        raise NotFoundException("RetouchTask")
 
     if order.status == OrderStatus.RETOUCHING.value:
         old_status = order.status
@@ -310,21 +344,13 @@ def confirm_all_retouch(
     )
     db.add(timeline)
 
-    tasks = (
-        db.query(RetouchTask)
-        .filter(RetouchTask.order_id == order_id)
-        .all()
-    )
+    tasks = db.query(RetouchTask).filter(RetouchTask.order_id == order_id).all()
     for task in tasks:
         task.status = "confirmed"
 
     db.commit()
 
-    first_task = (
-        db.query(RetouchTask)
-        .filter(RetouchTask.order_id == order_id)
-        .first()
-    )
+    first_task = db.query(RetouchTask).filter(RetouchTask.order_id == order_id).first()
     if first_task:
         db.refresh(first_task)
         return first_task

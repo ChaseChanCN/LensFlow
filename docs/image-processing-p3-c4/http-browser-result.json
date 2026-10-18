@@ -1,0 +1,7 @@
+{
+  "job": "http-browser",
+  "exit_code": 1,
+  "seconds": 5.69,
+  "database_removed": true,
+  "temp_removed": true
+}

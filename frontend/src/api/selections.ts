@@ -14,6 +14,9 @@ export interface SelectionSet {
   published_at: string | null
   created_at: string
   items: SelectionItem[]
+  revision?: number
+  draft_selected_photo_ids?: number[]
+  submitted?: boolean
 }
 
 export interface SelectionSubmission {
@@ -48,10 +51,11 @@ export async function getOrderSelectionSet(orderId: number): Promise<SelectionSe
 export async function submitSelection(
   selectionSetId: number,
   selectedPhotoIds: number[],
+  expectedRevision = 0,
 ): Promise<SelectionSubmission> {
   const resp = await client.post(
     `/api/v1/selection-sets/${selectionSetId}/submit`,
-    { selected_photo_ids: selectedPhotoIds },
+    { selected_photo_ids: selectedPhotoIds, expected_revision: expectedRevision },
   )
   return resp.data
 }

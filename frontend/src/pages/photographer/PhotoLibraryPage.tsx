@@ -3,6 +3,8 @@ import {selectAsset,reconcileSelection} from '@/components/photo-library/selecti
 import {BatchToolbar} from '@/components/photo-library/BatchToolbar'
 import {FilterBar} from '@/components/photo-library/FilterBar'
 import {MetadataTools} from '@/components/photo-library/MetadataTools'
+import {KeywordTools} from '@/components/photo-library/KeywordTools'
+import {MetadataBatch} from '@/components/photo-library/MetadataBatch'
 import {parseFilters,serializeFilters,editorPath,lightTablePath,sensitiveCatalog,type CatalogFilters} from '@/utils/catalogFilters'
 import { useCallback,useEffect,useLayoutEffect,useMemo,useRef,useState } from 'react'
 import { useNavigate,useParams,useSearchParams } from 'react-router-dom'
@@ -61,14 +63,17 @@ function CatalogSession({userId,orderId,pool,filters,restore,onFilters}:{userId:
   },[items])
   const {hasNextPage,isFetchingNextPage,isFetchNextPageError,fetchNextPage}=query
   const more=useCallback(()=>{if(hasNextPage&&!isFetchingNextPage&&!isFetchNextPageError)void fetchNextPage({cancelRefetch:false})},[hasNextPage,isFetchingNextPage,isFetchNextPageError,fetchNextPage])
+  const descriptiveSaved=()=>{void queryClient.invalidateQueries({queryKey:['keyword-status',userId,orderId]});void queryClient.resetQueries({predicate:q=>q.queryKey[0]==='photo-catalog'&&q.queryKey[1]===userId&&q.queryKey[2]===orderId&&typeof q.queryKey[3]==='string'&&new URLSearchParams(q.queryKey[3]).has('keywords')})}
   return <Layout><LargeTitle title="照片图库" subtitle={`订单 #${orderId} · 原始照片`} action={<Button variant="plain" onClick={()=>navigate(`/orders/${orderId}`)}>← 返回订单</Button>}/>
     <div className="asset-library">
       <FilterBar value={filters} onChange={onFilters} disabled={annotationBlocked}/>
       <MetadataTools userId={userId} orderId={orderId} value={filters} onChange={onFilters} disabled={annotationBlocked}/>
+      <KeywordTools userId={userId} orderId={orderId} value={filters} onChange={onFilters} disabled={annotationBlocked}/>
       <div className="flex gap-2 mb-4"><Button variant="plain" onClick={()=>navigate(`/orders/${orderId}/upload`)}>上传照片</Button><Button variant="plain" disabled={query.isFetching||annotations.busy} onClick={()=>{positions.delete(key);setInitial({...view.current,offset:0});void queryClient.resetQueries({queryKey:catalogKey(userId,orderId,filters),exact:true})}}>刷新图库</Button></div>
       {query.isPending?<LoadingState label="正在读取照片目录"/>:query.isError&&!items.length?<ErrorState title={imageErrorMessage(query.error)} onRetry={()=>{void query.refetch()}}/>:!items.length?<EmptyState title={signature?"没有符合条件的照片":"暂无照片"} description={signature?"调整或重置查询条件后重试。":"上传 JPEG 后即可在图库浏览。"}/>:<>
         <Button variant="plain" disabled={validSelection.size!==2||annotationBlocked} onClick={()=>navigate(lightTablePath(orderId,[...validSelection] as [number,number],signature))}>灯箱比较（选择两张）</Button>
         <BatchToolbar assets={items.filter(a=>validSelection.has(a.id))} busy={annotationBlocked} onChange={changes=>{void annotate([...validSelection],changes)}} onAll={()=>setSelected(new Set(items.map(a=>a.id)))} onClear={()=>setSelected(new Set())}/>
+        <MetadataBatch ids={[...validSelection]} disabled={annotationBlocked} onSaved={descriptiveSaved}/>
         <p className="asset-library-note">单击选择 · Ctrl/Cmd 切换 · Shift 范围 · 双击或“查看”打开 · 0–5 评分，P 保留 / X 拒绝 / U 清除标记。全选仅含已加载照片。</p>
         <AssetGrid selected={validSelection} onSelect={select} onMetadata={annotate} busy={annotationBlocked} items={items} pool={pool} hasMore={!!query.hasNextPage} fetching={query.isFetchingNextPage} onMore={more} onOpen={asset=>setViewer(asset.id)} initial={initial} onViewState={saveView}/>
         {query.isFetchNextPageError&&<div role="alert">下一页加载失败，已加载的照片仍可浏览。<Button variant="plain" onClick={()=>{void query.fetchNextPage({cancelRefetch:false})}}>重试下一页</Button></div>}
@@ -76,6 +81,6 @@ function CatalogSession({userId,orderId,pool,filters,restore,onFilters}:{userId:
     </div>
     <div role="status" aria-live="polite">{annotations.busy?'正在保存… ':''}{annotations.progress}</div>
     {!!annotations.issues.length&&<div role="alert"><p>{annotations.issues.length} 张标记未完成。成功项已保留。</p><ul>{annotations.issues.slice(0,10).map(issue=><li key={issue.id}>{items.find(a=>a.id===issue.id)?.filename??`照片 #${issue.id}`}：{issue.message}</li>)}</ul>{annotations.issues.length>10&&<p>其余 {annotations.issues.length-10} 张一并包含在重试范围中。</p>}<Button disabled={annotations.busy} onClick={annotations.retry}>读取最新版本并重试失败项</Button><Button variant="plain" disabled={annotations.busy} onClick={annotations.dismiss}>保留服务器值，关闭提示</Button></div>}
-    {viewer!==null&&<PhotoViewer onMetadata={annotate} busy={annotationBlocked} notice={annotations.busy?'正在保存标记…':annotations.issues.length?'标记未完成。请关闭查看器，在图库选择读取最新版本重试或保留服务器值。':undefined} items={items} id={viewer} onSelect={setViewer} onClose={()=>setViewer(null)} onEdit={asset=>navigate(editorPath(orderId,asset.id,signature))}/>}
+    {viewer!==null&&<PhotoViewer onDescriptiveSaved={descriptiveSaved} onMetadata={annotate} busy={annotationBlocked} notice={annotations.busy?'正在保存标记…':annotations.issues.length?'标记未完成。请关闭查看器，在图库选择读取最新版本重试或保留服务器值。':undefined} items={items} id={viewer} onSelect={setViewer} onClose={()=>setViewer(null)} onEdit={asset=>navigate(editorPath(orderId,asset.id,signature))}/>}
   </Layout>
 }
