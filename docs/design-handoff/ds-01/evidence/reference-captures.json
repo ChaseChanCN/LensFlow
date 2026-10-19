@@ -1,0 +1,410 @@
+{
+  "captureDate": "2026-10-18",
+  "completedDate": "2026-10-19",
+  "limitations": [
+    "桌面JPEG不覆盖完整CSS宽度；不得按图像像素反推CSS尺寸。",
+    "手机是Web浏览器viewport覆盖，不是微信实机。",
+    "并发更新记录在repository-verification.json；源码指纹在source-snapshot.json。"
+  ],
+  "captures": [
+    {
+      "file": "references/01-home-dark.jpg",
+      "page": "/",
+      "theme": "dark",
+      "state": "品牌hero可见区域",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "c9d392954ac6cbc44118010a4aa8fddb772b14597a98485ee7ec49458ba67605",
+      "savedAt": "2026-10-18T11:48:22.176Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/LandingPage.tsx",
+        "frontend/src/components/material/ParticlePortrait.tsx"
+      ]
+    },
+    {
+      "file": "references/02-home-light.jpg",
+      "page": "/",
+      "theme": "light",
+      "state": "浅色hero可见区域",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "00563c88523e56d44752b745c06cae61787db183702991298f0cdf7cd8af2896",
+      "savedAt": "2026-10-18T11:48:25.799Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/LandingPage.tsx",
+        "frontend/src/components/material/ParticlePortrait.tsx"
+      ]
+    },
+    {
+      "file": "references/03-login-light.jpg",
+      "page": "/login",
+      "theme": "light",
+      "state": "演示填写表单，右侧局部",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "100528a85743741ffc59e0076c76a2ae3912340c31b7a34493b334104250f9f7",
+      "savedAt": "2026-10-18T11:48:42.030Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/auth/LoginPage.tsx",
+        "frontend/src/components/ui/Input.tsx",
+        "frontend/src/components/ui/Button.tsx"
+      ]
+    },
+    {
+      "file": "references/04-dashboard-light.jpg",
+      "page": "/dashboard",
+      "theme": "light",
+      "state": "工作台统计及预约局部",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "3cf31c1cd61cc8467ddc9f40486e17fb73873d362351f0becaebc500a191a499",
+      "savedAt": "2026-10-18T11:48:43.609Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/photographer/DashboardPage.tsx"
+      ]
+    },
+    {
+      "file": "references/05-dashboard-dark.jpg",
+      "page": "/dashboard",
+      "theme": "dark",
+      "state": "工作台标题与统计局部",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "77d0720f3f53fa2f009d0c7cc4409318c7433903c37a3e14282f34d9122ba28e",
+      "savedAt": "2026-10-18T11:48:45.353Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/photographer/DashboardPage.tsx"
+      ]
+    },
+    {
+      "file": "references/06-library-dark.jpg",
+      "page": "/orders/91001/library",
+      "theme": "dark",
+      "state": "图库滚动到照片区",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "39dd0795ce8d420034186d9e428a238adb48235da5200c3230a1c5df68c7565f",
+      "savedAt": "2026-10-18T11:48:49.809Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/photographer/PhotoLibraryPage.tsx",
+        "frontend/src/components/photo-library/AssetGrid.tsx"
+      ]
+    },
+    {
+      "file": "references/07-viewer-dark.jpg",
+      "page": "/orders/91001/library",
+      "theme": "dark",
+      "state": "PhotoViewer覆盖层",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 979,
+        "height": 720
+      },
+      "imageFormat": "JPEG",
+      "sha256": "b1ff2e8a071af1542e7a975dea21af2e4e297abd241fd3a990ae70d10b5ef3b9",
+      "savedAt": "2026-10-18T11:48:50.832Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/components/photo-library/PhotoViewer.tsx",
+        "frontend/src/components/ui/Modal.tsx"
+      ]
+    },
+    {
+      "file": "references/08-booking-dark.jpg",
+      "page": "/booking",
+      "theme": "dark",
+      "state": "桌面预约字段",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "5eb23a8ebba701b663ec08fcc3c540d63f953007bd5fe3956e750db51b9ba0b2",
+      "savedAt": "2026-10-18T11:48:08.006Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/client/BookingPage.tsx"
+      ]
+    },
+    {
+      "file": "references/09-client-dark.jpg",
+      "page": "/client",
+      "theme": "dark",
+      "state": "客户快捷入口与预约",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "095409368db93f673ee4062b5e3e5b1be39dd47e40806e31b7a1cfcf81a2a144",
+      "savedAt": "2026-10-18T11:48:07.335Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/client/ClientPage.tsx"
+      ]
+    },
+    {
+      "file": "references/10-client-light.jpg",
+      "page": "/client",
+      "theme": "light",
+      "state": "客户快捷入口与预约",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 968,
+        "height": 712
+      },
+      "imageFormat": "JPEG",
+      "sha256": "4ca8628d8471d017c3fc4d505b43f1b378210a9855e5cf56133a5f602be4485d",
+      "savedAt": "2026-10-18T11:48:06.847Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/client/ClientPage.tsx"
+      ]
+    },
+    {
+      "file": "references/11-selection-light.jpg",
+      "page": "/orders/91001/selection",
+      "theme": "light",
+      "state": "已选1/3的编号卡片，无照片节点",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 979,
+        "height": 720
+      },
+      "imageFormat": "JPEG",
+      "sha256": "a7244031a00de16a126361a8aee880ea6163925408b5710a175542980b726355",
+      "savedAt": "2026-10-18T11:48:06.123Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/client/SelectionPage.tsx"
+      ]
+    },
+    {
+      "file": "references/12-delivery-empty-light.jpg",
+      "page": "/orders/91001/delivery",
+      "theme": "light",
+      "state": "演示交付404后的真实空态",
+      "cssViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "imageSize": {
+        "width": 979,
+        "height": 720
+      },
+      "imageFormat": "JPEG",
+      "sha256": "960be484af8beb325211d6cfbdb67712c93eb566ee14899e9967d302b1cc4d75",
+      "savedAt": "2026-10-18T11:47:54.645Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/client/DeliveryPage.tsx"
+      ]
+    },
+    {
+      "file": "references/13-booking-mobile-dark.jpg",
+      "page": "/booking",
+      "theme": "dark",
+      "state": "手机纵向字段",
+      "cssViewport": {
+        "width": 375,
+        "height": 812
+      },
+      "imageSize": {
+        "width": 360,
+        "height": 779
+      },
+      "imageFormat": "JPEG",
+      "sha256": "0eeec8326d0bf7b8f8e69022e9b9eb5f35a7a6a23f5284871a49f7c58a36241c",
+      "savedAt": "2026-10-18T11:48:18.531Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/client/BookingPage.tsx"
+      ]
+    },
+    {
+      "file": "references/14-home-mobile-light.jpg",
+      "page": "/",
+      "theme": "light",
+      "state": "手机上图下文",
+      "cssViewport": {
+        "width": 375,
+        "height": 812
+      },
+      "imageSize": {
+        "width": 360,
+        "height": 779
+      },
+      "imageFormat": "JPEG",
+      "sha256": "8a0ca5dad8d5c5e2d747519d05042553db965c16eda8fe84aa4a371e3158c319",
+      "savedAt": "2026-10-18T11:48:26.433Z",
+      "evidence": "VERIFIED_RENDER",
+      "captureMethod": "CUA IAB实际页面截图，工具返回原始JPEG字节，未加工；扩展名已按文件签名更名，返回可见区域与CSS视口不等，存在缩放／截断。",
+      "build": {
+        "mode": "development",
+        "vite": "8.3.4",
+        "baseHead": "ea7cec43d297d6602f95b33b5c917d622c4b458f",
+        "workingTree": "包含开始前既有改动及并发工作区更新；不是不可变生产构建。"
+      },
+      "sources": [
+        "frontend/src/pages/LandingPage.tsx",
+        "frontend/src/components/material/ParticlePortrait.tsx"
+      ]
+    }
+  ]
+}

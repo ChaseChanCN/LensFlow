@@ -1,0 +1,50 @@
+{
+  "preexisting_databases": 3,
+  "identity_locale_inventory_unchanged": true,
+  "remaining_new_databases": [],
+  "oldest_preexisting_inventory_unchanged_across_restart": true,
+  "jobs": [
+    {
+      "job": "http-final",
+      "exit_code": 0,
+      "seconds": 48.94,
+      "database_removed": true,
+      "temp_removed": true
+    },
+    {
+      "job": "http",
+      "exit_code": 1,
+      "seconds": 30.19,
+      "database_removed": true,
+      "temp_removed": true
+    },
+    {
+      "job": "http-verified",
+      "exit_code": 0,
+      "seconds": 39.7,
+      "database_removed": true,
+      "temp_removed": true
+    },
+    {
+      "job": "postgres-complete",
+      "exit_code": 0,
+      "seconds": 324.81,
+      "database_removed": true,
+      "temp_removed": true
+    },
+    {
+      "job": "postgres-d2",
+      "exit_code": 0,
+      "seconds": 71.31,
+      "database_removed": true,
+      "temp_removed": true
+    },
+    {
+      "job": "postgres-final",
+      "exit_code": 0,
+      "seconds": 106.39,
+      "database_removed": true,
+      "temp_removed": true
+    }
+  ]
+}

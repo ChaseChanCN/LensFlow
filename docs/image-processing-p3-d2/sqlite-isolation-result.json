@@ -1,0 +1,8 @@
+{
+  "database": "C:/Users/Chase/AppData/Local/Temp/lensflow-pytest-73nqg5tu/test.sqlite",
+  "root": "C:\\Users\\Chase\\AppData\\Local\\Temp\\lensflow-pytest-73nqg5tu",
+  "passed": 3,
+  "root_removed": true,
+  "database_removed": true,
+  "storage_isolated_by_fixture": true
+}

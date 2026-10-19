@@ -1,0 +1,9 @@
+{
+  "source": "real TCP, loopback, 1001 real catalog rows",
+  "pages": 21,
+  "min_ms": 22.75,
+  "median_ms": 46.75,
+  "max_ms": 86.95,
+  "page_size": 50,
+  "not_a_production_sla": true
+}

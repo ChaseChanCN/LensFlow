@@ -1,0 +1,44 @@
+{
+  "baseline_files": 301,
+  "intended_modified_files": [
+    "backend/app/api/v1/bookings.py",
+    "backend/app/api/v1/deliveries.py",
+    "backend/app/api/v1/orders.py",
+    "backend/app/api/v1/photos.py",
+    "backend/app/api/v1/retouch.py",
+    "backend/app/api/v1/selections.py",
+    "backend/app/core/exceptions.py",
+    "backend/app/deps.py",
+    "backend/app/main.py",
+    "backend/app/models/__init__.py",
+    "backend/app/schemas/booking.py",
+    "backend/app/schemas/selection.py",
+    "backend/app/services/schema_readiness.py",
+    "backend/app/services/storage.py",
+    "frontend/src/api/deliveries.ts",
+    "frontend/src/api/selections.ts",
+    "frontend/src/pages/DesignSystemMigration.test.tsx",
+    "frontend/src/pages/client/SelectionPage.test.tsx",
+    "frontend/src/pages/client/SelectionPage.tsx"
+  ],
+  "other_preexisting_files_verified_unchanged": 282,
+  "protected_group_counts": {
+    "frontend/src/": 189,
+    "frontend/public/": 13,
+    "backend/storage_local/": 1,
+    "backend/alembic/versions/": 6
+  },
+  "development_databases": [
+    {
+      "filename": "lensflow.db",
+      "revision": "5e0b2fd720d3",
+      "sha256": "5c923e9d00775cc54a40d44e00c718146bc4858767fe5474fbadff5b757d1fef",
+      "unchanged": true
+    }
+  ],
+  "real_jpeg_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+  "external_repositories_written": false,
+  "original_migrations_unchanged": true,
+  "frontend_global_design_and_particle_sources_unchanged": true,
+  "image_processing_algorithms_unchanged": true
+}

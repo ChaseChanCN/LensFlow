@@ -1,0 +1,414 @@
+{
+  "collectedAt": "2026-10-19T02:27:34.007Z",
+  "note": "交付核验时的相关来源指纹；当前文件若与开始基线不同会明确列出。不是截图时源码不可变快照，也不记录凭据。",
+  "files": [
+    {
+      "file": "backend/tests/fixtures/README.md",
+      "sha256": "245e11d482cec8d1d0c1300ad3d5333dc5392a7aa6e436cd72768f1738f03d82",
+      "lineCount": 12,
+      "changedSinceStart": false
+    },
+    {
+      "file": "backend/tests/fixtures/grace_hopper.jpg",
+      "sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a",
+      "lineCount": null,
+      "changedSinceStart": false
+    },
+    {
+      "file": "docs/design-system-phase-5.md",
+      "sha256": "c89f88e5f58c554d4200351733fbb3791417d1befddd213d37582f75b6681bf8",
+      "lineCount": 93,
+      "changedSinceStart": false
+    },
+    {
+      "file": "docs/design-system.md",
+      "sha256": "ece605b52bfd4e98e97f36a7ff032794a6feed62fe4d6d7c6e95bc4e5c811e66",
+      "lineCount": 31,
+      "changedSinceStart": false
+    },
+    {
+      "file": "docs/design-tokens.md",
+      "sha256": "3198bad638bb61dea73745a194a32e8fb82131767c64dc9d7cbc27e9ee53618c",
+      "lineCount": 81,
+      "changedSinceStart": false
+    },
+    {
+      "file": "docs/material-ui-site-rollout.md",
+      "sha256": "68c46c1acf4e61d2e538a3cc461488f65f30b5c97484059dabd23624e3ba8a69",
+      "lineCount": 62,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/package.json",
+      "sha256": "7fa06659b07f683b8225f640ec49d8e2023e18911a9271b7ca17d93e02e45f19",
+      "lineCount": 52,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/App.tsx",
+      "sha256": "2f92a0f34719754d85e5c42f012074cb27f60bd94cad8c91bc53f0576092ec9c",
+      "lineCount": 140,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/api/deliveries.ts",
+      "sha256": "f21d9c644dab539ed38e2b5e2a0ac2062e175199f17015cc4ec8b92dbbfad13c",
+      "lineCount": 43,
+      "changedSinceStart": true
+    },
+    {
+      "file": "frontend/src/api/imageEdit.ts",
+      "sha256": "d944587e391653006d202e93d68695b38940a98e4788e3213aa9e1656bf1ee00",
+      "lineCount": 55,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/api/photoCatalog.ts",
+      "sha256": "1e41d125b7f2ca99fe450b780688dcc0b083494aeba329c1e1482638bae9d21b",
+      "lineCount": 39,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/api/selections.ts",
+      "sha256": "d2e96c125bfc9b93b1a38cc594a3158bb95f914c61f545cffd6e84112ee12ca8",
+      "lineCount": 71,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/Layout.tsx",
+      "sha256": "f4c8687af5800bf06523ac2c17de6d501f705da1b51ff4dbf759edc133674066",
+      "lineCount": 82,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/effects/EffectSurfaces.tsx",
+      "sha256": "1f4a6cdb7d4071fcc43aa929cb85fe9d4ce9d90556ad56d75144e8219bf2f6e7",
+      "lineCount": 44,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/effects/QuickActions.tsx",
+      "sha256": "7047c20dc5b6843fb68a3310681f94274bf35ddb3d40bafcd04d80411b25c690",
+      "lineCount": 22,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/effects/card-cursor-glow.css",
+      "sha256": "939516177cd33369e588055630fcefe44b40152218838ed861671ca55299eef4",
+      "lineCount": 15,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/effects/effects.css",
+      "sha256": "65a8dfc44dc6700c239e56e5615684ee25d3f54f2a3a1fd91cf9139220e9f9d1",
+      "lineCount": 35,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/effects/presets.ts",
+      "sha256": "79e09591df53bdb24594f91ef1196d1e571066eef5698cec8d371db0bde29278",
+      "lineCount": 25,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/effects/useEffectMotion.ts",
+      "sha256": "6f36d29bc5faed5cd5df2fb8d07f9fbe27146e223978ecf4ddfa583dd57f5aa7",
+      "lineCount": 15,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/MaterialScope.tsx",
+      "sha256": "569bc02b0e61ee83fbeff3b93d7df0953075f8663303338430ac0ef8de0e04ac",
+      "lineCount": 30,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/MaterialTheme.ts",
+      "sha256": "941b8a6dfa7b2c3a2dadb4fe4c21f9a465264e1e4d166713c0e752dbca3d43ed",
+      "lineCount": 6,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/ParticlePortrait.tsx",
+      "sha256": "9ba30fa0c291015123e1a440817ec343dd3136fc463427bd490856d9b6ddfd14",
+      "lineCount": 51,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/PublicShell.tsx",
+      "sha256": "d310506bfc4e4c762856af912ca00f738979b78c89d7736092510fd8c12e868f",
+      "lineCount": 16,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/ThemeToggle.tsx",
+      "sha256": "3e31241813c187fedaf0fc6a115bbd2f81dc75744a24a0796e867204d39653fa",
+      "lineCount": 10,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/material.css",
+      "sha256": "6c01885d7008729625fe13bef6a11aadf58618bca32bc8f4515f1889aa27751b",
+      "lineCount": 162,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/material/site.css",
+      "sha256": "4db41b2c2f3111064bf1c8747246e0ab1f15da19c6a0cc5c15354058f9922ba0",
+      "lineCount": 81,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-editor/DraftStatus.tsx",
+      "sha256": "1cd6e3ddf6e70fb1b67ffd6d59cc607c6404dda2008f17566ba9936503843c29",
+      "lineCount": 17,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-editor/PhotoViewport.tsx",
+      "sha256": "09fc8fe8df989a0ec06d8ab3b477277f48fecf417e3ff8ba3a2f8fc28ae3fe74",
+      "lineCount": 98,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-editor/PhotoWorkbench.tsx",
+      "sha256": "70319f7387609ad6036f7af37547236de10512f2be65406dca50334dc974faeb",
+      "lineCount": 55,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-editor/photo-editor.css",
+      "sha256": "7a1bf4ecb0ce13105dc29399b329611a578ca9eac0306c48302b160589b4aa10",
+      "lineCount": 38,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/AssetGrid.tsx",
+      "sha256": "b776e1f51d91d595b0c42e3eba2685fd174270edd2ae25c6f39087cd87596e0a",
+      "lineCount": 85,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/AssetThumbnail.tsx",
+      "sha256": "50ff0bc8a42ec3b678dc3bf42a6ed4a6f9c1d506d79c701ebbd3d38354d01de6",
+      "lineCount": 10,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/DescriptiveMetadata.tsx",
+      "sha256": "b45ee1b55930d5272463930afa683d8f41e87ef314098df14472429e8b599b5e",
+      "lineCount": 70,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/KeywordTools.tsx",
+      "sha256": "0b1d3e7beb38d778866473f64d77d0a794ecbf9428b799a666f84b50bb471017",
+      "lineCount": 38,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/MetadataDetails.tsx",
+      "sha256": "587ff94e79f9f114b523dd93e572c6930bdd58010ad072d1ff43a26fbbd75ac0",
+      "lineCount": 54,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/MetadataTools.tsx",
+      "sha256": "002034ad4c6b502f1782aea8bcd17b914f3d6050c872bb30e0a635e0f67a9d18",
+      "lineCount": 109,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/PhotoViewer.tsx",
+      "sha256": "eb9d4d15db740be23bf930ee62c5bd395fc82fe00b4969da141ed6d0b7adb09a",
+      "lineCount": 38,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/photo-library/photo-library.css",
+      "sha256": "0f3677eef424cbf8cdd0e00fb7b392bebecd14aed1cc12bdbd42a715d2c6958d",
+      "lineCount": 37,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Badge.tsx",
+      "sha256": "3047080ba85a0c824c0344ad2cc23b8a37c466b09ce33f17b7cc44740d9a1c39",
+      "lineCount": 62,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Button.tsx",
+      "sha256": "2acd273a937b0d9cdaa8bf5573140d797dd99dcf17a14faa6c094233abee5aa7",
+      "lineCount": 73,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Card.tsx",
+      "sha256": "c116582db08205b060bd4f70f5019f889ffdcb8e466fad1cd6deb1cf63b50b72",
+      "lineCount": 32,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/EmptyState.tsx",
+      "sha256": "16f53ddb6ab94da14fc699f9f2cd9c2340cbfaf6874a69cc912bb963483fd848",
+      "lineCount": 24,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Input.tsx",
+      "sha256": "660c40a4cdfee9a22f8ddfb9ed43408486e7635cbe3209d15842d81263cf5ed5",
+      "lineCount": 61,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/LargeTitle.tsx",
+      "sha256": "57a6251e54166befa7063f8b02cc299b39bd96a991da2f4c91068edf63eb9780",
+      "lineCount": 22,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/ListGroup.tsx",
+      "sha256": "49aaa07255a353935c7185570d72292016c05d96aaec9026aa8c7dfd68942e0e",
+      "lineCount": 26,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/ListItem.tsx",
+      "sha256": "d76e047a63cef3360b4952c13dce478a93195b1284ced3e8de7a2af6aea05dfc",
+      "lineCount": 60,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Modal.tsx",
+      "sha256": "986c537d1fc8a25911f7c088bd9457e60e72f6044c1ab49b89cb3c0fc310311f",
+      "lineCount": 55,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/PageState.tsx",
+      "sha256": "505739643173dee7ba80cae8abe83532c39d47266b7d5335aeca34784761373b",
+      "lineCount": 11,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Spinner.tsx",
+      "sha256": "0e3361ee98f47f9f231c6ff37fb1747f51d0c3398db1da9b5f0a88e9207b3415",
+      "lineCount": 23,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/Toast.tsx",
+      "sha256": "5aa1ad394c93f2706d8bab121997a75473913efa3b874e77ed8e665ae0293f15",
+      "lineCount": 68,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/components/ui/modalManager.ts",
+      "sha256": "28931fd3c88d4bd235736b5856d6d034b01f78610c012a0c5b676f9c8553805f",
+      "lineCount": 140,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/index.css",
+      "sha256": "c5cc2ee7726608b16be5ea01c4eba259e2662719976639c35108f80fa8adfb92",
+      "lineCount": 242,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/main.tsx",
+      "sha256": "6e9e5807fcbd48b75a96db5cbef36c996262196be42e6d4760dc86babbe61ad2",
+      "lineCount": 11,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/LandingPage.tsx",
+      "sha256": "da208681fbca18cb0143ebf1d2ad18bb965e0c03afbe01289769fe3433a06378",
+      "lineCount": 36,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/auth/LoginPage.tsx",
+      "sha256": "b2e85e174e9e0f10e93cc92e15a9e57500945a536cd7b099ecdab4d3a3cd47b8",
+      "lineCount": 107,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/auth/RegisterPage.tsx",
+      "sha256": "2a84219591343e24028a5fcaf55dca1ba5ca5703f954934cfa1df21974db5db3",
+      "lineCount": 110,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/client/BookingPage.tsx",
+      "sha256": "960526bf38eefcbeb632313d0c5905d6d94c4ccb9461d7ec51dc6b4f9dda4787",
+      "lineCount": 147,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/client/ClientPage.tsx",
+      "sha256": "09c884f8496a36c29e11eaceb56e3662a976974c4d48907cfcce688611922e76",
+      "lineCount": 132,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/client/DeliveryPage.tsx",
+      "sha256": "f9292bfb2fb50dabeedbf99da1ed363166225d819dfb94a04707b6503b124592",
+      "lineCount": 161,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/client/SelectionPage.tsx",
+      "sha256": "c3f667608e7caee0c5c452d87219973c8501b892b2372f6aa77d3012e65c014c",
+      "lineCount": 123,
+      "changedSinceStart": true
+    },
+    {
+      "file": "frontend/src/pages/photographer/DashboardPage.tsx",
+      "sha256": "ec998d45879339c6728af3b462187879e7b25e1fae4538cc9ea75aab5fff7510",
+      "lineCount": 110,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/photographer/LightTablePage.tsx",
+      "sha256": "c3654cfdda645e8aa2746383e8221042206137fb06c87508694874c7eda0fa31",
+      "lineCount": 44,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/photographer/OrderDetailPage.tsx",
+      "sha256": "fa690d9ff5c6d0c4c5b9d0c40c8efd0aeb984e53cf5645932044096849a2569a",
+      "lineCount": 162,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/photographer/OrdersPage.tsx",
+      "sha256": "cf7d54905d4c7c1157023347a4959c379f06630d63d57b9e7d9c7b21ca938ba8",
+      "lineCount": 63,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/photographer/PhotoLibraryPage.tsx",
+      "sha256": "7efd5d76d8dc64d3464f971076016cc5f02da1aed8ad102ec3e84a8232422799",
+      "lineCount": 87,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/pages/photographer/UploadPage.tsx",
+      "sha256": "bef7630bfc1727ee9266731e82efe4c26349a1d4e034e2fad5d78e3aef08ed14",
+      "lineCount": 168,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/src/stores/auth.ts",
+      "sha256": "50af01e2d6b38ed7c5e9b471bc20716c789c7f17ae96c584797db8c74b897da8",
+      "lineCount": 48,
+      "changedSinceStart": false
+    },
+    {
+      "file": "frontend/vite.config.ts",
+      "sha256": "6f07c60e47031eb93ef13c2eb1c929773965c995daa7192d0e2c8b108ee4b889",
+      "lineCount": 32,
+      "changedSinceStart": false
+    }
+  ]
+}

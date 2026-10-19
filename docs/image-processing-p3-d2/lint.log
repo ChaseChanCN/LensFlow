@@ -1,0 +1,8 @@
+
+> frontend@0.0.0 lint
+> oxlint
+
+src/components/DarkroomVideoBackground.tsx:21:5: warning react(set-state-in-effect): Calling setState synchronously within an effect can trigger cascading renders help: Effects should synchronize React with external systems. Calling setState synchronously inside an effect starts another render and is usually unnecessary. Derive the value during render, initialize state directly, or update it from the event that caused the change. Use an effect only when synchronizing with an external system.
+src/components/DarkroomVideoBackground.tsx:33:7: warning react(set-state-in-effect): Calling setState synchronously within an effect can trigger cascading renders help: Effects should synchronize React with external systems. Calling setState synchronously inside an effect starts another render and is usually unnecessary. Derive the value during render, initialize state directly, or update it from the event that caused the change. Use an effect only when synchronizing with an external system.
+src/components/photo-library/AssetGrid.tsx:21:17: warning react(incompatible-library): Use of incompatible library help: This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized
+src/components/material/ParticlePortrait.tsx:25:17: warning react-hooks(exhaustive-deps): React Hook useEffect has a missing dependency: 'syncTheme' help: Either include it or remove the dependency array.

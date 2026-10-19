@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "seconds": 172.28,
+  "command": [
+    "C:/Program Files/nodejs/node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--pool=threads",
+    "--maxWorkers=2",
+    "--reporter=default",
+    "--reporter=junit",
+    "--outputFile=C:\\Users\\Chase\\Desktop\\LensFlow\\docs\\image-processing-p3-d2\\frontend-final.xml"
+  ]
+}

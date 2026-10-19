@@ -567,7 +567,9 @@ def test_overlay_migration_sqlite_roundtrip(tmp_path, monkeypatch):
     engine = create_engine("sqlite:///" + path.as_posix())
     assert "photo_metadata_overlays" in inspect(engine).get_table_names()
     with engine.connect() as conn:
-        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == ScriptDirectory.from_config(config).get_current_head()
+        assert conn.scalar(text("SELECT version_num FROM alembic_version")) == (
+            ScriptDirectory.from_config(config).get_current_head()
+        )
     command.downgrade(config, "d5f7a9c1e323")
     assert "photo_metadata_overlays" not in inspect(engine).get_table_names()
     command.upgrade(config, "head")

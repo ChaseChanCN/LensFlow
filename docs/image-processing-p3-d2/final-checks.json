@@ -1,0 +1,27 @@
+[
+  {
+    "name": "sqlite-final",
+    "exit_code": 0,
+    "seconds": 117.88
+  },
+  {
+    "name": "frontend",
+    "exit_code": 1,
+    "seconds": 257.52
+  },
+  {
+    "name": "typescript",
+    "exit_code": 0,
+    "seconds": 26.56
+  },
+  {
+    "name": "build",
+    "exit_code": 0,
+    "seconds": 30.36
+  },
+  {
+    "name": "lint",
+    "exit_code": 0,
+    "seconds": 1.92
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-19T02:27:34.120Z",
+  "auditStartedDate": "2026-10-18",
+  "completedDate": "2026-10-19",
+  "pass": true,
+  "requiredFiles": 12,
+  "markdownFiles": 11,
+  "verifiedTokenCount": 306,
+  "variableDeclarationCount": 271,
+  "componentMetricCount": 35,
+  "proposedMobileTokenCount": 30,
+  "unresolvedTokenCount": 4,
+  "uniqueTokenIds": 340,
+  "localLinksChecked": 106,
+  "explicitSourceMentionsChecked": 329,
+  "sourceHashesVerified": true,
+  "screenshots": 14,
+  "screenshotSignaturesVerified": true,
+  "textPrivacyScan": {
+    "files": 25,
+    "hits": [],
+    "limitation": "静态模式扫描加人工截图查看，不构成全仓库隐私审计。"
+  },
+  "currentContrastPairs": {
+    "passed": 22,
+    "total": 22
+  },
+  "repositoryBaselineComparisonPassed": false,
+  "repositoryProtectionNote": "DS-01全部有意文件写入局限本输出目录；比较结果不归因文件作者。并发变化如实保留。",
+  "backendTestsRun": false,
+  "databaseMigrationsRun": false,
+  "miniProgramImplementationCreated": false,
+  "errors": [],
+  "warnings": [
+    "全仓库开始/结束比较不是通过：检测到并发工作区更新；不可重置或覆盖。详见repository-verification.json。"
+  ]
+}

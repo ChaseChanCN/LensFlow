@@ -1,0 +1,79 @@
+{
+  "backend_core": "implemented_and_verified",
+  "wechat_live_auth": "EXTERNAL_CONFIGURATION_REQUIRED",
+  "client_native_adapter": "not_live_verified",
+  "sqlite_complete": {
+    "complete_collection": true,
+    "mode": "four complete partitions, with exact-node final rerun replacement; both original and rerun XML retained",
+    "files": 38,
+    "nodes": 749,
+    "passed": 590,
+    "skipped": 159,
+    "failures": 0,
+    "errors": 0,
+    "first_round_failed": [
+      [
+        "tests.test_metadata_overlay",
+        "test_overlay_migration_sqlite_roundtrip"
+      ]
+    ],
+    "final_rerun_cases": 65,
+    "duplicate_nodes": false
+  },
+  "sqlite_latest": {
+    "tests": 65,
+    "passed": 64,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "postgres_complete": {
+    "tests": 173,
+    "passed": 173,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "postgres_latest": {
+    "tests": 42,
+    "passed": 42,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "frontend_complete": {
+    "tests": 344,
+    "passed": 344,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "typescript_build_lint": [
+    {
+      "name": "typescript",
+      "exit_code": 0,
+      "seconds": 26.56
+    },
+    {
+      "name": "build",
+      "exit_code": 0,
+      "seconds": 30.36
+    },
+    {
+      "name": "lint",
+      "exit_code": 0,
+      "seconds": 1.92
+    }
+  ],
+  "http": {
+    "real_tcp": true,
+    "requests": 62,
+    "checks": 17,
+    "final_sha256": "e1f57e98cf38076c0f9a058d74ffddf90f20453e436033784606b63c8ed2e49a"
+  },
+  "all_owned_postgres_jobs_cleaned": 6,
+  "preexisting_pg_inventory_unchanged": true,
+  "originals": "see protection.json",
+  "first_failed_rounds_preserved": true,
+  "frontend_worker_startup_failure_resolved_by_complete_threads_rerun": true
+}

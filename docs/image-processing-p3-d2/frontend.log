@@ -1,0 +1,255 @@
+
+ RUN  v5.0.4 C:/Users/Chase/Desktop/LensFlow/frontend
+
+stderr | src/pages/auth/RegisterPage.test.tsx > RegisterPage regression > provides grouped, named fields, autocomplete and keyboard order
+[csstree-match] BREAK after 15000 iterations
+
+ ✓ src/pages/auth/LoginPage.test.tsx (8 tests) 11013ms
+   ✓ LoginPage (8)
+     ✓ uses one monochrome Beam layer and no Metal layer for login 2036ms
+     ✓ supports Tab order and the register link 1074ms
+     ✓ submits with Enter and routes photographer after storing auth 1098ms
+     ✓ submits with Enter and routes client after storing auth 1087ms
+     ✓ submits with Enter and routes admin after storing auth 3059ms
+     ✓ keeps button name, blocks duplicate submission and announces failure before retry 2281ms
+ ✓ src/pages/auth/RegisterPage.test.tsx (5 tests) 15758ms
+   ✓ RegisterPage regression (5)
+     ✓ provides grouped, named fields, autocomplete and keyboard order 3289ms
+     ✓ keeps the register name and guards pending submission 2202ms
+     ✓ preserves client registration and routes to the correct home 4300ms
+     ✓ preserves photographer registration and routes to the correct home 3045ms
+     ✓ keeps the login link and displays a rejected registration 2887ms
+ ✓ src/components/effects/Effects.test.tsx (17 tests) 2630ms
+   ✓ effects pilot adapters (17)
+     ✓ does not initialize an effect when disabled and preserves the button when toggled 1010ms
+     ✓ keeps the real button mounted while metal-renderer initializes 437ms
+     ✓ updates motion preferences and removes subscriptions on unmount 423ms
+ ✓ src/components/photo-library/MetadataTools.test.tsx (6 tests) 3999ms
+   ✓ shows incomplete indexing honestly and applies real device/numeric URL conditions 1274ms
+   ✓ clears unapplied input without submitting it as a new filter 970ms
+   ✓ navigates date buckets and explicit unknown without browser timezone conversion 785ms
+   ✓ continues bounded batches and exposes explicit retry failures 386ms
+   ✓ restarts metadata catalog sequences on generation changes without touching thumbnail data 405ms
+ ✓ src/pages/photographer/DashboardPage.test.tsx (14 tests) 6875ms
+   ✓ DashboardPage (14)
+     ✓ enables only nonzero statistic cards: pending=false active=false 1121ms
+     ✓ enables only nonzero statistic cards: pending=true active=false 758ms
+     ✓ enables only nonzero statistic cards: pending=false active=true 603ms
+     ✓ enables only nonzero statistic cards: pending=true active=true 488ms
+     ✓ does not highlight confirmed bookings or archived/cancelled orders 496ms
+     ✓ opens booking details without nested buttons 443ms
+     ✓ opens orders with 进行中订单 387ms
+     ✓ confirms once, shows loading and invalidates both queries 782ms
+     ✓ announces confirmation errors and permits retry 564ms
+ ✓ src/components/ui/Modal.test.tsx (11 tests) 2605ms
+   ✓ Modal (11)
+     ✓ portals to body, moves initial focus, locks scrolling, restores inert state and opener in StrictMode 778ms
+     ✓ wraps Tab and Shift+Tab while skipping disabled and hidden controls 407ms
+     ✓ closes only the nested top dialog and restores its trigger before restoring the outer trigger 345ms
+     ✓ restores the original trigger when parent and child dialogs unmount together 416ms
+ ✓ src/pages/photographer/LightTablePage.test.tsx (7 tests) 3601ms
+   ✓ loads exactly two authenticated previews and releases bitmaps on Escape return with filters 844ms
+   ✓ independently zooms then synchronizes normalized zoom/pan across different aspect ratios 753ms
+   ✓ rates only the focused panel, suppresses form shortcuts, and preserves context into editor 719ms
+   ✓ releases old target requests and never decodes a late response after changing the comparison pair 649ms
+ ✓ src/pages/photographer/CatalogNavigation.test.tsx (6 tests) 2081ms
+   ✓ restores URL conditions and browser Back/Forward while resetting filter sessions 819ms
+   ✓ opens exactly two selected IDs in the Light Table with canonical return context 635ms
+ ✓ src/components/photo-library/DescriptiveMetadata.test.tsx (6 tests) 2057ms
+   ✓ loads lazily, initializes inherited fields, saves real snapshots and resets revision 964ms
+   ✓ warns before collapsing a dirty form and exports only saved metadata 335ms
+ ✓ src/pages/photographer/OrdersPage.test.tsx (6 tests) 1890ms
+   ✓ OrdersPage (6)
+     ✓ renders title and Spinner while loading without an empty state 483ms
+     ✓ loads orders and navigates by keyboard with back and forward history 646ms
+ ✓ src/components/photo-editor/PhotoViewport.test.tsx (7 tests) 1988ms
+   ✓ coalesces unpainted updates and restores full preview resolution after interaction 988ms
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ ✓ src/pages/client/DeliveryPage.test.tsx (5 tests) 1928ms
+   ✓ DeliveryPage (5)
+     ✓ authenticates download, preserves filename, and blocks duplicate clicks while pending 1303ms
+     ✓ announces failed authenticated downloads and allows retry 352ms
+ ✓ src/components/photo-library/library.test.tsx (4 tests) 1745ms
+   ✓ uses the real virtualizer to bound 1000 cards and preserve geometry through density changes 681ms
+   ✓ scopes shortcuts to the grid, suppresses controls/dialogs and preserves selection on density changes 743ms
+stderr | src/components/ui/Toast.test.tsx > Toast > creates a portal, stacks messages, and does not reset an earlier timer on store updates
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/ui/Toast.test.tsx > Toast > supports default lifetimes and normalizes invalid durations
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/ui/Toast.test.tsx > Toast > keeps persistent messages and runs onClose exactly once on manual or programmatic dismissal
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/ui/Toast.test.tsx > Toast > pauses automatic dismissal while hovered or focused, then grants a fresh reading interval
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/ui/Toast.test.tsx > Toast > keeps notices inside the active modal, then returns them to body when it closes
+An update to ToastViewport inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ✓ src/components/ui/Toast.test.tsx (10 tests) 816ms
+ ✓ src/components/photo-library/MetadataIssues.test.tsx (8 tests) 2048ms
+   ✓ is compact by default and loads only after explicit expansion with honest identity copy 552ms
+ ✓ src/components/ui/Input.test.tsx (10 tests) 1579ms
+   ✓ input fields (3)
+     ✓ associates labels without requiring an id or name and generates unique ids 780ms
+ ✓ src/components/photo-library/PhotoViewer.test.tsx (3 tests) 1781ms
+   ✓ cancels old photos, ignores late responses and releases the active bitmap when viewer closes 1132ms
+   ✓ uses distinct keys for the image and descriptive editor without duplicating the preview 343ms
+ ✓ src/components/photo-editor/controls.test.tsx (5 tests) 856ms
+   ✓ downloads the backend full-size JPEG blob using the clicked parameter snapshot 487ms
+ ✓ src/components/photo-library/MetadataDetails.test.tsx (4 tests) 940ms
+   ✓ does not preload and fetches only when the photographer expands details; renders no GPS or serial 527ms
+ ✓ src/components/photo-library/MetadataBatch.test.tsx (2 tests) 731ms
+   ✓ uses bounded batch writes and retries only conflicts with fresh revisions after confirmation 588ms
+ ✓ src/pages/photographer/PhotoLibraryPage.test.tsx (2 tests) 1641ms
+   ✓ distinguishes empty catalog from loading and failures 466ms
+   ✓ preserves prior pages through next-page errors and retries explicitly 1162ms
+ ✓ src/pages/photographer/PhotoEditorPage.test.tsx (6 tests) 1128ms
+   ✓ loads existing order photos and mounts the selected workbench 621ms
+ ✓ src/pages/photographer/AnalysisResultPage.test.tsx (4 tests) 1096ms
+   ✓ AnalysisResultPage (4)
+     ✓ renders back to upload link 414ms
+ ✓ src/pages/LandingPage.test.tsx (1 test) 999ms
+   ✓ renders the material homepage with named navigation actions 986ms
+ ✓ src/components/ui/PageState.test.tsx (3 tests) 891ms
+   ✓ page feedback and pending actions (3)
+     ✓ names the loading status and supports its default label 442ms
+ ✓ src/components/photo-library/annotations.test.tsx (9 tests) 602ms
+ ✓ src/pages/photographer/RetouchPage.test.tsx (3 tests) 980ms
+   ✓ RetouchPage (3)
+     ✓ renders page title 585ms
+ ✓ src/components/ui/Button.test.tsx (8 tests) 440ms
+   ✓ Button (8)
+     ✓ keeps its accessible name while busy and blocks submission 329ms
+ ✓ src/components/photo-editor/geometryControls.test.tsx (3 tests) 802ms
+   ✓ uses pointer positions relative to the image, coalesces moves, and cancels interrupted gestures 467ms
+   ✓ cancels without history, commits crop once, and geometry/reset are undoable 315ms
+ ✓ src/components/photo-editor/history.test.tsx (3 tests) 659ms
+   ✓ one drag is one undo; reset can be undone and shortcuts leave text editing alone 511ms
+ ✓ src/components/ui/ListItem.test.tsx (3 tests) 530ms
+   ✓ ListItem native element behavior (3)
+     ✓ uses a non-submitting button for clickable rows 357ms
+ ✓ src/components/ui/Feedback.test.tsx (3 tests) 947ms
+   ✓ Spinner (1)
+     ✓ announces loading by default and hides decorative instances 554ms
+ ✓ src/components/material/MaterialScope.test.tsx (3 tests) 988ms
+   ✓ material pilot scope (3)
+     ✓ switches renderer theme, persists the choice and restores it on another page 836ms
+ ✓ src/pages/photographer/UploadPage.test.tsx (4 tests) 1118ms
+   ✓ UploadPage (4)
+     ✓ renders page title 611ms
+ ✓ src/pages/client/BookingPage.test.tsx (3 tests) 1168ms
+   ✓ BookingPage (3)
+     ✓ renders booking form 347ms
+     ✓ has submit button 701ms
+ ✓ src/components/photo-editor/previewHooks.test.tsx (7 tests) 162ms
+ ✓ src/components/photo-library/KeywordTools.test.tsx (1 test) 668ms
+   ✓ shows unknown index membership, rebuilds bounded batches and applies keyword URL state 633ms
+ ✓ src/pages/NotFoundPage.test.tsx (2 tests) 173ms
+ ✓ src/components/ProtectedRoute.test.tsx (2 tests) 115ms
+ ✓ src/utils/imageEdit.test.ts (15 tests) 67ms
+ ✓ src/utils/imageGeometry.test.ts (7 tests) 49ms
+ ✓ src/components/photo-library/ThumbnailPool.test.ts (6 tests) 52ms
+ ✓ src/utils/download.test.ts (1 test) 46ms
+ ✓ src/utils/imageGeometryParity.test.ts (16 tests) 36ms
+ ✓ src/components/photo-editor/DraftSession.test.ts (14 tests) 50ms
+ ✓ src/api/imageEdit.test.ts (8 tests) 45ms
+ ✓ src/api/metadataOverlay.test.ts (4 tests) 42ms
+ ✓ src/api/metadataIndex.test.ts (8 tests) 30ms
+ ✓ src/api/photoCatalog.test.ts (3 tests) 22ms
+ ✓ src/api/photoMetadata.test.ts (3 tests) 18ms
+ ✓ src/utils/metadataFilters.test.ts (3 tests) 22ms
+ ✓ src/utils/catalogFilters.test.ts (4 tests) 26ms
+ ✓ src/components/photo-editor/imageResource.test.ts (3 tests) 16ms
+ ✓ src/api/photoAnnotations.test.ts (3 tests) 37ms
+ ✓ src/api/deliveries.test.ts (1 test) 22ms
+ ✓ src/utils/previewGeometry.test.ts (1 test) 11ms
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 2 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files C:/Users/Chase/Desktop/LensFlow/frontend/src/pages/client/SelectionPage.test.tsx.
+ ❯ node_modules/vitest/dist/chunks/index.B8VfM7Mf.js:5899:94
+ ❯ runNextTicks node:internal/process/task_queues:65:5
+ ❯ listOnTimeout node:internal/timers:644:9
+ ❯ process.processTimers node:internal/timers:618:7
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/index.B8VfM7Mf.js:5899:5
+
+Caused by: Error: [vitest-pool-runner]: Timeout waiting for worker to respond
+ ❯ Timeout.<anonymous> node_modules/vitest/dist/chunks/index.B8VfM7Mf.js:5396:58
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ process.processTimers node:internal/timers:618:7
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files C:/Users/Chase/Desktop/LensFlow/frontend/src/pages/DesignSystemMigration.test.tsx.
+ ❯ node_modules/vitest/dist/chunks/index.B8VfM7Mf.js:5899:94
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/index.B8VfM7Mf.js:5899:5
+
+Caused by: Error: [vitest-pool-runner]: Timeout waiting for worker to respond
+ ❯ Timeout.<anonymous> node_modules/vitest/dist/chunks/index.B8VfM7Mf.js:5396:58
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ process.processTimers node:internal/timers:618:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  56 passed (56)
+      Tests  314 passed (314)
+     Errors  2 errors
+   Start at  10:21:13
+   Duration  243.26s (environment 40%, tests 24%, setup 18%, import 16%, transform 1%, worker 1%)
+
+Environment  jsdom was created 56 times · 138.72s total, 40% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
+JUNIT report written to C:/Users/Chase/Desktop/LensFlow/docs/image-processing-p3-d2/frontend.xml

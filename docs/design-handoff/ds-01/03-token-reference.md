@@ -419,6 +419,6 @@
 - UNRESOLVED：已批准可分发的静态品牌肖像资产尚未在本次交付中提供；JSON值为null，不产生虚构精确值。
 - UNRESOLVED：价格、可预约日期和时段不是设计审计可推定的数据；JSON值为null，不产生虚构精确值。
 
-计数：271 条源码变量声明（含别名和主题覆写），35 个局部实测来源指标，共 306 个 VERIFIED_SOURCE 条目；30 个小程序建议；4 个未决值。VERIFIED_RENDER 以[截图索引](07-reference-index.md)为准，不将全部变量自动升级为渲染核验。
+计数：271 条源码变量声明（含别名和主题覆写），35 个局部源码指标，共 306 个 VERIFIED_SOURCE 条目；30 个小程序建议；4 个未决值。VERIFIED_RENDER 以[截图索引](07-reference-index.md)为准，不将全部变量自动升级为渲染核验。
 
 相关：[源审计](01-source-audit.md) · [组件规格](04-component-specification.md) · [设计漂移](08-design-drift.md) · [交付入口](README.md)。

@@ -1,0 +1,18 @@
+{
+  "complete_collection": true,
+  "mode": "four complete partitions, with exact-node final rerun replacement; both original and rerun XML retained",
+  "files": 38,
+  "nodes": 749,
+  "passed": 590,
+  "skipped": 159,
+  "failures": 0,
+  "errors": 0,
+  "first_round_failed": [
+    [
+      "tests.test_metadata_overlay",
+      "test_overlay_migration_sqlite_roundtrip"
+    ]
+  ],
+  "final_rerun_cases": 65,
+  "duplicate_nodes": false
+}

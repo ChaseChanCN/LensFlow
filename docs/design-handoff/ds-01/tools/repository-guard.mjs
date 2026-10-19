@@ -25,7 +25,7 @@ if(mode==='baseline'){
   const after=snapshot();
   const changed=Object.keys(before.hashes).filter(p=>after.hashes[p]!==before.hashes[p]);
   const added=Object.keys(after.hashes).filter(p=>!(p in before.hashes));
-  const result={capturedAt:after.capturedAt,headUnchanged:before.head===after.head,branchUnchanged:before.branch===after.branch,statusUnchanged:JSON.stringify(before.status)===JSON.stringify(after.status),protectedFiles:Object.keys(before.hashes).length,changedOutsideOutput:changed,addedOutsideOutput:added,pass:changed.length===0&&added.length===0&&before.head===after.head&&before.branch===after.branch&&JSON.stringify(before.status)===JSON.stringify(after.status),scope:'Git 跟踪文件及未忽略的未跟踪文件；不将忽略目录和数据库内容纳入字节证明。DS-01 未启动或调用后端。'};
+  const result={capturedAt:after.capturedAt,baselineHead:before.head,currentHead:after.head,headUnchanged:before.head===after.head,branch:after.branch,branchUnchanged:before.branch===after.branch,statusUnchanged:JSON.stringify(before.status)===JSON.stringify(after.status),baselineStatusEntries:before.status.length,currentStatus:after.status,protectedFiles:Object.keys(before.hashes).length,changedOutsideOutput:changed,addedOutsideOutput:added,pass:changed.length===0&&added.length===0&&before.head===after.head&&before.branch===after.branch&&JSON.stringify(before.status)===JSON.stringify(after.status),scope:'Git 跟踪文件及未忽略的未跟踪文件；不将忽略目录和数据库内容纳入字节证明。DS-01 未启动或调用后端。'};
   fs.writeFileSync(path.join(dir,'repository-verification.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
   if(!result.pass) process.exitCode=1;
 }else throw Error('用法：node docs/design-handoff/ds-01/tools/repository-guard.mjs baseline|verify');

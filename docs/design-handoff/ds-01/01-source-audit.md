@@ -1,6 +1,6 @@
 # 01 · 活动源码审计与设计库存
 
-审计日期：2026-10-18（Asia/Shanghai）。分支 `design-system`；基线提交 `ea7cec43d297d6602f95b33b5c917d622c4b458f`。提交号仅定位基础版本，本次事实来源包含工作区既有未提交修改；精确内容由 [Git 基线](evidence/repository-baseline.json) 和令牌条目的 SHA-256 定位。没有把未提交实现误称为远端已发布版本。
+审计日期：2026-10-18至2026-10-19（Asia/Shanghai）。分支 `design-system`；基线提交 `ea7cec43d297d6602f95b33b5c917d622c4b458f`。提交号仅定位基础版本，本次事实来源包含工作区既有未提交修改；精确内容由 [Git 基线](evidence/repository-baseline.json) 和令牌条目的 SHA-256 定位。没有把未提交实现误称为远端已发布版本。
 
 ## 范围、证据及保护
 
@@ -45,7 +45,7 @@
 | 状态 | `frontend/src/components/ui/Badge.tsx:11-60`；`pages/client/ClientPage.tsx:11-24,113-122` | warning/accent/success/error；业务状态先映射通用词 | VERIFIED_SOURCE；演示状态 VERIFIED_RENDER | WAITING_SELECTION会映射confirmed；标签泛化是语义漂移，见08 |
 | 反馈 | `frontend/src/components/ui/PageState.tsx:4-9`、`EmptyState.tsx:11-20`、`Spinner.tsx:10-18`、`Toast.tsx:16-65`、`Modal.tsx:21-52` | 明确加载文案／错误重试／空态CTA／Portal主题／3000ms通知 | VERIFIED_SOURCE；部分界面 VERIFIED_RENDER | 不能把既有测试通过当作本次所有状态实机通过 |
 | 动效 | `frontend/src/index.css:149-157,214-240`；`ui/Button.tsx:58`；`effects/useEffectMotion.ts`、`EffectSurfaces.tsx`、`card-cursor-glow.css` | 150ms按钮反馈、0.97缩放、200ms Toast；减少动态效果；Beam/Metal/Orb/Gooey装饰 | VERIFIED_SOURCE | 不迁移任何粒子引擎；鼠标光晕留Web；未发现统一页面转场时长 |
-| 响应式 | `frontend/src/index.css:117-124`；`material/material.css:156-161`；`material/site.css:56-80`；`photo-library.css:36`；`photo-editor.css:22` | 基础640/768/1024/1280，局部480/720/760/1000/1500px | VERIFIED_SOURCE | 多套断点；本次截图1280×720，不重签历史90组响应式报告 |
+| 响应式 | `frontend/src/index.css:117-124`；`material/material.css:156-161`；`material/site.css:56-80`；`photo-library.css:36`；`photo-editor.css:22` | 基础640/768/1024/1280，局部480/720/760/1000/1500px | VERIFIED_SOURCE | 多套断点；本次CSS视口1280×720及375×812，不重签历史90组响应式报告 |
 | 深浅主题 | `frontend/src/components/material/MaterialScope.tsx:15-28`；`MaterialTheme.ts:3-5`；`ui/Modal.tsx:38`、`Toast.tsx:63` | 默认深色、手动切换、storage同步、Portal同步 | VERIFIED_SOURCE；双主题截图 VERIFIED_RENDER | 小程序是否跟随系统是适配决策，不冒充Web现有自动跟随 |
 | 无障碍 | `ui/Input.tsx:13-33`、`Button.tsx:55-65`、`Modal.tsx:31-49`、`Toast.tsx:39-46`；`index.css:232-240` | 表单关联、aria-busy、焦点管理、状态播报、减少动态效果 | VERIFIED_SOURCE | 用户真实读屏与触屏未测；不能宣称全面合规 |
 

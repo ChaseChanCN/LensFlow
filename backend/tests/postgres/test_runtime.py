@@ -281,6 +281,8 @@ def test_readiness_on_empty_historical_and_head_is_readonly(pg_database, pg_sand
         if revision:
             with engine.connect() as connection:
                 assert connection.scalar(text("SELECT version_num FROM alembic_version")) == (
-                    ScriptDirectory.from_config(config).get_current_head() if revision == "head" else revision
+                    ScriptDirectory.from_config(config).get_current_head()
+                    if revision == "head"
+                    else revision
                 )
         engine.dispose()
