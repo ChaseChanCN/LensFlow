@@ -22,7 +22,7 @@ class UserLoginRequest(BaseModel):
 
 class UserResponse(BaseModel):
     id: int
-    email: str
+    email: str | None = None
     name: str
     role: str
     phone: str | None = None

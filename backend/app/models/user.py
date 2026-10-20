@@ -11,8 +11,8 @@ from app.models.base import Base, IdMixin, TimestampMixin
 class User(Base, IdMixin, TimestampMixin):
     __tablename__ = "users"
 
-    email: Mapped[str] = mapped_column(String(255), unique=True, index=True, nullable=False)
-    password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
+    email: Mapped[str | None] = mapped_column(String(255), unique=True, index=True, nullable=True)
+    password_hash: Mapped[str | None] = mapped_column(String(255), nullable=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     role: Mapped[Literal["photographer", "client", "admin"]] = mapped_column(
         String(20), nullable=False, default="client"

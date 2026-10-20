@@ -1,5 +1,7 @@
 # P3-D2 → CodeArts / HarmonyOS 接入交接
 
+> 后续认证变更：请以 [短信注册/登录调用文档](sms-auth-api-v1.md) 实现普通用户登录；本文件原邮箱密码登录清单仅为 P3-D2 历史能力记录，兼容开关默认关闭。客户业务路由仍有效。
+
 以 [客户 API v1](mobile-customer-api-v1.md) 和 `image-processing-p3-d2/openapi.json` 为实际后端契约。**LIVE_READY 表示代码已在隔离后端验证，不表示用户现有开发数据库已迁移或外部小程序已联调通过。** 部署目标须先审核迁移到 `f7b9d1e3a545`，检查 `/ready`。
 
 ## 1. 能力状态

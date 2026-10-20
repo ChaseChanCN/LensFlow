@@ -1,5 +1,7 @@
 # LensFlow 客户 API v1（P3-D2）
 
+> 认证更新：普通用户注册/登录已迭代为 +86 短信验证，最新 wire contract 见 [短信认证 API](sms-auth-api-v1.md)。下文 P3-D2 账号密码约定仅作为历史兼容参考，默认已关闭；User.email 允许 null。客户业务 API 与 JWT 用法保持。
+
 权威：现有 FastAPI 业务库、User、Booking、Order、SelectionSet/Item/Submission、RetouchTask、Delivery。所有路径以 `/api/v1` 为前缀。Web、微信小程序与 HarmonyOS 复用相同客户身份和数据。
 
 ## 1. 认证：已实施与复用

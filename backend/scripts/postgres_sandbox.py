@@ -98,6 +98,8 @@ class Identity:
             "DB_PG_PASSWORD": url.password or "",
             "DB_PG_NAME": self.name,
             "APP_DEBUG": "false",
+            "AUTH_LEGACY_PASSWORD_ENABLED": "true",
+            "SMS_ENABLED": "false",
             "PGOPTIONS": "-c statement_timeout=15000 -c lock_timeout=5000 "
             "-c idle_in_transaction_session_timeout=15000",
             "BARK_DEVICE_KEY": "",

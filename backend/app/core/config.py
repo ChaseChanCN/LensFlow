@@ -41,6 +41,21 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     jwt_access_token_expire_minutes: int = 1440
 
+    # Public authentication: SMS only by default. Never put these secrets in VITE_*.
+    auth_legacy_password_enabled: bool = False
+    sms_enabled: bool = False
+    sms_access_key_id: str = Field(default="", repr=False)
+    sms_access_key_secret: str = Field(default="", repr=False)
+    sms_security_token: str = Field(default="", repr=False)
+    sms_code_pepper: str = Field(default="", repr=False)
+    sms_sign_name: str = "时隙摄影工作室"
+    sms_register_template_code: str = "SMS_512571445"
+    sms_login_template_code: str = "SMS_512641429"
+    sms_phone_hour_limit: int = Field(default=5, ge=1, le=20)
+    sms_phone_day_limit: int = Field(default=10, ge=1, le=50)
+    sms_ip_hour_limit: int = Field(default=20, ge=1, le=200)
+    sms_global_day_limit: int = Field(default=200, ge=1, le=10000)
+
     # Storage
     storage_type: Literal["local", "obs"] = "local"
     storage_local_path: str = "storage_local/uploads"

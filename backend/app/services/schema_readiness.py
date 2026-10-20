@@ -3,8 +3,11 @@
 from sqlalchemy import inspect, text
 from sqlalchemy.exc import SQLAlchemyError
 
-REQUIRED_REVISION = "f7b9d1e3a545"
+REQUIRED_REVISION = "a8c0e2f4b656"
 REQUIRED_TABLES = {
+    "phone_identities": {"phone", "user_id", "verified_at"},
+    "sms_challenges": {"id", "code_digest", "purpose", "state", "attempts", "expires_at"},
+    "sms_rate_buckets": {"key", "count", "expires_at"},
     "booking_request_keys": {"user_id", "key_hash", "booking_id", "expires_at"},
     "customer_selection_drafts": {"selection_set_id", "user_id", "revision", "selected_photo_ids"},
     "photo_metadata_overlays": {"photo_id", "user_id", "revision", "source_sha256", "keywords_mode"},

@@ -17,10 +17,14 @@ from app.models.retouch import RetouchFeedback, RetouchTask, RetouchVersion
 from app.models.selection import SelectionItem, SelectionSet, SelectionSubmission
 from app.models.todo import TodoItem
 from app.models.user import User
+from app.models.sms_auth import PhoneIdentity, SmsChallenge, SmsRateBucket
 
 __all__ = [
     "Base",
     "User",
+    "PhoneIdentity",
+    "SmsChallenge",
+    "SmsRateBucket",
     "Booking",
     "BookingRequestKey",
     "CustomerSelectionDraft",

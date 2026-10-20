@@ -23,6 +23,10 @@ os.environ.update(
         "JWT_SECRET_KEY": secrets.token_urlsafe(48),
         "BARK_DEVICE_KEY": "",
         "WECHAT_WORK_WEBHOOK_URL": "",
+        # Old business fixtures intentionally exercise the historical login contract.
+        # SMS tests explicitly disable this flag and inject a capturing sender.
+        "AUTH_LEGACY_PASSWORD_ENABLED": "true",
+        "SMS_ENABLED": "false",
     }
 )
 
